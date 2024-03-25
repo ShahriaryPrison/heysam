@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Poppins";
+  src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+}
+
+@font-face {
   font-family: "vazirLighter";
   font-weight: lighter;
   src: url("../../public/Fonts/Vazir-Light.woff2");
@@ -42,7 +47,6 @@
   background-color: #8e8e8e;
 }
 body {
-  direction: rtl !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,4 +58,46 @@ body {
   backdrop-filter: blur(1110px);
   border: 1px solid rgb(155, 81, 224);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+.text-gradient {
+  position: relative;
+  background: #3081ed;
+  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-header {
+  position: relative;
+  background: #3081ed;
+  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-header::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  transition: all 300ms ease;
+  bottom : -3px;
+  left: 0;
+}
+.list-item-hover{
+  position: relative;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.list-item-hover::after{
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #BDBDBD;
+  transition: all 300ms ease;
+  bottom : 0;
+  left: 0;
+}
+.list-item-hover:hover::after {
+  width: 100%;
 }
