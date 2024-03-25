@@ -101,3 +101,9 @@ body {
 .list-item-hover:hover::after {
   width: 100%;
 }
+
+.tag-shadow {
+  background: rgba(255, 255, 255, 0.085);
+  backdrop-filter: blur(10px);
+  box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
+}
