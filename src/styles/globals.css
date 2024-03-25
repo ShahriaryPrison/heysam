@@ -101,3 +101,27 @@ body {
 .list-item-hover:hover::after {
   width: 100%;
 }
+.button-gradient {
+  background: #3081ed;
+  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+}
+.halo {
+  width: 200px;
+  height: 200px;
+  background : transparent;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
+}
+
+/* .halo::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 50px 20px rgb(155, 81, 224);
+} */
