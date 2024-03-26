@@ -3,7 +3,7 @@ import React from "react";
 
 function MemberBox({ img }) {
   return (
-    <div className="flex flex-col p-8 glass w-72 rounded-[40px] gap-14 text-white">
+    <div className="flex flex-col p-8 glass w-full max-w-72 rounded-[40px] gap-14 text-white">
       <div className="w-full flex justify-center items-center">
         <div className="rounded-full bg-slate-600 w-36 h-36">
           {/* <Image
