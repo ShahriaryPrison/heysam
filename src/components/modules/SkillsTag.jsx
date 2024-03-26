@@ -3,7 +3,7 @@ import React from "react";
 
 function SkillsTag({ img, text }) {
   return (
-    <div className="w-40 h-14 rounded-3xl tag-shadow flex justify-between">
+    <div className="min-w-40 max-w-44 w-full  h-14 rounded-3xl tag-shadow flex justify-between">
       <div className="text-white w-2/3 flex items-center justify-end ">
         <span>{text}</span>
       </div>
