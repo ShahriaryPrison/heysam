@@ -21,7 +21,7 @@ function Header() {
           <li className="text-[#BCBCBC] list-item-hover">SKILLS</li>
         </a>
         <a href="#team-member">
-          <li className="text-[#BCBCBC] list-item-hover">TEAM MEMBER</li>
+          <li className="text-[#BCBCBC] list-item-hover">TEAM MEMBERS</li>
         </a>
         <a href="#footer">
           <li className="text-[#BCBCBC] list-item-hover">CONTACT US</li>
