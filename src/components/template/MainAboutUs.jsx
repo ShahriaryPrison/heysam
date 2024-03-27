@@ -23,7 +23,7 @@ function MainAboutUs() {
         </Link>
       </div>
 
-      <div className="glass relative p-5 rounded-3xl w-full max-w-md flex flex-col justify-start items-center gap-8">
+      <div className="glass about-us-animation relative p-5 rounded-3xl w-full max-w-md flex flex-col justify-start items-center gap-8">
         <Image
           src={AboutUsImage}
           className="w-full h-fit"

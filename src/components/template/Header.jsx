@@ -14,14 +14,18 @@ function Header() {
         <p className="text-gradient font-[Poppins] font-bold text-3xl">EYSAM</p>
       </div>
       <ul className="flex gap-6">
-        <li className="text-[#BCBCBC] list-item-hover">HOME</li>
         <a href="#about_us">
           <li className="text-[#BCBCBC] list-item-hover">ABOUT US</li>
         </a>
         <a href="#skills">
           <li className="text-[#BCBCBC] list-item-hover">SKILLS</li>
         </a>
-        <li className="text-[#BCBCBC] list-item-hover">CONTACT US</li>
+        <a href="#team-member">
+          <li className="text-[#BCBCBC] list-item-hover">TEAM MEMBER</li>
+        </a>
+        <a href="#footer">
+          <li className="text-[#BCBCBC] list-item-hover">CONTACT US</li>
+        </a>
       </ul>
       <div>
         <button className="px-6 py-3 border border-[#D7D7D7] rounded-lg text-[#BCBCBC]">

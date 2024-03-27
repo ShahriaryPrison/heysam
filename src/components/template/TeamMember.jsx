@@ -1,39 +1,8 @@
 import React from "react";
 import MemberBox from "../modules/MemberBox";
-import syImage from "../../../public/images/members/sy.jpg";
-import mhImage from "../../../public/images/members/mh.jpg";
-import psImage from "../../../public/images/members/ps.jpg";
+import teamMembers from "@/data/teamMembers";
 
 function TeamMember() {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Seyyed Sadrodin Bigdeli",
-      tech: "Front End",
-      gitHubLink: "https://github.com/sybigdeli",
-      image: syImage,
-    },
-    {
-      id: 2,
-      name: "Amir Hosseyn Momen",
-      tech: "Front End",
-      gitHubLink: "https://github.com/ammomen",
-    },
-    {
-      id: 3,
-      name: "Mohammad Shirvani",
-      tech: "Back End",
-      gitHubLink: "https://github.com/MShJSTM",
-      image: mhImage,
-    },
-    {
-      id: 4,
-      name: "Parsa Khosravi",
-      tech: "Back End",
-      gitHubLink: "https://github.com/parsahvi",
-      image: psImage,
-    },
-  ];
   return (
     <section id="team-member" className="w-full flex flex-col gap-36 py-10">
       <h4 className="text-white w-full text-center text-3xl">Team Members</h4>
