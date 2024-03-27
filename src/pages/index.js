@@ -1,8 +1,8 @@
 import Header from "@/components/template/Header";
 import MainAboutUs from "@/components/template/MainAboutUs";
-import MemberBox from "@/components/modules/MemberBox";
 import Skills from "@/components/template/Skills";
 import Projects from "@/components/template/Projects";
+import TeamMember from "@/components/template/TeamMember";
 export default function Home() {
   return (
     <section>
@@ -10,7 +10,7 @@ export default function Home() {
       <MainAboutUs />
       <Projects />
       <Skills />
-      <MemberBox/>
+      <TeamMember/>
     </section>
   );
 }

@@ -128,3 +128,7 @@ body {
   backdrop-filter: blur(10px);
   box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
 }
+.member-shadow{
+  border: 1px solid rgb(81, 114, 224);
+  box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
+}
