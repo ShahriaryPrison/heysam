@@ -1,10 +1,29 @@
+import Image from "next/image";
 import React from "react";
 
-function Glass() {
+function Glass({ title, tech, image }) {
   return (
-    <div className="glass p-10">
-      <h1 class="text-3xl text-white">یک دیو شیشه‌ای با Tailwind CSS</h1>
-      <p class="text-lg text-white mt-4">این یک مثال ساده است.</p>
+    <div className="glass p-6 flex flex-col justify-between items-center gap-4 rounded-xl min-h-96">
+      <div className="h-36 relative flex justify-center items-center pt-10">
+        <Image
+          src={image}
+          className="max-w-44"
+          width="1000"
+          height="1000"
+          alt="Logo"
+        />
+      </div>
+
+      <div className="flex flex-col gap-4 w-full max-w-sm">
+        <div className="text-white flex justify-between items-center">
+          <h4>{title}</h4>
+          <h4>{tech}</h4>
+        </div>
+        <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
+        <div className="text-[#D7D7D7] flex justify-between items-center">
+          <button className="button-gradient w-full px-4 py-2 rounded-xl font-[Poppins]">INFORMATION</button>
+        </div>
+      </div>
     </div>
   );
 }
