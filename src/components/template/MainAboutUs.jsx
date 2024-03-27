@@ -16,7 +16,7 @@ function MainAboutUs() {
           unique needs.
         </p>
         <Link
-          href="#"
+          href="#skills"
           className="w-full max-w-40 flex justify-center items-center button-gradient p-2 text-white rounded-lg"
         >
           What can we do
