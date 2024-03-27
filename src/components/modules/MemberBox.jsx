@@ -3,7 +3,7 @@ import React from "react";
 
 function MemberBox({ name, tech, gitHubLink, image }) {
   return (
-    <div className="glass flex flex-col justify-between p-8 glass w-full max-w-72 min-h-96 rounded-[40px] gap-14 text-white">
+    <div className="glass member-animation flex flex-col justify-between p-8 w-full max-w-72 min-h-96 rounded-[40px] gap-14 text-white">
       <div className="w-full flex justify-center items-center">
         {image ? (
           <div className="member-shadow rounded-full bg-slate-600 w-36 h-36 overflow-hidden">

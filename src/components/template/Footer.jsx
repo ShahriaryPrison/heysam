@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 
 function Footer() {
   return (
-    <section className="text-white flex flex-col justify-center items-center gap-4 w-full max-w-7xl mx-auto">
+    <section id="footer" className="text-white flex flex-col justify-center items-center gap-4 w-full max-w-7xl mx-auto pt-10">
       <div className="w-full flex justify-between items-center gap-2 py-6">
         <h5 className="max-w-4xl text-3xl">
           Our team tirelessly strives and offers creative solutions to assist

@@ -55,7 +55,7 @@ body {
 }
 .glass {
   background: rgba(255, 255, 255, 0.014);
-  backdrop-filter: blur(1110px);
+  backdrop-filter: blur(100px);
   border: 1px solid rgb(155, 81, 224);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
@@ -95,12 +95,14 @@ body {
 .button-gradient {
   background-color: #3081ed;
   background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  background-size: 200%; /* اندازه بزرگتر از نیاز */
+  background-size: 200%;
   transition: background-position 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .button-gradient:hover {
-  background-position: 100%; /* جابه‌جایی به حالت اولیه */
+  background-position: 100%;
+  color: white;
 }
 .halo {
   width: 200px;
@@ -111,18 +113,6 @@ body {
   box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
 }
 
-/* .halo::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  box-shadow: 0 0 50px 20px rgb(155, 81, 224);
-} */
-
 .tag-shadow {
   background: rgba(255, 255, 255, 0.085);
   backdrop-filter: blur(10px);
@@ -131,4 +121,21 @@ body {
 .member-shadow{
   border: 1px solid rgb(81, 114, 224);
   box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
+}
+.member-animation{
+  transition: all 300ms ease-out;
+}
+.member-animation:hover{
+ transform: translateY(-10px);
+}
+.about-us-animation{
+  animation: aboutTransition 6s ease infinite alternate;
+}
+@keyframes aboutTransition {
+  from{
+    transform: translateY(-10px);
+  }
+  to{
+    transform: translateY(10px);
+  }
 }
