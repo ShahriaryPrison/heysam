@@ -4,7 +4,7 @@ import AboutUsImage from "../../../public/images/heysam-logo.png";
 
 function MainAboutUs() {
   return (
-    <section className="w-full flex justify-center items-center py-12 gap-10">
+    <section id="#about_us" className="w-full flex justify-center items-center py-12 gap-10">
       <div className="flex flex-col gap-6">
         <h2 className="max-w-lg text-4xl text-white font-[Poppins]">
           Empowering your vision with our tech expertise – let's create
