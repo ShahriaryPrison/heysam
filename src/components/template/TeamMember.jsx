@@ -9,6 +9,7 @@ function TeamMember() {
       <div className="relative w-full max-w-7xl grid grid-cols-4 justify-center items-center mx-auto gap-4">
         {teamMembers.map((member) => (
           <MemberBox
+            key={member.id}
             name={member.name}
             tech={member.tech}
             gitHubLink={member.gitHubLink}

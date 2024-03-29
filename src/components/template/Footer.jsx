@@ -9,7 +9,7 @@ function Footer() {
       <div className="w-full flex justify-between items-center gap-2 py-6">
         <h5 className="max-w-4xl text-3xl">
           Our team tirelessly strives and offers creative solutions to assist
-          you in bringing your web application's superior features to life. From
+          you in bringing your web application&apos;s superior features to life. From
           detailed needs analysis to design and execution, our team will be by
           your side every step of the way, ensuring your vision becomes a
           reality. Trusting us paves the way to your success. Thank you for

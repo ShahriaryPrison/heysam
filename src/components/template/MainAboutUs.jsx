@@ -7,12 +7,12 @@ function MainAboutUs() {
     <section id="#about_us" className="w-full flex justify-center items-center py-12 gap-10">
       <div className="flex flex-col gap-6">
         <h2 className="max-w-lg text-4xl text-white font-[Poppins]">
-          Empowering your vision with our tech expertise – let's create
+          Empowering your vision with our tech expertise – let&apos;s create
           something extraordinary together.
         </h2>
         <p className="max-w-lg font-[Poppins] text-[#E2E2E2]">
           Versatile expertise across a wide range of programming languages and
-          frameworks, ensuring flexibility and adaptability to your project's
+          frameworks, ensuring flexibility and adaptability to your project&apos;s
           unique needs.
         </p>
         <Link

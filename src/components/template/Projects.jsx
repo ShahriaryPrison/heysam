@@ -11,7 +11,7 @@ function Projects() {
       <h4 className="text-white w-full text-center text-3xl">Projects</h4>
       <div className="w-full max-w-2xl grid grid-cols-2 justify-center items-center mx-auto gap-8">
         {projects.map((project) => (
-          <div>
+          <div key={project.id}>
             <Glass
               title={project.title}
               tech={project.tech}
