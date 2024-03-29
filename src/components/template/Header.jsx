@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Logo from "../../../public/images/heysam-logo-no-back.png";
+import Link from "next/link";
+import { Trans } from "next-i18next";
+
 function Header() {
+  
   return (
     <header className="flex justify-between items-center w-full py-4 px-6">
       <div className="flex items-center">
@@ -19,7 +23,9 @@ function Header() {
         </a>
         <a href="#skills">
           <li className="text-[#BCBCBC] list-item-hover">
-            BACKGROUND
+            <Trans i18nKey="skills">
+              SKILLSl
+            </Trans>
           </li>
         </a>
         <a href="#team-member">
@@ -30,10 +36,10 @@ function Header() {
         </a>
       </ul>
       <div>
-        <button className="px-6 py-3 border border-[#D7D7D7] rounded-lg text-[#BCBCBC]">
+        <Link href="" locale="en" className="px-6 py-3 border border-[#D7D7D7] rounded-lg text-[#BCBCBC]">
           English
-        </button>
-        <button className="px-6 py-3  text-[#BCBCBC]">فارسی</button>
+        </Link>
+        <Link href="" locale="fa" className="px-6 py-3  text-[#BCBCBC]">فارسی</Link>
       </div>
     </header>
   );
