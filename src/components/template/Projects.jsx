@@ -6,12 +6,12 @@ function Projects() {
   return (
     <section
       id="skills"
-      className="w-full flex flex-col gap-36 py-10"
+      className="w-full flex flex-col gap-36 py-10 px-8 lg:px-16"
     >
       <h4 className="text-white w-full text-center text-3xl">Projects</h4>
-      <div className="w-full max-w-2xl grid grid-cols-2 justify-center items-center mx-auto gap-8">
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-center items-center gap-8">
         {projects.map((project) => (
-          <div key={project.id}>
+          <div className="max-w-sm w-full" key={project.id}>
             <Glass
               title={project.title}
               tech={project.tech}

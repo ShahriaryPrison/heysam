@@ -4,16 +4,19 @@ import AboutUsImage from "../../../public/images/heysam-logo.png";
 
 function MainAboutUs() {
   return (
-    <section id="#about_us" className="w-full flex justify-center items-center py-12 gap-10">
-      <div className="flex flex-col gap-6">
-        <h2 className="max-w-lg text-4xl text-white font-[Poppins]">
+    <section
+      id="#about_us"
+      className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
+    >
+      <div className="w-4/5 lg:w-full flex flex-col gap-6">
+        <h2 className="max-w-lg text-xl md:text-2xl  lg:text-4xl text-white font-[Poppins]">
           Empowering your vision with our tech expertise – let&apos;s create
           something extraordinary together.
         </h2>
         <p className="max-w-lg font-[Poppins] text-[#E2E2E2]">
           Versatile expertise across a wide range of programming languages and
-          frameworks, ensuring flexibility and adaptability to your project&apos;s
-          unique needs.
+          frameworks, ensuring flexibility and adaptability to your
+          project&apos;s unique needs.
         </p>
         <Link
           href="#skills"
@@ -23,7 +26,7 @@ function MainAboutUs() {
         </Link>
       </div>
 
-      <div className="glass about-us-animation relative p-5 rounded-3xl w-full max-w-md flex flex-col justify-start items-center gap-8">
+      <div className="glass text-lg  lg:text-xl about-us-animation relative p-5 rounded-3xl w-full    max-w-sm flex flex-col justify-start items-center gap-8">
         <Image
           src={AboutUsImage}
           className="w-full h-fit"
@@ -42,8 +45,8 @@ function MainAboutUs() {
             <h4>12/23/2023</h4>
           </div>
         </div>
-        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34] blur-[100px] absolute bottom-[-100px] right-[-150px]" />
-        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34] blur-[100px] absolute top-[-100px] left-[-100px]" />
+        {/* <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34] blur-[100px] absolute bottom-[-100px] right-[-150px]" /> */}
+        {/* <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34] blur-[100px] absolute top-[-100px] left-[-100px]" /> */}
       </div>
     </section>
   );

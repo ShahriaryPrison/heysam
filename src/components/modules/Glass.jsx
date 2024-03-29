@@ -3,13 +3,13 @@ import React from "react";
 
 function Glass({ title, tech, image }) {
   return (
-    <div className="glass p-6 flex flex-col justify-between items-center gap-4 rounded-xl min-h-96">
+    <div className="glass w-full p-6 flex flex-col justify-between items-center gap-8 rounded-3xl ">
       <div className="h-36 relative flex justify-center items-center pt-10">
         <Image
           src={image}
-          className="max-w-44"
+          className="w-4/5 max-w-44"
           width="1000"
-          height="1000"
+          heigh t="1000"
           alt="Logo"
         />
       </div>
