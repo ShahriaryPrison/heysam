@@ -3,9 +3,9 @@ import skillsData from "@/data/skillData";
 
 function Skills() {
   return (
-    <section id="skills" className="w-full flex flex-col gap-36 py-10">
+    <section id="skills" className="w-full flex flex-col gap-36 py-10 px-8 lg:px-16">
       <h4 className="text-white w-full text-center text-3xl">Skills</h4>
-      <div className="relative w-full max-w-7xl grid grid-cols-6 justify-center items-center mx-auto grid-rows-3 gap-8">
+      <div className="relative w-full  flex flex-wrap flex-row justify-center items-center gap-8">
         {skillsData.map((skill) => (
           <SkillsTag
             key={skill.id}

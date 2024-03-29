@@ -5,36 +5,46 @@ import { FaGithub } from "react-icons/fa";
 
 function Footer() {
   return (
-    <section id="footer" className="text-white flex flex-col justify-center items-center gap-4 w-full max-w-7xl mx-auto pt-10">
-      <div className="w-full flex justify-between items-center gap-2 py-6">
-        <h5 className="max-w-4xl text-3xl">
+    <section
+      id="footer"
+      className="text-white flex flex-col justify-center items-center gap-4 w-full max-w-7xl mx-auto pt-10 px-8 lg:px-16  "
+    >
+      <div className="w-full flex flex-col lg:flex-row lg:justify-between  gap-4 py-6">
+        <h5 className="max-w-4xl text-balance text-lg lg:text-3xl">
           Our team tirelessly strives and offers creative solutions to assist
-          you in bringing your web application&apos;s superior features to life. From
-          detailed needs analysis to design and execution, our team will be by
-          your side every step of the way, ensuring your vision becomes a
+          you in bringing your web application&apos;s superior features to life.
+          From detailed needs analysis to design and execution, our team will be
+          by your side every step of the way, ensuring your vision becomes a
           reality. Trusting us paves the way to your success. Thank you for
           choosing to collaborate with us.
         </h5>
         <div className="h-full flex flex-col justify-between items-start gap-8">
-          <h6 className="text-4xl">Contact</h6>
+          <h6 className="text-2xl lg:text-4xl">Contact</h6>
           <ul className="flex flex-col h-full justify-between items-start gap-4 font-[Poppins]">
             <li>
-              <a href="#" className="opacity-80">Telegram</a>
+              <a href="#" className="opacity-80">
+                Telegram
+              </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">Instagram</a>
+              <a href="#" className="opacity-80">
+                Instagram
+              </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">Email</a>
+              <a href="#" className="opacity-80">
+                Email
+              </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">Github</a>
+              <a href="#" className="opacity-80">
+                Github
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
-
       <div className="flex justify-between w-full items-center">
         <ul className="flex items-center gap-4">
           <li>
