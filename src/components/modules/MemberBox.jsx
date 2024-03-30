@@ -10,8 +10,8 @@ function MemberBox({ name, tech, gitHubLink, image }) {
             <Image
               src={image}
               className="w-full h-full"
-              width="100"
-              height="100"
+              width="1000"
+              height="1000"
               alt="user image"
             />
           </div>
@@ -20,7 +20,7 @@ function MemberBox({ name, tech, gitHubLink, image }) {
         )}
       </div>
       <div className="flex gap-6 flex-col">
-        <div className="flex justify-between border-b py-2">
+        <div className="flex flex-col sm:flex-row justify-between border-b py-2 gap-2">
           <span className="text-nowrap text-xs flex items-end">{name}</span>
           <span className="text-nowrap text-sm flex items-end">{tech}</span>
         </div>
@@ -28,8 +28,9 @@ function MemberBox({ name, tech, gitHubLink, image }) {
           <a
             href={gitHubLink}
             className=" px-4 py-1.5 rounded-xl border border-white flex items-center hover:opacity-40 transition"
+            target="_blank"
           >
-            <span className="text-nowrap flex items-center">
+            <span className="text-nowrap flex items-center pt-0.5">
 
             Visit GitHub
             </span>

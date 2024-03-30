@@ -3,7 +3,7 @@ import Logo from "../../../public/images/heysam-logo-no-back.png";
 function Header() {
   return (
     <header className="flex justify-between items-center w-full py-4 px-6">
-      <div className="flex justify-center w-full lg:w-min  items-center">
+      <a href="" className="flex justify-center w-full lg:w-min  items-center px-8 cursor-pointer">
         <Image
           src={Logo}
           className="w-11 h-11"
@@ -12,14 +12,14 @@ function Header() {
           alt="Logo"
         />
         <p className="text-gradient font-[Poppins] font-bold text-3xl">EYSAM</p>
-      </div>
+      </a>
       <ul className="hidden lg:flex gap-6 ">
         <a href="#about_us">
           <li className="text-[#BCBCBC] list-item-hover">ABOUT US</li>
         </a>
         <a href="#skills">
           <li className="text-[#BCBCBC] list-item-hover">
-            BACKGROUND
+            PROJECTS
           </li>
         </a>
         <a href="#team-member">

@@ -6,7 +6,7 @@ import TeamMember from "@/components/template/TeamMember";
 import Footer from "@/components/template/Footer";
 export default function Home() {
   return (
-    <section className="flex flex-col gap-8 pb-8">
+    <section className="flex flex-col gap-8 pb-8 w-full">
       <Header />
       <MainAboutUs />
       <Projects />

@@ -6,7 +6,7 @@ function MainAboutUs() {
   return (
     <section
       id="#about_us"
-      className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
+      className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
     >
       <div className="w-4/5 lg:w-full flex flex-col gap-6">
         <h2 className="max-w-lg text-xl md:text-2xl  lg:text-4xl text-white font-[Poppins]">
