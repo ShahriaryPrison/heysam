@@ -22,22 +22,22 @@ function Footer() {
           <h6 className="text-2xl lg:text-4xl">Contact</h6>
           <ul className="flex flex-col h-full justify-between items-start gap-4 font-[Poppins]">
             <li>
-              <a href="#" className="opacity-80">
+              <a href="https://t.me/MoShirv" target="_blank" className="opacity-80">
                 Telegram
               </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">
+              <a href="https://www.instagram.com/heysam.2302?igsh=MTVvdGdkb2txbGtodA==" target="_blank" className="opacity-80">
                 Instagram
               </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">
+              <a href="heysam.402@gmail.com" target="_blank" className="opacity-80">
                 Email
               </a>
             </li>
             <li>
-              <a href="#" className="opacity-80">
+              <a href="https://github.com/ShahriaryPrison" target="_blank" className="opacity-80">
                 Github
               </a>
             </li>
@@ -46,21 +46,21 @@ function Footer() {
       </div>
       <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
       <div className="flex justify-between w-full items-center">
-        <ul className="flex items-center gap-4">
+        <ul className="flex items-center gap-2 sm:gap-4">
           <li>
-            <FaTelegramPlane className="w-6 h-6 opacity-60" />
+            <FaTelegramPlane className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
           </li>
           <li>
-            <FaInstagram className="w-6 h-6 opacity-60" />
+            <FaInstagram className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
           </li>
           <li>
-            <MdOutlineEmail className="w-6 h-6 opacity-60" />
+            <MdOutlineEmail className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
           </li>
           <li>
-            <FaGithub className="w-6 h-6 opacity-60" />
+            <FaGithub className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
           </li>
         </ul>
-        <p className="opacity-40">Copyright 2021 Heysam</p>
+        <p className="opacity-40 text-xs sm:text-sm">Copyright 2021 Heysam</p>
       </div>
     </section>
   );

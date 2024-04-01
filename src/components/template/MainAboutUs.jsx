@@ -8,7 +8,7 @@ function MainAboutUs() {
       id="#about_us"
       className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
     >
-      <div className="w-4/5 lg:w-full flex flex-col gap-6">
+      <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-6">
         <h2 className="max-w-lg text-xl md:text-2xl  lg:text-4xl text-white font-[Poppins]">
           Empowering your vision with our tech expertise – let&apos;s create
           something extraordinary together.
@@ -45,8 +45,8 @@ function MainAboutUs() {
             <h4>12/23/2023</h4>
           </div>
         </div>
-        {/* <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34] blur-[100px] absolute bottom-[-100px] right-[-150px]" /> */}
-        {/* <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34] blur-[100px] absolute top-[-100px] left-[-100px]" /> */}
+        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34] blur-[100px] absolute bottom-[-100px] right-[-150px]" />
+        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34] blur-[100px] absolute top-[-100px] left-[-100px]" />
       </div>
     </section>
   );
