@@ -6,7 +6,7 @@ function TeamMember() {
   return (
     <section id="team-member" className="w-full max-w-7xl mx-auto flex flex-col gap-36 py-10 px-8 lg:px-16">
       <h4 className="text-white w-full text-center text-3xl">Team Members</h4>
-      <div className="relative w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-8">
+      <div className="relative w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center place-items-center gap-8">
         {teamMembers.map((member) => (
           <MemberBox
             key={member.id}
