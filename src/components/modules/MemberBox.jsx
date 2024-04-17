@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function MemberBox({ name, tech, gitHubLink, image }) {
+function MemberBox({ name, tech, gitHubLink, image, langState }) {
   return (
     <div className="glass member-animation flex flex-col justify-between p-8 w-full max-w-sm min-h-96 rounded-[40px] gap-14 text-white">
       <div className="w-full flex justify-center items-center">
@@ -31,8 +31,7 @@ function MemberBox({ name, tech, gitHubLink, image }) {
             target="_blank"
           >
             <span className="text-nowrap flex items-center pt-0.5">
-
-            Visit GitHub
+              {langState === "fa" ? "مشاهده گیت هاب" : "Visit GitHub"}
             </span>
           </a>
         </div>

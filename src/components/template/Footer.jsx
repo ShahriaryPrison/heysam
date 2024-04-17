@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 
-function Footer() {
+function Footer({ content , langState }) {
   return (
     <section
       id="footer"
@@ -11,34 +11,45 @@ function Footer() {
     >
       <div className="w-full flex flex-col lg:flex-row lg:justify-between  gap-4 py-6">
         <h5 className="max-w-4xl text-balance text-lg lg:text-3xl">
-          Our team tirelessly strives and offers creative solutions to assist
-          you in bringing your web application&apos;s superior features to life.
-          From detailed needs analysis to design and execution, our team will be
-          by your side every step of the way, ensuring your vision becomes a
-          reality. Trusting us paves the way to your success. Thank you for
-          choosing to collaborate with us.
+          {content.main}
         </h5>
         <div className="h-full flex flex-col justify-between items-start gap-8">
-          <h6 className="text-2xl lg:text-4xl">Contact</h6>
+          <h6 className="text-2xl lg:text-4xl">{content.sidebar.title}</h6>
           <ul className="flex flex-col h-full justify-between items-start gap-4 font-[Poppins]">
             <li>
-              <a href="https://t.me/MoShirv" target="_blank" className="opacity-80">
-                Telegram
+              <a
+                href="https://t.me/MoShirv"
+                target="_blank"
+                className={`opacity-80 ${langState === "fa" && "text-lg font-[Vazir]"}`}
+              >
+                {content.sidebar.social[0]}
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/heysam.2302?igsh=MTVvdGdkb2txbGtodA==" target="_blank" className="opacity-80">
-                Instagram
+              <a
+                href="https://www.instagram.com/heysam.2302?igsh=MTVvdGdkb2txbGtodA=="
+                target="_blank"
+                className={`opacity-80 ${langState === "fa" && "text-lg font-[Vazir]"}`}
+              >
+                {content.sidebar.social[1]}
               </a>
             </li>
             <li>
-              <a href="heysam.402@gmail.com" target="_blank" className="opacity-80">
-                Email
+              <a
+                href="heysam.402@gmail.com"
+                target="_blank"
+                className={`opacity-80 ${langState === "fa" && "text-lg font-[Vazir]"}`}
+              >
+                {content.sidebar.social[2]}
               </a>
             </li>
             <li>
-              <a href="https://github.com/ShahriaryPrison" target="_blank" className="opacity-80">
-                Github
+              <a
+                href="https://github.com/ShahriaryPrison"
+                target="_blank"
+                className={`opacity-80 ${langState === "fa" && "text-lg font-[Vazir]"}`}
+              >
+                {content.sidebar.social[3]}
               </a>
             </li>
           </ul>

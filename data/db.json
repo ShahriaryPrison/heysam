@@ -1,0 +1,140 @@
+{
+    "lns": [
+        {
+            "lang": "en",
+            "header": {
+                "about_us": "ABOUT US",
+                "projects": "PROJECTS",
+                "team_members": "TEAM MEMBER",
+                "contact_us": "CONTACT US"
+            },
+            "main_about_us": {
+                "header": "Empowering your vision with our tech expertise – lets create something extraordinary together.",
+                "body": "Versatile expertise across a wide range of programming languages and frameworks, ensuring flexibility and adaptability to your project&apos;s unique needs.",
+                "button": "What Can We Do"
+            },
+            "projects": {
+                "title": "PROJECTS",
+                "project": [
+                    {
+                        "title": "Roshana",
+                        "tech": "Web App",
+                        "description": "Introducing our comprehensive solution for shops and sellers: a unified platform that not only streamlines sales across multiple channels but also includes robust accounting features! Our application provides a single source of data for managing products, while offering a suite of accounting tools to track expenses, revenue, and profitability. With an intuitive dashboard and powerful measurement tools, sellers gain valuable insights into their financial performance, enabling informed decision-making and sustainable growth. Say hello to simplified sales management and enhanced financial visibility with our all-in-one solution."
+                    },
+                    {
+                        "title": "Alef",
+                        "tech": "Web App",
+                        "description": "Announcing our collaborative effort: a transformative web application tailored for both charities and individuals in need! This innovative platform prevents duplicate services, ensuring fair distribution and accountability while empowering users to access essential aid efficiently. With advanced monitoring features, charities can track service delivery, maximizing impact, and ensuring assistance reaches those who need it most. Join us in revolutionizing charity services and supporting communities in need worldwide."
+                    },
+                    {
+                        "button": "INFORMATION"
+                    }
+                ]
+            },
+            "skills": {
+                "title": "SKILLS"
+            },
+            "team_members": {
+                "title": "TEAM MEMBERS",
+                "team_member": [
+                    {
+                        "name": "Seyyed Sadrodin Bigdeli",
+                        "tech": "Front End"
+                    },
+                    {
+                        "name": "Amir Hosseyn Momen",
+                        "tech": "Front End"
+                    },
+                    {
+                        "name": "Mohammad Shirvani",
+                        "tech": "Back End"
+                    },
+                    {
+                        "name": "Parsa Khosravi",
+                        "tech": "Back End"
+                    }
+                ]
+            },
+            "footer": {
+                "main": "Our team tirelessly strives and offers creative solutions to assist you in bringing your web applications superior features to life. From detailed needs analysis to design and execution, our team will be by your side every step of the way, ensuring your vision becomes a reality. Trusting us paves the way to your success. Thank you for choosing to collaborate with us.",
+                "sidebar": {
+                    "title": "Contact",
+                    "social": [
+                        "Telegram",
+                        "Instagram",
+                        "Email",
+                        "Github"
+                    ]
+                }
+            }
+        },
+        {
+            "lang": "fa",
+            "header": {
+                "about_us": "درباره ما",
+                "projects": "پروژه ها",
+                "team_members": "اعضای تیم",
+                "contact_us": "تماس با ما"
+            },
+            "main_about_us": {
+                "header": "تصورات خود را از برنامه ایده‌آلتان تبدیل به واقعیت کنید.",
+                "body": "تخصص‌های مختلف ما در زبان‌ها و چارچوب‌های برنامه‌نویسی، انعطاف و سازگاری با نیازهای منحصربه‌فرد شما را فراهم می‌سازد.",
+                "button": "توانایی های ما"
+            },
+            "projects": {
+                "title": "پروژه ها",
+                "project": [
+                    {
+                        "title": "روشنا",
+                        "tech": "وب اپ",
+                        "description" : "یک وب اپلیکشن کاربردی برای خیریه ها و نیازمندان !این پلتفرم با جستجو و ثبت خدمات انجام شده توسط خیریه ها از موازی‌کاری در خیریه ها جلوگیری می‌کند و به نیازمند واقعی کمک می‌کند تا به نیاز خود دست پیدا کند. با این روش کارایی در خیریه ها را بالاتر می‌برد علاوه بر این ابزار هایی برای اندازه گیری میزان خدمات و ... را در اختیار کاربران می‌گذارد .شما هم می‌توانید در دگرگون سازی جامعه خیرین تاثیر گذار باشید. به روشنا بپیوندید."
+                    },
+                    {
+                        "title": "الف",
+                        "tech": "وب اپ",
+                        "description" : "نسل جدید پروژه های حسابداری-انبار داری که به شما قابلیت مدیریت فروش خود از چندین کانال فروش مختلف با محصولاتی با مدیریت متمرکز و مدیریت در چندین انبار. همین حالا با استفاده از اول فروش خود رو ارتقا دهید و دیگر دغدغه مدیریت کارکنان و فروشنده‌های خود را نداشته باشید. با استفاده از ابزار های گزارش‌دهی اول بازدهی مجموعه خود را به بالاترین حد برسانید. به اول بپیوندید."
+                    },
+                    {
+                        "button": "اطلاعات"
+                    }
+                ]
+            },
+            "skills": {
+                "title": "مهارت ها"
+            },
+            "team_members": {
+                "title": "اعضای تیم",
+                "team_member": [
+                    {
+                        "name": "سید صدرالدین بیگدلی",
+                        "tech": "فرانت اند"
+                    },
+                    {
+                        "name": "امیر حسین مومن",
+                        "tech": "فرانت اند"
+                    },
+                    {
+                        "name": "محمد شیروانی",
+                        "tech": "بک اند"
+                    },
+                    {
+                        "name": "محمد شیروانی",
+                        "tech": "بک اند"
+                    }
+                ]
+            },
+            "footer": {
+                "main": "تیم ما بی‌وقفه سعی دارد و راه‌حل‌های خلاقانه‌ای را ارائه دهد تا به شما در به واقعیت پیوستن ویژگی‌های برنامه خود کمک کند. از تجزیه و تحلیل نیازهای دقیق تا طراحی و اجرا، تیم ما در هر گام با شما خواهد بود تا اطمینان حاصل شود که دیدگاه شما به واقعیت تبدیل می‌شود. اعتماد به ما راه موفقیت شما را هموار می‌کند. از انتخاب همکاری با ما متشکریم.",
+                "sidebar": {
+                    "title": "تماس با ما",
+                    "social": [
+                        "تلگرام",
+                        "اینستاگرام",
+                        "ایمیل",
+                        "گیت هاب"
+                    ]
+                }
+            }
+        }
+    ]
+}
