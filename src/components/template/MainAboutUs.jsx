@@ -2,27 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import AboutUsImage from "../../../public/images/heysam-logo.png";
 
-function MainAboutUs() {
+function MainAboutUs({content , langState}) {
   return (
     <section
       id="#about_us"
       className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
     >
       <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-6">
-        <h2 className="max-w-lg text-xl md:text-2xl  lg:text-4xl text-white font-[Poppins]">
-          Empowering your vision with our tech expertise – let&apos;s create
-          something extraordinary together.
+        <h2 className={`max-w-lg text-xl md:text-2xl  lg:text-4xl text-white ${langState === "en" ? "font-[Poppins] text-left" : "text-right"}`}>
+          {content.header}
         </h2>
-        <p className="max-w-lg font-[Poppins] text-[#E2E2E2]">
-          Versatile expertise across a wide range of programming languages and
-          frameworks, ensuring flexibility and adaptability to your
-          project&apos;s unique needs.
+        <p className={`max-w-lg text-[#E2E2E2] ${langState === "fa" ? "text-base text-right": "text-left"}`}>
+          {content.body}
         </p>
         <Link
           href="#skills"
           className="w-full max-w-40 flex justify-center items-center button-gradient p-2 text-white rounded-lg"
         >
-          What can we do
+          {content.button}
         </Link>
       </div>
 
@@ -33,6 +30,7 @@ function MainAboutUs() {
           width="1000"
           height="1000"
           alt="Logo"
+          priority
         />
         <div className="flex flex-col gap-2 w-full max-w-sm">
           <div className="text-white flex justify-between items-center">
