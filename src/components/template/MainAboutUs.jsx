@@ -1,18 +1,50 @@
 import Image from "next/image";
 import Link from "next/link";
 import AboutUsImage from "../../../public/images/heysam-logo.png";
+import { TypeAnimation } from "react-type-animation";
 
-function MainAboutUs({content , langState}) {
+function MainAboutUs({ content, langState }) {
   return (
     <section
       id="#about_us"
       className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
     >
       <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-6">
-        <h2 className={`max-w-lg text-xl md:text-2xl  lg:text-4xl text-white ${langState === "en" ? "font-[Poppins] text-left" : "text-right"}`}>
-          {content.header}
+        <h2
+          className={`max-w-lg text-xl md:text-2xl  lg:text-4xl text-white ${
+            langState === "en" ? "font-[Poppins] text-left" : "text-right"
+          }`}
+        >
+          <span className="md:text-2xl  lg:text-4xl">
+            {" "}
+            {content.header.first}{" "}
+          </span>
+          <TypeAnimation
+            sequence={[
+              // Same substring at the start will only be typed out once, initially
+              `${content.header.mid[0]}`,
+              1000, // wait 1s before replacing "Mice" with "Hamsters"
+              `${content.header.mid[1]}`,
+              1000,
+              `${content.header.mid[2]}`,
+              1000,
+            ]}
+            wrapper="span"
+            speed={10}
+            deletionSpeed={10}
+            style={{ fontSize: "1em", display: "inline-block" }}
+            repeat={Infinity}
+            cursor={true}
+          />
+          <span className="md:text-2xl  lg:text-4xl">
+            {content.header.last}
+          </span>
         </h2>
-        <p className={`max-w-lg text-[#E2E2E2] ${langState === "fa" ? "text-base text-right": "text-left"}`}>
+        <p
+          className={`max-w-lg text-[#E2E2E2] ${
+            langState === "fa" ? "text-base text-right" : "text-left"
+          }`}
+        >
           {content.body}
         </p>
         <Link

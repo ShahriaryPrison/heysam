@@ -38,11 +38,11 @@
                 "title": "TEAM MEMBERS",
                 "team_member": [
                     {
-                        "name": "Seyyed Sadrodin Bigdeli",
+                        "name": "Seyed Sadroddin Bigdeli",
                         "tech": "Front End"
                     },
                     {
-                        "name": "Amir Hosseyn Momen",
+                        "name": "Amir Hossein Momen",
                         "tech": "Front End"
                     },
                     {
@@ -77,7 +77,7 @@
                 "contact_us": "تماس با ما"
             },
             "main_about_us": {
-                "header": "تصورات خود را از برنامه ایده‌آلتان تبدیل به واقعیت کنید.",
+                "header": {"first":"طراحی","mid":["سایت","اپلیکشن","وب‌اپ"], "last":"خود را به حرفه‌ای ها بسپارید ."},
                 "body": "تخصص‌های مختلف ما در زبان‌ها و چارچوب‌های برنامه‌نویسی، انعطاف و سازگاری با نیازهای منحصربه‌فرد شما را فراهم می‌سازد.",
                 "button": "توانایی های ما"
             },
