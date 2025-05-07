@@ -15,30 +15,37 @@ function MainAboutUs({ content, langState }) {
             langState === "en" ? "font-[Poppins] text-left" : "text-right"
           }`}
         >
-          <span className="md:text-2xl  lg:text-4xl">
-            {" "}
-            {content.header.first}{" "}
-          </span>
-          <TypeAnimation
-            sequence={[
-              // Same substring at the start will only be typed out once, initially
-              `${content.header.mid[0]}`,
-              1000, // wait 1s before replacing "Mice" with "Hamsters"
-              `${content.header.mid[1]}`,
-              1000,
-              `${content.header.mid[2]}`,
-              1000,
-            ]}
-            wrapper="span"
-            speed={10}
-            deletionSpeed={10}
-            style={{ fontSize: "1em", display: "inline-block" }}
-            repeat={Infinity}
-            cursor={true}
-          />
-          <span className="md:text-2xl  lg:text-4xl">
-            {content.header.last}
-          </span>
+          {langState === "fa" ? (
+            <>
+              <span className="md:text-2xl  lg:text-4xl">
+                {" "}
+                {content.header.first}{" "}
+              </span>
+              <TypeAnimation
+                sequence={[
+                  // Same substring at the start will only be typed out once, initially
+                  `${content.header.mid[0]}`,
+                  1000, // wait 1s before replacing "Mice" with "Hamsters"
+                  `${content.header.mid[1]}`,
+                  1000,
+                  `${content.header.mid[2]}`,
+                  1000,
+                ]}
+                wrapper="span"
+                speed={10}
+                deletionSpeed={10}
+                style={{ fontSize: "1em", display: "inline-block" }}
+                repeat={Infinity}
+                cursor={true}
+                className=" text-gradient font-black"
+              />
+              <span className="md:text-2xl  lg:text-4xl">
+                {content.header.last}
+              </span>
+            </>
+          ) : (
+            content.header
+          )}
         </h2>
         <p
           className={`max-w-lg text-[#E2E2E2] ${

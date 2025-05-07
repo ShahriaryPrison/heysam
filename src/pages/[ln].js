@@ -11,7 +11,7 @@ import fs from "fs";
 import path from "path"
 export default function Home({dataLang}) {
   return (
-    <section className={`flex flex-col gap-8 pb-8 w-screen`} style={dataLang.lang === "fa" ? {direction: "rtl"} : {direction: "ltr"}}>
+    <section className={`flex flex-col items-center gap-8 pb-8 w-screen px-4`} style={dataLang.lang === "fa" ? {direction: "rtl"} : {direction: "ltr"}}>
       <Header content={dataLang.header} langState={dataLang.lang}/>
       <MainAboutUs content={dataLang.main_about_us} langState={dataLang.lang}/>
       <Projects content={dataLang.projects} langState={dataLang.lang}/>
