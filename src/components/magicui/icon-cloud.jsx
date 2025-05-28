@@ -16,16 +16,20 @@ export function IconCloud({ icons, images }) {
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [targetRotation, setTargetRotation] = useState(null);
+  const [isClient, setIsClient] = useState(false);
   const animationFrameRef = useRef();
   const rotationRef = useRef(rotation);
   const iconCanvasesRef = useRef([]);
   const imagesLoadedRef = useRef([]);
 
-  // Create icon canvases once when icons/images change
   useEffect(() => {
+    setIsClient(true);
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  // Create icon canvases once when icons/images change
   useEffect(() => {
+    if (!isClient) return;
     if (!icons && !images) return;
 
     const items = icons || images || [];
@@ -42,7 +46,7 @@ export function IconCloud({ icons, images }) {
           // Handle image URLs directly
           const img = new Image();
           img.crossOrigin = "anonymous";
-          img.src = items[index];
+          img.src = typeof item === "string" ? item : item.src;
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
 
@@ -57,12 +61,17 @@ export function IconCloud({ icons, images }) {
 
             imagesLoadedRef.current[index] = true;
           };
+          img.onerror = () => {
+            console.error(`Failed to load image: ${img.src}`);
+          };
         } else {
           // Handle SVG icons
           offCtx.scale(0.4, 0.4);
           const svgString = renderToString(item);
           const img = new Image();
-          img.src = "data:image/svg+xml;base64," + btoa(svgString);
+          img.src =
+            "data:image/svg+xml;base64," +
+            btoa(unescape(encodeURIComponent(svgString)));
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
             offCtx.drawImage(img, 0, 0);
@@ -74,10 +83,12 @@ export function IconCloud({ icons, images }) {
     });
 
     iconCanvasesRef.current = newIconCanvases;
-  }, [icons, images]);
+  }, [icons, images, isClient]);
 
   // Generate initial icon positions on a sphere
   useEffect(() => {
+    if (!isClient) return;
+
     const items = icons || images || [];
     const newIcons = [];
     const numIcons = items.length || 20;
@@ -104,13 +115,13 @@ export function IconCloud({ icons, images }) {
       });
     }
     setIconPositions(newIcons);
-  }, [icons, images]);
+  }, [icons, images, isClient]);
 
   // Handle mouse events
   const handleMouseDown = (e) => {
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (!rect || !canvasRef.current) return;
+    if (!canvasRef.current) return;
 
+    const rect = canvasRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
@@ -168,12 +179,12 @@ export function IconCloud({ icons, images }) {
   };
 
   const handleMouseMove = (e) => {
-    const rect = canvasRef.current?.getBoundingClientRect();
-    if (rect) {
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      setMousePos({ x, y });
-    }
+    if (!canvasRef.current) return;
+
+    const rect = canvasRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
 
     if (isDragging) {
       const deltaX = e.clientX - lastMousePos.x;
@@ -194,9 +205,11 @@ export function IconCloud({ icons, images }) {
 
   // Animation and rendering
   useEffect(() => {
+    if (!isClient || !canvasRef.current) return;
+
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!canvas || !ctx) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -233,6 +246,8 @@ export function IconCloud({ icons, images }) {
         };
       }
 
+      setRotation(rotationRef.current);
+
       iconPositions.forEach((icon, index) => {
         const cosX = Math.cos(rotationRef.current.x);
         const sinX = Math.sin(rotationRef.current.x);
@@ -254,16 +269,11 @@ export function IconCloud({ icons, images }) {
         ctx.scale(scale, scale);
         ctx.globalAlpha = opacity;
 
-        if (icons || images) {
-          // Only try to render icons/images if they exist
-          if (
-            iconCanvasesRef.current[index] &&
-            imagesLoadedRef.current[index]
-          ) {
+        if ((icons || images) && iconCanvasesRef.current[index]) {
+          if (imagesLoadedRef.current[index]) {
             ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
           }
         } else {
-          // Show numbered circles if no icons/images are provided
           ctx.beginPath();
           ctx.arc(0, 0, 20, 0, Math.PI * 2);
           ctx.fillStyle = "#4444ff";
@@ -280,14 +290,30 @@ export function IconCloud({ icons, images }) {
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [icons, images, iconPositions, isDragging, mousePos, targetRotation]);
+  }, [
+    icons,
+    images,
+    iconPositions,
+    isDragging,
+    mousePos,
+    targetRotation,
+    isClient,
+  ]);
+
+  if (!isClient) {
+    return (
+      <div className="rounded-lg w-full max-w-2xl h-[400px] bg-gray-100 flex items-center justify-center">
+        <p>Loading icon cloud...</p>
+      </div>
+    );
+  }
 
   return (
     <canvas
@@ -299,7 +325,7 @@ export function IconCloud({ icons, images }) {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="rounded-lg w-full max-w-2xl"
+      className="rounded-lg w-full max-w-2xl h-auto aspect-square bg-transparent"
       aria-label="Interactive 3D Icon Cloud"
       role="img"
     />

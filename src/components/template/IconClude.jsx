@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { IconCloud } from "@/components/magicui/icon-cloud";
-import { ShineBorder } from "../magicui/shine-border";
-import "aos/dist/aos.css";
 import AOS from "aos";
-import { useEffect } from "react";
+import "aos/dist/aos.css";
+
 const slugs = [
   "typescript",
   "javascript",
@@ -37,30 +38,131 @@ const slugs = [
 ];
 
 export function IconCloudDemo({ content, langState }) {
-  const images = slugs.map(
-    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
-  );
+  const [mounted, setMounted] = useState(false);
+  const [radius, setRadius] = useState(250);
+  const images = slugs.map((slug) => ({
+    src: `https://cdn.simpleicons.org/${slug}`,
+    alt: slug,
+  }));
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    setMounted(true);
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+    });
+
+    const handleResize = () => {
+      setRadius(Math.min(300, window.innerWidth / 2.5));
+    };
+
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  if (!mounted) {
+    return (
+      <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <div className="w-full h-[400px] md:h-[500px] flex items-center justify-center">
+          <div className="text-white">Loading skills cloud...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
       className={`relative flex flex-col ${
-        langState === "en" ? "sm:flex-row-reverse" : "sm:flex-row"
-      } gap-14 size-full w-full items-center justify-center overflow-hidden`}
+        langState === "en" ? "lg:flex-row-reverse" : "lg:flex-row"
+      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-6 py-12 md:py-16`}
     >
-      <div
-        data-aos="zoom-out"
-        className="glass px-6 py-10 gap-8 flex flex-col items-center rounded-lg text-white"
+      {/* Gradient Background Elements */}
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-purple-500 rounded-full filter blur-[100px] opacity-20 mix-blend-multiply" />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-cyan-500 rounded-full filter blur-[100px] opacity-20 mix-blend-multiply" />
+      </div> */}
+
+      {/* Content Card */}
+      <motion.div
+        className="relative z-10 w-full max-w-md"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        data-aos="fade-up"
       >
-        <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
-        <h5 className="font-bold text-2xl">{content.title}</h5>
-        <p>{content.description}</p>
-      </div>
-      <IconCloud images={images} />
-      <div className="w-full h-52 shrink-0 rounded-[448px] bg-linear-to-r from-cyan-500 to-fuchsia-500  opacity-[0.20] blur-[100px] absolute right-0" />
+        <div className="glass-container p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
+          <motion.h3
+            className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
+            variants={itemVariants}
+          >
+            {content.title}
+          </motion.h3>
+
+          <motion.p
+            className="text-white/80 mb-6 leading-relaxed"
+            variants={itemVariants}
+          >
+            {content.description}
+          </motion.p>
+
+          <motion.div className="flex gap-4" variants={itemVariants}>
+            <button className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30">
+              {content.primaryButton || "Learn More"}
+            </button>
+            <button className="px-6 py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-300">
+              {content.secondaryButton || "Our Work"}
+            </button>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Icon Cloud */}
+      <motion.div
+        className="relative z-10 w-full h-[400px] md:h-[500px] flex items-center justify-center"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <IconCloud
+          images={images}
+          className="w-full h-full"
+          config={{
+            radius: radius,
+            speed: 0.5,
+            initialAngle: langState === "en" ? 0 : 180,
+          }}
+        />
+        <div className="absolute inset-0 rounded-full pointer-events-none border border-white/10 mix-blend-overlay" />
+      </motion.div>
     </div>
   );
 }
