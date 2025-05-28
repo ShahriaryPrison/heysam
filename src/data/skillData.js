@@ -100,7 +100,7 @@ const skillsData = [
   },
   {
     id: 12,
-    skill: "what you need here",
+    skill: "what you need",
   },
 ];
 
