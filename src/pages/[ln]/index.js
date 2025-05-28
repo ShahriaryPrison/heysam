@@ -11,6 +11,7 @@ import path from "path";
 import { IconCloudDemo } from "@/components/template/IconClude";
 
 export default function Home({ langData, projects }) {
+  
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -26,7 +27,7 @@ export default function Home({ langData, projects }) {
       <Hero content={langData.main_about_us} langState={langData.lang} />
       <Projects
         projects={projects}
-        lang={langData.lang}
+        langState={langData.lang}
         content={langData.projects}
       />
       <IconCloudDemo content={langData.skills} langState={langData.lang} />
