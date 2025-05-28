@@ -16,91 +16,28 @@ import GitHubImage from "../../public/images/skills/Github.png";
 import IOTImage from "../../public/images/skills/Iot.png";
 
 const skillsData = [
-  {
-    id: 1,
-    skill: "Html5",
-    skillImage: HtmlImage,
-  },
-
-  {
-    id: 2,
-    skill: "React",
-    skillImage: ReactImage,
-  },
-  {
-    id: 3,
-    skill: "Tailwind",
-    skillImage: tailwindImage,
-  },
-  {
-    id: 4,
-    skill: "PHP",
-    skillImage: PHPImage,
-  },
-  {
-    id: 5,
-    skill: "Pyton",
-    skillImage: PytonImage,
-  },
-  {
-    id: 6,
-    skill: "IOT",
-    skillImage: IOTImage,
-  },
-  {
-    id: 7,
-    skill: "Css3",
-    skillImage: CssImage,
-  },
-  {
-    id: 8,
-    skill: "Next Js",
-    skillImage: NextImage,
-  },
-  {
-    id: 9,
-    skill: "React Bootstrap",
-    skillImage: ReactBootstrapImage,
-  },
-  {
-    id: 10,
-    skill: "Laravel",
-    skillImage: LaravelImage,
-  },
-  {
-    id: 11,
-    skill: "Git",
-    skillImage: GitImage,
-  },
-  {
-    id: 12,
-    skill: "JavaScript",
-    skillImage: JsImage,
-  },
-  {
-    id: 13,
-    skill: "Node Js",
-    skillImage: NodeImage,
-  },
-  {
-    id: 14,
-    skill: "Sass",
-    skillImage: SassImage,
-  },
-  {
-    id: 15,
-    skill: "LiveWire",
-    skillImage: LiveWireImage,
-  },
-  {
-    id: 16,
-    skill: "Github",
-    skillImage: GitHubImage,
-  },
-  {
-    id: 17,
-    skill: "what you need",
-  },
+  { skill: "Html5", skillImage: HtmlImage },
+  { skill: "React", skillImage: ReactImage },
+  { skill: "Tailwind", skillImage: tailwindImage },
+  { skill: "PHP", skillImage: PHPImage },
+  { skill: "Pyton", skillImage: PytonImage },
+  { skill: "IOT", skillImage: IOTImage },
+  { skill: "Css3", skillImage: CssImage },
+  { skill: "Next Js", skillImage: NextImage },
+  { skill: "React Bootstrap", skillImage: ReactBootstrapImage },
+  { skill: "Laravel", skillImage: LaravelImage },
+  { skill: "Git", skillImage: GitImage },
+  { skill: "JavaScript", skillImage: JsImage },
+  { skill: "Node Js", skillImage: NodeImage },
+  { skill: "Sass", skillImage: SassImage },
+  { skill: "LiveWire", skillImage: LiveWireImage },
+  { skill: "Github", skillImage: GitHubImage },
 ];
 
-export default skillsData;
+// تبدیل به آرایه‌ای از { src, alt }
+const simplifiedSkills = skillsData.map(({ skill, skillImage }) => ({
+  src: skillImage.src,
+  alt: skill,
+}));
+
+export default simplifiedSkills;

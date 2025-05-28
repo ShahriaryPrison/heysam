@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { IconCloud } from "@/components/magicui/icon-cloud";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import simplifiedSkills from "@/data/skillData";
 
 const slugs = [
   "typescript",
@@ -44,7 +45,8 @@ export function IconCloudDemo({ content, langState }) {
     src: `https://cdn.simpleicons.org/${slug}`,
     alt: slug,
   }));
-
+  console.log(simplifiedSkills);
+  
   useEffect(() => {
     setMounted(true);
     AOS.init({
@@ -153,7 +155,7 @@ export function IconCloudDemo({ content, langState }) {
         data-aos-delay="200"
       >
         <IconCloud
-          images={images}
+          images={simplifiedSkills}
           className="w-full h-full"
           config={{
             radius: radius,
