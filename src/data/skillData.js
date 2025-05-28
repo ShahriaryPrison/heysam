@@ -72,34 +72,33 @@ const skillsData = [
     skill: "Git",
     skillImage: GitImage,
   },
-
   {
-    id: 13,
+    id: 12,
     skill: "JavaScript",
     skillImage: JsImage,
   },
   {
-    id: 14,
+    id: 13,
     skill: "Node Js",
     skillImage: NodeImage,
   },
   {
-    id: 15,
+    id: 14,
     skill: "Sass",
     skillImage: SassImage,
   },
   {
-    id: 16,
+    id: 15,
     skill: "LiveWire",
     skillImage: LiveWireImage,
   },
   {
-    id: 17,
+    id: 16,
     skill: "Github",
     skillImage: GitHubImage,
   },
   {
-    id: 12,
+    id: 17,
     skill: "what you need",
   },
 ];
