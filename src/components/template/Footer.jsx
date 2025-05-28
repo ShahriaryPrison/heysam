@@ -17,33 +17,31 @@ function Footer({ content, langState }) {
           <h4 className="text-white px-4 pb-4 w-full font-bold text-5xl">
             {content.sidebar.title}
           </h4>
-          <div className="h-full flex justify-between items-start gap-8">
-            <div>
-              <Dock direction="middle">
-                <DockIcon>
-                  <a href="https://t.me/MoShirv">
-                    <FaTelegramPlane className="w-6 h-6" />
-                  </a>
-                </DockIcon>
-                <DockIcon>
-                  <a href="https://www.instagram.com/heysam.build">
-                    <FaInstagram className="w-6 h-6" />
-                  </a>
-                </DockIcon>
-                <DockIcon>
-                  <a href="mailto:m.shirvani1173@gmail.com">
-                    <MdOutlineEmail className="w-6 h-6" />
-                  </a>
-                </DockIcon>
-                <DockIcon>
-                  <a href="https://github.com/ShahriaryPrison">
-                    <FaGithub className="w-6 h-6" />
-                  </a>
-                </DockIcon>
-              </Dock>
-            </div>
+          <div className="flex pb-10 px-6 gap-2 flex-col sm:flex-row">
+            <Dock direction="middle">
+              <DockIcon>
+                <a href="https://t.me/MoShirv">
+                  <FaTelegramPlane className="w-6 h-6" />
+                </a>
+              </DockIcon>
+              <DockIcon>
+                <a href="https://www.instagram.com/heysam.build">
+                  <FaInstagram className="w-6 h-6" />
+                </a>
+              </DockIcon>
+              <DockIcon>
+                <a href="mailto:m.shirvani1173@gmail.com">
+                  <MdOutlineEmail className="w-6 h-6" />
+                </a>
+              </DockIcon>
+              <DockIcon>
+                <a href="https://github.com/ShahriaryPrison">
+                  <FaGithub className="w-6 h-6" />
+                </a>
+              </DockIcon>
+            </Dock>
+            <h5 className="flex items-end">{content.main}</h5>
           </div>
-          <h5 className="max-w-4xl flex items-end">{content.main}</h5>
         </div>
         <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
         <div>
