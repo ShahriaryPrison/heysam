@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import fs from "fs";
 import path from "path";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 export default function ProjectPage({ langData = {}, project = {} }) {
   useEffect(() => {
@@ -40,13 +42,13 @@ export default function ProjectPage({ langData = {}, project = {} }) {
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           {/* Project Title */}
-          <h1 className="text-3xl font-bold" data-aos="fade-up">
+          <h1 className="text-3xl font-bold text-white" data-aos="fade-up">
             {projectTitle}
           </h1>
 
           {/* Project Technology */}
           <p
-            className="text-lg text-gray-600 mt-2"
+            className="text-lg text-gray-400 mt-2"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -55,10 +57,10 @@ export default function ProjectPage({ langData = {}, project = {} }) {
 
           {/* Project Description */}
           <div className="mt-6" data-aos="fade-up" data-aos-delay="200">
-            <h2 className="text-xl font-semibold mb-2">
+            <h2 className="text-xl text-white font-semibold mb-2">
               {isRTL ? "توضیحات" : "Description"}
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               {projectDescription}
             </p>
           </div>
@@ -66,10 +68,12 @@ export default function ProjectPage({ langData = {}, project = {} }) {
           {/* Project Features */}
           {project?.features?.length > 0 && (
             <div className="mt-8" data-aos="fade-up" data-aos-delay="300">
-              <h2 className="text-xl font-semibold mb-3">
+              <h2 className="text-xl text-white font-semibold mb-3">
                 {isRTL ? "ویژگی‌ها" : "Features"}
               </h2>
-              <ul className={`space-y-2 ${isRTL ? "pr-5" : "pl-5"}`}>
+              <ul
+                className={`space-y-2 text-gray-400 ${isRTL ? "pr-5" : "pl-5"}`}
+              >
                 {project.features.map((feature, index) => (
                   <li key={index} className={isRTL ? "list-rtl" : "list-disc"}>
                     {feature}
@@ -82,24 +86,45 @@ export default function ProjectPage({ langData = {}, project = {} }) {
 
         {/* Project Gallery */}
         {projectImages.length > 0 && (
-          <div className="mt-8" data-aos="fade-up" data-aos-delay="400">
+          <div className="text-white" data-aos="fade-up" data-aos-delay="400">
             <h2 className="text-xl font-semibold mb-4">
               {isRTL ? "گالری تصاویر" : "Gallery"}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {projectImages.map((image, index) => (
+              {projectImages.length > 0 && (
                 <div
-                  key={index}
-                  className="rounded-lg overflow-hidden shadow-md"
+                  className="text-white"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
                 >
-                  <img
-                    src={image}
-                    alt={`${projectTitle} - ${index + 1}`}
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                  />
+                  <PhotoProvider>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {projectImages.map((media, index) => (
+                        <PhotoView key={index} src={media}>
+                          <div className="rounded-lg overflow-hidden shadow-md cursor-pointer">
+                            {media.endsWith(".mp4") ? (
+                              <video
+                                src={media}
+                                className="w-full h-auto object-cover"
+                                controls
+                                muted
+                                playsInline
+                              />
+                            ) : (
+                              <img
+                                src={media}
+                                alt={`${projectTitle} - ${index + 1}`}
+                                className="w-full h-auto object-cover"
+                                loading="lazy"
+                              />
+                            )}
+                          </div>
+                        </PhotoView>
+                      ))}
+                    </div>
+                  </PhotoProvider>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         )}
