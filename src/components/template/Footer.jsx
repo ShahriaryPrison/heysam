@@ -4,6 +4,8 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
+import { Dock, DockIcon } from "../magicui/dock";
+
 function Footer({ content, langState }) {
   const [isShowModal, setIsShowModal] = useState(false);
   return (
@@ -77,6 +79,23 @@ function Footer({ content, langState }) {
               </li>
             </ul>
           </div>
+        </div>
+        <div>
+          <Dock direction="middle">
+            <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+            <DockIcon>
+              <FaTelegramPlane className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+            </DockIcon>
+            <DockIcon>
+              <FaInstagram className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+            </DockIcon>
+            <DockIcon>
+              <MdOutlineEmail className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+            </DockIcon>
+            <DockIcon>
+              <FaGithub className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+            </DockIcon>
+          </Dock>
         </div>
         <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
         <div className="flex justify-between w-full items-center">
