@@ -64,7 +64,7 @@ function Header({ content, langState }) {
         {[
           { id: "about_us", href: "#about_us" },
           { id: "projects", href: "#skills" },
-          { id: "our_skills", href: "#team-member" },
+          { id: "our_skills", href: "#our_skills" },
           { id: "contact_us", href: "#footer" },
         ].map((item) => (
           <motion.li

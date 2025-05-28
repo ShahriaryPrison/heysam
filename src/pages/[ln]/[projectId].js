@@ -64,6 +64,21 @@ export default function ProjectPage({ langData = {}, project = {} }) {
               {projectDescription}
             </p>
           </div>
+          {/* Project Link */}
+          <div className="mt-4">
+            {project?.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-white px-4 py-2 rounded-lg button-gradient"
+                data-aos="fade-up"
+                data-aos-delay="250"
+              >
+                {isRTL ? "مشاهده پروژه" : "View Project"}
+              </a>
+            )}
+          </div>
 
           {/* Project Features */}
           {project?.features?.length > 0 && (
