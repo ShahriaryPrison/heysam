@@ -94,7 +94,7 @@ export default function ProjectPage({
                 {projectImages.map((media, index) => (
                   <SwiperSlide key={index}>
                     <PhotoView src={media.src}>
-                      <div className="relative aspect-video bg-gray-100 dark:bg-gray-800 flex items-center justify-center cursor-pointer">
+                      <div className="relative aspect-video bg-transparent dark:bg-gray-800 flex items-center justify-center cursor-pointer">
                         {media.src.endsWith(".mp4") ? (
                           <video
                             src={media.src}
@@ -191,7 +191,11 @@ export default function ProjectPage({
           </h4>
           <ul className="space-y-4">
             {projects?.map((proj) => (
-              <li data-aos="zoom-out" key={proj.id} className="text-white border-b border-neutral-500 pb-4">
+              <li
+                data-aos="zoom-out"
+                key={proj.id}
+                className="text-white border-b border-neutral-500 pb-4"
+              >
                 <a
                   href={`/${lang}/projects/${proj.id}`}
                   className="hover:underline flex justify-between items-center w-full"
@@ -215,8 +219,14 @@ export default function ProjectPage({
             ))}
           </ul>
         </div>
-        <div data-aos="fade-left" className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] !opacity-[0.34] blur-[100px] absolute -bottom-40 right-20" />
-        <div data-aos="fade-right" className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] !opacity-[0.34] blur-[100px] absolute top-[50px] left-[50px]" />
+        <div
+          data-aos="fade-left"
+          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] !opacity-[0.34] blur-[100px] absolute -bottom-40 right-20"
+        />
+        <div
+          data-aos="fade-right"
+          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] !opacity-[0.34] blur-[100px] absolute top-[50px] left-[50px]"
+        />
       </div>
 
       <Footer content={langData?.footer || {}} langState={lang} />
