@@ -4,7 +4,7 @@ import skillsData from "@/data/skillData";
 function Skills({content}) {
   return (
     <section id="skills" className="w-full max-w-7xl flex flex-col">
-      <h4 className="text-white px-4 pb-4 w-full text-5xl">{content.title}</h4>
+      <h4 className="text-white px-4 pb-4 w-full font-bold text-5xl">{content.title}</h4>
       <div className="relative w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 justify-center items-center gap-4 place-content-center place-items-center">
         {skillsData.map((skill) => (
           <SkillsTag

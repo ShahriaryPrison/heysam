@@ -56,13 +56,13 @@ function Hero({ content, langState }) {
         </p>
         <div className="flex gap-4">
           <Link
-            href="#skills"
+            href="#projects"
             className="flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold"
           >
             {content.button}
           </Link>
           <Link
-            href="#skills"
+            href="#contact"
             className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold"
           >
             {content.secondButton}
