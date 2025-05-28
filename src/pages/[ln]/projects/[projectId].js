@@ -184,13 +184,14 @@ export default function ProjectPage({
           </div>
         </div>
 
-        <div className="flex-1 max-w-md glass rounded-2xl p-6 shadow-lg h-fit">
+        <div className="sticky top-0 flex-1 max-w-md glass rounded-2xl p-6 shadow-lg h-fit">
+          <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
           <h4 className="text-2xl font-bold text-white mb-4" data-aos="fade-up">
             {isRTL ? "پروژه‌های دیگر" : "Other Projects"}
           </h4>
           <ul className="space-y-4">
             {projects?.map((proj) => (
-              <li data-aos="zoom-out" key={proj.id} className="text-white">
+              <li data-aos="zoom-out" key={proj.id} className="text-white border-b border-neutral-500 pb-4">
                 <a
                   href={`/${lang}/projects/${proj.id}`}
                   className="hover:underline flex justify-between items-center w-full"
@@ -214,6 +215,8 @@ export default function ProjectPage({
             ))}
           </ul>
         </div>
+        <div data-aos="fade-left" className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] !opacity-[0.34] blur-[100px] absolute -bottom-40 right-20" />
+        <div data-aos="fade-right" className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] !opacity-[0.34] blur-[100px] absolute top-[50px] left-[50px]" />
       </div>
 
       <Footer content={langData?.footer || {}} langState={lang} />
