@@ -3,8 +3,6 @@ import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
-import { Dock } from "../magicui/dock";
-import { DockIcon } from "lucide-react";
 
 function Footer({ content, langState }) {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -80,20 +78,6 @@ function Footer({ content, langState }) {
             </ul>
           </div>
         </div>
-        <Dock direction="middle">
-          <DockIcon>
-            <FaGithub />
-          </DockIcon>
-          <DockIcon>
-            <MdOutlineEmail />
-          </DockIcon>
-          <DockIcon>
-            <FaInstagram />
-          </DockIcon>
-          <DockIcon>
-            <FaTelegramPlane />
-          </DockIcon>
-        </Dock>
         <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
         <div className="flex justify-between w-full items-center">
           <ul className="flex items-center gap-2 sm:gap-4">
