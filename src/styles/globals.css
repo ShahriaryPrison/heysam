@@ -108,8 +108,8 @@
     }
   }
 
-    --animate-shine: shine var(--duration) infinite linear;
- 
+  --animate-shine: shine var(--duration) infinite linear;
+
   @keyframes shine {
     0% {
       background-position: 0% 0%;
@@ -543,6 +543,27 @@
   }
   animation: aboutTransition 6s ease infinite alternate;
 }
+.back-to-top-btn {
+  display: none;
+  position: fixed;
+  background-color: #3081ed;
+  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  background-size: 200%;
+  transition: background-position 0.4s ease;
+  transition: all 0.4s ease;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  animation: modalAnimition 400ms ease 0s normal forwards;
+}
+.back-to-top-btn:hover {
+  background-position: 100%;
+  color: white;
+  background-color: #0056b3;
+}
 
 @utility back-to-top-btn {
   @font-face {
@@ -577,6 +598,30 @@
     src: url("../../public/Fonts/Snapp.ttf");
   }
   /* back to tob styels */
+  display: none;
+  position: fixed;
+  background-color: #3081ed;
+  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  background-size: 200%;
+  transition: background-position 0.4s ease;
+  transition: all 0.4s ease;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  animation: modalAnimition 400ms ease 0s normal forwards;
+  &:hover {
+    background-position: 100%;
+    color: white;
+  }
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+.back-to-top-btn {
   display: none;
   position: fixed;
   background-color: #3081ed;
