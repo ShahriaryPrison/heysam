@@ -44,7 +44,7 @@ function Footer({ content, langState }) {
           </div>
         </div>
         <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
-        <div>
+        <div className="mt-8">
           <p className="text-sm text-center">
             {content.copyright} &copy; {new Date().getFullYear()}{" "}
             <span className="text-gradient">Heysam</span>

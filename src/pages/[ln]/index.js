@@ -1,6 +1,5 @@
 import Header from "@/components/template/Header";
 import Hero from "@/components/template/Hero";
-import Skills from "@/components/template/Skills";
 import Projects from "@/components/template/Projects";
 import Footer from "@/components/template/Footer";
 import BackToTopButton from "@/components/template/BackToTopButton";
@@ -31,8 +30,6 @@ export default function Home({ langData, projects }) {
         content={langData.projects}
       />
       <IconCloudDemo content={langData.skills} langState={langData.lang} />
-      {/* <Skills content={langData.skills} langState={langData.lang} /> */}
-      <Skills content={langData.skills} langState={langData.lang} />
       <Footer content={langData.footer} langState={langData.lang} />
       <BackToTopButton />
     </section>
