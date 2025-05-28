@@ -26,7 +26,6 @@ const skillsData = [
   { skill: "IOT", skillImage: IOTImage },
   { skill: "Css3", skillImage: CssImage },
   { skill: "Next Js", skillImage: NextImage },
-  { skill: "React Bootstrap", skillImage: ReactBootstrapImage },
   { skill: "Laravel", skillImage: LaravelImage },
   { skill: "Git", skillImage: GitImage },
   { skill: "JavaScript", skillImage: JsImage },
@@ -40,6 +39,23 @@ const skillsData = [
   {
     skill: "flutter",
     skillImage: { src: "https://cdn.simpleicons.org/flutter" },
+  },
+  //linux
+  {
+    skill: "linux",
+    skillImage: { src: "https://cdn.simpleicons.org/linux" },
+  },
+  {
+    skill: "mongodb",
+    skillImage: { src: "https://cdn.simpleicons.org/mongodb" },
+  },
+  {
+    skill: "mysql",
+    skillImage: { src: "https://cdn.simpleicons.org/mysql" },
+  },
+  {
+    skill: "redis",
+    skillImage: { src: "https://cdn.simpleicons.org/redis" },
   },
   {
     skill: "typescript",

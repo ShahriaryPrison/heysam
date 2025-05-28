@@ -139,7 +139,7 @@ export function IconCloudDemo({ content, langState }) {
 
           <motion.div className="flex gap-4" variants={itemVariants}>
             <button className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30">
-              {content.primaryButton || "Learn More"}
+              {content.primaryButton || "Details"}
             </button>
             <button className="px-6 py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-300">
               {content.secondaryButton || "Our Work"}

@@ -18,7 +18,7 @@ export default {
   },
   skills: {
     title: "SKILLS",
-    description: "We are proficient in a wide range of technologies, including:",
+    description: "Everything you need, from design to deployment.",
     
   },
   footer: {

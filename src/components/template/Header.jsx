@@ -62,9 +62,9 @@ function Header({ content, langState }) {
       {/* منوی نویگیشن با انیمیشن */}
       <motion.ul className="hidden lg:flex gap-6" variants={containerVariants}>
         {[
-          { id: "about_us", href: "#about_us" },
+          { id: "about_us", href: "#hero" },
           { id: "projects", href: "#projects" },
-          { id: "our_skills", href: "#our_skills" },
+          { id: "our_skills", href: "#skills" },
           { id: "contact_us", href: "#footer" },
         ].map((item) => (
           <motion.li
