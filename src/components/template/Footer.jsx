@@ -3,17 +3,23 @@ import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
+import { Dock } from "../magicui/dock";
+import { DockIcon } from "lucide-react";
 
 function Footer({ content, langState }) {
   const [isShowModal, setIsShowModal] = useState(false);
-
   return (
     <>
       {isShowModal && (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen h-screen flex justify-center items-center px-4 z-50 bg-neutral-900 bg-opacity-60">
           <div className="glass-modal relative text-white max-w-96 max-h-60 w-full h-full profile-shadow px-4 sm:px-8 py-4 flex flex-col justify-center items-center rounded-xl gap-8">
-              <span>heysam.402@gmail.com</span>
-              <button className="button-gradient px-4 py-2 rounded-lg" onClick={() => setIsShowModal(false)}>close</button>
+            <span>heysam.402@gmail.com</span>
+            <button
+              className="button-gradient px-4 py-2 rounded-lg"
+              onClick={() => setIsShowModal(false)}
+            >
+              close
+            </button>
           </div>
         </div>
       )}
@@ -41,7 +47,7 @@ function Footer({ content, langState }) {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/heysam.2302?igsh=MTVvdGdkb2txbGtodA=="
+                  href="https://www.instagram.com/heysam.build"
                   target="_blank"
                   className={`opacity-80 ${
                     langState === "fa" && "text-lg font-[Vazir]"
@@ -74,6 +80,20 @@ function Footer({ content, langState }) {
             </ul>
           </div>
         </div>
+        <Dock direction="middle">
+          <DockIcon>
+            <FaGithub />
+          </DockIcon>
+          <DockIcon>
+            <MdOutlineEmail />
+          </DockIcon>
+          <DockIcon>
+            <FaInstagram />
+          </DockIcon>
+          <DockIcon>
+            <FaTelegramPlane />
+          </DockIcon>
+        </Dock>
         <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
         <div className="flex justify-between w-full items-center">
           <ul className="flex items-center gap-2 sm:gap-4">

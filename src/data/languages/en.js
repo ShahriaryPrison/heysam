@@ -3,18 +3,19 @@ export default {
   header: {
     about_us: "ABOUT US",
     projects: "PROJECTS",
-    our_skills: "OUR SKILLS",
-    contact_us: "CONTACT US",
+    our_skills: "SKILLS",
+    contact_us: "CONTACT",
   },
   main_about_us: {
     header:
       "Empowering your vision with our tech expertise – lets create something extraordinary together.",
     body: "Versatile expertise across a wide range of programming languages and frameworks, ensuring flexibility and adaptability to your project's unique needs.",
-    button: "What Can We Do",
+    button: "Experiences",
+    secondButton: "Get in touch!",
   },
   projects: {
     title: "PROJECTS",
-    button: "INFORMATION",
+    button: "See more",
   },
   skills: {
     title: "SKILLS",
@@ -23,7 +24,7 @@ export default {
     main: "Our team tirelessly strives and offers creative solutions to assist you in bringing your web applications superior features to life. From detailed needs analysis to design and execution, our team will be by your side every step of the way, ensuring your vision becomes a reality. Trusting us paves the way to your success. Thank you for choosing to collaborate with us.",
     sidebar: {
       title: "Contact",
-      social: ["Telegram", "Instagram", "Email", "Github"],
+      social: ["Telegram", "Instagram", "Mail", "Github"],
     },
   },
 };

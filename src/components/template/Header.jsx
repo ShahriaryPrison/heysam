@@ -39,7 +39,7 @@ function Header({ content, langState }) {
     >
       {/* لوگو با انیمیشن */}
       <motion.a
-        href=""
+        href={langState === "fa" ? "/fa" : "/en"}
         className="flex justify-center sm:w-full sm:max-w-40 lg:w-min items-center px-6 sm:px-8 cursor-pointer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -55,7 +55,7 @@ function Header({ content, langState }) {
           className="text-gradient font-[Poppins] font-bold text-lg sm:text-3xl"
           whileHover={{ scale: 1.1 }}
         >
-          EYSAM
+          HEYSAM
         </motion.p>
       </motion.a>
 
@@ -63,7 +63,7 @@ function Header({ content, langState }) {
       <motion.ul className="hidden lg:flex gap-6" variants={containerVariants}>
         {[
           { id: "about_us", href: "#about_us" },
-          { id: "projects", href: "#skills" },
+          { id: "projects", href: "#projects" },
           { id: "our_skills", href: "#our_skills" },
           { id: "contact_us", href: "#footer" },
         ].map((item) => (
