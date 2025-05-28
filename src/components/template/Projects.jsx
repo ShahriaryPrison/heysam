@@ -40,7 +40,7 @@ const ReviewCard = ({ icon, title, tech, description, langState }) => {
         </div>
         <a
           href={`/${langState}/projects/${encodeURIComponent(
-            title.replace(/\s+/g, "-")
+            title.replace(/\s+/g, "")
           )}`}
           className="button-gradient px-2 py-1 rounded-2xl text-xs"
         >

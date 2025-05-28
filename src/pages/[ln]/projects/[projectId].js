@@ -91,30 +91,33 @@ export default function ProjectPage({
                 loop={true}
                 className="media-swiper rounded-xl overflow-hidden shadow-lg"
               >
-                {projectImages.map((media, index) => (
-                  <SwiperSlide key={index}>
-                    <PhotoView src={media.src}>
-                      <div className="relative aspect-video bg-transparent dark:bg-gray-800 flex items-center justify-center cursor-pointer">
-                        {media.src.endsWith(".mp4") ? (
-                          <video
-                            src={media.src}
-                            className="w-full h-full object-contain"
-                            controls
-                            muted
-                            playsInline
-                          />
-                        ) : (
-                          <img
-                            src={media.src}
-                            alt={`${projectTitle} - ${index + 1}`}
-                            className="w-full h-full object-contain"
-                            loading="lazy"
-                          />
-                        )}
-                      </div>
-                    </PhotoView>
-                  </SwiperSlide>
-                ))}
+                {projectImages.map((media, index) => {
+                  const srcPath = media.src || media;
+                  return (
+                    <SwiperSlide key={index}>
+                      <PhotoView src={srcPath}>
+                        <div className="relative aspect-video bg-transparent dark:bg-gray-800 flex items-center justify-center cursor-pointer">
+                          {srcPath.endsWith(".mp4") ? (
+                            <video
+                              src={srcPath}
+                              className="w-full h-full object-contain"
+                              controls
+                              muted
+                              playsInline
+                            />
+                          ) : (
+                            <img
+                              src={srcPath}
+                              alt={`${projectTitle} - ${index + 1}`}
+                              className="w-full h-full object-contain"
+                              loading="lazy"
+                            />
+                          )}
+                        </div>
+                      </PhotoView>
+                    </SwiperSlide>
+                  );
+                })}
               </Swiper>
             </PhotoProvider>
 
