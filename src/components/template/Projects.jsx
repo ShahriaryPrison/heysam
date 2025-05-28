@@ -1,7 +1,7 @@
 import React from "react";
 import Glass from "../modules/Glass";
 import AlefImage from "../../../public/images/projects/Alef.png";
-import RoshanaImage from "../../../public/images/projects/Roshana.png";
+// import RoshanaImage from "../../../public/images/projects/Roshana.png";
 
 function Projects({ content, langState }) {
   return (

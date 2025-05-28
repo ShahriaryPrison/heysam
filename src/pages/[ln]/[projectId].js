@@ -114,28 +114,30 @@ export default function ProjectPage({ langData = {}, project = {} }) {
                 >
                   <PhotoProvider>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {projectImages.map((media, index) => (
-                        <PhotoView key={index} src={media}>
-                          <div className="rounded-lg overflow-hidden shadow-md cursor-pointer">
-                            {media.endsWith(".mp4") ? (
-                              <video
-                                src={media}
-                                className="w-full h-auto object-cover"
-                                controls
-                                muted
-                                playsInline
-                              />
-                            ) : (
-                              <img
-                                src={media}
-                                alt={`${projectTitle} - ${index + 1}`}
-                                className="w-full h-auto object-cover"
-                                loading="lazy"
-                              />
-                            )}
-                          </div>
-                        </PhotoView>
-                      ))}
+                      {projectImages.map((media, index) => {
+                        return (
+                          <PhotoView key={index} src={media}>
+                            <div className="rounded-lg overflow-hidden shadow-md cursor-pointer">
+                              {media.src.endsWith(".mp4") ? (
+                                <video
+                                  src={media.src}
+                                  className="w-full h-auto object-cover"
+                                  controls
+                                  muted
+                                  playsInline
+                                />
+                              ) : (
+                                <img
+                                  src={media.src}
+                                  alt={`${projectTitle} - ${index + 1}`}
+                                  className="w-full h-auto object-cover"
+                                  loading="lazy"
+                                />
+                              )}
+                            </div>
+                          </PhotoView>
+                        );
+                      })}
                     </div>
                   </PhotoProvider>
                 </div>
