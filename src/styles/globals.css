@@ -1,207 +1,312 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@font-face {
-  font-family: "Poppins";
-  src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-*: initial;
+  --font-sans: Estedad;
+  --font-serif: Estedad;
+  --font-estedad-lighter: estedadLighter;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --color-primary-100: #799eff;
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary-100: #3ec36b;
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-@font-face {
-  font-family: "estedadLighter";
-  font-weight: lighter;
-  src: url("../../public/Fonts/Estedad-Light.woff2");
-}
-
-@font-face {
-  font-family: "Estedad";
-  font-weight: thin;
-  src: url("../../public/Fonts/Estedad-Thin.woff2");
-}
-@font-face {
-  font-family: "Estedad";
-  font-weight: normal;
-  src: url("../../public/Fonts/Estedad-Medium.woff2");
-}
-@font-face {
-  font-family: "Estedad";
-  font-weight: bold;
-  src: url("../../public/Fonts/Estedad-Bold.woff2");
-}
-@font-face {
-  font-family: "Snapp";
-  font-weight: bold;
-  src: url("../../public/Fonts/Snapp.ttf");
-}
-
-*::-webkit-scrollbar {
-  width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  background-color: unset;
-  margin: 15px 0;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #c7c7c7;
-  border-radius: 10px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #8e8e8e;
-}
-html {
-  overflow-x: hidden;
-}
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
-  background-color: #1f1d2b;
-  overflow-x: hidden;
-}
-.glass {
-  background: rgba(255, 255, 255, 0.001);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgb(155, 81, 224);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-.glass-modal {
-  background: rgba(255, 255, 255, 0.001);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgb(155, 81, 224);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  animation: modalAnimition 400ms ease 0s normal forwards;
-}
-@keyframes modalAnimition {
-  0% {
-    transform: scale(0.5);
+@theme inline {
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
   }
-  75% {
-    transform: scale(1.05);
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
   }
-  100% {
-    transform: scale(1);
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
   }
 }
-.text-gradient {
-  position: relative;
-  background: #3081ed;
-  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 400ms ease;
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-.list-item-hover {
-  position: relative;
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-.list-item-hover::after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  transition: all 300ms ease;
-  bottom: -3px;
-  left: 0;
-}
-.list-item-hover:hover {
-  background: #3081ed;
-  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.list-item-hover:hover::after {
-  width: 100%;
-}
-.button-gradient {
-  background-color: #3081ed;
-  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  background-size: 200%;
-  transition: background-position 0.4s ease;
-  transition: all 0.4s ease !important;
-}
+@layer utilities {
+  @font-face {
+    font-family: 'Poppins';
+    src: url('../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf');
+  }
 
-.button-gradient:hover {
-  background-position: 100%;
-  color: white;
-}
-.halo {
-  width: 200px;
-  height: 200px;
-  background: transparent;
-  border-radius: 50%;
-  position: relative;
-  box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
-}
+  @font-face {
+    font-family: 'estedadLighter';
+    font-weight: lighter;
+    src: url('../../public/Fonts/Estedad-Light.woff2');
+  }
 
-.tag-shadow {
-  background: rgba(255, 255, 255, 0.085);
-  backdrop-filter: blur(10px);
-  box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
-}
-.member-shadow {
-  border: 1px solid rgb(81, 114, 224);
-  box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
-}
-.member-animation {
-  transition: all 300ms ease-out;
-}
-.member-animation:hover {
-  transform: translateY(-10px);
-}
-.about-us-animation {
-  animation: aboutTransition 6s ease infinite alternate;
-}
-@keyframes aboutTransition {
-  from {
+  @font-face {
+    font-family: 'Estedad';
+    font-weight: thin;
+    src: url('../../public/Fonts/Estedad-Thin.woff2');
+  }
+  @font-face {
+    font-family: 'Estedad';
+    font-weight: normal;
+    src: url('../../public/Fonts/Estedad-Medium.woff2');
+  }
+  @font-face {
+    font-family: 'Estedad';
+    font-weight: bold;
+    src: url('../../public/Fonts/Estedad-Bold.woff2');
+  }
+  @font-face {
+    font-family: 'Snapp';
+    font-weight: bold;
+    src: url('../../public/Fonts/Snapp.ttf');
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: unset;
+    margin: 15px 0;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #c7c7c7;
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #8e8e8e;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    background-color: #1f1d2b;
+    overflow-x: hidden;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.001);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(155, 81, 224);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  .glass-modal {
+    background: rgba(255, 255, 255, 0.001);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(155, 81, 224);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    animation: modalAnimition 400ms ease 0s normal forwards;
+  }
+  @keyframes modalAnimition {
+    0% {
+      transform: scale(0.5);
+    }
+    75% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .text-gradient {
+    position: relative;
+    background: #3081ed;
+    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 400ms ease;
+  }
+
+  .list-item-hover {
+    position: relative;
+    cursor: pointer;
+    transition: all 300ms ease;
+  }
+  .list-item-hover::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    transition: all 300ms ease;
+    bottom: -3px;
+    left: 0;
+  }
+  .list-item-hover:hover {
+    background: #3081ed;
+    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .list-item-hover:hover::after {
+    width: 100%;
+  }
+  .button-gradient {
+    background-color: #3081ed;
+    background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    background-size: 200%;
+    transition: background-position 0.4s ease;
+    transition: all 0.4s ease !important;
+  }
+
+  .button-gradient:hover {
+    background-position: 100%;
+    color: white;
+  }
+  .halo {
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
+  }
+
+  .tag-shadow {
+    background: rgba(255, 255, 255, 0.085);
+    backdrop-filter: blur(10px);
+    box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
+  }
+  .member-shadow {
+    border: 1px solid rgb(81, 114, 224);
+    box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
+  }
+  .member-animation {
+    transition: all 300ms ease-out;
+  }
+  .member-animation:hover {
     transform: translateY(-10px);
   }
-  to {
-    transform: translateY(10px);
+  .about-us-animation {
+    animation: aboutTransition 6s ease infinite alternate;
   }
-}
-/* back to tob styels */
-.back-to-top-btn {
-  display: none;
-  position: fixed;
-  background-color: #3081ed;
-  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-  background-size: 200%;
-  transition: background-position 0.4s ease;
-  transition: all 0.4s ease;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  animation: modalAnimition 400ms ease 0s normal forwards;
-}
-.back-to-top-btn:hover {
-  background-position: 100%;
-  color: white;
-}
+  @keyframes aboutTransition {
+    from {
+      transform: translateY(-10px);
+    }
+    to {
+      transform: translateY(10px);
+    }
+  }
+  /* back to tob styels */
+  .back-to-top-btn {
+    display: none;
+    position: fixed;
+    background-color: #3081ed;
+    background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    background-size: 200%;
+    transition: background-position 0.4s ease;
+    transition: all 0.4s ease;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    animation: modalAnimition 400ms ease 0s normal forwards;
+  }
+  .back-to-top-btn:hover {
+    background-position: 100%;
+    color: white;
+  }
 
-.visible {
-  display: block;
-}
+  .visible {
+    display: block;
+  }
 
-.hidden {
-  display: none;
-}
+  .hidden {
+    display: none;
+  }
 
-.back-to-top-btn:hover {
-  background-color: #0056b3;
-}
-/* back to tob styels */
-.custom-header-dir {
-  direction: ltr !important;
+  .back-to-top-btn:hover {
+    background-color: #0056b3;
+  }
+  /* back to tob styels */
+  .custom-header-dir {
+    direction: ltr !important;
+  }
 }
 
 @layer base {
@@ -271,35 +376,5 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@theme inline {
-  @keyframes shine {
-  0% {
-    background-position: 0% 0%;
-    }
-  50% {
-    background-position: 100% 100%;
-    }
-  to {
-    background-position: 0% 0%;
-    }
-  }
-  @keyframes marquee {
-  from {
-    transform: translateX(0);
-    }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-    }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-    }
   }
 }

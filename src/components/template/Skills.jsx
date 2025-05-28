@@ -13,7 +13,7 @@ function Skills({content}) {
             image={skill.skillImage}
           />
         ))}
-        <div className="w-full h-52 shrink-0 rounded-[448px] bg-gradient-to-r from-cyan-500 to-fuchsia-500  opacity-[0.34] blur-[100px] absolute right-0" />
+        <div className="w-full h-52 shrink-0 rounded-[448px] bg-linear-to-r from-cyan-500 to-fuchsia-500  opacity-[0.34] blur-[100px] absolute right-0" />
       </div>
     </section>
   );

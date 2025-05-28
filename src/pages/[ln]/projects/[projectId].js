@@ -221,11 +221,11 @@ export default function ProjectPage({
         </div>
         <div
           data-aos="fade-left"
-          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] !opacity-[0.34] blur-[100px] absolute -bottom-40 right-20"
+          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34]! blur-[100px] absolute -bottom-40 right-20"
         />
         <div
           data-aos="fade-right"
-          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] !opacity-[0.34] blur-[100px] absolute top-[50px] left-[50px]"
+          className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34]! blur-[100px] absolute top-[50px] left-[50px]"
         />
       </div>
 
