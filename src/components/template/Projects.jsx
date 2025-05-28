@@ -55,26 +55,37 @@ const ReviewCard = ({ icon, title, tech, description, langState }) => {
 
 export default function Projects({ projects, langState }) {
   return (
-    <div className="relative py-20 flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {projects.map((project) => (
-          <ReviewCard key={project.title} langState={langState} {...project} />
-        ))}
-      </Marquee>
+    <>
+      <div className="w-full max-w-7xl mx-auto flex flex-col text-white">
+        <h4 className="text-white px-4 w-full font-bold text-5xl">
+          {langState === "fa" ? "پروژه ها" : "Expriences"}
+        </h4>
+      </div>
+      <div className="relative py-20 flex w-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {projects.map((project) => (
+            <ReviewCard
+              key={project.title}
+              langState={langState}
+              {...project}
+            />
+          ))}
+        </Marquee>
 
-      {/* سمت چپ - محو شدن به سمت راست + بلر */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-1/4 
+        {/* سمت چپ - محو شدن به سمت راست + بلر */}
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/4 
                backdrop-blur-[2px] 
                [mask-image:linear-gradient(to_left,transparent,white)]"
-      ></div>
+        ></div>
 
-      {/* سمت راست - محو شدن به سمت چپ + بلر */}
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-1/4 
+        {/* سمت راست - محو شدن به سمت چپ + بلر */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-1/4 
                backdrop-blur-[2px] 
                [mask-image:linear-gradient(to_right,transparent,white)]"
-      ></div>
-    </div>
+        ></div>
+      </div>
+    </>
   );
 }

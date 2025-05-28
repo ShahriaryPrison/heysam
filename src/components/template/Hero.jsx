@@ -124,7 +124,7 @@ function Hero({ content, langState }) {
             {content.button}
           </Link>
           <Link
-            href="#contact"
+            href="#footer"
             className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold"
           >
             {content.secondButton}
