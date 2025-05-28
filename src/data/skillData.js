@@ -14,6 +14,8 @@ import PytonImage from "../../public/images/skills/Pyton.png";
 import GitImage from "../../public/images/skills/Git.png";
 import GitHubImage from "../../public/images/skills/Github.png";
 import IOTImage from "../../public/images/skills/Iot.png";
+import DockerImage from "../../public/images/skills/docker.png";
+import FigmaImage from "../../public/images/skills/figma.png";
 
 const skillsData = [
   { skill: "Html5", skillImage: HtmlImage },
@@ -32,6 +34,29 @@ const skillsData = [
   { skill: "Sass", skillImage: SassImage },
   { skill: "LiveWire", skillImage: LiveWireImage },
   { skill: "Github", skillImage: GitHubImage },
+  { skill: "Docker", skillImage: DockerImage },
+  { skill: "Figma", skillImage: FigmaImage },
+  { skill: "jest", skillImage: { src: "https://cdn.simpleicons.org/jest" } },
+  {
+    skill: "flutter",
+    skillImage: { src: "https://cdn.simpleicons.org/flutter" },
+  },
+  {
+    skill: "typescript",
+    skillImage: { src: "https://cdn.simpleicons.org/typescript" },
+  },
+  {
+    skill: "dart",
+    skillImage: { src: "https://cdn.simpleicons.org/dart" },
+  },
+  {
+    skill: "visualstudiocode",
+    skillImage: { src: "https://cdn.simpleicons.org/visualstudiocode" },
+  },
+  {
+    skill: "gitlab",
+    skillImage: { src: "https://cdn.simpleicons.org/gitlab" },
+  },
 ];
 
 // تبدیل به آرایه‌ای از { src, alt }
