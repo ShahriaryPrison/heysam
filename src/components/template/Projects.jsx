@@ -5,9 +5,10 @@ import simplifiedSkills from "@/data/skillData";
 
 const someSkills = simplifiedSkills.slice(0, 6); // Adjust the number of skills to show
 
-const ReviewCard = ({ icon, title, tech, description, langState }) => {
+const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
   return (
     <figure
+      key={key}
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 glass text-white",
         // light styles
