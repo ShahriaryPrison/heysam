@@ -9,9 +9,9 @@ function MainAboutUs({ content, langState }) {
       id="#about_us"
       className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
     >
-      <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-6">
+      <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-8">
         <h2
-          className={`max-w-lg text-xl md:text-2xl  lg:text-4xl text-white ${
+          className={`max-w-lg text-xl md:text-2xl  lg:text-4xl font-bold text-white ${
             langState === "en" ? "font-[Poppins] text-left" : "text-right"
           }`}
         >
@@ -48,7 +48,7 @@ function MainAboutUs({ content, langState }) {
           )}
         </h2>
         <p
-          className={`max-w-lg text-[#E2E2E2] ${
+          className={`max-w-lg text-[#E2E2E2] font-medium ${
             langState === "fa" ? "text-base text-right" : "text-left"
           }`}
         >
@@ -56,7 +56,7 @@ function MainAboutUs({ content, langState }) {
         </p>
         <Link
           href="#skills"
-          className="w-full max-w-40 flex justify-center items-center button-gradient p-2 text-white rounded-lg"
+          className="w-full max-w-40 flex justify-center items-center button-gradient p-2 text-white rounded-lg font-bold"
         >
           {content.button}
         </Link>
@@ -72,12 +72,12 @@ function MainAboutUs({ content, langState }) {
           priority
         />
         <div className="flex flex-col gap-2 w-full max-w-sm">
-          <div className="text-white flex justify-between items-center">
+          <div className={`text-white flex ${langState === "fa" && "flex-row-reverse"} justify-between items-center`}>
             <h4>Software</h4>
             <h4>Development</h4>
           </div>
           <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
-          <div className="text-[#D7D7D7] flex justify-between items-center">
+          <div className={`text-[#D7D7D7] flex ${langState === "fa" && "flex-row-reverse"} justify-between items-center`}>
             <h4>created at</h4>
             <h4>12/23/2023</h4>
           </div>

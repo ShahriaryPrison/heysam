@@ -1,10 +1,49 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Logo from "../../../public/images/heysam-logo-no-back.png";
 import Link from "next/link";
-function Header({content , langState}) {
+
+function Header({ content, langState }) {
+  // انیمیشن‌های مختلف
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100 },
+    },
+  };
+
+  const hoverEffect = {
+    scale: 1.05,
+    color: "#FFFFFF",
+    transition: { duration: 0.2 },
+  };
+
   return (
-    <header className="flex justify-between items-center w-full px-2 py-2 sm:py-4 sm:px-6 custom-header-dir">
-      <a href="" className="flex justify-center sm:w-full sm:max-w-40 lg:w-min  items-center px-6 sm:px-8 cursor-pointer">
+    <motion.header
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="flex justify-between items-center w-full px-2 py-2 sm:py-4 sm:px-6 custom-header-dir"
+    >
+      {/* لوگو با انیمیشن */}
+      <motion.a
+        href=""
+        className="flex justify-center sm:w-full sm:max-w-40 lg:w-min items-center px-6 sm:px-8 cursor-pointer"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
         <Image
           src={Logo}
           className="w-8 h-8 sm:w-11 sm:h-11"
@@ -12,31 +51,66 @@ function Header({content , langState}) {
           height="80"
           alt="Logo"
         />
-        <p className="text-gradient font-[Poppins] font-bold text-lg sm:text-3xl">EYSAM</p>
-      </a>
-      <ul className="hidden lg:flex gap-6 ">
-        <a href="#about_us">
-          <li className={`text-[#BCBCBC] list-item-hover ${langState === "fa" && "text-lg font-bold"}`}>{content.about_us}</li>
-        </a>
-        <a href="#skills">
-          <li className={`text-[#BCBCBC] list-item-hover ${langState === "fa" && "text-lg font-bold"}`}>
-            {content.projects}
-          </li>
-        </a>
-        <a href="#team-member">
-          <li className={`text-[#BCBCBC] list-item-hover ${langState === "fa" && "text-lg font-bold"}`}>{content.team_members}</li>
-        </a>
-        <a href="#footer">
-          <li className={`text-[#BCBCBC] list-item-hover ${langState === "fa" && "text-lg font-bold"}`}>{content.contact_us}</li>
-        </a>
-      </ul>
-      <div className="py-4">
-        <Link href={"/en"} className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${langState === "en" && "border border-[#D7D7D7] rounded-lg"}`}>
-          English
+        <motion.p
+          className="text-gradient font-[Poppins] font-bold text-lg sm:text-3xl"
+          whileHover={{ scale: 1.1 }}
+        >
+          EYSAM
+        </motion.p>
+      </motion.a>
+
+      {/* منوی نویگیشن با انیمیشن */}
+      <motion.ul className="hidden lg:flex gap-6" variants={containerVariants}>
+        {[
+          { id: "about_us", href: "#about_us" },
+          { id: "projects", href: "#skills" },
+          { id: "our_skills", href: "#team-member" },
+          { id: "contact_us", href: "#footer" },
+        ].map((item) => (
+          <motion.li
+            key={item.id}
+            variants={itemVariants}
+            whileHover={hoverEffect}
+          >
+            <a href={item.href}>
+              <motion.span
+                className={`text-[#BCBCBC] list-item-hover ${
+                  langState === "fa" && "text-lg font-bold "
+                }`}
+              >
+                {content[item.id]}
+              </motion.span>
+            </a>
+          </motion.li>
+        ))}
+      </motion.ul>
+
+      {/* دکمه‌های زبان با انیمیشن */}
+      <motion.div className="py-4" variants={itemVariants}>
+        <Link href="/en">
+          <motion.button
+            className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${
+              langState === "en" && "border border-[#D7D7D7] rounded-lg"
+            }`}
+            whileHover={hoverEffect}
+            whileTap={{ scale: 0.95 }}
+          >
+            English
+          </motion.button>
         </Link>
-        <Link href={"/fa"} className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${langState === "fa" && "border border-[#D7D7D7] rounded-lg"}`}>فارسی</Link>
-      </div>
-    </header>
+        <Link href="/fa">
+          <motion.button
+            className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${
+              langState === "fa" && "border border-[#D7D7D7] rounded-lg"
+            }`}
+            whileHover={hoverEffect}
+            whileTap={{ scale: 0.95 }}
+          >
+            فارسی
+          </motion.button>
+        </Link>
+      </motion.div>
+    </motion.header>
   );
 }
 
