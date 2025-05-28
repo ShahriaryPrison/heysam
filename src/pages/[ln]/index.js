@@ -50,7 +50,8 @@ export async function getStaticProps({ params }) {
   const langData = (await import(`@/data/languages/${ln}.js`)).default;
 
   // Read projects
-  const projectsDir = path.join(process.cwd(), "data", "projects", ln);
+  const projectsDir = path.join(process.cwd(), "src", "data", "projects", ln);
+
   const projectFiles = fs.readdirSync(projectsDir);
 
   const projects = await Promise.all(
@@ -61,7 +62,7 @@ export async function getStaticProps({ params }) {
       return { ...project, id: projectId };
     })
   );
-
+  
   return {
     props: {
       langData,
