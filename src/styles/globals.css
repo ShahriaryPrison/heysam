@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin 'tailwindcss-animate';
 
@@ -87,6 +87,626 @@
   }
 }
 
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+    --animate-shine: shine var(--duration) infinite linear;
+ 
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility glass {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  background: rgba(255, 255, 255, 0.001);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(155, 81, 224);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+@utility glass-modal {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  background: rgba(255, 255, 255, 0.001);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(155, 81, 224);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  animation: modalAnimition 400ms ease 0s normal forwards;
+}
+
+@utility text-gradient {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  position: relative;
+  background: #3081ed;
+  background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 400ms ease;
+}
+
+@utility list-item-hover {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  position: relative;
+  cursor: pointer;
+  transition: all 300ms ease;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    transition: all 300ms ease;
+    bottom: -3px;
+    left: 0;
+  }
+  &:hover {
+    background: #3081ed;
+    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@utility button-gradient {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  background-color: #3081ed;
+  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  background-size: 200%;
+  transition: background-position 0.4s ease;
+  transition: all 0.4s ease !important;
+
+  &:hover {
+    background-position: 100%;
+    color: white;
+  }
+}
+
+@utility halo {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
+}
+
+@utility tag-shadow {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  background: rgba(255, 255, 255, 0.085);
+  backdrop-filter: blur(10px);
+  box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
+}
+
+@utility member-shadow {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  border: 1px solid rgb(81, 114, 224);
+  box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
+}
+
+@utility member-animation {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  transition: all 300ms ease-out;
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+@utility about-us-animation {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  animation: aboutTransition 6s ease infinite alternate;
+}
+
+@utility back-to-top-btn {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  /* back to tob styels */
+  display: none;
+  position: fixed;
+  background-color: #3081ed;
+  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  background-size: 200%;
+  transition: background-position 0.4s ease;
+  transition: all 0.4s ease;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  animation: modalAnimition 400ms ease 0s normal forwards;
+  &:hover {
+    background-position: 100%;
+    color: white;
+  }
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+@utility visible {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  display: block;
+}
+
+@utility hidden {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  display: none;
+}
+
+@utility custom-header-dir {
+  @font-face {
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+  }
+
+  @font-face {
+    font-family: "estedadLighter";
+    font-weight: lighter;
+    src: url("../../public/Fonts/Estedad-Light.woff2");
+  }
+
+  @font-face {
+    font-family: "Estedad";
+    font-weight: thin;
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: normal;
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
+  }
+  @font-face {
+    font-family: "Estedad";
+    font-weight: bold;
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Snapp";
+    font-weight: bold;
+    src: url("../../public/Fonts/Snapp.ttf");
+  }
+  /* back to tob styels */
+  direction: ltr !important;
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -107,35 +727,35 @@
 
 @layer utilities {
   @font-face {
-    font-family: 'Poppins';
-    src: url('../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf');
+    font-family: "Poppins";
+    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
   }
 
   @font-face {
-    font-family: 'estedadLighter';
+    font-family: "estedadLighter";
     font-weight: lighter;
-    src: url('../../public/Fonts/Estedad-Light.woff2');
+    src: url("../../public/Fonts/Estedad-Light.woff2");
   }
 
   @font-face {
-    font-family: 'Estedad';
+    font-family: "Estedad";
     font-weight: thin;
-    src: url('../../public/Fonts/Estedad-Thin.woff2');
+    src: url("../../public/Fonts/Estedad-Thin.woff2");
   }
   @font-face {
-    font-family: 'Estedad';
+    font-family: "Estedad";
     font-weight: normal;
-    src: url('../../public/Fonts/Estedad-Medium.woff2');
+    src: url("../../public/Fonts/Estedad-Medium.woff2");
   }
   @font-face {
-    font-family: 'Estedad';
+    font-family: "Estedad";
     font-weight: bold;
-    src: url('../../public/Fonts/Estedad-Bold.woff2');
+    src: url("../../public/Fonts/Estedad-Bold.woff2");
   }
   @font-face {
-    font-family: 'Snapp';
+    font-family: "Snapp";
     font-weight: bold;
-    src: url('../../public/Fonts/Snapp.ttf');
+    src: url("../../public/Fonts/Snapp.ttf");
   }
 
   *::-webkit-scrollbar {
@@ -166,19 +786,6 @@
     background-color: #1f1d2b;
     overflow-x: hidden;
   }
-  .glass {
-    background: rgba(255, 255, 255, 0.001);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgb(155, 81, 224);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  }
-  .glass-modal {
-    background: rgba(255, 255, 255, 0.001);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgb(155, 81, 224);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    animation: modalAnimition 400ms ease 0s normal forwards;
-  }
   @keyframes modalAnimition {
     0% {
       transform: scale(0.5);
@@ -190,78 +797,6 @@
       transform: scale(1);
     }
   }
-  .text-gradient {
-    position: relative;
-    background: #3081ed;
-    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 400ms ease;
-  }
-
-  .list-item-hover {
-    position: relative;
-    cursor: pointer;
-    transition: all 300ms ease;
-  }
-  .list-item-hover::after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 2px;
-    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-    transition: all 300ms ease;
-    bottom: -3px;
-    left: 0;
-  }
-  .list-item-hover:hover {
-    background: #3081ed;
-    background: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .list-item-hover:hover::after {
-    width: 100%;
-  }
-  .button-gradient {
-    background-color: #3081ed;
-    background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-    background-size: 200%;
-    transition: background-position 0.4s ease;
-    transition: all 0.4s ease !important;
-  }
-
-  .button-gradient:hover {
-    background-position: 100%;
-    color: white;
-  }
-  .halo {
-    width: 200px;
-    height: 200px;
-    background: transparent;
-    border-radius: 50%;
-    position: relative;
-    box-shadow: 0 0 50px 20px rgb(155, 81, 224) inset;
-  }
-
-  .tag-shadow {
-    background: rgba(255, 255, 255, 0.085);
-    backdrop-filter: blur(10px);
-    box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
-  }
-  .member-shadow {
-    border: 1px solid rgb(81, 114, 224);
-    box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
-  }
-  .member-animation {
-    transition: all 300ms ease-out;
-  }
-  .member-animation:hover {
-    transform: translateY(-10px);
-  }
-  .about-us-animation {
-    animation: aboutTransition 6s ease infinite alternate;
-  }
   @keyframes aboutTransition {
     from {
       transform: translateY(-10px);
@@ -269,43 +804,6 @@
     to {
       transform: translateY(10px);
     }
-  }
-  /* back to tob styels */
-  .back-to-top-btn {
-    display: none;
-    position: fixed;
-    background-color: #3081ed;
-    background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
-    background-size: 200%;
-    transition: background-position 0.4s ease;
-    transition: all 0.4s ease;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    animation: modalAnimition 400ms ease 0s normal forwards;
-  }
-  .back-to-top-btn:hover {
-    background-position: 100%;
-    color: white;
-  }
-
-  .visible {
-    display: block;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .back-to-top-btn:hover {
-    background-color: #0056b3;
-  }
-  /* back to tob styels */
-  .custom-header-dir {
-    direction: ltr !important;
   }
 }
 
@@ -367,28 +865,6 @@
     --animate-shine: shine var(--duration) infinite linear;
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-  }
-}
-
-@theme inline {
-  --animate-marquee: marquee var(--duration) infinite linear;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
- 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes marquee-vertical {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(calc(-100% - var(--gap)));
-    }
   }
 }
 
