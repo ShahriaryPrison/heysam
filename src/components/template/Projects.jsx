@@ -6,8 +6,8 @@ import AlefImage from "../../../public/images/projects/Alef.png";
 function Projects({ content, langState }) {
   return (
     <section
-      id="skills"
-      className="relative w-full max-w-7xl mx-auto flex flex-col gap-36 py-10 px-8 lg:px-16"
+      id="projects"
+      // className="relative w-full max-w-7xl mx-auto flex flex-col gap-36 py-10 px-8 lg:px-16"
     >
       {/* <h4 className="text-white w-full text-center text-3xl">
         {content.title}

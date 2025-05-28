@@ -3,13 +3,13 @@ import Link from "next/link";
 import AboutUsImage from "../../../public/images/heysam-logo.png";
 import { TypeAnimation } from "react-type-animation";
 
-function MainAboutUs({ content, langState }) {
+function Hero({ content, langState }) {
   return (
     <section
       id="#about_us"
-      className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center py-12 gap-10 px-8 lg:px-16"
+      className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center gap-10 px-8 lg:px-16"
     >
-      <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-8">
+      <div className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-4">
         <h2
           className={`max-w-lg text-xl md:text-2xl  lg:text-4xl font-bold text-white ${
             langState === "en" ? "font-[Poppins] text-left" : "text-right"
@@ -54,12 +54,20 @@ function MainAboutUs({ content, langState }) {
         >
           {content.body}
         </p>
-        <Link
-          href="#skills"
-          className="w-full max-w-40 flex justify-center items-center button-gradient p-2 text-white rounded-lg font-bold"
-        >
-          {content.button}
-        </Link>
+        <div className="flex gap-4">
+          <Link
+            href="#skills"
+            className="flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold"
+          >
+            {content.button}
+          </Link>
+          <Link
+            href="#skills"
+            className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold"
+          >
+            {content.secondButton}
+          </Link>
+        </div>
       </div>
 
       <div className="glass text-lg  lg:text-xl about-us-animation relative p-5 rounded-3xl w-full    max-w-sm flex flex-col justify-start items-center gap-8">
@@ -72,12 +80,20 @@ function MainAboutUs({ content, langState }) {
           priority
         />
         <div className="flex flex-col gap-2 w-full max-w-sm">
-          <div className={`text-white flex ${langState === "fa" && "flex-row-reverse"} justify-between items-center`}>
+          <div
+            className={`text-white flex ${
+              langState === "fa" && "flex-row-reverse"
+            } justify-between items-center`}
+          >
             <h4>Software</h4>
             <h4>Development</h4>
           </div>
           <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
-          <div className={`text-[#D7D7D7] flex ${langState === "fa" && "flex-row-reverse"} justify-between items-center`}>
+          <div
+            className={`text-[#D7D7D7] flex ${
+              langState === "fa" && "flex-row-reverse"
+            } justify-between items-center`}
+          >
             <h4>created at</h4>
             <h4>12/23/2023</h4>
           </div>
@@ -89,4 +105,4 @@ function MainAboutUs({ content, langState }) {
   );
 }
 
-export default MainAboutUs;
+export default Hero;

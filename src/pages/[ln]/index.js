@@ -1,5 +1,5 @@
 import Header from "@/components/template/Header";
-import MainAboutUs from "@/components/template/MainAboutUs";
+import Hero from "@/components/template/Hero";
 import Skills from "@/components/template/Skills";
 import Projects from "@/components/template/Projects";
 import Footer from "@/components/template/Footer";
@@ -23,7 +23,7 @@ export default function Home({ langData, projects }) {
       }
     >
       <Header content={langData.header} langState={langData.lang} />
-      <MainAboutUs content={langData.main_about_us} langState={langData.lang} />
+      <Hero content={langData.main_about_us} langState={langData.lang} />
       <Projects
         projects={projects}
         lang={langData.lang}

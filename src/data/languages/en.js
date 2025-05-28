@@ -7,9 +7,8 @@ export default {
     contact_us: "CONTACT",
   },
   main_about_us: {
-    header:
-      "Empowering your vision with our tech expertise – lets create something extraordinary together.",
-    body: "Versatile expertise across a wide range of programming languages and frameworks, ensuring flexibility and adaptability to your project's unique needs.",
+    header: "We Craft Extraordinary Software Solutions.",
+    body: "From complex backends to automated SaaS platforms, we engineer scalable software tailored to your needs.",
     button: "Experiences",
     secondButton: "Get in touch!",
   },
