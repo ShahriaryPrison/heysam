@@ -115,7 +115,7 @@ function Footer({ langState = "fa" }) {
                 <p className="text-gray-300">{content.contact.phone}</p>
                 <a
                   href="tel:+989123456789"
-                  className="text-white hover:text-[#C77DFF] transition-colors text-left" 
+                  className="text-white hover:text-[#C77DFF] transition-colors text-left"
                 >
                   +98 994 421 5832
                 </a>
@@ -132,7 +132,7 @@ function Footer({ langState = "fa" }) {
           <ul className="space-y-3">
             <li>
               <a
-                href="#about"
+                href={`/${langState}#hero`}
                 className="text-gray-300 hover:text-[#C77DFF] transition-colors"
               >
                 {content.quickLinks.about}
@@ -140,7 +140,7 @@ function Footer({ langState = "fa" }) {
             </li>
             <li>
               <a
-                href="#skills"
+                href={`/${langState}#skills`}
                 className="text-gray-300 hover:text-[#9B51E0] transition-colors"
               >
                 {content.quickLinks.skills}
@@ -148,7 +148,7 @@ function Footer({ langState = "fa" }) {
             </li>
             <li>
               <a
-                href="#projects"
+                href={`/${langState}#projects`}
                 className="text-gray-300 hover:text-[#7F5AFF] transition-colors"
               >
                 {content.quickLinks.projects}
@@ -156,7 +156,7 @@ function Footer({ langState = "fa" }) {
             </li>
             <li>
               <a
-                href="#contact"
+                href={`/${langState}#footer`}
                 className="text-gray-300 hover:text-[#5E7AFF] transition-colors"
               >
                 {content.quickLinks.contact}
