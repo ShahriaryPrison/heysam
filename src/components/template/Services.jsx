@@ -1,10 +1,10 @@
 import { BentoCard, BentoGrid } from "../magicui/bento-grid";
 import {
-    FigmaLogoIcon,
+  FigmaLogoIcon,
   CodeIcon,
   GlobeIcon,
   GearIcon,
-  BellIcon,
+  MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 
 export default function Services({ projects, langState }) {
@@ -12,48 +12,48 @@ export default function Services({ projects, langState }) {
     {
       name: "UI/UX Design",
       description: "Crafting intuitive and engaging user experiences.",
-      href: "/",
+      href: langState + "/#footer",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+      className: "lg:row-start-1 lg:row-end-3 lg:col-start-2 lg:col-end-3",
       Icon: FigmaLogoIcon,
     },
     {
       name: "Frontend Development",
       description: "Building responsive and dynamic web applications.",
-      href: "/",
+      href: langState + "/#footer",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
       Icon: CodeIcon,
     },
     {
       name: "Backend Development",
       description: "Creating robust server-side solutions and APIs.",
-      href: "/",
+      href: langState + "/#footer",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
       Icon: GlobeIcon,
     },
     {
       name: "DevOps",
       description: "Streamlining development and operations for efficiency.",
-      href: "/",
+      href: langState + "/#footer",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-1",
       Icon: GearIcon,
     },
     {
       name: "SEO Optimization",
       description:
         "Enhancing visibility and searchability of web applications.",
-      href: "/",
+      href: langState + "/#footer",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-      Icon: BellIcon,
+      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+      Icon: MagnifyingGlassIcon,
     },
   ];
 
