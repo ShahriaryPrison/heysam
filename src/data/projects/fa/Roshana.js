@@ -9,7 +9,11 @@ export default {
   icon: RoshanaIcon,
   tech: "وب اپ",
   description: "یک وب اپلیکشن کاربردی برای خیریه ها و نیازمندان...",
-  images: [RohanaImage1, RohanaImage2, RohanaImage3],
+  images: [
+    { size: "mobile", src: RohanaImage1 },
+    { size: "mobile", src: RohanaImage2 },
+    { size: "mobile", src: RohanaImage3 },
+  ],
   link: "https://roshanaa.com/welcome",
   features: [
     "مدیریت خیریه‌ها",

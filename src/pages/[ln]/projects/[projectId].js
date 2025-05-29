@@ -19,6 +19,7 @@ import Link from "next/link";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { Safari } from "@/components/magicui/safari";
 import { motion } from "framer-motion";
+import { AuroraText } from "@/components/magicui/aurora-text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -97,12 +98,28 @@ export default function ProjectPage({
       <div className="w-full max-w-6xl px-4 flex flex-col lg:flex-row justify-center gap-8">
         <div className="flex-1 w-full lg:max-w-2xl">
           {/* Project Title */}
-          <h1
-            className="text-2xl md:text-3xl font-bold text-white"
-            data-aos="fade-up"
-          >
-            {projectTitle}
-          </h1>
+          <div className="w-full flex justify-between items-center gap-2">
+            <h1
+              className="text-2xl md:text-3xl font-bold text-white"
+              data-aos="fade-up"
+            >
+              {projectTitle};
+            </h1>
+            {/* Project Link */}
+
+            {project?.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg button-gradient text-sm md:text-base"
+                data-aos="fade-up"
+                data-aos-delay="250"
+              >
+                {isRTL ? "مشاهده پروژه" : "View Project"}
+              </a>
+            )}
+          </div>
 
           {/* Project Technology */}
           <p
@@ -144,7 +161,6 @@ export default function ProjectPage({
               >
                 {projectImages.map((media, index) => {
                   const srcPath = media.src.src || media.src;
-                  console.log(media);
 
                   return (
                     <SwiperSlide key={index}>
@@ -248,21 +264,6 @@ export default function ProjectPage({
               </ul>
             </div>
           )}
-          {/* Project Link */}
-          <div className="mt-4">
-            {project?.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg button-gradient text-sm md:text-base"
-                data-aos="fade-up"
-                data-aos-delay="250"
-              >
-                {isRTL ? "مشاهده پروژه" : "View Project"}
-              </a>
-            )}
-          </div>
         </div>
 
         <motion.div
