@@ -46,7 +46,7 @@ export function IconCloudDemo({ content, langState }) {
     alt: slug,
   }));
   console.log(simplifiedSkills);
-  
+
   useEffect(() => {
     setMounted(true);
     AOS.init({
@@ -116,33 +116,37 @@ export function IconCloudDemo({ content, langState }) {
 
       {/* Content Card */}
       <motion.div
-        className="relative z-10 w-full max-w-md"
+        className="relative z-10 w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         data-aos="fade-up"
       >
-        <div className="glass-container p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
+        <div className="glass-container mx-auto w-fit p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
           <motion.h3
-            className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
+            className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4 flex"
             variants={itemVariants}
           >
             {content.title}
           </motion.h3>
 
           <motion.p
-            className="text-white/80 mb-6 leading-relaxed"
+            className="text-white/80 mb-6 leading-relaxed flex"
             variants={itemVariants}
           >
             {content.description}
           </motion.p>
 
-          <motion.div className="flex gap-4" variants={itemVariants}>
-            <button className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30">
-              {content.primaryButton || "Details"}
+          <motion.div
+            className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-4"
+            variants={itemVariants}
+          >
+            <button className="w-full sm:w-fit inline-flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
+              {content.button}
             </button>
-            <button className="px-6 py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-300">
-              {content.secondaryButton || "Our Work"}
+
+            <button className="w-full sm:w-fit inline-flex justify-center items-center glass px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
+              {content.secondButton}
             </button>
           </motion.div>
         </div>

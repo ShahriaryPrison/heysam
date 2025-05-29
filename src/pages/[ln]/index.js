@@ -9,6 +9,7 @@ import AOS from "aos";
 import fs from "fs";
 import path from "path";
 import { IconCloudDemo } from "@/components/template/IconClude";
+import Services from "@/components/template/Services";
 
 export default function Home({ langData, projects }) {
   
@@ -30,6 +31,7 @@ export default function Home({ langData, projects }) {
         langState={langData.lang}
         content={langData.projects}
       />
+      <Services/>
       <IconCloudDemo content={langData.skills} langState={langData.lang} />
       <Footer content={langData.footer} langState={langData.lang} />
       <BackToTopButton />

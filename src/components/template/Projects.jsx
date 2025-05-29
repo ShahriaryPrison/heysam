@@ -5,9 +5,10 @@ import simplifiedSkills from "@/data/skillData";
 
 const someSkills = simplifiedSkills.slice(0, 6); // Adjust the number of skills to show
 
-const ReviewCard = ({ icon, title, tech, description, langState }) => {
+const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
   return (
     <figure
+      key={key}
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 glass text-white",
         // light styles
@@ -32,15 +33,15 @@ const ReviewCard = ({ icon, title, tech, description, langState }) => {
             </figcaption>
             {/* <p className="text-xs font-medium dark:text-white/40">{tech}</p> */}
             <div className="flex items-center gap-1 overflow-hidden">
-              {someSkills.map((skill) => (
-                <img src={skill.src} className="w-4 h-4" />
+              {someSkills.map((skill, index) => (
+                <img key={index} src={skill.src} className="w-4 h-4" />
               ))}
             </div>
           </div>
         </div>
         <a
           href={`/${langState}/projects/${encodeURIComponent(
-            title.replace(/\s+/g, "-")
+            title.replace(/\s+/g, "")
           )}`}
           className="button-gradient px-2 py-1 rounded-2xl text-xs"
         >
@@ -57,26 +58,37 @@ const ReviewCard = ({ icon, title, tech, description, langState }) => {
 
 export default function Projects({ projects, langState }) {
   return (
-    <div className="relative py-20 flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {projects.map((project) => (
-          <ReviewCard key={project.title} langState={langState} {...project} />
-        ))}
-      </Marquee>
+    <>
+      <div className="w-full max-w-7xl mx-auto flex flex-col text-white">
+        <h4 className="text-white px-4 pt-10 w-full font-bold text-5xl">
+          {langState === "fa" ? "پروژه ها" : "Expriences"}
+        </h4>
+      </div>
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {projects.map((project) => (
+            <ReviewCard
+              key={project.title}
+              langState={langState}
+              {...project}
+            />
+          ))}
+        </Marquee>
 
-      {/* سمت چپ - محو شدن به سمت راست + بلر */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-1/4 
+        {/* سمت چپ - محو شدن به سمت راست + بلر */}
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/4 
                backdrop-blur-[2px] 
                [mask-image:linear-gradient(to_left,transparent,white)]"
-      ></div>
+        ></div>
 
-      {/* سمت راست - محو شدن به سمت چپ + بلر */}
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-1/4 
+        {/* سمت راست - محو شدن به سمت چپ + بلر */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-1/4 
                backdrop-blur-[2px] 
                [mask-image:linear-gradient(to_right,transparent,white)]"
-      ></div>
-    </div>
+        ></div>
+      </div>
+    </>
   );
 }
