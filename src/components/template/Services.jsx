@@ -8,7 +8,6 @@ import {
   MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
-import { AnimatedListDemo } from 
 
 export default function Services({ projects, langState }) {
   const features = [
