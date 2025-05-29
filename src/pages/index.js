@@ -85,7 +85,6 @@ export default function Home() {
             </Link> */}
             <Link
               href="/en"
-              as={"button"}
               className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
             >
               English
@@ -93,7 +92,6 @@ export default function Home() {
 
             <Link
               href="/fa"
-              as={"button"}
               className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
             >
               فارسی
