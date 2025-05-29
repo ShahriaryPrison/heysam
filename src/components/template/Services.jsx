@@ -1,4 +1,5 @@
 import { BentoCard, BentoGrid } from "../magicui/bento-grid";
+import Figma from "../../../public/images/figma.gif";
 import {
   FigmaLogoIcon,
   CodeIcon,
@@ -6,6 +7,9 @@ import {
   GearIcon,
   MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
+import Image from "next/image";
+import { AnimatedList } from "../magicui/animated-list";
+import { AnimatedListDemo } from "./AnimatedListDemo";
 
 export default function Services({ projects, langState }) {
   const features = [
@@ -14,7 +18,17 @@ export default function Services({ projects, langState }) {
       description: "Crafting intuitive and engaging user experiences.",
       href: langState + "/#footer",
       cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
+      // background: <img className="absolute -right-20 -top-20 opacity-60" src="" />,
+      background: (
+        <Image
+          src={Figma}
+          className="w-full h-full object-cover absolute"
+          width="80"
+          height="80"
+          alt="figma-gif"
+          style={{ objectFit: "cover" }}
+        />
+      ),
       className: "lg:row-start-1 lg:row-end-3 lg:col-start-2 lg:col-end-3",
       Icon: FigmaLogoIcon,
     },
@@ -32,7 +46,11 @@ export default function Services({ projects, langState }) {
       description: "Creating robust server-side solutions and APIs.",
       href: langState + "/#footer",
       cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
+      background: (
+        <div className="p-1">
+          <AnimatedListDemo />
+        </div>
+      ),
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
       Icon: GlobeIcon,
     },
@@ -73,6 +91,6 @@ export default function Services({ projects, langState }) {
           />
         ))}
       </BentoGrid>
-    </div>  
+    </div>
   );
 }
