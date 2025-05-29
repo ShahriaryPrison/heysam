@@ -15,12 +15,16 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "react-photo-view/dist/react-photo-view.css";
 import { ShineBorder } from "@/components/magicui/shine-border";
+import Link from "next/link";
 
 export default function ProjectPage({
   langData = {},
   project = {},
   projects = [],
 }) {
+  console.log("Project Data:", projects);
+  
+  
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -199,7 +203,7 @@ export default function ProjectPage({
                 key={proj.id}
                 className="text-white border-b border-neutral-500 pb-4"
               >
-                <a
+                <Link
                   href={`/${lang}/projects/${proj.id}`}
                   className="hover:underline flex justify-between items-center w-full"
                 >
@@ -207,17 +211,16 @@ export default function ProjectPage({
                     <div className="text-lg font-semibold">{proj.title}</div>
                     <div className="text-sm text-gray-400">{proj.tech}</div>
                   </div>
-                  {proj.images?.length > 0 && (
-                    <div className="overflow-hidden rounded-lg max-w-24">
-                      <img
-                        src={proj.images[0].src}
-                        alt={proj.title}
-                        className="w-full h-full object-cover rounded-lg"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                </a>
+
+                  <div className="overflow-hidden rounded-lg max-w-24">
+                    <img
+                      src={proj?.icon?.src}
+                      alt={proj.title}
+                      className="w-full h-full object-cover rounded-lg"
+                      loading="lazy"
+                    />
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>
@@ -313,6 +316,7 @@ export async function getStaticProps({ params: { ln, projectId } }) {
           tech:
             otherModule.default?.tech || (ln === "fa" ? "وب اپ" : "Web App"),
           images: otherModule.default?.images || [],
+          icon: otherModule.default?.icon || { src: "/images/default-icon.png" },
         };
       })
     );
