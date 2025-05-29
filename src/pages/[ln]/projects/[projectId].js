@@ -95,7 +95,7 @@ export default function ProjectPage({
                 className="media-swiper rounded-xl overflow-hidden shadow-lg"
               >
                 {projectImages.map((media, index) => {
-                  const srcPath = media.src.src || media;
+                  const srcPath = media.src.src || media.src;
                   console.log(media);
 
                   return (
@@ -103,13 +103,17 @@ export default function ProjectPage({
                       <PhotoView src={srcPath}>
                         <div className="relative aspect-video bg-transparent dark:bg-gray-800 flex items-center justify-center cursor-pointer">
                           {srcPath.endsWith(".mp4") ? (
-                            <video
-                              src={srcPath}
-                              className="w-full h-full object-contain"
-                              controls
-                              muted
-                              playsInline
-                            />
+                            media.size === "mobile" ? (
+                              <Iphone15Pro
+                                videoSrc={srcPath}
+                                className="w-full max-w-40 max-h-80"
+                              />
+                            ) : (
+                              <Safari
+                                videoSrc={srcPath}
+                                className="w-full max-w-72 max-h-64"
+                              />
+                            )
                           ) : media.size === "mobile" ? (
                             <Iphone15Pro
                               src={srcPath}
