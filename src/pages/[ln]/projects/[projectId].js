@@ -49,7 +49,7 @@ export default function ProjectPage({
 
   return (
     <section
-      className={`flex flex-col items-center gap-8 pb-8 w-screen px-4`}
+      className={`flex flex-col items-center gap-8 w-screen`}
       style={{ direction }}
     >
       <Header content={langData?.header || {}} langState={lang} />
