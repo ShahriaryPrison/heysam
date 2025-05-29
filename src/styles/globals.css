@@ -313,41 +313,72 @@
     width: 100%;
   }
 }
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+}
+
+@font-face {
+  font-family: "estedadLighter";
+  font-weight: lighter;
+  src: url("../../public/Fonts/Estedad-Light.woff2");
+}
+
+@font-face {
+  font-family: "Estedad";
+  font-weight: thin;
+  src: url("../../public/Fonts/Estedad-Thin.woff2");
+}
+@font-face {
+  font-family: "Estedad";
+  font-weight: normal;
+  src: url("../../public/Fonts/Estedad-Medium.woff2");
+}
+@font-face {
+  font-family: "Estedad";
+  font-weight: bold;
+  src: url("../../public/Fonts/Estedad-Bold.woff2");
+}
+@font-face {
+  font-family: "Snapp";
+  font-weight: bold;
+  src: url("../../public/Fonts/Snapp.ttf");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
+}
+
+@font-face {
+  font-family: "estedadLighter";
+  font-weight: lighter;
+  src: url("../../public/Fonts/Estedad-Light.woff2");
+}
+
+@font-face {
+  font-family: "Estedad";
+  font-weight: thin;
+  src: url("../../public/Fonts/Estedad-Thin.woff2");
+}
+@font-face {
+  font-family: "Estedad";
+  font-weight: normal;
+  src: url("../../public/Fonts/Estedad-Medium.woff2");
+}
+@font-face {
+  font-family: "Estedad";
+  font-weight: bold;
+  src: url("../../public/Fonts/Estedad-Bold.woff2");
+}
+@font-face {
+  font-family: "Snapp";
+  font-weight: bold;
+  src: url("../../public/Fonts/Snapp.ttf");
+}
 
 @utility button-gradient {
-  @font-face {
-    font-family: "Poppins";
-    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
-  }
-
-  @font-face {
-    font-family: "estedadLighter";
-    font-weight: lighter;
-    src: url("../../public/Fonts/Estedad-Light.woff2");
-  }
-
-  @font-face {
-    font-family: "Estedad";
-    font-weight: thin;
-    src: url("../../public/Fonts/Estedad-Thin.woff2");
-  }
-  @font-face {
-    font-family: "Estedad";
-    font-weight: normal;
-    src: url("../../public/Fonts/Estedad-Medium.woff2");
-  }
-  @font-face {
-    font-family: "Estedad";
-    font-weight: bold;
-    src: url("../../public/Fonts/Estedad-Bold.woff2");
-  }
-  @font-face {
-    font-family: "Snapp";
-    font-weight: bold;
-    src: url("../../public/Fonts/Snapp.ttf");
-  }
-  background-color: #3081ed;
-  background-image: linear-gradient(to right, #3081ed 0%, #9b51e0 52%);
+  background-color: #3F51B5;
+  background-image: linear-gradient(to right, #3F51B5 0%, #9b51e0 52%);
   background-size: 200%;
   transition: background-position 0.4s ease;
   transition: all 0.4s ease !important;
@@ -359,37 +390,6 @@
 }
 
 @utility halo {
-  @font-face {
-    font-family: "Poppins";
-    src: url("../../public/Fonts/Poppins/PoppinsLatin-Medium.ttf");
-  }
-
-  @font-face {
-    font-family: "estedadLighter";
-    font-weight: lighter;
-    src: url("../../public/Fonts/Estedad-Light.woff2");
-  }
-
-  @font-face {
-    font-family: "Estedad";
-    font-weight: thin;
-    src: url("../../public/Fonts/Estedad-Thin.woff2");
-  }
-  @font-face {
-    font-family: "Estedad";
-    font-weight: normal;
-    src: url("../../public/Fonts/Estedad-Medium.woff2");
-  }
-  @font-face {
-    font-family: "Estedad";
-    font-weight: bold;
-    src: url("../../public/Fonts/Estedad-Bold.woff2");
-  }
-  @font-face {
-    font-family: "Snapp";
-    font-weight: bold;
-    src: url("../../public/Fonts/Snapp.ttf");
-  }
   width: 200px;
   height: 200px;
   background: transparent;
@@ -921,4 +921,3 @@
     @apply bg-background text-foreground;
   }
 }
-
