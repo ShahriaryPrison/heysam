@@ -8,8 +8,7 @@ import {
   MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
-import { AnimatedList } from "../magicui/animated-list";
-import { AnimatedListDemo } from "./AnimatedListDemo";
+import { AnimatedListDemo } from 
 
 export default function Services({ projects, langState }) {
   const features = [
@@ -69,7 +68,16 @@ export default function Services({ projects, langState }) {
         "Enhancing visibility and searchability of web applications.",
       href: langState + "/#footer",
       cta: "Learn more",
-      background: <img className="absolute -right-20 -top-20 opacity-60" />,
+      background: (
+        <Image
+          src={SeoImage}
+          className="w-full h-full object-cover absolute"
+          width="500"
+          height="500"
+          alt="seo-image"
+          style={{ objectFit: "cover" }}
+        />
+      ),
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
       Icon: MagnifyingGlassIcon,
     },
