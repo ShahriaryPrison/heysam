@@ -51,7 +51,7 @@ function Hero({ content, langState }) {
 
   return (
     <section
-      id="#about_us"
+      id="hero"
       className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center gap-10 px-4 lg:px-16"
     >
       <motion.div

@@ -3,6 +3,7 @@ import { Marquee } from "@/components/magicui/marquee";
 import { ShineBorder } from "../magicui/shine-border";
 import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
+import { AuroraText } from "../magicui/aurora-text";
 
 const ReviewCard = ({
   key,
@@ -67,9 +68,11 @@ const ReviewCard = ({
 export default function Projects({ projects, langState }) {
   return (
     <section id="projects">
-      <div className="w-full max-w-7xl mx-auto flex flex-col text-white">
+      <div className="w-full text-center sm:text-left max-w-7xl py-10 mx-auto flex flex-col text-white">
         <h4 className="text-white px-4 pt-10 pb-4 w-full font-bold text-5xl">
-          {langState === "fa" ? "پروژه ها" : "Expriences"}
+          <AuroraText>
+            {langState === "fa" ? "پروژه ها" : "Expriences"}
+          </AuroraText>
         </h4>
       </div>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">

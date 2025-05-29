@@ -8,6 +8,7 @@ import {
 } from "@radix-ui/react-icons";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { AuroraText } from "../magicui/aurora-text";
 
 export default function Services({ projects, langState }) {
   const controls = useAnimation();
@@ -1245,6 +1246,11 @@ export default function Services({ projects, langState }) {
         },
       }}
     >
+      <div className="w-full text-center sm:text-left max-w-7xl py-10 mx-auto flex flex-col text-white">
+        <h4 className="text-white px-4 pt-10 pb-4 w-full font-bold text-5xl">
+          <AuroraText>{langState === "fa" ? "خدمات" : "Services"}</AuroraText>
+        </h4>
+      </div>
       <BentoGrid>
         {features.map((feature, index) => (
           <BentoCard
