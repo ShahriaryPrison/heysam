@@ -2,16 +2,18 @@ import AalefIcon from "../../../../public/images/projects/Alef.png"
 export default {
   id: 2,
   title: "Marjan Stones",
-  tech: "Web App",
+  tech: "WebSite",
+  type: "public",
+  status: "Design",
   icon: AalefIcon,
   description:
-    "Announcing our collaborative effort: a transformative web application tailored for both charities and individuals in need! This innovative platform prevents duplicate services, ensuring fair distribution and accountability while empowering users to access essential aid efficiently. With advanced monitoring features, charities can track service delivery, maximizing impact, and ensuring assistance reaches those who need it most. Join us in revolutionizing charity services and supporting communities in need worldwide.",
+  //a project for an export company that specializes in exporting stones and minerals, providing a platform for showcasing products, managing orders, and facilitating international trade.
+    "Marjan Stones is a website designed for an export company specializing in stones and minerals. This platform showcases a wide range of products, manages orders efficiently, and facilitates international trade. With features tailored for exporters, it enhances product visibility and streamlines the order management process, ensuring smooth transactions and customer satisfaction.",
   images: ["/projects/en/2/image1.jpg", "/projects/en/2/image2.jpg"],
-  link : "https://roshanaa.com/welcome",
+  link : "",
   features: [
-    "Charity management",
-    "Service tracking",
-    "Duplicate prevention",
-    "Impact measurement",
+    "Product showcase",
+    "International trade facilitation",
+    "User-friendly interface",
   ],
 };

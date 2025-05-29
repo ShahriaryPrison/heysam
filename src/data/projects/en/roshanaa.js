@@ -7,15 +7,18 @@ export default {
   id: 1,
   title: "Roshana",
   icon: RoshanaIcon,
+  type: "public",
+  status: "Production",
   tech: "Web App",
   description:
-    "Introducing our comprehensive solution for shops and sellers: a unified platform that not only streamlines sales across multiple channels but also includes robust accounting features! Our application provides a single source of data for managing products, while offering a suite of accounting tools to track expenses, revenue, and profitability. With an intuitive dashboard and powerful measurement tools, sellers gain valuable insights into their financial performance, enabling informed decision-making and sustainable growth. Say hello to simplified sales management and enhanced financial visibility with our all-in-one solution.",
+  //charity
+  "Roshana is a comprehensive charity management platform designed to streamline the operations of charitable organizations. It provides tools for service tracking, duplicate prevention, and impact measurement, ensuring efficient management of resources and activities. The platform aims to enhance the effectiveness of charitable initiatives by providing a user-friendly interface and robust features.",
   images: [RohanaImage1, RohanaImage2, RohanaImage3],
   link: "https://roshanaa.com/welcome",
   features: [
-    "Unified sales platform",
-    "Accounting tools",
-    "Product management",
-    "Financial insights",
+    "Charity management",
+    "Service tracking",
+    "Duplicate prevention",
+    "Impact measurement",
   ],
 };
