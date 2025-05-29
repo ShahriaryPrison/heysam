@@ -186,7 +186,7 @@ export default function ProjectPage({
                           ) : (
                             <Safari
                               imageSrc={srcPath}
-                              className="w-full max-w-56 md:max-w-72 max-h-48 md:max-h-64"
+                              className="w-full max-w-56 md:max-w-xl max-h-48 md:max-h-64"
                             />
                           )}
                         </div>
@@ -317,7 +317,7 @@ export default function ProjectPage({
                   </div>
 
                   <motion.div
-                    className="overflow-hidden rounded-lg max-w-16 md:max-w-24"
+                    className="overflow-hidden rounded-lg max-w-12 md:max-w-16"
                     variants={imageVariants}
                     whileHover="hover"
                   >

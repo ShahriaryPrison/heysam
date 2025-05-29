@@ -49,7 +49,7 @@ export default function Home() {
       setProgressText("0%");
 
       const animation = animate(progressValue, 100, {
-        duration: 2,
+        duration: 2.5,
         ease: "easeInOut",
         onUpdate: (latest) => {
           setProgressText(`${Math.round(latest)}%`);

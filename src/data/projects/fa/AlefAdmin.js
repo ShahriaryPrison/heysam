@@ -1,4 +1,5 @@
-import AalefIcon from "../../../../public/images/projects/Alef.png";
+import AalefIcon from "@/assets/images/projects/Aalef/Alef.png";
+
 export default {
   id: 2,
   title: "الف",
