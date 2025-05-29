@@ -46,7 +46,7 @@ export function IconCloudDemo({ content, langState }) {
     alt: slug,
   }));
   console.log(simplifiedSkills);
-  
+
   useEffect(() => {
     setMounted(true);
     AOS.init({
@@ -138,11 +138,11 @@ export function IconCloudDemo({ content, langState }) {
           </motion.p>
 
           <motion.div className="flex gap-4" variants={itemVariants}>
-            <button className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30">
-              {content.primaryButton || "Details"}
+            <button className="flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold">
+              {content.button || "Details"}
             </button>
-            <button className="px-6 py-2.5 rounded-lg border border-white/20 text-white font-medium hover:bg-white/10 transition-all duration-300">
-              {content.secondaryButton || "Our Work"}
+            <button className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold">
+              {content.secondButton || "Our Work"}
             </button>
           </motion.div>
         </div>

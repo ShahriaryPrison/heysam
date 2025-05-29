@@ -69,7 +69,7 @@ function Hero({ content, langState }) {
           data-aos="fade-up"
         >
           {langState === "fa" ? (
-            <>
+            <div className="leading-relaxed">
               <span className="md:text-2xl lg:text-4xl">
                 {" "}
                 {content.header.first}{" "}
@@ -91,10 +91,10 @@ function Hero({ content, langState }) {
                 cursor={true}
                 className="text-gradient font-black"
               />
-              <span className="md:text-2xl lg:text-4xl">
+              <span className="md:text-2xl lg:text-4xl ">
                 {content.header.last}
               </span>
-            </>
+            </div>
           ) : (
             content.header
           )}

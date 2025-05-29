@@ -33,8 +33,8 @@ const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
             </figcaption>
             {/* <p className="text-xs font-medium dark:text-white/40">{tech}</p> */}
             <div className="flex items-center gap-1 overflow-hidden">
-              {someSkills.map((skill) => (
-                <img src={skill.src} className="w-4 h-4" />
+              {someSkills.map((skill, index) => (
+                <img key={index} src={skill.src} className="w-4 h-4" />
               ))}
             </div>
           </div>
@@ -60,11 +60,11 @@ export default function Projects({ projects, langState }) {
   return (
     <>
       <div className="w-full max-w-7xl mx-auto flex flex-col text-white">
-        <h4 className="text-white px-4 w-full font-bold text-5xl">
+        <h4 className="text-white px-4 pt-10 w-full font-bold text-5xl">
           {langState === "fa" ? "پروژه ها" : "Expriences"}
         </h4>
       </div>
-      <div className="relative py-20 flex w-full flex-col items-center justify-center overflow-hidden">
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
           {projects.map((project) => (
             <ReviewCard
