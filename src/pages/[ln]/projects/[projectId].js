@@ -16,15 +16,14 @@ import "swiper/css/autoplay";
 import "react-photo-view/dist/react-photo-view.css";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import Link from "next/link";
+import Iphone15Pro from "@/components/magicui/iphone-15-pro";
+import { Safari } from "@/components/magicui/safari";
 
 export default function ProjectPage({
   langData = {},
   project = {},
   projects = [],
 }) {
-  console.log("Project Data:", projects);
-  
-  
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -96,7 +95,9 @@ export default function ProjectPage({
                 className="media-swiper rounded-xl overflow-hidden shadow-lg"
               >
                 {projectImages.map((media, index) => {
-                  const srcPath = media.src || media;
+                  const srcPath = media.src.src || media;
+                  console.log(media);
+
                   return (
                     <SwiperSlide key={index}>
                       <PhotoView src={srcPath}>
@@ -109,12 +110,15 @@ export default function ProjectPage({
                               muted
                               playsInline
                             />
-                          ) : (
-                            <img
+                          ) : media.size === "mobile" ? (
+                            <Iphone15Pro
                               src={srcPath}
-                              alt={`${projectTitle} - ${index + 1}`}
-                              className="w-full h-full object-contain"
-                              loading="lazy"
+                              className="w-full max-w-40 max-h-80"
+                            />
+                          ) : (
+                            <Safari
+                              imageSrc={srcPath}
+                              className="w-full max-w-72 max-h-64"
                             />
                           )}
                         </div>
@@ -316,7 +320,9 @@ export async function getStaticProps({ params: { ln, projectId } }) {
           tech:
             otherModule.default?.tech || (ln === "fa" ? "وب اپ" : "Web App"),
           images: otherModule.default?.images || [],
-          icon: otherModule.default?.icon || { src: "/images/default-icon.png" },
+          icon: otherModule.default?.icon || {
+            src: "/images/default-icon.png",
+          },
         };
       })
     );
