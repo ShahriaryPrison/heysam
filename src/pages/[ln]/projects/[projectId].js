@@ -94,7 +94,7 @@ export default function ProjectPage({
     >
       <Header content={langData?.header || {}} langState={lang} />
 
-      <div className="w-full max-w-6xl flex justify-center gap-8">
+      <div className="w-full max-w-6xl px-4 flex justify-center gap-8">
         <div className="flex-1 max-w-2xl">
           {/* Project Title */}
           <h1 className="text-3xl font-bold text-white" data-aos="fade-up">
