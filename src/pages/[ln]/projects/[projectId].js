@@ -18,7 +18,48 @@ import { ShineBorder } from "@/components/magicui/shine-border";
 import Link from "next/link";
 import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { Safari } from "@/components/magicui/safari";
+import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+  hover: {
+    scale: 1.02,
+    transition: { duration: 0.2 },
+  },
+};
+
+const imageVariants = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { delay: 0.4, type: "spring" },
+  },
+  hover: {
+    scale: 1.1,
+    transition: { duration: 0.3 },
+  },
+};
 export default function ProjectPage({
   langData = {},
   project = {},
@@ -199,40 +240,72 @@ export default function ProjectPage({
           </div>
         </div>
 
-        <div className="sticky top-0 flex-1 max-w-md glass rounded-2xl p-6 shadow-lg h-fit">
+        <motion.div
+          className="sticky top-0 flex-1 max-w-md glass rounded-2xl p-6 shadow-lg h-fit"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
-          <h4 className="text-2xl font-bold text-white mb-4" data-aos="fade-up">
+
+          <motion.h4
+            className="text-2xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            data-aos="fade-up"
+          >
             {isRTL ? "پروژه‌های دیگر" : "Other Projects"}
-          </h4>
-          <ul className="space-y-4">
+          </motion.h4>
+
+          <motion.ul className="space-y-4" variants={containerVariants}>
             {projects?.map((proj) => (
-              <li
-                data-aos="zoom-out"
+              <motion.li
                 key={proj.id}
-                className="text-white border-b border-neutral-500 pb-4"
+                className="text-white glass p-4 rounded-2xl pb-4"
+                variants={itemVariants}
+                whileHover="hover"
+                data-aos="zoom-out"
               >
                 <Link
                   href={`/${lang}/projects/${proj.id}`}
-                  className="hover:underline flex justify-between items-center w-full"
+                  className="flex justify-between items-center w-full"
                 >
                   <div>
-                    <div className="text-lg font-semibold">{proj.title}</div>
-                    <div className="text-sm text-gray-400">{proj.tech}</div>
+                    <motion.div
+                      className="text-lg font-semibold"
+                      whileHover={{ x: 5 }}
+                    >
+                      {proj.title}
+                    </motion.div>
+                    <motion.div
+                      className="text-sm text-gray-400"
+                      whileHover={{ x: 5 }}
+                    >
+                      {proj.tech}
+                    </motion.div>
                   </div>
 
-                  <div className="overflow-hidden rounded-lg max-w-24">
-                    <img
+                  <motion.div
+                    className="overflow-hidden rounded-lg max-w-24"
+                    variants={imageVariants}
+                    whileHover="hover"
+                  >
+                    <motion.img
                       src={proj?.icon?.src}
                       alt={proj.title}
                       className="w-full h-full object-cover rounded-lg"
                       loading="lazy"
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
                     />
-                  </div>
+                  </motion.div>
                 </Link>
-              </li>
+              </motion.li>
             ))}
-          </ul>
-        </div>
+          </motion.ul>
+        </motion.div>
         <div
           data-aos="fade-left"
           className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34]! blur-[100px] absolute -bottom-40 right-20"
