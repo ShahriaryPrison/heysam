@@ -31,7 +31,9 @@ export default function Home({ langData, projects }) {
         langState={langData.lang}
         content={langData.projects}
       />
-      <Services/>
+      <Services
+      langState={langData.lang}
+      />
       <IconCloudDemo content={langData.skills} langState={langData.lang} />
       <Footer content={langData.footer} langState={langData.lang} />
       <BackToTopButton />
