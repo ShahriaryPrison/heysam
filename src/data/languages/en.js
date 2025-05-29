@@ -17,10 +17,10 @@ export default {
     button: "See more",
   },
   skills: {
-    title: "SKILLS",
-    description: "Everything you need, from design to deployment.",
-    button: "Details",
-    secondButton:  "Need something else? Contact us",
+    title: "Our Expertise",
+    description: "From planning to production — we’ve got you covered.",
+    button: "Explore Skills",
+    secondButton:  "Need Something Else? Let Us Know",
   },
   footer: {
     main: "Our team tirelessly strives and offers creative solutions to assist you in bringing your web applications superior features to life. From detailed needs analysis to design and execution, our team will be by your side every step of the way, ensuring your vision becomes a reality. Trusting us paves the way to your success. Thank you for choosing to collaborate with us.",

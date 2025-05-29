@@ -116,7 +116,7 @@ export function IconCloudDemo({ content, langState }) {
 
       {/* Content Card */}
       <motion.div
-        className="relative z-10 w-full max-w-md"
+        className="relative z-10 w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -137,12 +137,15 @@ export function IconCloudDemo({ content, langState }) {
             {content.description}
           </motion.p>
 
-          <motion.div className="flex gap-4" variants={itemVariants}>
-            <button className="flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold">
-              {content.button || "Details"}
+          <motion.div
+            className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-4"
+            variants={itemVariants}
+          >
+            <button className="button-gradient flex-1 px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap">
+              {content.button}
             </button>
-            <button className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold">
-              {content.secondButton || "Our Work"}
+            <button className="glass flex-1 px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap">
+              {content.secondButton}
             </button>
           </motion.div>
         </div>
