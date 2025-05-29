@@ -86,7 +86,7 @@ function Header({ content, langState }) {
       </motion.ul>
 
       {/* دکمه‌های زبان با انیمیشن */}
-      <motion.div className="py-4" variants={itemVariants}>
+      <motion.div className="py-4 px-6" variants={itemVariants}>
         <Link href="/en">
           <motion.button
             className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${

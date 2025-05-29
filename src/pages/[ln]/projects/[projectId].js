@@ -124,7 +124,11 @@ export default function ProjectPage({
           </div>
 
           {/* Project Gallery */}
-          <div className="relative glass h-fit p-2 md:p-4 rounded-xl shadow-lg mt-6 md:mt-8">
+          <div
+            className="relative glass h-fit p-2 md:p-4 rounded-xl shadow-lg mt-6 md:mt-8"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
             <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
 
             <PhotoProvider>
@@ -266,6 +270,7 @@ export default function ProjectPage({
           initial="hidden"
           animate="visible"
           variants={containerVariants}
+          data-aos="zoom-in"
         >
           <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
 

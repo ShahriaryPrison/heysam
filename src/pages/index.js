@@ -113,7 +113,7 @@ export default function Home() {
       {/* محتوای اصلی */}
       <Meteors number={30} />
       <motion.div
-        className="relative z-10 w-full max-w-md"
+        className="relative z-10 w-full max-w-md px-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
