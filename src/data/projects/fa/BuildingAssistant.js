@@ -17,4 +17,18 @@ export default {
     "مدیریت متمرکز محصولات",
     "ابزارهای گزارش‌دهی",
   ],
+  tech_stack: [
+    "Html5",
+    "React",
+    "Tailwind",
+    "Laravel",
+    "PHP",
+    "Css3",
+    "JavaScript",
+    "typescript",
+    "Github",
+    "Figma",
+    "mysql",
+    "Git",
+  ],
 };

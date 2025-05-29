@@ -17,4 +17,15 @@ export default {
     "جلوگیری از موازی‌کاری",
     "ابزارهای اندازه‌گیری",
   ],
+  tech_stack: [
+    "Html5",
+    "React",
+    "Tailwind",
+    "Css3",
+    "Next Js",
+    "JavaScript",
+    "Github",
+    "Figma",
+    "Git",
+  ],
 };

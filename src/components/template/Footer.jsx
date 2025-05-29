@@ -17,9 +17,12 @@ const footerContent = {
       email: "ایمیل",
       phone: "تلفن",
     },
+    social: {
+      title: "شبکه‌های اجتماعی",
+    },
     quickLinks: {
       title: "لینک‌های سریع",
-      about: "درباره من",
+      about: "درباره ما",
       skills: "مهارت‌ها",
       projects: "پروژه‌ها",
       contact: "تماس با ما",
@@ -43,9 +46,6 @@ const footerContent = {
     },
     social: {
       title: "Social Media",
-      newsletter: "Subscribe to newsletter",
-      emailPlaceholder: "Your email address",
-      subscribe: "Subscribe",
     },
     copyright: "All rights reserved",
   },
@@ -115,7 +115,7 @@ function Footer({ langState = "fa" }) {
                 <p className="text-gray-300">{content.contact.phone}</p>
                 <a
                   href="tel:+989123456789"
-                  className="text-white hover:text-[#C77DFF] transition-colors"
+                  className="text-white hover:text-[#C77DFF] transition-colors text-left" 
                 >
                   +98 994 421 5832
                 </a>
@@ -218,15 +218,6 @@ function Footer({ langState = "fa" }) {
             {content.copyright} &copy; {new Date().getFullYear()}{" "}
             <AuroraText>Heysam</AuroraText>
           </p>
-
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-[#C77DFF] text-sm">
-              {content.terms}
-            </a>
-            <a href="#" className="text-gray-400 hover:text-[#9B51E0] text-sm">
-              {content.privacy}
-            </a>
-          </div>
         </div>
       </div>
     </footer>
