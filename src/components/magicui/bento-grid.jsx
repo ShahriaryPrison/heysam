@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ShineBorder } from "./shine-border";
 import Link from "next/link";
+import { AuroraText } from "./aurora-text";
 
 const BentoGrid = ({ children, className, ...props }) => {
   return (
@@ -46,10 +47,12 @@ const BentoCard = ({
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
       {/* <Icon className="bg-gradient-to-bl from-violet-500 to-fuchsia-500 text-transparent bg-clip-text h-12 w-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75" /> */}
       {/* <Icon className="h-12 w-12 bg-gradient-to-bl from-violet-500 to-fuchsia-500" /> */}
-      <div className="text-white text-transparent bg-clip-text">
+      <div className="text-white bg-clip-text">
         <Icon className="h-12 w-12" />
       </div>
-      <h3 className="text-xl font-semibold text-gradient">{name}</h3>
+      <h3 className="text-xl font-semibold">
+        <AuroraText>{name}</AuroraText>
+      </h3>
       <p className="max-w-lg text-white">{description}</p>
     </div>
 
