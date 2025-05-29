@@ -73,6 +73,6 @@ export default function Services({ projects, langState }) {
           />
         ))}
       </BentoGrid>
-    </div>
+    </div>  
   );
 }
