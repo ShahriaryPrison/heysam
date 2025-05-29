@@ -3,9 +3,12 @@ export default {
   id: 2,
   title: "Alef Admin",
   tech: "Web App",
+  type: "Private",
+  status: "Production",
   icon: AalefIcon,
   description:
-    "Announcing our collaborative effort: a transformative web application tailored for both charities and individuals in need! This innovative platform prevents duplicate services, ensuring fair distribution and accountability while empowering users to access essential aid efficiently. With advanced monitoring features, charities can track service delivery, maximizing impact, and ensuring assistance reaches those who need it most. Join us in revolutionizing charity services and supporting communities in need worldwide.",
+  //Admin panel for multichannel e-commerce website that manages products, orders, and customer interactions across multiple sales channels. It provides tools for inventory management, order processing, and customer relationship management, ensuring a seamless e-commerce experience.
+    "Alef Admin is an admin panel designed for a multichannel e-commerce website. It efficiently manages products, orders, and customer interactions across various sales channels. The platform offers robust tools for inventory management, order processing, and customer relationship management, ensuring a seamless and efficient e-commerce experience.",
   images: ["/projects/en/2/image1.jpg", "/projects/en/2/image2.jpg"],
   link : "https://roshanaa.com/welcome",
   features: [

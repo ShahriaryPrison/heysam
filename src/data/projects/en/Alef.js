@@ -2,16 +2,21 @@ import AalefIcon from "../../../../public/images/projects/Alef.png"
 export default {
   id: 2,
   title: "Alef",
+  type: "Public",
+  status: "Production",
   tech: "Web App",
   icon: AalefIcon,
   description:
-    "Announcing our collaborative effort: a transformative web application tailored for both charities and individuals in need! This innovative platform prevents duplicate services, ensuring fair distribution and accountability while empowering users to access essential aid efficiently. With advanced monitoring features, charities can track service delivery, maximizing impact, and ensuring assistance reaches those who need it most. Join us in revolutionizing charity services and supporting communities in need worldwide.",
+  //e-commerce project
+    "Alef is a comprehensive e-commerce platform designed to facilitate online shopping. It offers a wide range of products and services, providing users with a seamless shopping experience. The platform includes features such as secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction.",
   images: ["/projects/en/2/image1.jpg", "/projects/en/2/image2.jpg"],
-  link : "https://roshanaa.com/welcome",
+  link : "https://aalefshop.com/",
   features: [
-    "Charity management",
-    "Service tracking",
-    "Duplicate prevention",
-    "Impact measurement",
+    "E-commerce management",
+    "Product catalog",
+    "Secure payment processing",
+    "User account management",
+    "Order tracking and management",
+    "Customer support tools",
   ],
 };

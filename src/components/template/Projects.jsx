@@ -59,7 +59,7 @@ export default function Projects({ projects, langState }) {
   return (
     <section id="projects">
       <div className="w-full max-w-7xl mx-auto flex flex-col text-white">
-        <h4 className="text-white px-4 pt-10 w-full font-bold text-5xl">
+        <h4 className="text-white px-4 pt-10 pb-4 w-full font-bold text-5xl">
           {langState === "fa" ? "پروژه ها" : "Expriences"}
         </h4>
       </div>
