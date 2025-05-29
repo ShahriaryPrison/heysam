@@ -68,24 +68,8 @@ export default function Home() {
             className="flex gap-4 justify-center"
             variants={itemVariants}
           >
-            {/* <Link
-              href="/en"
-              as={"button"}
-              className="member-animation px-6 py-2.5 rounded-lg button-gradient text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30"
-            >
-              English
-            </Link>
-
-            <Link
-              href="/fa"
-              as={"button"}
-              className="member-animation px-6 py-2.5 rounded-lg button-gradient text-white font-medium hover:shadow-lg transition-all duration-300 hover:shadow-purple-500/30"
-            >
-              فارسی
-            </Link> */}
             <Link
               href="/en"
-              as={"button"}
               className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
             >
               English
@@ -93,7 +77,6 @@ export default function Home() {
 
             <Link
               href="/fa"
-              as={"button"}
               className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
             >
               فارسی

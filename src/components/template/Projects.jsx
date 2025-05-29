@@ -2,13 +2,17 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import { ShineBorder } from "../magicui/shine-border";
 import simplifiedSkills from "@/data/skillData";
+import Link from "next/link";
 
 const someSkills = simplifiedSkills.slice(0, 6); // Adjust the number of skills to show
 
 const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
   return (
-    <figure
+    <Link
       key={key}
+      href={`/${langState}/projects/${encodeURIComponent(
+        title.replace(/\s+/g, "")
+      )}`}
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 glass text-white",
         // light styles
@@ -39,20 +43,15 @@ const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
             </div>
           </div>
         </div>
-        <a
-          href={`/${langState}/projects/${encodeURIComponent(
-            title.replace(/\s+/g, "")
-          )}`}
-          className="button-gradient px-2 py-1 rounded-2xl text-xs"
-        >
+        <div className="button-gradient px-2 py-1 rounded-2xl text-xs">
           {langState === "fa" ? "جزئیات" : "details"}
-        </a>
+        </div>
       </div>
       <div className="w-full h-[0.5px] bg-gray-400 opacity-70 rounded-lg mt-4" />
       <blockquote className="mt-2 text-sm line-clamp-2">
         {description}
       </blockquote>
-    </figure>
+    </Link>
   );
 };
 
