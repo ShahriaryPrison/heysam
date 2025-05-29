@@ -69,6 +69,8 @@
       background-position: 0% 0%;
     }
   }
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
     from {
       transform: translateX(0);
@@ -114,7 +116,7 @@
       opacity: 0;
     }
   }
-  
+
   --animate-aurora: aurora 8s ease-in-out infinite alternate;
 
   @keyframes aurora {
@@ -258,7 +260,6 @@
 }
 
 @utility glass-modal {
-  
   background: rgba(255, 255, 255, 0.001);
   backdrop-filter: blur(10px);
   border: 1px solid rgb(155, 81, 224);
@@ -267,17 +268,15 @@
 }
 
 @utility text-gradient {
-  
   position: relative;
-  background: #3F51B5;
-  background: linear-gradient(to right, #3F51B5 0%, #9b51e0 52%);
+  background: #3f51b5;
+  background: linear-gradient(to right, #3f51b5 0%, #9b51e0 52%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 400ms ease;
 }
 
 @utility list-item-hover {
-  
   position: relative;
   cursor: pointer;
   transition: all 300ms ease;
@@ -286,14 +285,14 @@
     content: "";
     width: 0;
     height: 2px;
-    background: linear-gradient(to right, #3F51B5 0%, #9b51e0 52%);
+    background: linear-gradient(to right, #3f51b5 0%, #9b51e0 52%);
     transition: all 300ms ease;
     bottom: -3px;
     left: 0;
   }
   &:hover {
-    background: #3F51B5;
-    background: linear-gradient(to right, #3F51B5 0%, #9b51e0 52%);
+    background: #3f51b5;
+    background: linear-gradient(to right, #3f51b5 0%, #9b51e0 52%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -365,8 +364,8 @@
 }
 
 @utility button-gradient {
-  background-color: #3F51B5;
-  background-image: linear-gradient(to right, #3F51B5 0%, #9b51e0 52%);
+  background-color: #3f51b5;
+  background-image: linear-gradient(to right, #3f51b5 0%, #9b51e0 52%);
   background-size: 200%;
   transition: background-position 0.4s ease;
   transition: all 0.4s ease !important;
@@ -387,20 +386,17 @@
 }
 
 @utility tag-shadow {
-  
   background: rgba(255, 255, 255, 0.085);
   backdrop-filter: blur(10px);
   box-shadow: inset -8px 8px 5px -6px rgba(252, 252, 252, 0.362);
 }
 
 @utility member-shadow {
-  
   border: 1px solid rgb(81, 114, 224);
   box-shadow: 0 8px 32px 0 rgba(31, 100, 135, 0.37);
 }
 
 @utility member-animation {
-  
   transition: all 300ms ease-out;
   &:hover {
     transform: translateY(-10px);
@@ -408,7 +404,6 @@
 }
 
 @utility about-us-animation {
-  
   animation: aboutTransition 6s ease infinite alternate;
 }
 .back-to-top-btn {
@@ -434,7 +429,6 @@
 }
 
 @utility back-to-top-btn {
-  
   /* back to tob styels */
   display: none;
   position: fixed;
@@ -485,17 +479,14 @@
 }
 
 @utility visible {
-  
   display: block;
 }
 
 @utility hidden {
-  
   display: none;
 }
 
 @utility custom-header-dir {
-  
   /* back to tob styels */
   direction: ltr !important;
 }
@@ -556,8 +547,8 @@
   }
 
   *::-webkit-scrollbar-track {
-    background-color: unset;
-    margin: 15px 0;
+    background-color: #0c0b14;
+    margin: 0 0;
   }
 
   *::-webkit-scrollbar-thumb {
@@ -669,4 +660,3 @@
     @apply bg-background text-foreground;
   }
 }
-
