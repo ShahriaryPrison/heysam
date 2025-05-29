@@ -19,7 +19,7 @@ export default function Home({ langData, projects }) {
 
   return (
     <section
-      className={`flex flex-col items-center gap-8 pb-8 w-screen`}
+      className={`flex flex-col items-center gap-8 w-screen`}
       style={
         langData.lang === "fa" ? { direction: "rtl" } : { direction: "ltr" }
       }
