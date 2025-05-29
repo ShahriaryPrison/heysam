@@ -45,7 +45,6 @@ export function IconCloudDemo({ content, langState }) {
     src: `https://cdn.simpleicons.org/${slug}`,
     alt: slug,
   }));
-  console.log(simplifiedSkills);
 
   useEffect(() => {
     setMounted(true);

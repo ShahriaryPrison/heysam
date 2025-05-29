@@ -4,9 +4,18 @@ import { ShineBorder } from "../magicui/shine-border";
 import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
 
-const someSkills = simplifiedSkills.slice(0, 6); // Adjust the number of skills to show
+const ReviewCard = ({
+  key,
+  icon,
+  title,
+  tech_stack,
+  description,
+  langState,
+}) => {
+  const someSkills = simplifiedSkills
+    .filter((item) => tech_stack.includes(item.alt))
+    .slice(0, 6);
 
-const ReviewCard = ({ key, icon, title, tech, description, langState }) => {
   return (
     <Link
       key={key}
@@ -69,6 +78,7 @@ export default function Projects({ projects, langState }) {
             <ReviewCard
               key={project.title}
               langState={langState}
+              tech_stack={project.tech_stack}
               {...project}
             />
           ))}
