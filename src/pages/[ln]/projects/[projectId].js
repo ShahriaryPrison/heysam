@@ -20,6 +20,15 @@ import Iphone15Pro from "@/components/magicui/iphone-15-pro";
 import { Safari } from "@/components/magicui/safari";
 import { motion } from "framer-motion";
 import { AuroraText } from "@/components/magicui/aurora-text";
+import { Badge } from "@/components/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import simplifiedSkills from "@/data/skillData";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -61,11 +70,26 @@ const imageVariants = {
     transition: { duration: 0.3 },
   },
 };
+
+const statusColors = {
+  production: "bg-green-500/20 text-green-400 border-green-500",
+  local: "bg-blue-500/20 text-blue-400 border-blue-500",
+  test: "bg-yellow-500/20 text-yellow-400 border-yellow-500",
+  staging: "bg-purple-500/20 text-purple-400 border-purple-500",
+};
+
+const typeColors = {
+  public: "bg-emerald-500/20 text-emerald-400 border-emerald-500",
+  private: "bg-rose-500/20 text-rose-400 border-rose-500",
+};
+
 export default function ProjectPage({
   langData = {},
   project = {},
   projects = [],
 }) {
+  console.log(project);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -87,6 +111,9 @@ export default function ProjectPage({
       ? "توضیحات پروژه در دسترس نیست"
       : "Project description not available");
   const projectImages = project?.images || [];
+  const projectStatus = project?.status || "Production";
+  const projectType = project?.type || "Public";
+  const techStack = project?.tech_stack || [];
 
   return (
     <section
@@ -97,38 +124,66 @@ export default function ProjectPage({
 
       <div className="w-full max-w-6xl px-4 flex flex-col lg:flex-row justify-center gap-8">
         <div className="flex-1 w-full lg:max-w-2xl">
-          {/* Project Title */}
-          <div className="w-full flex justify-between items-center gap-2">
-            <h1
-              className="text-2xl md:text-3xl font-bold text-white"
-              data-aos="fade-up"
-            >
-              {projectTitle};
-            </h1>
-            {/* Project Link */}
-
-            {project?.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg button-gradient text-sm md:text-base"
+          {/* Project Title and Metadata */}
+          <div className="w-full flex flex-col gap-4">
+            <div className="flex justify-between items-center gap-2">
+              <h1
+                className="text-2xl md:text-3xl font-bold text-white"
                 data-aos="fade-up"
-                data-aos-delay="250"
               >
-                {isRTL ? "مشاهده پروژه" : "View Project"}
-              </a>
-            )}
-          </div>
+                {projectTitle}
+              </h1>
 
-          {/* Project Technology */}
-          <p
-            className="text-base md:text-lg text-gray-400 mt-2"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            {projectTech}
-          </p>
+              {/* Project Link - Conditionally rendered based on type */}
+              {projectType === "Public" && project?.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg button-gradient text-sm md:text-base"
+                  data-aos="fade-up"
+                  data-aos-delay="250"
+                >
+                  {isRTL ? "مشاهده پروژه" : "View Project"}
+                </a>
+              )}
+            </div>
+
+            {/* Status and Type Badges */}
+            <div
+              className="flex flex-wrap gap-2"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <Badge className={`${statusColors[projectStatus]} border`}>
+                {projectStatus === "Production"
+                  ? isRTL
+                    ? "تولید"
+                    : "Production"
+                  : projectStatus === "Local"
+                  ? isRTL
+                    ? "محلی"
+                    : "Local"
+                  : isRTL
+                  ? "تست"
+                  : "Test"}
+              </Badge>
+
+              <Badge className={`${typeColors[projectType]} border`}>
+                {projectType === "Public"
+                  ? isRTL
+                    ? "عمومی"
+                    : "Public"
+                  : isRTL
+                  ? "خصوصی"
+                  : "Private"}
+              </Badge>
+
+              <Badge className="bg-gray-500/20 text-gray-400 border-gray-500">
+                {projectTech}
+              </Badge>
+            </div>
+          </div>
 
           {/* Project Description */}
           <div className="mt-4 md:mt-6" data-aos="fade-up" data-aos-delay="200">
@@ -139,6 +194,59 @@ export default function ProjectPage({
               {projectDescription}
             </p>
           </div>
+
+          {/* Tech Stack */}
+          {techStack.length > 0 && (
+            <div className="mt-6" data-aos="fade-up" data-aos-delay="250">
+              <h2 className="text-lg md:text-xl text-white font-semibold mb-4">
+                {isRTL ? "تکنولوژی‌های استفاده شده" : "Tech Stack"}
+              </h2>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                {techStack.map((tech, index) => {
+                  // پیدا کردن آیکون مربوطه از داده‌های skills
+                  const skillData = simplifiedSkills.find(
+                    (skill) => skill.alt.toLowerCase() === tech.toLowerCase()
+                  ) || {
+                    src: {
+                      src: `https://cdn.simpleicons.org/${tech.toLowerCase()}`,
+                    },
+                  };
+
+                  return (
+                    <motion.div
+                      key={index}
+                      className="group relative"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.3 }}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <div className="glass bg-gray-800/50 hover:bg-gray-700/60 rounded-xl p-3 flex flex-col items-center justify-center h-full transition-all duration-300 cursor-default">
+                        <div className="relative w-10 h-10 mb-2 group-hover:scale-110 transition-transform">
+                          <img
+                            src={skillData.src}
+                            alt={tech}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-white text-xs sm:text-sm text-center font-medium">
+                          {tech}
+                        </span>
+                        <BorderBeam duration={8} size={100} />
+                      </div>
+
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
+                        {skillData.description?.[lang] || tech}
+                        <div className="absolute top-full left-1/2 w-0 h-0 border-l-4 border-r-4 border-b-0 border-t-4 border-gray-800 border-x-transparent transform -translate-x-1/2"></div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Project Gallery */}
           <div
@@ -197,7 +305,6 @@ export default function ProjectPage({
               </Swiper>
             </PhotoProvider>
 
-            {/* استایل سفارشی */}
             <style jsx global>{`
               .media-swiper {
                 --swiper-navigation-color: #3081ed;
@@ -241,25 +348,40 @@ export default function ProjectPage({
             `}</style>
           </div>
 
-          {/* Project Features */}
           {project?.features?.length > 0 && (
             <div
               className="mt-6 md:mt-8"
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <h2 className="text-lg md:text-xl text-white font-semibold mb-3">
-                {isRTL ? "ویژگی‌ها" : "Features"}
+              <h2 className="text-lg md:text-xl text-white font-semibold mb-4">
+                {isRTL ? "ویژگی‌های کلیدی" : "Key Features"}
               </h2>
-              <ul
-                className={`space-y-2 text-gray-400 text-sm md:text-base ${
-                  isRTL ? "pr-5" : "pl-5"
-                }`}
-              >
+
+              <ul className="space-y-3">
                 {project.features.map((feature, index) => (
-                  <li key={index} className={isRTL ? "list-rtl" : "list-disc"}>
-                    {feature}
-                  </li>
+                  <motion.li
+                    key={index}
+                    className={`flex items-start gap-3  ${
+                      isRTL ? "pr-6" : "pl-6"
+                    }`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="flex-shrink-0 mt-2 w-2 h-2 rounded-full bg-purple-400" />
+
+                    <motion.p
+                      className="text-gray-300 text-sm md:text-base"
+                      whileHover={{
+                        color: "#ffffff",
+                        x: isRTL ? -3 : 3,
+                      }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {feature}
+                    </motion.p>
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -297,6 +419,8 @@ export default function ProjectPage({
                 whileHover="hover"
                 data-aos="zoom-out"
               >
+                <BorderBeam duration={8} size={100} />
+
                 <Link
                   href={`/${lang}/projects/${proj.id}`}
                   className="flex justify-between items-center w-full"
@@ -308,11 +432,25 @@ export default function ProjectPage({
                     >
                       {proj.title}
                     </motion.div>
-                    <motion.div
-                      className="text-xs md:text-sm text-gray-400"
-                      whileHover={{ x: 5 }}
-                    >
-                      {proj.tech}
+                    <motion.div className="flex gap-2 mt-1">
+                      <Badge
+                        className={`text-xs ${
+                          proj.type === "Public"
+                            ? "bg-emerald-500/20 text-emerald-400"
+                            : "bg-rose-500/20 text-rose-400"
+                        }`}
+                      >
+                        {proj.type === "Public"
+                          ? isRTL
+                            ? "عمومی"
+                            : "Public"
+                          : isRTL
+                          ? "خصوصی"
+                          : "Private"}
+                      </Badge>
+                      <Badge className="text-xs bg-gray-500/20 text-gray-400">
+                        {proj.tech}
+                      </Badge>
                     </motion.div>
                   </div>
 
@@ -388,7 +526,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking", // Better for SEO than false
+    fallback: "blocking",
   };
 }
 
@@ -409,6 +547,9 @@ export async function getStaticProps({ params: { ln, projectId } }) {
       description: project.description || "",
       images: project.images || [],
       features: project.features || [],
+      status: project.status || "Production",
+      type: project.type || "Public",
+      tech_stack: project.tech_stack || [],
       ...project,
     };
 
@@ -426,6 +567,8 @@ export async function getStaticProps({ params: { ln, projectId } }) {
           title: otherModule.default?.title || "",
           tech:
             otherModule.default?.tech || (ln === "fa" ? "وب اپ" : "Web App"),
+          type: otherModule.default?.type || "public",
+          status: otherModule.default?.status || "production",
           images: otherModule.default?.images || [],
           icon: otherModule.default?.icon || {
             src: "/images/default-icon.png",
