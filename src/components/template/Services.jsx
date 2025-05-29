@@ -175,7 +175,6 @@ export default function Services({ projects, langState }) {
                   visible: { x: 0, opacity: 1, transition: { delay: 0.5 } },
                 }}
               >
-                import {"{"} useState {"}"} from 'react';
               </motion.div>
               <motion.div
                 className="text-gray-400"
