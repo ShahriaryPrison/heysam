@@ -141,10 +141,11 @@ export function IconCloudDemo({ content, langState }) {
             className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-4"
             variants={itemVariants}
           >
-            <button className="button-gradient flex-1 px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap">
+            <button className="w-full sm:w-auto inline-flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
               {content.button}
             </button>
-            <button className="glass flex-1 px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap">
+
+            <button className="w-full sm:w-auto inline-flex justify-center items-center glass px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
               {content.secondButton}
             </button>
           </motion.div>
