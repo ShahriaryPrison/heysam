@@ -4,6 +4,7 @@ import { IconCloud } from "@/components/magicui/icon-cloud";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import simplifiedSkills from "@/data/skillData";
+import Link from "next/link";
 
 const slugs = [
   "typescript",
@@ -144,9 +145,9 @@ export function IconCloudDemo({ content, langState }) {
               {content.button}
             </button>
 
-            <button className="w-full sm:w-fit inline-flex justify-center items-center glass px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
+            <Link href="#footer" className="w-full sm:w-fit inline-flex justify-center items-center glass px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center">
               {content.secondButton}
-            </button>
+            </Link>
           </motion.div>
         </div>
       </motion.div>
