@@ -1,35 +1,35 @@
 import { BentoCard, BentoGrid } from "../magicui/bento-grid";
 import {
-  FileIcon,
-  MagnifyingGlassIcon,
+    FigmaLogoIcon,
+  CodeIcon,
   GlobeIcon,
-  CalendarIcon,
+  GearIcon,
   BellIcon,
 } from "@radix-ui/react-icons";
 
 export default function Services({ projects, langState }) {
   const features = [
     {
-      name: "Save your files",
-      description: "We automatically save your files as you type.",
+      name: "UI/UX Design",
+      description: "Crafting intuitive and engaging user experiences.",
       href: "/",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
       className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
-      Icon: FileIcon,
+      Icon: FigmaLogoIcon,
     },
     {
-      name: "Full text search",
-      description: "Search through all your files in one place.",
+      name: "Frontend Development",
+      description: "Building responsive and dynamic web applications.",
       href: "/",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-      Icon: MagnifyingGlassIcon,
+      Icon: CodeIcon,
     },
     {
-      name: "Multilingual",
-      description: "Supports 100+ languages and counting.",
+      name: "Backend Development",
+      description: "Creating robust server-side solutions and APIs.",
       href: "/",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
@@ -37,18 +37,18 @@ export default function Services({ projects, langState }) {
       Icon: GlobeIcon,
     },
     {
-      name: "Calendar",
-      description: "Use the calendar to filter your files by date.",
+      name: "DevOps",
+      description: "Streamlining development and operations for efficiency.",
       href: "/",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-      Icon: CalendarIcon,
+      Icon: GearIcon,
     },
     {
-      name: "Notifications",
+      name: "SEO Optimization",
       description:
-        "Get notified when someone shares a file or mentions you in a comment.",
+        "Enhancing visibility and searchability of web applications.",
       href: "/",
       cta: "Learn more",
       background: <img className="absolute -right-20 -top-20 opacity-60" />,
