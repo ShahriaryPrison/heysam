@@ -13,7 +13,11 @@ export default {
   description:
     //charity
     "Roshana is a comprehensive charity management platform designed to streamline the operations of charitable organizations. It provides tools for service tracking, duplicate prevention, and impact measurement, ensuring efficient management of resources and activities. The platform aims to enhance the effectiveness of charitable initiatives by providing a user-friendly interface and robust features.",
-  images: [RohanaImage1, RohanaImage2, RohanaImage3],
+  images: [
+    { size: "mobile", src: RohanaImage1 },
+    { size: "mobile", src: RohanaImage2 },
+    { size: "mobile", src: RohanaImage3 },
+  ],
   link: "https://roshanaa.com/welcome",
   tech_stack: [
     "Html5",

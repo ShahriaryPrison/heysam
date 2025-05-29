@@ -9,7 +9,10 @@ export default {
   description:
     // an application that helps manage and track building projects, including tasks, resources, and timelines. It provides tools for collaboration, scheduling, and reporting to ensure efficient project execution and communication among team members.",
     "A comprehensive web application designed to streamline the management and tracking of building projects. This platform offers tools for task management, resource allocation, and timeline tracking, ensuring efficient project execution. With features for collaboration, scheduling, and reporting, it enhances communication among team members and stakeholders, ultimately leading to successful project outcomes.",
-  images: ["/projects/en/2/image1.jpg", "/projects/en/2/image2.jpg"],
+  images: [
+    { size: "mobile", src: "/projects/en/2/image1.jpg" },
+    { size: "mobile", src: "/projects/en/2/image2.jpg" },
+  ],
   link: "https://roshanaa.com/welcome",
   tech_stack: [
     "Html5",

@@ -9,7 +9,10 @@ export default {
   description:
     //a platform that offers a wide range of products and services, providing users with a seamless shopping experience. It includes features such as secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction. for multichannel shops and businesses.
     "Avval is a comprehensive platform designed for multichannel shops and businesses, offering a wide range of products and services. It provides users with a seamless shopping experience, featuring secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction. The platform is tailored to meet the needs of diverse businesses, ensuring smooth operations and customer satisfaction.",
-  images: ["/projects/en/2/image1.jpg", "/projects/en/2/image2.jpg"],
+  images: [
+    { size: "mobile", src: "/projects/en/2/image1.jpg" },
+    { size: "mobile", src: "/projects/en/2/image2.jpg" },
+  ],
   link: "https://aalefshop.com/welcome",
   tech_stack: [
     "Html5",
