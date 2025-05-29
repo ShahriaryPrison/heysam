@@ -13,24 +13,16 @@ import { AuroraText } from "../magicui/aurora-text";
 const footerContent = {
   fa: {
     contact: {
-      title: "تماس با من",
+      title: "تماس با ما",
       email: "ایمیل",
       phone: "تلفن",
-      location: "موقعیت",
-      address: "قم، ایران",
     },
     quickLinks: {
       title: "لینک‌های سریع",
       about: "درباره من",
       skills: "مهارت‌ها",
       projects: "پروژه‌ها",
-      contact: "تماس با من",
-    },
-    social: {
-      title: "شبکه‌های اجتماعی",
-      newsletter: "برای دریافت آخرین آپدیت‌ها",
-      emailPlaceholder: "آدرس ایمیل شما",
-      subscribe: "عضویت",
+      contact: "تماس با ما",
     },
     copyright: "تمام حقوق محفوظ است",
     terms: "قوانین و مقررات",
@@ -38,18 +30,16 @@ const footerContent = {
   },
   en: {
     contact: {
-      title: "Contact Me",
+      title: "Contact Us",
       email: "Email",
       phone: "Phone",
-      location: "Location",
-      address: "Qom, Iran",
     },
     quickLinks: {
       title: "Quick Links",
-      about: "About Me",
+      about: "About Us",
       skills: "Skills",
       projects: "Projects",
-      contact: "Contact",
+      contact: "Contact Us",
     },
     social: {
       title: "Social Media",
@@ -58,8 +48,6 @@ const footerContent = {
       subscribe: "Subscribe",
     },
     copyright: "All rights reserved",
-    terms: "Terms & Conditions",
-    privacy: "Privacy Policy",
   },
 };
 
@@ -78,6 +66,7 @@ function Footer({ langState = "fa" }) {
     <footer
       className="w-full bg-[#1f1d2b] py-12 px-4 sm:px-8 relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
+      id="footer"
     >
       {/* Gradient Background Elements - Fixed positioning */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
@@ -128,16 +117,8 @@ function Footer({ langState = "fa" }) {
                   href="tel:+989123456789"
                   className="text-white hover:text-[#C77DFF] transition-colors"
                 >
-                  +98 912 345 6789
+                  +98 994 421 5832
                 </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <MdLocationOn className="text-[#C77DFF] mt-1 text-xl" />
-              <div>
-                <p className="text-gray-300">{content.contact.location}</p>
-                <p className="text-white">{content.contact.address}</p>
               </div>
             </div>
           </div>
@@ -222,23 +203,6 @@ function Footer({ langState = "fa" }) {
             >
               <FaLinkedin className="text-white text-xl" />
             </motion.a>
-          </div>
-
-          <div className="pt-4">
-            <h4 className="text-white mb-3">{content.social.newsletter}</h4>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder={content.social.emailPlaceholder}
-                className="flex-1 bg-[#2d2b3a] text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#C77DFF]"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-[#C77DFF] to-[#5E7AFF] text-white px-4 py-2 rounded hover:opacity-90 transition-opacity"
-              >
-                {content.social.subscribe}
-              </button>
-            </form>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
   MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Services({ projects, langState }) {
   const features = [
@@ -239,21 +240,56 @@ export default function Services({ projects, langState }) {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-12 md:py-16">
-      <BentoGrid>
-        {features.map((feature) => (
-          <BentoCard
-            key={feature.name}
-            name={feature.name}
-            description={feature.description}
-            href={feature.href}
-            cta={feature.cta}
-            background={feature.background}
-            className={feature.className + " glass"}
-            Icon={feature.Icon}
-          />
-        ))}
-      </BentoGrid>
-    </div>
+    <>
+      <div className="w-full max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <BentoGrid>
+          {features.map((feature) => (
+            <BentoCard
+              key={feature.name}
+              name={feature.name}
+              description={feature.description}
+              href={feature.href}
+              cta={feature.cta}
+              background={feature.background}
+              className={feature.className + " glass"}
+              Icon={feature.Icon}
+            />
+          ))}
+        </BentoGrid>
+      </div>
+      <div className="mt-16 relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/50 to-indigo-900/50 border border-white/10 p-8 md:p-10">
+        {/* Background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+          <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+          <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/5 rounded-full filter blur-xl"></div>
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Free Project Consultation
+            </h2>
+            <p className="text-lg md:text-xl text-white/80 mb-8">
+              Need help with your project? Let's discuss how we can assist you
+              in achieving your goals. We're here to help.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                href="#footer" // Adjust this to your contact page path
+                className="px-8 py-3 bg-white text-purple-900 rounded-lg font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-purple-500/20"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating decorative elements */}
+        <div className="absolute right-10 top-10 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"></div>
+        <div className="absolute left-12 bottom-12 w-8 h-8 bg-purple-400/20 rounded-full backdrop-blur-sm"></div>
+      </div>
+    </>
   );
 }
