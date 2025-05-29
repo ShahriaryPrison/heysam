@@ -1,22 +1,14 @@
 import { MagicCard } from "@/components/magicui/magic-card";
 import { Meteors } from "@/components/magicui/meteors";
-import { ShineBorder } from "@/components/magicui/shine-border";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { TextAnimate } from "@/components/magicui/text-animate";
 import { AuroraText } from "@/components/magicui/aurora-text";
+import { AnimatedCircularProgressBar } from "@/components/magicui/animated-circular-progress-bar";
+import { useRouter } from "next/router";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -38,16 +30,87 @@ const itemVariants = {
     },
   },
 };
+
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [progressText, setProgressText] = useState("0%");
+  const router = useRouter();
+  const progressValue = useMotionValue(0);
+
   useEffect(() => {
     AOS.init({
       duration: 800,
       easing: "ease-in-out",
       once: true,
     });
-  }, []);
+
+    const handleRouteChange = (url) => {
+      setIsLoading(true);
+      setProgressText("0%");
+
+      const animation = animate(progressValue, 100, {
+        duration: 2,
+        ease: "easeInOut",
+        onUpdate: (latest) => {
+          setProgressText(`${Math.round(latest)}%`);
+        },
+      });
+
+      return () => animation.stop();
+    };
+
+    const handleRouteComplete = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+        progressValue.set(0);
+      }, 300);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteComplete);
+    router.events.on("routeChangeError", handleRouteComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteComplete);
+      router.events.off("routeChangeError", handleRouteComplete);
+    };
+  }, [router]);
+
   return (
-    <section className="flex justify-center items-center w-screen h-screen">
+    <section className="flex justify-center items-center w-screen h-screen relative">
+      {/* لودینگ اورلی */}
+      {isLoading && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4">
+            <div className="relative">
+              <AnimatedCircularProgressBar
+                max={100}
+                min={0}
+                value={progressValue.get()}
+                gaugePrimaryColor="rgb(124 58 237)"
+                gaugeSecondaryColor="rgba(255, 255, 255, 0.1)"
+                size={140}
+                strokeWidth={12}
+              />
+            </div>
+            <motion.p
+              className="text-purple-300 font-medium text-lg"
+              initial={{ opacity: 0.5 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1.2,
+              }}
+            >
+              Loading page...
+            </motion.p>
+          </div>
+        </div>
+      )}
+
+      {/* محتوای اصلی */}
       <Meteors number={30} />
       <motion.div
         className="relative z-10 w-full max-w-md"
@@ -70,14 +133,16 @@ export default function Home() {
           >
             <Link
               href="/en"
-              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
+              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold hover:bg-purple-500/20 transition-all"
+              onClick={() => setIsLoading(true)}
             >
               English
             </Link>
 
             <Link
               href="/fa"
-              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold"
+              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold hover:bg-purple-500/20 transition-all"
+              onClick={() => setIsLoading(true)}
             >
               فارسی
             </Link>

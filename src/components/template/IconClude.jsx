@@ -106,7 +106,7 @@ export function IconCloudDemo({ content, langState }) {
     <div
       className={`relative flex flex-col ${
         langState === "en" ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-6 py-12 md:py-16`}
+      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-4 py-12 md:py-16`}
     >
       {/* Gradient Background Elements */}
       {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">

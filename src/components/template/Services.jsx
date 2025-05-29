@@ -643,7 +643,7 @@ export default function Services({ projects, langState }) {
   return (
     <motion.div
       ref={ref}
-      className="w-full max-w-7xl mx-auto px-6 py-12 md:py-16"
+      className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16"
       initial="hidden"
       animate={controls}
       variants={{
