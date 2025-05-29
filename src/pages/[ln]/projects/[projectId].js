@@ -256,7 +256,7 @@ export default function ProjectPage({
           >
             <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
 
-            <PhotoProvider>
+            <PhotoProvider key={project.id}>
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={10}
