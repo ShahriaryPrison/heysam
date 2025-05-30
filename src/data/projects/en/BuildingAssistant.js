@@ -2,7 +2,7 @@ import Icon from "@/assets/images/projects/BuildingAssistant/buildings.png";
 import FirstImage from "@/assets/images/projects/BuildingAssistant/4.jpg";
 
 export default {
-  id: 2,
+  id: 4,
   title: "Building Assistant",
   tech: "Web App",
   type: "Private",

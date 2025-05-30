@@ -4,7 +4,7 @@ import RohanaImage3 from "@/assets/images/projects/Roshana/image3.jpg";
 import RoshanaIcon from "../../../../public/images/projects/Roshana/Roshana.png";
 // import RohanaVideo from "@/assets/images/projects/Roshana/Roshana.mp4";
 export default {
-  id: 1,
+  id: 8,
   title: "Roshana",
   icon: RoshanaIcon,
   type: "public",

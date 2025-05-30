@@ -9,6 +9,7 @@ const ReviewCard = ({
   key,
   icon,
   title,
+  slug,
   tech_stack,
   description,
   langState,
@@ -20,9 +21,7 @@ const ReviewCard = ({
   return (
     <Link
       key={key}
-      href={`/${langState}/projects/${encodeURIComponent(
-        title.replace(/\s+/g, "")
-      )}`}
+      href={`/${langState}/projects/${slug}`}
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 glass text-white",
         // light styles
@@ -82,6 +81,7 @@ export default function Projects({ projects, langState }) {
               key={project.title}
               langState={langState}
               tech_stack={project.tech_stack}
+              slug={project.id}
               {...project}
             />
           ))}

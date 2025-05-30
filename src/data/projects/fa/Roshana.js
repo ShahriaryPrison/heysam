@@ -4,11 +4,13 @@ import RohanaImage3 from "@/assets/images/projects/Roshana/image3.jpg";
 import RoshanaIcon from "../../../../public/images/projects/Roshana/Roshana.png";
 
 export default {
-  id: 1,
+  id: 8,
   title: "روشنا",
   icon: RoshanaIcon,
-  tech: "وب اپ",
-  description: "یک وب اپلیکشن کاربردی برای خیریه ها و نیازمندان...",
+  type: "public",
+  status: "Production",
+  description:
+    "روشنا یک پلتفرم جامع مدیریت خیریه است که برای بهینه‌سازی فعالیت‌های سازمان‌های خیریه طراحی شده است. این سیستم ابزارهایی برای پیگیری خدمات، جلوگیری از انجام کارهای تکراری و اندازه‌گیری تأثیر ارائه می‌دهد تا مدیریت منابع و فعالیت‌ها به شکل مؤثرتری انجام شود. هدف روشنـا، افزایش اثربخشی اقدامات خیریه با ارائه رابط کاربری ساده و قابلیت‌های قوی است.",
   images: [
     { size: "mobile", src: RohanaImage1 },
     { size: "mobile", src: RohanaImage2 },

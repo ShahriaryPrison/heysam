@@ -4,7 +4,7 @@ import Img2 from "@/assets/images/projects/LaserTag/img2.jpg";
 import Img3 from "@/assets/images/projects/LaserTag/img3.jpg";
 import Img4 from "@/assets/images/projects/LaserTag/img4.jpg";
 export default {
-  id: 2,
+  id: 5,
   title: "Laser Tag",
   tech: "Web App",
   icon: LaserTagIcon,

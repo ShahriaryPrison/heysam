@@ -1,7 +1,7 @@
 import Icon from "@/assets/images/projects/Avval/اول.png";
 
 export default {
-  id: 2,
+  id: 3,
   title: "Avval",
   tech: "Web App",
   status: "Development",

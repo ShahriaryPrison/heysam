@@ -72,10 +72,22 @@ const imageVariants = {
 };
 
 const statusColors = {
-  production: "bg-green-500/20 text-green-400 border-green-500",
-  local: "bg-blue-500/20 text-blue-400 border-blue-500",
-  test: "bg-yellow-500/20 text-yellow-400 border-yellow-500",
-  staging: "bg-purple-500/20 text-purple-400 border-purple-500",
+  Production:
+    "bg-green-500/20 text-green-400 border-green-500 hover:bg-green-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(74,222,128,0.3)]",
+  Local:
+    "bg-blue-500/20 text-blue-400 border-blue-500 hover:bg-blue-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(96,165,250,0.3)]",
+  Test: "bg-yellow-500/20 text-yellow-400 border-yellow-500 hover:bg-yellow-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(250,204,21,0.3)]",
+  Staging:
+    "bg-purple-500/20 text-purple-400 border-purple-500 hover:bg-purple-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(192,132,252,0.3)]",
+
+  Development:
+    "bg-indigo-500/20 text-indigo-400 border-indigo-500 hover:bg-indigo-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(129,140,248,0.3)] animate-pulse",
+  Deprecated:
+    "bg-red-500/20 text-red-400 border-red-500 hover:bg-red-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(248,113,113,0.3)] line-through",
+  Maintenance:
+    "bg-amber-500/20 text-amber-400 border-amber-500 hover:bg-amber-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(245,158,11,0.3)]",
+  Experimental:
+    "bg-pink-500/20 text-pink-400 border-pink-500 hover:bg-pink-500/30 transition-colors shadow-[0_0_6px_-1px_rgba(244,114,182,0.3)] animate-bounce",
 };
 
 const typeColors = {
@@ -158,12 +170,16 @@ export default function ProjectPage({
               <Badge className={`${statusColors[projectStatus]} border`}>
                 {projectStatus === "Production"
                   ? isRTL
-                    ? "تولید"
+                    ? "انتشار"
                     : "Production"
                   : projectStatus === "Local"
                   ? isRTL
                     ? "محلی"
                     : "Local"
+                  : projectStatus === "Design"
+                  ? isRTL
+                    ? "طراحی"
+                    : "Design"
                   : isRTL
                   ? "تست"
                   : "Test"}

@@ -2,7 +2,7 @@ import Icon from "@/assets/images/projects/MarjanStones/logo.png";
 
 
 export default {
-  id: 2,
+  id: 6,
   title: "Marjan Stones",
   tech: "WebSite",
   type: "public",

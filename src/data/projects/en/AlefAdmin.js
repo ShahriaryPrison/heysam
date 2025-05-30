@@ -14,7 +14,7 @@ export default {
     { size: "mobile", src: "/projects/en/2/image1.jpg" },
     { size: "mobile", src: "/projects/en/2/image2.jpg" },
   ],
-  link: "https://roshanaa.com/welcome",
+  link: "https://aalefshop.com",
   tech_stack: [
     "Html5",
     "React",
@@ -29,9 +29,11 @@ export default {
     "Git",
   ],
   features: [
-    "Charity management",
-    "Service tracking",
-    "Duplicate prevention",
-    "Impact measurement",
+    "Multichannel sales management",
+    "Centralized product management",
+    "Inventory tracking and control",
+    "Order processing and monitoring",
+    "Customer relationship management (CRM)",
+    "Real-time reports and analytics",
   ],
 };

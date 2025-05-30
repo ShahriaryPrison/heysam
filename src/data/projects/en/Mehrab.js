@@ -2,11 +2,11 @@ import Mehrab from "@/assets/images/projects/Mehrab/Mehrab.webp";
 import FirstImage from "@/assets/images/projects/Mehrab/image.png";
 
 export default {
-  id: 2,
+  id: 7,
   title: "Mehrab",
   tech: "Web App",
   type: "Public",
-  status: "Testing",
+  status: "Test",
   icon: Mehrab,
   description:
     //a cultural centers website that has cinema, library, different classes and more
