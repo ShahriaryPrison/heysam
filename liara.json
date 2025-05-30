@@ -1,6 +1,7 @@
 {
   "app": "heysam",
   "port": 3000,
+  "team-id": "6835a68309470c1a1ef94aec",
   "build": {
     "location": "iran"
   },
