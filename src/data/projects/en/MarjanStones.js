@@ -5,7 +5,7 @@ export default {
   id: 6,
   title: "Marjan Stones",
   tech: "WebSite",
-  type: "public",
+  type: "privet",
   status: "Design",
   icon: Icon,
   description:

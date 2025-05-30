@@ -91,8 +91,8 @@ const statusColors = {
 };
 
 const typeColors = {
-  public: "bg-emerald-500/20 text-emerald-400 border-emerald-500",
-  private: "bg-rose-500/20 text-rose-400 border-rose-500",
+  Public: "bg-emerald-500/20 text-emerald-400 border-emerald-500",
+  Private: "bg-rose-500/20 text-rose-400 border-rose-500",
 };
 
 export default function ProjectPage({
