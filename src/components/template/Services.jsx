@@ -5,10 +5,12 @@ import {
   GlobeIcon,
   GearIcon,
   MagnifyingGlassIcon,
+  CubeIcon,
 } from "@radix-ui/react-icons";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AuroraText } from "../magicui/aurora-text";
+import { GitCommitIcon, HammerIcon, RocketIcon, TestTubeIcon } from "lucide-react";
 
 export default function Services({ projects, langState }) {
   const controls = useAnimation();
@@ -774,210 +776,374 @@ export default function Services({ projects, langState }) {
             animate={isMobile ? "loop" : "hidden"}
             whileHover={!isMobile ? "visible" : ""}
             variants={{
-              hidden: { opacity: 0.7 },
+              hidden: { opacity: 0.8 },
               visible: { opacity: 1, transition: { duration: 0.5 } },
               loop: {
-                opacity: 1,
+                opacity: [0.8, 1, 0.8],
                 transition: {
                   repeat: Infinity,
-                  duration: 2,
+                  duration: 3,
                   ease: "easeInOut",
                 },
               },
             }}
           >
+            {/* Pipeline Flow */}
             <motion.div
-              className="relative h-full"
+              className="absolute top-1/4 left-0 right-0"
               variants={{
-                hidden: { scale: 0.95, opacity: 0.8 },
-                visible: { scale: 1, opacity: 1, transition: { delay: 0.2 } },
+                hidden: { opacity: 0.8 },
+                visible: { opacity: 1 },
                 loop: {
-                  scale: [1, 0.95, 1],
-                  opacity: [1, 0.8, 1],
+                  opacity: [0.8, 1, 0.8],
                   transition: {
                     repeat: Infinity,
-                    duration: 4,
-                    delay: 0.2,
+                    duration: 3,
                     ease: "easeInOut",
                   },
                 },
               }}
             >
-              <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
-                variants={{
-                  hidden: { y: 0, opacity: 0.8 },
-                  visible: { y: 0, opacity: 1, transition: { delay: 0.3 } },
-                  loop: {
-                    y: [0, -5, 0],
-                    opacity: [1, 0.8, 1],
-                    transition: {
+              <div className="flex justify-center items-center">
+                {/* Code Commit */}
+                <motion.div
+                  className="relative sm:flex flex-col items-center mx-4 hidden"
+                  variants={{
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
+                    loop: {
+                      y: [0, -5, 0],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 4,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-blue-900/30 rounded-full border-2 border-blue-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <GitCommitIcon className="text-blue-400 w-8 h-8" />
+                  </motion.div>
+                  <motion.div
+                    className="mt-2 text-xs text-blue-300 font-mono"
+                    variants={{
+                      hidden: { opacity: 0.8 },
+                      visible: { opacity: 1 },
+                      loop: {
+                        opacity: [0.8, 1, 0.8],
+                        transition: {
+                          repeat: Infinity,
+                          duration: 4,
+                        },
+                      },
+                    }}
+                  >
+                    {currentContent.devops.commit || "Code Commit"}
+                  </motion.div>
+                </motion.div>
+
+                {/* Arrow */}
+                <motion.div
+                  className="w-16 h-1 bg-blue-500/30 relative"
+                  variants={{
+                    hidden: { opacity: 0.7 },
+                    visible: { opacity: 1 },
+                    loop: {
+                      opacity: [0.7, 1, 0.7],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 3,
+                      },
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-blue-400 rounded-full"
+                    animate={{
+                      x: [0, 48],
+                    }}
+                    transition={{
                       repeat: Infinity,
-                      duration: 5,
-                      delay: 0.3,
-                      ease: "easeInOut",
+                      duration: 2,
+                      ease: "linear",
+                    }}
+                  />
+                </motion.div>
+
+                {/* Build */}
+                <motion.div
+                  className="relative flex flex-col items-center mx-4"
+                  variants={{
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
+                    loop: {
+                      y: [0, 5, 0],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 4,
+                        delay: 0.3,
+                        ease: "easeInOut",
+                      },
                     },
+                  }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-amber-900/30 rounded-full border-2 border-amber-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <HammerIcon className="text-amber-400 w-8 h-8" />
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-amber-300 font-mono">
+                    {currentContent.devops.build || "Build"}
+                  </motion.div>
+                </motion.div>
+
+                {/* Arrow */}
+                <motion.div className="w-16 h-1 bg-amber-500/30 relative">
+                  <motion.div
+                    className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-amber-400 rounded-full"
+                    animate={{
+                      x: [0, 48],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2,
+                      delay: 0.5,
+                      ease: "linear",
+                    }}
+                  />
+                </motion.div>
+
+                {/* Test */}
+                <motion.div
+                  className="relative flex flex-col items-center mx-4"
+                  variants={{
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
+                    loop: {
+                      y: [0, -5, 0],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 4,
+                        delay: 0.6,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-green-900/30 rounded-full border-2 border-green-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <TestTubeIcon className="text-green-400 w-8 h-8" />
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-green-300 font-mono">
+                    {currentContent.devops.test || "Test"}
+                  </motion.div>
+                </motion.div>
+
+                {/* Arrow */}
+                <motion.div className="w-16 h-1 bg-green-500/30 relative">
+                  <motion.div
+                    className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-green-400 rounded-full"
+                    animate={{
+                      x: [0, 48],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2,
+                      delay: 0.8,
+                      ease: "linear",
+                    }}
+                  />
+                </motion.div>
+
+                {/* Deploy */}
+                <motion.div
+                  className="relative flex flex-col items-center mx-4"
+                  variants={{
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
+                    loop: {
+                      y: [0, 5, 0],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 4,
+                        delay: 0.9,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="w-16 h-16 bg-purple-900/30 rounded-full border-2 border-purple-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <RocketIcon className="text-purple-400 w-8 h-8" />
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-purple-300 font-mono">
+                    {currentContent.devops.deploy || "Deploy"}
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Cloud Infrastructure */}
+            <motion.div
+              className="absolute bottom-1/4 left-0 right-0"
+              variants={{
+                hidden: { opacity: 0.8 },
+                visible: { opacity: 1 },
+                loop: {
+                  opacity: [0.8, 1, 0.8],
+                  transition: {
+                    repeat: Infinity,
+                    duration: 3,
+                    delay: 0.5,
+                    ease: "easeInOut",
                   },
-                }}
-              >
+                },
+              }}
+            >
+              <div className="flex justify-center space-x-8">
+                {/* Server */}
                 <motion.div
-                  className="flex justify-center space-x-4"
+                  className="flex flex-col items-center"
                   variants={{
-                    hidden: { opacity: 0.8 },
-                    visible: {
-                      opacity: 1,
-                      transition: { delay: 0.4 },
-                    },
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
                     loop: {
-                      opacity: 1,
+                      y: [0, -8, 0],
                       transition: {
                         repeat: Infinity,
-                        duration: 4,
-                        delay: 0.4,
+                        duration: 5,
                         ease: "easeInOut",
                       },
                     },
                   }}
                 >
-                  {[
-                    currentContent.devops.step1,
-                    currentContent.devops.step2,
-                    currentContent.devops.step3,
-                    currentContent.devops.step4,
-                  ].map((step, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex flex-col items-center"
-                      variants={{
-                        hidden: { y: 0, opacity: 0.8 },
-                        visible: {
-                          y: 0,
-                          opacity: 1,
-                          transition: { delay: 0.4 + i * 0.1 },
-                        },
-                        loop: {
-                          y: [0, 5, 0],
-                          opacity: [1, 0.8, 1],
-                          transition: {
-                            repeat: Infinity,
-                            duration: 4,
-                            delay: 0.4 + i * 0.1,
-                            ease: "easeInOut",
-                          },
-                        },
-                      }}
-                    >
-                      <motion.div
-                        className="w-12 h-12 rounded-full bg-green-900/30 border border-green-500/50 flex items-center justify-center"
-                        whileHover={{ scale: 1.1 }}
-                        variants={{
-                          hidden: { rotate: 0 },
-                          visible: {
-                            rotate: 0,
-                            transition: { delay: 0.4 + i * 0.1 },
-                          },
-                          loop: {
-                            rotate: [0, 360],
-                            transition: {
-                              repeat: Infinity,
-                              duration: 5,
-                              ease: "linear",
-                              delay: i * 0.2 + 0.4,
-                            },
-                          },
-                        }}
-                      >
-                        <motion.div
-                          className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center"
-                          variants={{
-                            hidden: { rotate: 0 },
-                            visible: {
-                              rotate: [0, 360],
-                              transition: {
-                                duration: 5,
-                                repeat: Infinity,
-                                ease: "linear",
-                                delay: i * 0.2,
-                              },
-                            },
-                            loop: {
-                              rotate: [0, 360],
-                              transition: {
-                                repeat: Infinity,
-                                duration: 5,
-                                ease: "linear",
-                                delay: i * 0.2,
-                              },
-                            },
-                          }}
-                        >
-                          <div className="w-4 h-4 rounded-full bg-green-500/50"></div>
-                        </motion.div>
-                      </motion.div>
-                      <div className="mt-2 text-xs text-green-300">{step}</div>
-                      {i < 3 && (
-                        <div className="h-px w-16 bg-green-500/30 mt-6"></div>
-                      )}
-                    </motion.div>
-                  ))}
+                  <motion.div
+                    className="w-20 h-12 bg-gray-800/50 rounded-lg border border-gray-500/30 flex flex-col items-center justify-end pb-1"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="w-16 h-1 bg-gray-500/50 mb-1"></div>
+                    <div className="w-14 h-1 bg-gray-500/50 mb-1"></div>
+                    <div className="w-12 h-1 bg-gray-500/50"></div>
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-gray-300 font-mono">
+                    {currentContent.devops.server || "Server"}
+                  </motion.div>
                 </motion.div>
+
+                {/* Container */}
                 <motion.div
-                  className="flex justify-around mt-12"
+                  className="flex flex-col items-center"
                   variants={{
-                    hidden: { opacity: 0.8 },
-                    visible: {
-                      opacity: 1,
-                      transition: { delay: 0.8 },
-                    },
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
                     loop: {
-                      opacity: 1,
+                      y: [0, 8, 0],
                       transition: {
                         repeat: Infinity,
-                        duration: 4,
-                        delay: 0.8,
+                        duration: 5,
+                        delay: 0.3,
                         ease: "easeInOut",
                       },
                     },
                   }}
                 >
-                  {[
-                    currentContent.devops.env1,
-                    currentContent.devops.env2,
-                    currentContent.devops.env3,
-                  ].map((env, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex flex-col items-center"
-                      variants={{
-                        hidden: { y: 0, opacity: 0.8 },
-                        visible: {
-                          y: 0,
-                          opacity: 1,
-                          transition: { delay: 0.8 + i * 0.1 },
-                        },
-                        loop: {
-                          y: [0, -5, 0],
-                          opacity: [1, 0.8, 1],
-                          transition: {
-                            repeat: Infinity,
-                            duration: 4,
-                            delay: 0.8 + i * 0.1,
-                            ease: "easeInOut",
-                          },
-                        },
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="w-16 h-16 bg-gray-800/50 rounded-lg border border-gray-500/30 flex flex-col items-center justify-center">
-                        <div className="w-10 h-1 bg-gray-500/50 mb-1"></div>
-                        <div className="w-8 h-1 bg-gray-500/50 mb-1"></div>
-                        <div className="w-6 h-1 bg-gray-500/50"></div>
-                      </div>
-                      <div className="mt-2 text-xs text-gray-300">{env}</div>
-                    </motion.div>
-                  ))}
+                  <motion.div
+                    className="w-16 h-16 bg-blue-800/30 rounded-lg border-2 border-blue-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <CubeIcon className="text-blue-400 w-8 h-8" />
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-blue-300 font-mono">
+                    {currentContent.devops.container || "Container"}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+
+                {/* Kubernetes */}
+                <motion.div
+                  className="flex flex-col items-center"
+                  variants={{
+                    hidden: { y: 0 },
+                    visible: { y: 0 },
+                    loop: {
+                      y: [0, -8, 0],
+                      transition: {
+                        repeat: Infinity,
+                        duration: 5,
+                        delay: 0.6,
+                        ease: "easeInOut",
+                      },
+                    },
+                  }}
+                >
+                  <motion.div
+                    className="w-20 h-16 bg-indigo-800/30 rounded-lg border-2 border-indigo-400/50 flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="grid grid-cols-2 gap-1">
+                      {[...Array(4)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-3 h-3 rounded-sm bg-indigo-400/70"
+                        ></div>
+                      ))}
+                    </div>
+                  </motion.div>
+                  <motion.div className="mt-2 text-xs text-indigo-300 font-mono">
+                    {currentContent.devops.kubernetes || "K8s"}
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Monitoring */}
+            <motion.div
+              className="absolute bottom-8 left-0 right-0"
+              variants={{
+                hidden: { opacity: 0.8 },
+                visible: { opacity: 1 },
+                loop: {
+                  opacity: [0.8, 1, 0.8],
+                  transition: {
+                    repeat: Infinity,
+                    duration: 3,
+                    delay: 0.8,
+                    ease: "easeInOut",
+                  },
+                },
+              }}
+            >
+              <div className="flex justify-center">
+                <motion.div
+                  className="w-64 h-12 bg-gray-900/50 rounded-lg border border-gray-500/30 p-2"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="flex items-center h-full">
+                    <div className="w-3 h-3 rounded-full bg-green-400/80 mr-2"></div>
+                    <div className="text-xs text-green-300 font-mono flex-1">
+                      {currentContent.devops.monitoring || "System: Healthy"}
+                    </div>
+                    <div className="text-xs text-gray-400 font-mono">100%</div>
+                  </div>
+                  <motion.div
+                    className="h-1 bg-green-500/50 rounded-full mt-1"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                    }}
+                  />
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
         ),
