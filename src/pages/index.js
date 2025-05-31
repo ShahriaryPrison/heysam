@@ -78,7 +78,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <section className="flex justify-center items-center w-screen h-screen relative">
+    <section className="flex justify-center items-center w-screen h-dvh relative">
       {/* لودینگ اورلی */}
       {isLoading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
@@ -121,7 +121,7 @@ export default function Home() {
       >
         <div className="glass flex flex-col items-center gap-8 py-10 px-4 sm:p-10 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
           <motion.h3
-            className="text-base sm:text-3xl text-center font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
+            className="text-xl sm:text-3xl text-center font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
             variants={itemVariants}
           >
             <AuroraText>Select Your Language</AuroraText>
