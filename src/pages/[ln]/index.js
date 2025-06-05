@@ -12,7 +12,6 @@ import { IconCloudDemo } from "@/components/template/IconClude";
 import Services from "@/components/template/Services";
 
 export default function Home({ langData, projects }) {
-  
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -31,9 +30,7 @@ export default function Home({ langData, projects }) {
         langState={langData.lang}
         content={langData.projects}
       />
-      <Services
-      langState={langData.lang}
-      />
+      <Services key={langData.lang} langState={langData.lang} />
       <IconCloudDemo content={langData.skills} langState={langData.lang} />
       <Footer content={langData.footer} langState={langData.lang} />
       <BackToTopButton />

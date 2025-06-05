@@ -78,7 +78,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <section className="flex justify-center items-center w-screen h-screen relative">
+    <section className="flex justify-center items-center w-screen h-dvh relative">
       {/* لودینگ اورلی */}
       {isLoading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
@@ -119,7 +119,7 @@ export default function Home() {
         animate="visible"
         data-aos="fade-up"
       >
-        <div className="glass flex flex-col items-center gap-8 p-10 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
+        <div className="glass flex flex-col items-center gap-8 py-10 px-4 sm:p-10 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
           <motion.h3
             className="text-xl sm:text-3xl text-center font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4"
             variants={itemVariants}
@@ -128,12 +128,12 @@ export default function Home() {
           </motion.h3>
 
           <motion.div
-            className="flex gap-4 justify-center"
+            className="flex gap-4 justify-center flex-wrap"
             variants={itemVariants}
           >
             <Link
               href="/en"
-              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold hover:bg-purple-500/20 transition-all"
+              className="member-animation flex justify-center items-center glass px-4 py-2 sm:px-6 sm:py-2.5 text-white rounded-lg text-xs sm:text-base font-bold hover:bg-purple-500/20 transition-all"
               onClick={() => setIsLoading(true)}
             >
               English
@@ -141,7 +141,7 @@ export default function Home() {
 
             <Link
               href="/fa"
-              className="member-animation flex justify-center items-center glass px-6 py-2.5 text-white rounded-lg font-bold hover:bg-purple-500/20 transition-all"
+              className="member-animation flex justify-center items-center glass px-4 py-2 sm:px-6 sm:py-2.5 text-white rounded-lg text-xs sm:text-base font-bold hover:bg-purple-500/20 transition-all"
               onClick={() => setIsLoading(true)}
             >
               فارسی
