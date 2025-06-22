@@ -325,7 +325,7 @@ export function IconCloudDemo({ content, langState }) {
       id="skills"
       className={`relative flex flex-col ${
         langState === "en" ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-4 py-12 md:py-16`}
+      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-2 sm:px-4 py-12 md:py-16`}
     >
       {/* Content Card */}
       <motion.div
@@ -335,7 +335,7 @@ export function IconCloudDemo({ content, langState }) {
         animate="visible"
         data-aos="fade-up"
       >
-        <div className="glass-container mx-auto w-fit p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
+        <div className="glass-container mx-auto w-fit p-4 sm:p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
           <motion.h3
             className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4 flex"
             variants={itemVariants}
