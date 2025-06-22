@@ -19,12 +19,13 @@ import {
 
 export default function Services({ projects, langState }) {
   console.log(langState);
-  
+
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -42,6 +43,12 @@ export default function Services({ projects, langState }) {
       controls.start("visible");
     }
   }, [isInView, controls]);
+
+  const handleCardClick = (index) => {
+    if (isMobile) {
+      setActiveCard(activeCard === index ? null : index);
+    }
+  };
 
   // Define content for both English and Persian
   const content = {
@@ -115,19 +122,10 @@ export default function Services({ projects, langState }) {
         <motion.div
           className="absolute inset-0 overflow-hidden grid grid-cols-3 grid-rows-3 gap-2 p-2"
           initial="hidden"
-          animate={isMobile ? "loop" : "hidden"}
-          whileHover={!isMobile ? "visible" : ""}
+          animate={isMobile && activeCard === 0 ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0.5 },
             visible: { opacity: 1, transition: { duration: 0.8 } },
-            loop: {
-              opacity: 1,
-              transition: {
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut",
-              },
-            },
           }}
         >
           <motion.div
@@ -135,16 +133,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { x: -20, opacity: 0.7 },
               visible: { x: 0, opacity: 1, transition: { delay: 0.2 } },
-              loop: {
-                x: [0, -20, 0],
-                opacity: [1, 0.7, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.2,
-                  ease: "easeInOut",
-                },
-              },
             }}
           />
           <motion.div
@@ -152,16 +140,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { y: -20, opacity: 0.7 },
               visible: { y: 0, opacity: 1, transition: { delay: 0.3 } },
-              loop: {
-                y: [0, -20, 0],
-                opacity: [1, 0.7, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.3,
-                  ease: "easeInOut",
-                },
-              },
             }}
           />
           <motion.div
@@ -169,16 +147,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { y: -20, opacity: 0.7 },
               visible: { y: 0, opacity: 1, transition: { delay: 0.4 } },
-              loop: {
-                y: [0, -20, 0],
-                opacity: [1, 0.7, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.4,
-                  ease: "easeInOut",
-                },
-              },
             }}
           />
           <motion.div
@@ -186,16 +154,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { x: -20, opacity: 0.7 },
               visible: { x: 0, opacity: 1, transition: { delay: 0.5 } },
-              loop: {
-                x: [0, -20, 0],
-                opacity: [1, 0.7, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.5,
-                  ease: "easeInOut",
-                },
-              },
             }}
           />
           <motion.div
@@ -203,16 +161,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { y: 20, opacity: 0.7 },
               visible: { y: 0, opacity: 1, transition: { delay: 0.6 } },
-              loop: {
-                y: [0, 20, 0],
-                opacity: [1, 0.7, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.6,
-                  ease: "easeInOut",
-                },
-              },
             }}
           />
           <motion.div
@@ -223,16 +171,6 @@ export default function Services({ projects, langState }) {
                 scale: 1,
                 opacity: 1,
                 transition: { delay: 0.7, type: "spring" },
-              },
-              loop: {
-                scale: [1, 0.8, 1],
-                opacity: [1, 0.8, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 3,
-                  delay: 0.7,
-                  ease: "easeInOut",
-                },
               },
             }}
           />
@@ -245,17 +183,6 @@ export default function Services({ projects, langState }) {
                 scale: 1,
                 opacity: 1,
                 transition: { delay: 0.8, type: "spring" },
-              },
-              loop: {
-                rotate: [12, 0, 12],
-                scale: [1, 0.8, 1],
-                opacity: [1, 0.8, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 3,
-                  delay: 0.8,
-                  ease: "easeInOut",
-                },
               },
             }}
           />
@@ -273,19 +200,10 @@ export default function Services({ projects, langState }) {
         <motion.div
           className="absolute inset-0 overflow-hidden p-4"
           initial="hidden"
-          animate={isMobile ? "loop" : "hidden"}
-          whileHover={!isMobile ? "visible" : ""}
+          animate={isMobile && activeCard === 1 ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0.7 },
             visible: { opacity: 1, transition: { duration: 0.5 } },
-            loop: {
-              opacity: 1,
-              transition: {
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut",
-              },
-            },
           }}
         >
           <motion.div
@@ -293,16 +211,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { y: 10, opacity: 0.8 },
               visible: { y: 0, opacity: 1, transition: { delay: 0.2 } },
-              loop: {
-                y: [0, 10, 0],
-                opacity: [1, 0.8, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.2,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <motion.div
@@ -310,15 +218,6 @@ export default function Services({ projects, langState }) {
               variants={{
                 hidden: { opacity: 0.8 },
                 visible: { opacity: 1, transition: { delay: 0.3 } },
-                loop: {
-                  opacity: 1,
-                  transition: {
-                    repeat: Infinity,
-                    duration: 4,
-                    delay: 0.3,
-                    ease: "easeInOut",
-                  },
-                },
               }}
             >
               <motion.div
@@ -328,15 +227,6 @@ export default function Services({ projects, langState }) {
                   visible: {
                     scale: [1, 1.2, 1],
                     transition: { repeat: Infinity, duration: 2, delay: 0.4 },
-                  },
-                  loop: {
-                    scale: [1, 1.2, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      delay: 0.4,
-                      ease: "easeInOut",
-                    },
                   },
                 }}
               />
@@ -348,15 +238,6 @@ export default function Services({ projects, langState }) {
                     scale: [1, 1.2, 1],
                     transition: { repeat: Infinity, duration: 2, delay: 0.6 },
                   },
-                  loop: {
-                    scale: [1, 1.2, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      delay: 0.6,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               />
               <motion.div
@@ -367,15 +248,6 @@ export default function Services({ projects, langState }) {
                     scale: [1, 1.2, 1],
                     transition: { repeat: Infinity, duration: 2, delay: 0.8 },
                   },
-                  loop: {
-                    scale: [1, 1.2, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      delay: 0.8,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               />
             </motion.div>
@@ -384,33 +256,14 @@ export default function Services({ projects, langState }) {
               variants={{
                 hidden: { opacity: 0.8 },
                 visible: { opacity: 1, transition: { delay: 0.4 } },
-                loop: {
-                  opacity: 1,
-                  transition: {
-                    repeat: Infinity,
-                    duration: 4,
-                    delay: 0.4,
-                    ease: "easeInOut",
-                  },
-                },
               }}
             >
-              {/* Container with forced LTR direction */}
               <div dir="ltr" className="text-left">
                 <motion.div
                   className="text-blue-400"
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.5 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.5,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 ></motion.div>
                 <motion.div
@@ -418,15 +271,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.6 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.6,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   export default function Counter() {"{"}
@@ -436,15 +280,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.7 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.7,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   const [count, setCount] = useState(0);
@@ -454,15 +289,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.8 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.8,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   return (
@@ -472,15 +298,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.9 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.9,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   {"<div className='p-4'>"}
@@ -490,15 +307,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 1.0 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 1.0,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   {"<button onClick={() => setCount(c => c + 1)}>"}
@@ -508,15 +316,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 1.1 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 1.1,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   Clicked {"{count}"} times
@@ -526,15 +325,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 1.2 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 1.2,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   {"</button>"}
@@ -544,15 +334,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 1.3 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 1.3,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   {"</div>"}
@@ -562,15 +343,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 1.4 } },
-                    loop: {
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 1.4,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   {"}"}
@@ -592,19 +364,10 @@ export default function Services({ projects, langState }) {
         <motion.div
           className="absolute inset-0 overflow-hidden p-4"
           initial="hidden"
-          animate={isMobile ? "loop" : "hidden"}
-          whileHover={!isMobile ? "visible" : ""}
+          animate={isMobile && activeCard === 2 ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0.7 },
             visible: { opacity: 1, transition: { duration: 0.5 } },
-            loop: {
-              opacity: 1,
-              transition: {
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut",
-              },
-            },
           }}
         >
           <motion.div
@@ -612,16 +375,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { scale: 0.95, opacity: 0.8 },
               visible: { scale: 1, opacity: 1, transition: { delay: 0.2 } },
-              loop: {
-                scale: [1, 0.95, 1],
-                opacity: [1, 0.8, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.2,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <motion.div
@@ -633,16 +386,6 @@ export default function Services({ projects, langState }) {
                   opacity: 1,
                   transition: { delay: 0.3 },
                 },
-                loop: {
-                  rotate: [0, 5, 0],
-                  opacity: [1, 0.8, 1],
-                  transition: {
-                    repeat: Infinity,
-                    duration: 5,
-                    delay: 0.3,
-                    ease: "easeInOut",
-                  },
-                },
               }}
             >
               <motion.div
@@ -650,16 +393,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0, opacity: 0.8 },
                   visible: { y: 0, opacity: 1, transition: { delay: 0.4 } },
-                  loop: {
-                    y: [0, 5, 0],
-                    opacity: [1, 0.8, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.4,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <div className="absolute left-2 top-2 text-xs text-blue-300">
@@ -678,16 +411,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0, opacity: 0.8 },
                   visible: { y: 0, opacity: 1, transition: { delay: 0.5 } },
-                  loop: {
-                    y: [0, -5, 0],
-                    opacity: [1, 0.8, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.5,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <div className="absolute left-2 top-2 text-xs text-amber-300">
@@ -706,16 +429,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0, opacity: 0.8 },
                   visible: { y: 0, opacity: 1, transition: { delay: 0.6 } },
-                  loop: {
-                    y: [0, 5, 0],
-                    opacity: [1, 0.8, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.6,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <div className="absolute left-2 top-2 text-xs text-purple-300">
@@ -745,16 +458,6 @@ export default function Services({ projects, langState }) {
                       opacity: 1,
                       transition: { delay: 0.7, duration: 0.5 },
                     },
-                    loop: {
-                      pathLength: [0, 1, 0],
-                      opacity: [0, 1, 0],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 3,
-                        delay: 0.7,
-                        ease: "linear",
-                      },
-                    },
                   }}
                 />
                 <motion.path
@@ -768,16 +471,6 @@ export default function Services({ projects, langState }) {
                       pathLength: 1,
                       opacity: 1,
                       transition: { delay: 0.8, duration: 0.5 },
-                    },
-                    loop: {
-                      pathLength: [0, 1, 0],
-                      opacity: [0, 1, 0],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 3,
-                        delay: 0.8,
-                        ease: "linear",
-                      },
                     },
                   }}
                 />
@@ -798,19 +491,10 @@ export default function Services({ projects, langState }) {
         <motion.div
           className="absolute inset-0 overflow-hidden p-4"
           initial="hidden"
-          animate={isMobile ? "loop" : "hidden"}
-          whileHover={!isMobile ? "visible" : ""}
+          animate={isMobile && activeCard === 3 ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0.8 },
             visible: { opacity: 1, transition: { duration: 0.5 } },
-            loop: {
-              opacity: [0.8, 1, 0.8],
-              transition: {
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              },
-            },
           }}
         >
           {/* Pipeline Flow */}
@@ -819,14 +503,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { opacity: 0.8 },
               visible: { opacity: 1 },
-              loop: {
-                opacity: [0.8, 1, 0.8],
-                transition: {
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <div className="flex justify-center items-center">
@@ -836,14 +512,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, -5, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -852,20 +520,7 @@ export default function Services({ projects, langState }) {
                 >
                   <GitCommitIcon className="text-blue-400 w-8 h-8" />
                 </motion.div>
-                <motion.div
-                  className="mt-2 text-xs text-blue-300 font-mono"
-                  variants={{
-                    hidden: { opacity: 0.8 },
-                    visible: { opacity: 1 },
-                    loop: {
-                      opacity: [0.8, 1, 0.8],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                      },
-                    },
-                  }}
-                >
+                <motion.div className="mt-2 text-xs text-blue-300 font-mono">
                   {currentContent.devops.commit || "Code Commit"}
                 </motion.div>
               </motion.div>
@@ -876,20 +531,17 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { opacity: 0.7 },
                   visible: { opacity: 1 },
-                  loop: {
-                    opacity: [0.7, 1, 0.7],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 3,
-                    },
-                  },
                 }}
               >
                 <motion.div
                   className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-blue-400 rounded-full"
-                  animate={{
-                    x: [0, 48],
-                  }}
+                  animate={
+                    isMobile && activeCard === 3
+                      ? {
+                          x: [0, 48],
+                        }
+                      : {}
+                  }
                   transition={{
                     repeat: Infinity,
                     duration: 2,
@@ -904,15 +556,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, 5, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.3,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -930,9 +573,13 @@ export default function Services({ projects, langState }) {
               <motion.div className="w-16 h-1 bg-amber-500/30 relative">
                 <motion.div
                   className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-amber-400 rounded-full"
-                  animate={{
-                    x: [0, 48],
-                  }}
+                  animate={
+                    isMobile && activeCard === 3
+                      ? {
+                          x: [0, 48],
+                        }
+                      : {}
+                  }
                   transition={{
                     repeat: Infinity,
                     duration: 2,
@@ -948,15 +595,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, -5, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.6,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -974,9 +612,13 @@ export default function Services({ projects, langState }) {
               <motion.div className="w-16 h-1 bg-green-500/30 relative">
                 <motion.div
                   className="absolute top-0 left-0 w-4 h-4 -mt-1.5 bg-green-400 rounded-full"
-                  animate={{
-                    x: [0, 48],
-                  }}
+                  animate={
+                    isMobile && activeCard === 3
+                      ? {
+                          x: [0, 48],
+                        }
+                      : {}
+                  }
                   transition={{
                     repeat: Infinity,
                     duration: 2,
@@ -992,15 +634,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, 5, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.9,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -1022,15 +655,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { opacity: 0.8 },
               visible: { opacity: 1 },
-              loop: {
-                opacity: [0.8, 1, 0.8],
-                transition: {
-                  repeat: Infinity,
-                  duration: 3,
-                  delay: 0.5,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <div className="flex justify-center space-x-8">
@@ -1040,14 +664,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, -8, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 5,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -1069,15 +685,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, 8, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 5,
-                      delay: 0.3,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -1097,15 +704,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { y: 0 },
                   visible: { y: 0 },
-                  loop: {
-                    y: [0, -8, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 5,
-                      delay: 0.6,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -1134,15 +732,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { opacity: 0.8 },
               visible: { opacity: 1 },
-              loop: {
-                opacity: [0.8, 1, 0.8],
-                transition: {
-                  repeat: Infinity,
-                  duration: 3,
-                  delay: 0.8,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <div className="flex justify-center">
@@ -1160,7 +749,9 @@ export default function Services({ projects, langState }) {
                 <motion.div
                   className="h-1 bg-green-500/50 rounded-full mt-1"
                   initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
+                  animate={
+                    isMobile && activeCard === 3 ? { width: "100%" } : {}
+                  }
                   transition={{
                     duration: 2,
                     repeat: Infinity,
@@ -1184,19 +775,10 @@ export default function Services({ projects, langState }) {
         <motion.div
           className="absolute inset-0 overflow-hidden p-4"
           initial="hidden"
-          animate={isMobile ? "loop" : "hidden"}
-          whileHover={!isMobile ? "visible" : ""}
+          animate={isMobile && activeCard === 4 ? "visible" : "hidden"}
           variants={{
             hidden: { opacity: 0.7 },
             visible: { opacity: 1, transition: { duration: 0.5 } },
-            loop: {
-              opacity: 1,
-              transition: {
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut",
-              },
-            },
           }}
         >
           <motion.div
@@ -1204,16 +786,6 @@ export default function Services({ projects, langState }) {
             variants={{
               hidden: { scale: 0.95, opacity: 0.8 },
               visible: { scale: 1, opacity: 1, transition: { delay: 0.2 } },
-              loop: {
-                scale: [1, 0.95, 1],
-                opacity: [1, 0.8, 1],
-                transition: {
-                  repeat: Infinity,
-                  duration: 4,
-                  delay: 0.2,
-                  ease: "easeInOut",
-                },
-              },
             }}
           >
             <motion.div
@@ -1221,16 +793,6 @@ export default function Services({ projects, langState }) {
               variants={{
                 hidden: { y: 0, opacity: 0.8 },
                 visible: { y: 0, opacity: 1, transition: { delay: 0.3 } },
-                loop: {
-                  y: [0, 5, 0],
-                  opacity: [1, 0.8, 1],
-                  transition: {
-                    repeat: Infinity,
-                    duration: 5,
-                    delay: 0.3,
-                    ease: "easeInOut",
-                  },
-                },
               }}
             >
               <motion.div
@@ -1238,15 +800,6 @@ export default function Services({ projects, langState }) {
                 variants={{
                   hidden: { opacity: 0.8 },
                   visible: { opacity: 1, transition: { delay: 0.4 } },
-                  loop: {
-                    opacity: 1,
-                    transition: {
-                      repeat: Infinity,
-                      duration: 4,
-                      delay: 0.4,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
               >
                 <motion.div
@@ -1254,16 +807,6 @@ export default function Services({ projects, langState }) {
                   variants={{
                     hidden: { x: 0, opacity: 0.8 },
                     visible: { x: 0, opacity: 1, transition: { delay: 0.5 } },
-                    loop: {
-                      x: [0, 5, 0],
-                      opacity: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.5,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   <span className="text-xs text-white/80">
@@ -1279,15 +822,6 @@ export default function Services({ projects, langState }) {
                       scaleX: 1,
                       transition: { delay: 0.6 },
                     },
-                    loop: {
-                      scaleX: [1, 0.8, 1],
-                      transition: {
-                        repeat: Infinity,
-                        duration: 3,
-                        delay: 0.6,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 />
 
@@ -1299,30 +833,11 @@ export default function Services({ projects, langState }) {
                       opacity: 1,
                       transition: { delay: 0.7 },
                     },
-                    loop: {
-                      opacity: 1,
-                      transition: {
-                        repeat: Infinity,
-                        duration: 4,
-                        delay: 0.7,
-                        ease: "easeInOut",
-                      },
-                    },
                   }}
                 >
                   <motion.div
                     className="flex-1 bg-white/10 rounded p-2"
                     whileHover={{ y: -5 }}
-                    variants={{
-                      loop: {
-                        y: [0, -5, 0],
-                        transition: {
-                          repeat: Infinity,
-                          duration: 3,
-                          ease: "easeInOut",
-                        },
-                      },
-                    }}
                   >
                     <div className="text-xs text-white/60">
                       {langState === "fa" ? "کلمات کلیدی" : "Keywords"}
@@ -1332,16 +847,6 @@ export default function Services({ projects, langState }) {
                   <motion.div
                     className="flex-1 bg-white/10 rounded p-2"
                     whileHover={{ y: -5 }}
-                    variants={{
-                      loop: {
-                        y: [0, -5, 0],
-                        transition: {
-                          repeat: Infinity,
-                          duration: 3,
-                          ease: "easeInOut",
-                        },
-                      },
-                    }}
                   >
                     <div className="text-xs text-white/60">
                       {langState === "fa" ? "موقعیت" : "Position"}
@@ -1365,17 +870,6 @@ export default function Services({ projects, langState }) {
                       duration: 1,
                     },
                   },
-                  loop: {
-                    scale: [1, 0.8, 1],
-                    rotate: [0, 360, 0],
-                    opacity: [1, 0.8, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 5,
-                      delay: 0.8,
-                      ease: "easeInOut",
-                    },
-                  },
                 }}
                 whileHover={{ rotate: 360 }}
               >
@@ -1391,16 +885,6 @@ export default function Services({ projects, langState }) {
                           repeat: Infinity,
                           duration: 2,
                           delay: 1,
-                        },
-                      },
-                      loop: {
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 1, 0.5],
-                        transition: {
-                          repeat: Infinity,
-                          duration: 2,
-                          delay: 1,
-                          ease: "easeInOut",
                         },
                       },
                     }}
@@ -1422,7 +906,7 @@ export default function Services({ projects, langState }) {
       key={langState}
       ref={ref}
       className={`w-full max-w-7xl mx-auto px-4 py-12 md:py-16 ${
-        langState === "fa" ? "font-iran-sans" : "" // Add a class for Persian font if needed
+        langState === "fa" ? "font-iran-sans" : ""
       }`}
       initial="hidden"
       animate={controls}
@@ -1464,6 +948,8 @@ export default function Services({ projects, langState }) {
                 },
               },
             }}
+            onClick={() => handleCardClick(index)}
+            whileTap={isMobile ? { scale: 0.98 } : {}}
           />
         ))}
       </BentoGrid>

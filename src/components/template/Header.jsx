@@ -40,7 +40,7 @@ function Header({ content, langState }) {
       {/* لوگو با انیمیشن */}
       <motion.a
         href={langState === "fa" ? "/fa" : "/en"}
-        className="flex justify-center sm:w-full sm:max-w-40 lg:w-min items-center px-6 sm:px-8 cursor-pointer"
+        className="flex justify-center sm:w-full sm:max-w-40 lg:w-min items-center px-2 sm:px-8 cursor-pointer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -86,7 +86,7 @@ function Header({ content, langState }) {
       </motion.ul>
 
       {/* دکمه‌های زبان با انیمیشن */}
-      <motion.div className="py-4 px-6" variants={itemVariants}>
+      <motion.div className="py-4 px-2 sm:px-6" variants={itemVariants}>
         <Link href="/en">
           <motion.button
             className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${
