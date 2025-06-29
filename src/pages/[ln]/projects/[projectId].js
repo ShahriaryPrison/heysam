@@ -100,7 +100,6 @@ export default function ProjectPage({
   project = {},
   projects = [],
 }) {
-  console.log(project);
 
   useEffect(() => {
     AOS.init({

@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 
 export default function Services({ projects, langState }) {
-  console.log(langState);
 
   const controls = useAnimation();
   const ref = useRef(null);
