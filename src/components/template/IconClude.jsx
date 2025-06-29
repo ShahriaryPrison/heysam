@@ -1,111 +1,169 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconCloud } from "@/components/magicui/icon-cloud";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import simplifiedSkills from "@/data/skillData"; // این ایمپورت باید در فایل اصلی باشد، نه اینجا
+import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
-import Image from "next/image"; // Import Next.js Image component for optimized images
+import Image from "next/image";
 
-// **SkillsModal Component - Nested within IconCloudDemo**
+// کامپوننت بهینه‌شده کارت مهارت
+const SkillCard = memo(({ skill, index, langState }) => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  const variants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: isMobile ? 0 : index * 0.05 + 0.3,
+          duration: isMobile ? 0.3 : 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      },
+    }),
+    [index, isMobile]
+  );
+
+  return (
+    <motion.div
+      className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.01] hover:border-white/20 transition-all duration-300"
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      custom={index}
+      whileHover={!isMobile ? { y: -5 } : {}}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      <div className="relative z-10 p-4 flex items-start gap-3">
+        {skill.src && (
+          <div className="flex-shrink-0 p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+            <img
+              src={skill.src}
+              alt={skill.alt}
+              className="w-6 h-6 object-contain"
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        <div>
+          <h4 className="font-semibold text-white text-lg">{skill.alt}</h4>
+          {skill.description && (
+            <p className="text-white/60 text-sm mt-1">
+              {langState === "en" ? skill.description.en : skill.description.fa}
+            </p>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+});
+
+SkillCard.displayName = "SkillCard";
+
 const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    // ذخیره مقدار اولیه
+    // تشخیص دستگاه موبایل
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    // مدیریت اسکرول
     const originalOverflow = document.body.style.overflow;
     const originalPaddingRight = document.body.style.paddingRight;
-
-    // محاسبه عرض scrollbar
     const scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth;
 
-    // اعمال تغییرات
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
-      // بازگردانی مقادیر اولیه
       document.body.style.overflow = originalOverflow;
       document.body.style.paddingRight = originalPaddingRight;
+      window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
-  // Variants for animations
-  const backdropVariants = {
-    hidden: { opacity: 0, backdropFilter: "blur(0px)" },
-    visible: {
-      opacity: 1,
-      backdropFilter: "blur(8px)",
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+  // بهینه‌سازی: فقط محتوای مورد نیاز برای زبان فعلی را محاسبه کنید
+  const currentContent = useMemo(() => {
+    return {
+      en: {
+        title: "Expertise & Skills",
+        subtitle:
+          "Here's a detailed look at the technologies and areas I specialize in.",
+        closeButton: "Close",
       },
-    },
-    exit: {
-      opacity: 0,
-      backdropFilter: "blur(0px)",
-      transition: {
-        duration: 0.3,
-        ease: [0.22, 1, 0.36, 1],
+      fa: {
+        title: "تخصص و مهارت‌ها",
+        subtitle:
+          "در اینجا نگاهی دقیق‌تر به فناوری‌ها و حوزه‌هایی که در آن‌ها تخصص دارم، آورده شده است.",
+        closeButton: "بستن",
       },
-    },
-  };
+    }[langState];
+  }, [langState]);
 
-  const modalVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.1,
+  // بهینه‌سازی انیمیشن‌ها برای موبایل
+  const backdropVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, backdropFilter: "blur(0px)" },
+      visible: {
+        opacity: 1,
+        backdropFilter: isMobile ? "blur(4px)" : "blur(8px)",
+        transition: {
+          duration: isMobile ? 0.3 : 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        },
       },
-    },
-    exit: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95,
-      transition: {
-        duration: 0.3,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const skillCardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.05 + 0.3,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+      exit: {
+        opacity: 0,
+        backdropFilter: "blur(0px)",
+        transition: {
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1],
+        },
       },
     }),
-  };
+    [isMobile]
+  );
 
-  const modalContent = {
-    en: {
-      title: "Expertise & Skills",
-      subtitle:
-        "Here's a detailed look at the technologies and areas I specialize in.",
-      closeButton: "Close",
-    },
-    fa: {
-      title: "تخصص و مهارت‌ها",
-      subtitle:
-        "در اینجا نگاهی دقیق‌تر به فناوری‌ها و حوزه‌هایی که در آن‌ها تخصص دارم، آورده شده است.",
-      closeButton: "بستن",
-    },
-  };
-
-  const currentContent = langState === "en" ? modalContent.en : modalContent.fa;
+  const modalVariants = useMemo(
+    () => ({
+      hidden: {
+        opacity: 0,
+        y: isMobile ? 20 : 50,
+        scale: isMobile ? 1 : 0.95,
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+          duration: isMobile ? 0.4 : 0.6,
+          ease: [0.22, 1, 0.36, 1],
+          delay: isMobile ? 0 : 0.1,
+        },
+      },
+      exit: {
+        opacity: 0,
+        y: isMobile ? 20 : 30,
+        scale: isMobile ? 1 : 0.95,
+        transition: {
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      },
+    }),
+    [isMobile]
+  );
 
   return (
     <motion.div
@@ -125,10 +183,10 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex justify-between items-center p-6 border-b border-white/10 bg-gradient-to-b from-gray-900/80 to-transparent">
+        <div className="sticky top-0 z-10 flex justify-between items-center p-4 sm:p-6 border-b border-white/10 bg-gradient-to-b from-gray-900/80 to-transparent">
           <div>
             <motion.h2
-              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"
+              className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -136,7 +194,7 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
               {currentContent.title}
             </motion.h2>
             <motion.p
-              className="text-white/70 text-sm mt-1"
+              className="text-white/70 text-xs sm:text-sm mt-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
@@ -147,8 +205,8 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
 
           <motion.button
             onClick={onClose}
-            className="group relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors duration-200"
-            whileHover={{ scale: 1.1 }}
+            className="group relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors duration-200"
+            whileHover={!isMobile ? { scale: 1.1 } : {}}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0, rotate: 90 }}
             animate={{ opacity: 1, rotate: 0 }}
@@ -165,7 +223,7 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-white/70 group-hover:text-white w-5 h-5 transition-colors duration-200"
+              className="text-white/70 group-hover:text-white w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200"
             >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -173,52 +231,22 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
           </motion.button>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Content - با بهینه‌سازی برای موبایل */}
+        <div className="p-3 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {simplifiedSkills.map((skill, index) => (
-              <motion.div
+              <SkillCard
                 key={skill.alt}
-                className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.01] hover:border-white/20 transition-all duration-300"
-                variants={skillCardVariants}
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                whileHover={{ y: -5 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="relative z-10 p-4 flex items-start gap-3">
-                  {skill.src && (
-                    <div className="flex-shrink-0 p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
-                      <img
-                        src={skill.src}
-                        alt={skill.alt}
-                        className="w-6 h-6 object-contain"
-                      />
-                    </div>
-                  )}
-
-                  <div>
-                    <h4 className="font-semibold text-white text-lg">
-                      {skill.alt}
-                    </h4>
-                    {skill.description && (
-                      <p className="text-white/60 text-sm mt-1">
-                        {langState === "en"
-                          ? skill.description.en
-                          : skill.description.fa}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
+                skill={skill}
+                index={index}
+                langState={langState}
+              />
             ))}
           </div>
         </div>
 
         {/* Footer */}
-        <div className="sticky bottom-0 p-6 border-t border-white/10 bg-gradient-to-t from-gray-900/80 to-transparent">
+        <div className="sticky bottom-0 p-4 sm:p-6 border-t border-white/10 bg-gradient-to-t from-gray-900/80 to-transparent">
           <motion.div
             className="flex justify-center"
             initial={{ opacity: 0, y: 10 }}
@@ -227,8 +255,8 @@ const SkillsModal = ({ simplifiedSkills, onClose, langState }) => {
           >
             <button
               onClick={onClose}
-              className="group relative px-6 py-3 rounded-lg font-bold text-white overflow-hidden"
-              whileHover={{ scale: 1.03 }}
+              className="group relative px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold text-white overflow-hidden text-sm sm:text-base"
+              whileHover={!isMobile ? { scale: 1.03 } : {}}
               whileTap={{ scale: 0.98 }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />

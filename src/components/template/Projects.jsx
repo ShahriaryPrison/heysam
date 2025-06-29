@@ -25,6 +25,7 @@ const ReviewCard = React.memo(
           "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
           "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
         )}
+        prefetch={false}
       >
         <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
         <div className="w-full flex justify-between items-end">
@@ -41,6 +42,7 @@ const ReviewCard = React.memo(
                     className="w-4 h-4"
                     alt={skill.alt}
                     loading="lazy"
+                    decoding="async"
                   />
                 ))}
               </div>
@@ -59,107 +61,21 @@ const ReviewCard = React.memo(
   }
 );
 
-const ProjectsModal = ({ projects, langState, onClose }) => {
-  const modalContent = {
-    en: {
-      title: "All Projects",
-      subtitle: "Here's a complete list of my projects and experiences.",
-      closeButton: "Close",
-    },
-    fa: {
-      title: "همه پروژه‌ها",
-      subtitle: "در اینجا لیست کامل پروژه‌ها و تجربیات من آورده شده است.",
-      closeButton: "بستن",
-    },
-  };
-
-  const currentContent = modalContent[langState];
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-[999] flex items-center justify-center p-4"
-      initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-      animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
-      exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-      transition={{ duration: 0.3 }}
-      onClick={onClose}
-    >
-      <motion.div
-        className="relative z-20 w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 bg-gradient-to-br from-gray-900/90 to-gray-800/90 shadow-2xl shadow-black/50 backdrop-blur-lg"
-        initial={{ opacity: 0, y: 50, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 30, scale: 0.95 }}
-        transition={{ duration: 0.3 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="sticky top-0 z-10 flex justify-between items-center p-6 border-b border-white/10 bg-gradient-to-b from-gray-900/80 to-transparent">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              {currentContent.title}
-            </h2>
-            <p className="text-white/70 text-sm mt-1">
-              {currentContent.subtitle}
-            </p>
-          </div>
-
-          <motion.button
-            onClick={onClose}
-            className="group relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors duration-200"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/30 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-white/70 group-hover:text-white w-5 h-5 transition-colors duration-200"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </motion.button>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                langState={langState}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="sticky bottom-0 p-6 border-t border-white/10 bg-gradient-to-t from-gray-900/80 to-transparent">
-          <button
-            onClick={onClose}
-            className="group relative px-6 py-3 rounded-lg font-bold text-white overflow-hidden mx-auto block"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="absolute inset-0.5 rounded-md bg-gray-900/90 group-hover:bg-gray-900/80 transition-colors duration-300" />
-            <span className="relative z-10 flex items-center justify-center gap-2">
-              {currentContent.closeButton}
-            </span>
-          </button>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
+ReviewCard.displayName = "ReviewCard";
 
 const ProjectCard = React.memo(({ project, langState }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const someSkills = useMemo(
     () =>
       simplifiedSkills
@@ -168,15 +84,31 @@ const ProjectCard = React.memo(({ project, langState }) => {
     [project.tech_stack]
   );
 
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: isMobile ? 0.3 : 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    hover: {
+      y: isMobile ? 0 : -5,
+      transition: { duration: 0.2 },
+    },
+  };
+
   return (
     <motion.div
       className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.01] hover:border-white/20 transition-all duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      whileHover={{ y: -5 }}
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      whileHover="hover"
     >
-      <Link href={`/${langState}/projects/${project.id}`}>
+      <Link href={`/${langState}/projects/${project.id}`} prefetch={false}>
         <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="relative z-10 p-5 h-full flex flex-col">
           <div className="flex justify-between items-start mb-3">
@@ -194,6 +126,7 @@ const ProjectCard = React.memo(({ project, langState }) => {
                 className="w-5 h-5"
                 alt={skill.alt}
                 loading="lazy"
+                decoding="async"
               />
             ))}
           </div>
@@ -206,6 +139,161 @@ const ProjectCard = React.memo(({ project, langState }) => {
     </motion.div>
   );
 });
+
+ProjectCard.displayName = "ProjectCard";
+
+const ProjectsModal = ({ projects, langState, onClose }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    // Prevent background scrolling
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  const modalContent = useMemo(
+    () => ({
+      en: {
+        title: "All Projects",
+        subtitle: "Here's a complete list of my projects and experiences.",
+        closeButton: "Close",
+      },
+      fa: {
+        title: "همه پروژه‌ها",
+        subtitle: "در اینجا لیست کامل پروژه‌ها و تجربیات من آورده شده است.",
+        closeButton: "بستن",
+      },
+    }),
+    [langState]
+  );
+
+  const backdropVariants = {
+    hidden: { opacity: 0, backdropFilter: "blur(0px)" },
+    visible: {
+      opacity: 1,
+      backdropFilter: isMobile ? "blur(4px)" : "blur(8px)",
+      transition: { duration: 0.3 },
+    },
+    exit: {
+      opacity: 0,
+      backdropFilter: "blur(0px)",
+      transition: { duration: 0.2 },
+    },
+  };
+
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      y: isMobile ? 20 : 50,
+      scale: isMobile ? 0.98 : 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: isMobile ? 0.3 : 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: isMobile ? 20 : 30,
+      scale: isMobile ? 0.98 : 0.95,
+      transition: { duration: 0.2 },
+    },
+  };
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[999] flex items-center justify-center p-4"
+      variants={backdropVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      onClick={onClose}
+    >
+      <motion.div
+        className="relative z-20 w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/20 bg-gradient-to-br from-gray-900/90 to-gray-800/90 shadow-2xl shadow-black/50 backdrop-blur-lg"
+        variants={modalVariants}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="sticky top-0 z-10 flex justify-between items-center p-4 sm:p-6 border-b border-white/10 bg-gradient-to-b from-gray-900/80 to-transparent">
+          <div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              {modalContent[langState].title}
+            </h2>
+            <p className="text-white/70 text-xs sm:text-sm mt-1">
+              {modalContent[langState].subtitle}
+            </p>
+          </div>
+
+          <motion.button
+            onClick={onClose}
+            className="group relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors duration-200"
+            whileHover={!isMobile ? { scale: 1.1 } : {}}
+            whileTap={{ scale: 0.9 }}
+          >
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/30 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white/70 group-hover:text-white w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </motion.button>
+        </div>
+
+        {/* Content */}
+        <div className="p-3 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={`${project.id}-${index}`}
+                project={project}
+                langState={langState}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="sticky bottom-0 p-4 sm:p-6 border-t border-white/10 bg-gradient-to-t from-gray-900/80 to-transparent">
+          <button
+            onClick={onClose}
+            className="group relative px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold text-white overflow-hidden mx-auto block text-sm sm:text-base"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0.5 rounded-md bg-gray-900/90 group-hover:bg-gray-900/80 transition-colors duration-300" />
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              {modalContent[langState].closeButton}
+            </span>
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export default function Projects({ projects, langState }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
