@@ -1,6 +1,6 @@
-import Icon from "@/assets/images/projects/MarjanStones/logo.png";
-import Image1 from "@/assets/images/projects/MarjanStones/image.png";
-import Image2 from "@/assets/images/projects/MarjanStones/image1.png";
+import Icon from "@/assets/images/projects/KetabYar/logo.png";
+import Image1 from "@/assets/images/projects/KetabYar/image.png";
+import Image2 from "@/assets/images/projects/KetabYar/image1.png";
 export default {
   id: 6,
   title: "سنگ مرجان",
