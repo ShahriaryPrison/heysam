@@ -3,6 +3,11 @@ import Img1 from "@/assets/images/projects/LaserTag/img1.jpg";
 import Img2 from "@/assets/images/projects/LaserTag/img2.jpg";
 import Img3 from "@/assets/images/projects/LaserTag/img3.jpg";
 import Img4 from "@/assets/images/projects/LaserTag/img4.jpg";
+import Img5 from "@/assets/images/projects/LaserTag/img5.png";
+import Img6 from "@/assets/images/projects/LaserTag/img6.png";
+import Img7 from "@/assets/images/projects/LaserTag/img7.png";
+import Img8 from "@/assets/images/projects/LaserTag/img8.png";
+import Img9 from "@/assets/images/projects/LaserTag/img9.png"; 
 export default {
   id: 5,
   title: "Laser Tag",
@@ -18,9 +23,14 @@ export default {
     { size: "desktop", src: Img2 },
     { size: "desktop", src: Img3 },
     { size: "desktop", src: Img4 },
+    { size: "desktop", src: Img5 },
+    { size: "desktop", src: Img6 },
+    { size: "desktop", src: Img7 },
+    { size: "desktop", src: Img8 },
+    { size: "desktop", src: Img9 },
   ],
     
-  link: "https://roshde-javaneha.ir/",
+  link: "https://panel.roshde-javaneha.ir/laser-tag",
   tech_stack: [
     "Html5",
     "React",

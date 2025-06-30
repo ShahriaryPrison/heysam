@@ -352,7 +352,7 @@ export default function Projects({ projects, langState }) {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 backdrop-blur-[2px] [mask-image:linear-gradient(to_right,transparent,white)]"></div>
       </div>
 
-      <AnimatePresence>
+      {/* <AnimatePresence> */}
         {isModalOpen && (
           <ProjectsModal
             projects={projects}
@@ -360,7 +360,7 @@ export default function Projects({ projects, langState }) {
             onClose={() => setIsModalOpen(false)}
           />
         )}
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
     </section>
   );
 }

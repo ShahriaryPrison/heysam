@@ -418,7 +418,7 @@ export function IconCloudDemo({ content, langState }) {
       </motion.div>
 
       {/* Skills Modal */}
-      <AnimatePresence>
+      {/* <AnimatePresence> */}
         {isModalOpen && (
           <SkillsModal
             simplifiedSkills={simplifiedSkills}
@@ -426,7 +426,7 @@ export function IconCloudDemo({ content, langState }) {
             langState={langState}
           />
         )}
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
     </div>
   );
 }

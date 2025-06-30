@@ -1,5 +1,6 @@
 import Icon from "@/assets/images/projects/MarjanStones/logo.png";
-
+import Image1 from "@/assets/images/projects/MarjanStones/image.png";
+import Image2 from "@/assets/images/projects/MarjanStones/image1.png";
 export default {
   id: 6,
   title: "سنگ مرجان",
@@ -10,8 +11,8 @@ export default {
   description:
     "مرجان استونز وب‌سایتی است برای یک شرکت صادرکننده تخصصی در زمینه سنگ‌ها و مواد معدنی. این پلتفرم مجموعه‌ای گسترده از محصولات را نمایش می‌دهد، سفارش‌ها را به‌صورت کارآمد مدیریت می‌کند و فرایند تجارت بین‌المللی را تسهیل می‌نماید. با امکانات ویژه صادرکنندگان، باعث افزایش دیده‌شدن محصولات و تسهیل مدیریت سفارشات می‌شود تا معاملات روان و رضایت مشتریان را تضمین کند.",
   images: [
-    { size: "mobile", src: "/projects/en/2/image1.jpg" },
-    { size: "mobile", src: "/projects/en/2/image2.jpg" },
+    { size: "mobile", src: Image1 },
+    { size: "mobile", src: Image2 },
   ],
   link: "",
   features: [
