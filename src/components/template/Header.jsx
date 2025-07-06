@@ -63,7 +63,7 @@ function Header({ content, langState }) {
       <motion.ul className="hidden lg:flex gap-6" variants={containerVariants}>
         {[
           { id: "about_us", href: `/${langState}#hero` },
-          { id: "projects", href: `/${langState}#projects` },
+          { id: "projects", href: `/${langState}/projects` },
           { id: "our_skills", href: `/${langState}#skills` },
           { id: "contact_us", href: `/${langState}#footer` },
         ].map((item) => (

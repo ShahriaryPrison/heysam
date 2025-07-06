@@ -72,7 +72,7 @@ export default function Projects({ projects, langState, content }) {
   return (
     <section id="projects" className="flex flex-col items-center gap-10 mb-20">
       <div
-        className={`w-full text-center pt-10 sm:pt-32 pb-4 sm:text-left max-w-7xl py-10 mx-auto flex flex-col gap-4 sm:flex-row text-white relative ${
+        className={`w-full text-center pt-10 sm:pt-32 pb-4 sm:text-left max-w-7xl py-10 mx-auto flex flex-col gap-8 sm:flex-row text-white relative ${
           langState === "fa" ? "rtl" : ""
         }`}
       >

@@ -1,6 +1,9 @@
 import Icon from "@/assets/images/projects/KetabYar/logo.png";
-import Image1 from "@/assets/images/projects/KetabYar/image.png";
-import Image2 from "@/assets/images/projects/KetabYar/image1.png";
+import Image1 from "@/assets/images/projects/KetabYar/image1.jpg";
+import Image2 from "@/assets/images/projects/KetabYar/image2.jpg";
+import Image3 from "@/assets/images/projects/KetabYar/image3.jpg";
+import Image4 from "@/assets/images/projects/KetabYar/image4.jpg";
+import Image5 from "@/assets/images/projects/KetabYar/image5.jpg";
 export default {
   id: 6,
   title: "سنگ مرجان",
@@ -13,6 +16,9 @@ export default {
   images: [
     { size: "desktop", src: Image1 },
     { size: "desktop", src: Image2 },
+    { size: "desktop", src: Image3 },
+    { size: "desktop", src: Image4 },
+    { size: "desktop", src: Image5 },
   ],
   link: "",
   features: [
@@ -20,5 +26,5 @@ export default {
     // "تسهیل تجارت بین‌المللی",
     "رابط کاربری ساده و کاربرپسند",
   ],
-  tech_stack: ["react ", "nextjs", "tailwindcss", "typescript"],
+  tech_stack: ["react ", "Next Js", "Tailwind", "typescript"],
 };

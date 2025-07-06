@@ -1,3 +1,4 @@
+// pages/[ln]/index.jsx
 import Header from "@/components/template/Header";
 import Hero from "@/components/template/Hero";
 import Projects from "@/components/template/Projects";
@@ -8,7 +9,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import fs from "fs";
 import path from "path";
-import { IconCloudDemo } from "@/components/template/IconClude";
+import IconCloudDemo from "@/components/template/IconClude";
 import Services from "@/components/template/Services";
 
 export default function Home({ langData, projects }) {
