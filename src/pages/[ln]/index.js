@@ -25,13 +25,13 @@ export default function Home({ langData, projects }) {
     >
       <Header content={langData.header} langState={langData.lang} />
       <Hero content={langData.main_about_us} langState={langData.lang} />
+      <Services key={langData.lang} langState={langData.lang} />
+      <IconCloudDemo content={langData.skills} langState={langData.lang} />
       <Projects
         projects={projects}
         langState={langData.lang}
         content={langData.projects}
       />
-      <Services key={langData.lang} langState={langData.lang} />
-      <IconCloudDemo content={langData.skills} langState={langData.lang} />
       <Footer content={langData.footer} langState={langData.lang} />
       <BackToTopButton />
     </section>
