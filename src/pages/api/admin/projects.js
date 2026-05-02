@@ -32,6 +32,7 @@ const getStaticProjects = async (lang) => {
 
 export default async function handler(req, res) {
   const lang = String(req.query.lang || req.body.lang || "en").toLowerCase();
+  const normalizeIdKey = (value) => String(value || "").trim().toLowerCase();
 
   if (req.method === "GET") {
     if (!isAuthorized(req)) {
@@ -56,8 +57,6 @@ export default async function handler(req, res) {
   if (!isAuthorized(req)) {
     return res.status(401).json({ error: "Unauthorized" });
   }
-
-  const normalizeIdKey = (value) => String(value || "").trim().toLowerCase();
 
   if (req.method === "POST") {
     const project = req.body.project;

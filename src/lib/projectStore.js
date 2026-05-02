@@ -16,7 +16,11 @@ export async function readCustomProjects(lang) {
   const filePath = getCustomProjectsFile(lang);
   try {
     const data = await fs.promises.readFile(filePath, "utf8");
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed.map(normalizeCustomProject);
   } catch (error) {
     if (error.code === "ENOENT") {
       return [];

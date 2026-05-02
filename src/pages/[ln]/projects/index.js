@@ -8,7 +8,7 @@ import Footer from "@/components/template/Footer";
 import BackToTopButton from "@/components/template/BackToTopButton";
 import fs from "fs";
 import path from "path";
-import { readCustomProjects } from "@/lib/projectStore";
+import { readCustomProjects, normalizeCustomProject } from "@/lib/projectStore";
 
 const ProjectCard = ({ project, langState }) => {
   const someSkills = simplifiedSkills
@@ -182,7 +182,9 @@ export async function getStaticProps({ params }) {
 
   const customProjects = await readCustomProjects(ln);
   const projectsMap = new Map(staticProjects.map((project) => [project.id, project]));
-  customProjects.forEach((project) => projectsMap.set(project.id, project));
+  customProjects.forEach((project) =>
+    projectsMap.set(project.id, normalizeCustomProject(project))
+  );
 
   const projects = Array.from(projectsMap.values()).sort((a, b) =>
     a.id.toString().localeCompare(b.id.toString())

@@ -35,6 +35,15 @@ export default function AdminPage() {
 
   const authHeader = useMemo(() => ({ "x-admin-password": password }), [password]);
 
+  const parseApiResponse = async (response) => {
+    try {
+      return await response.json();
+    } catch (err) {
+      const text = await response.text();
+      return { error: text || response.statusText };
+    }
+  };
+
   const loadProjects = async () => {
     if (!password) {
       setMessage("لطفاً اولین بار رمز عبور را وارد کنید.");
@@ -47,12 +56,10 @@ export default function AdminPage() {
         headers: authHeader,
       });
 
+      const data = await parseApiResponse(response);
       if (!response.ok) {
-        const data = await response.json();
         throw new Error(data.error || "Failed to load projects");
       }
-
-      const data = await response.json();
       const custom = (data.customProjects || []).map((project) => ({
         ...project,
         id: String(project.id || "").trim(),
@@ -131,7 +138,7 @@ export default function AdminPage() {
         body: JSON.stringify(body),
       });
 
-      const data = await response.json();
+      const data = await parseApiResponse(response);
       if (!response.ok) {
         throw new Error(data.error || "Failed to save project");
       }
@@ -202,7 +209,7 @@ export default function AdminPage() {
         headers: authHeader,
       });
 
-      const data = await response.json();
+      const data = await parseApiResponse(response);
       if (!response.ok) {
         throw new Error(data.error || "Failed to delete project");
       }
