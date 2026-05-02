@@ -1,0 +1,65 @@
+[
+  {
+    "id": "alef",
+    "title": "الف شاپ jsj",
+    "description": "الف شاپ یک پلتفرم جامع تجارت الکترونیک است که برای تسهیل خرید آنلاین طراحی شده است. این پلتفرم مجموعه‌ای گسترده از محصولات و خدمات را ارائه می‌دهد و تجربه‌ای روان و یکپارچه برای کاربران فراهم می‌سازد. از جمله ویژگی‌های آن می‌توان به روش‌های پرداخت امن، خدمات تحویل سریع و پیشنهادهای شخصی‌سازی‌شده برای افزایش رضایت و تعامل کاربران اشاره کرد.",
+    "tech": "وب سایت",
+    "date": "2026-05-02",
+    "link": "https://aalefshop.com/",
+    "status": "Production",
+    "type": "Public",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "مدیریت فروشگاه آنلاین",
+      "کاتالوگ محصولات",
+      "پرداخت امن و آنلاین",
+      "مدیریت حساب کاربری کاربران",
+      "پیگیری و مدیریت سفارش‌ها",
+      "ابزارهای پشتیبانی مشتری"
+    ],
+    "icon": {
+      "src": "/_next/static/media/Alef.822b8f00.png"
+    },
+    "images": [
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      },
+      {
+        "src": "[object Object]"
+      }
+    ]
+  }
+]

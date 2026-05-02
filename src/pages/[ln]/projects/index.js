@@ -8,6 +8,7 @@ import Footer from "@/components/template/Footer";
 import BackToTopButton from "@/components/template/BackToTopButton";
 import fs from "fs";
 import path from "path";
+import { readCustomProjects } from "@/lib/projectStore";
 
 const ProjectCard = ({ project, langState }) => {
   const someSkills = simplifiedSkills
@@ -167,23 +168,33 @@ export async function getStaticProps({ params }) {
 
   // Read projects
   const projectsDir = path.join(process.cwd(), "src", "data", "projects", ln);
-  const projectFiles = fs.readdirSync(projectsDir);
+  const projectFiles = fs
+    .readdirSync(projectsDir)
+    .filter((file) => file.endsWith(".js"));
 
-  const projects = await Promise.all(
+  const staticProjects = await Promise.all(
     projectFiles.map(async (file) => {
       const projectId = path.basename(file, ".js");
-      const project = (await import(`@/data/projects/${ln}/${projectId}.js`))
-        .default;
+      const project = (await import(`@/data/projects/${ln}/${projectId}.js`)).default;
       return { ...project, id: projectId };
     })
   );
 
+  const customProjects = await readCustomProjects(ln);
+  const projectsMap = new Map(staticProjects.map((project) => [project.id, project]));
+  customProjects.forEach((project) => projectsMap.set(project.id, project));
+
+  const projects = Array.from(projectsMap.values()).sort((a, b) =>
+    a.id.toString().localeCompare(b.id.toString())
+  );
+
   return {
     props: {
-      projects: projects.sort((a, b) => a.id - b.id),
+      projects,
       langState: ln,
       content: langData,
     },
+    revalidate: 60,
   };
 }
 

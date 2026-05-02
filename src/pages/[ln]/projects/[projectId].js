@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import fs from "fs";
 import path from "path";
+import { readCustomProjects } from "@/lib/projectStore";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -534,6 +535,18 @@ export async function getStaticPaths() {
           },
         });
       });
+
+      const customProjects = await readCustomProjects(lang);
+      customProjects.forEach((project) => {
+        if (project?.id) {
+          paths.push({
+            params: {
+              ln: lang,
+              projectId: project.id,
+            },
+          });
+        }
+      });
     } catch (err) {
       console.error(`Error generating paths for ${lang}:`, err);
     }
@@ -552,11 +565,23 @@ export async function getStaticProps({ params: { ln, projectId } }) {
     const langModule = await import(`@/data/languages/${ln}.js`);
     const langData = langModule?.default || {};
 
-    const projectModule = await import(`@/data/projects/${ln}/${projectId}.js`);
-    let project = projectModule?.default || {};
+    const customProjects = await readCustomProjects(ln);
+    const customProject = customProjects.find((item) => item.id === projectId);
+
+    let project = {};
+    try {
+      const projectModule = await import(`@/data/projects/${ln}/${projectId}.js`);
+      project = projectModule?.default || {};
+    } catch (error) {
+      project = {};
+    }
+
+    if (customProject) {
+      project = { ...project, ...customProject };
+    }
 
     project = {
-      id: projectId,
+      ...project,
       title: project.title || "",
       tech: project.tech || "",
       description: project.description || "",
@@ -565,7 +590,11 @@ export async function getStaticProps({ params: { ln, projectId } }) {
       status: project.status || "Production",
       type: project.type || "Public",
       tech_stack: project.tech_stack || [],
-      ...project,
+      icon:
+        typeof project.icon === "string"
+          ? { src: project.icon }
+          : project.icon || { src: "/images/default-icon.png" },
+      id: projectId,
     };
 
     const projectsDir = path.join(process.cwd(), "src", "data", "projects", ln);
@@ -573,7 +602,7 @@ export async function getStaticProps({ params: { ln, projectId } }) {
       .readdirSync(projectsDir)
       .filter((file) => file.endsWith(".js") && file !== `${projectId}.js`);
 
-    const otherProjects = await Promise.all(
+    const staticOtherProjects = await Promise.all(
       allProjectFiles.map(async (file) => {
         const otherModule = await import(`@/data/projects/${ln}/${file}`);
         const id = path.basename(file, ".js");
@@ -582,15 +611,46 @@ export async function getStaticProps({ params: { ln, projectId } }) {
           title: otherModule.default?.title || "",
           tech:
             otherModule.default?.tech || (ln === "fa" ? "وب اپ" : "Web App"),
-          type: otherModule.default?.type || "public",
-          status: otherModule.default?.status || "production",
+          type: otherModule.default?.type || "Public",
+          status: otherModule.default?.status || "Production",
           images: otherModule.default?.images || [],
-          icon: otherModule.default?.icon || {
-            src: "/images/default-icon.png",
-          },
+          icon: otherModule.default?.icon || { src: "/images/default-icon.png" },
+          source: "static",
         };
       })
     );
+
+    const normalizeIdKey = (value) => String(value || "").trim().toLowerCase();
+    const keyOfCurrent = normalizeIdKey(projectId);
+    const otherProjectsMap = new Map();
+
+    staticOtherProjects.forEach((proj) => {
+      const key = normalizeIdKey(proj.id);
+      if (key !== keyOfCurrent) {
+        otherProjectsMap.set(key, proj);
+      }
+    });
+
+    customProjects
+      .filter((item) => normalizeIdKey(item.id) !== keyOfCurrent)
+      .forEach((proj) => {
+        const key = normalizeIdKey(proj.id);
+        const normalizedProj = {
+          ...proj,
+          id: String(proj.id || "").trim(),
+          source: "custom",
+        };
+        if (otherProjectsMap.has(key)) {
+          otherProjectsMap.set(key, {
+            ...otherProjectsMap.get(key),
+            ...normalizedProj,
+          });
+        } else {
+          otherProjectsMap.set(key, normalizedProj);
+        }
+      });
+
+    const otherProjects = Array.from(otherProjectsMap.values());
 
     return {
       props: {
