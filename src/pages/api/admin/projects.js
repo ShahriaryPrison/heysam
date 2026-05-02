@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { readCustomProjects, writeCustomProjects, normalizeCustomProject } from "@/lib/projectStore";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Abolmhey885";
 
 const isAuthorized = (req) => {
   const password = req.headers["x-admin-password"] || req.headers["X-Admin-Password"];
