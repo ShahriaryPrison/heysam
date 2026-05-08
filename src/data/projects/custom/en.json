@@ -60,6 +60,771 @@
       {
         "src": "[object Object]"
       }
-    ]
+    ],
+    "isActive": true
+  },
+  {
+    "id": "AlefAdmin",
+    "title": "Alef Admin",
+    "description": "Alef Admin is an admin panel designed for a multichannel e-commerce website. It efficiently manages products, orders, and customer interactions across various sales channels. The platform offers robust tools for inventory management, order processing, and customer relationship management, ensuring a seamless and efficient e-commerce experience.",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://aalefshop.com",
+    "status": "Production",
+    "type": "Private",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "Multichannel sales management",
+      "Centralized product management",
+      "Inventory tracking and control",
+      "Order processing and monitoring",
+      "Customer relationship management (CRM)",
+      "Real-time reports and analytics"
+    ],
+    "icon": {
+      "src": "/_next/static/media/Alef.822b8f00.png",
+      "height": 39,
+      "width": 146,
+      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FAlef.822b8f00.png&w=8&q=70",
+      "blurWidth": 8,
+      "blurHeight": 2
+    },
+    "images": [
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image1.4d8dad61.png",
+          "height": 2087,
+          "width": 2730,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.4d8dad61.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image2.1cf5c6da.png",
+          "height": 2085,
+          "width": 2738,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.1cf5c6da.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image3.4959302e.png",
+          "height": 2081,
+          "width": 2726,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.4959302e.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image4.7abc6776.png",
+          "height": 2081,
+          "width": 2734,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.7abc6776.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image5.63f565fd.png",
+          "height": 2085,
+          "width": 2734,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.63f565fd.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image6.936337b4.png",
+          "height": 2083,
+          "width": 2752,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.936337b4.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image7.724aec01.png",
+          "height": 5112,
+          "width": 2440,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.724aec01.png&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image8.0d4bf99f.png",
+          "height": 5104,
+          "width": 2440,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.0d4bf99f.png&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image9.9b581203.png",
+          "height": 5104,
+          "width": 2440,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.9b581203.png&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "Avval",
+    "title": "Avval",
+    "description": "Avval is a comprehensive platform designed for multichannel shops and businesses, offering a wide range of products and services. It provides users with a seamless shopping experience, featuring secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction. The platform is tailored to meet the needs of diverse businesses, ensuring smooth operations and customer satisfaction.",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://aalefshop.com/welcome",
+    "status": "Development",
+    "type": "Private",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "Next Js",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "User-friendly interface",
+      "Secure payment options",
+      "Efficient delivery services",
+      "Personalized recommendations",
+      "Wide range of products and services",
+      "Easy navigation",
+      "Customer support tools",
+      "Order tracking and management"
+    ],
+    "icon": {
+      "src": "/_next/static/media/اول.036b0945.png"
+    },
+    "images": [
+      {
+        "src": "/_next/static/media/image1.9490eff1.png"
+      },
+      {
+        "src": "/_next/static/media/image2.7bd9b6cd.png"
+      },
+      {
+        "src": "/_next/static/media/image3.4b2b6e61.png"
+      },
+      {
+        "src": "/_next/static/media/image4.f8661472.png"
+      },
+      {
+        "src": "/_next/static/media/image5.45e37c18.png"
+      },
+      {
+        "src": "/_next/static/media/image6.8bd78052.png"
+      },
+      {
+        "src": "/_next/static/media/image7.872692a4.png"
+      },
+      {
+        "src": "/_next/static/media/image8.1a3f6ef5.png"
+      },
+      {
+        "src": "/_next/static/media/image9.833d2d79.png"
+      },
+      {
+        "src": "/_next/static/media/image10.0f2e312d.png"
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "BuildingAssistant",
+    "title": "Building Assistant",
+    "description": "A comprehensive web application designed to streamline the management and tracking of building projects. This platform offers tools for task management, resource allocation, and timeline tracking, ensuring efficient project execution. With features for collaboration, scheduling, and reporting, it enhances communication among team members and stakeholders, ultimately leading to successful project outcomes.",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://roshanaa.com/welcome",
+    "status": "Development",
+    "type": "Private",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "JavaScript",
+      "typescript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "Project management tools",
+      "Task tracking and assignment",
+      "Resource allocation",
+      "Timeline management",
+      "Collaboration features",
+      "Reporting and analytics"
+    ],
+    "icon": {
+      "src": "/_next/static/media/buildings.eab5c6ff.png"
+    },
+    "images": [
+      {
+        "src": "/_next/static/media/4.ad84356f.jpg",
+        "height": 3408,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F4.ad84356f.jpg&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image1.2091d765.png",
+        "height": 904,
+        "width": 416,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.2091d765.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image2.f7568af9.png",
+        "height": 904,
+        "width": 414,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.f7568af9.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image3.75a3ec93.png",
+        "height": 1704,
+        "width": 786,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.75a3ec93.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image4.b38964ef.png",
+        "height": 3408,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.b38964ef.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image5.5ef459b5.png",
+        "height": 3408,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.5ef459b5.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image6.528b209e.png",
+        "height": 4332,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.528b209e.png&w=3&q=70",
+        "blurWidth": 3,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image7.a367ac47.png",
+        "height": 4332,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.a367ac47.png&w=3&q=70",
+        "blurWidth": 3,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image8.2cc55892.png",
+        "height": 1707,
+        "width": 786,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.2cc55892.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      },
+      {
+        "src": "/_next/static/media/image9.d1bea8c5.png",
+        "height": 3408,
+        "width": 1572,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.d1bea8c5.png&w=4&q=70",
+        "blurWidth": 4,
+        "blurHeight": 8
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "KetabYar",
+    "title": "KetabYar",
+    "description": "A prototype of an online library built to showcase web design and development capabilities. This project is private and created for educational purposes.",
+    "tech": "WebSite",
+    "date": "2026-05-08",
+    "link": "",
+    "status": "Finished",
+    "type": "private",
+    "tech_stack": [
+      "react",
+      "Next Js",
+      "Tailwind",
+      "typescript"
+    ],
+    "features": [
+      "User-friendly interface"
+    ],
+    "icon": {
+      "src": "/_next/static/media/logo.6e87958a.png"
+    },
+    "images": [
+      {
+        "src": "/_next/static/media/image1.165c3f08.jpg",
+        "height": 611,
+        "width": 1280,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.165c3f08.jpg&w=8&q=70",
+        "blurWidth": 8,
+        "blurHeight": 4
+      },
+      {
+        "src": "/_next/static/media/image2.4e622331.jpg",
+        "height": 610,
+        "width": 1280,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.4e622331.jpg&w=8&q=70",
+        "blurWidth": 8,
+        "blurHeight": 4
+      },
+      {
+        "src": "/_next/static/media/image3.a9721be4.jpg",
+        "height": 586,
+        "width": 1280,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.a9721be4.jpg&w=8&q=70",
+        "blurWidth": 8,
+        "blurHeight": 4
+      },
+      {
+        "src": "/_next/static/media/image4.be99e115.jpg",
+        "height": 613,
+        "width": 1280,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.be99e115.jpg&w=8&q=70",
+        "blurWidth": 8,
+        "blurHeight": 4
+      },
+      {
+        "src": "/_next/static/media/image5.747db058.jpg",
+        "height": 610,
+        "width": 1280,
+        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.747db058.jpg&w=8&q=70",
+        "blurWidth": 8,
+        "blurHeight": 4
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "LaserTag",
+    "title": "Laser Tag",
+    "description": "get ready for an exciting adventure with our Laser Tag web application! This platform allows you to reserve your laser tag games online, making it easy to plan your next outing. Whether you're organizing a birthday party, a corporate event, or just a fun day out with friends, our app ensures a seamless booking experience. Join us for an action-packed day of laser tag and create unforgettable memories!",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://panel.roshde-javaneha.ir/laser-tag",
+    "status": "Development",
+    "type": "Public",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "Online game reservation",
+      "User-friendly interface",
+      "Event management tools",
+      "Secure payment processing",
+      "Real-time availability updates",
+      "Customer support integration"
+    ],
+    "icon": {
+      "src": "/_next/static/media/icon.8fb217cb.png",
+      "height": 876,
+      "width": 876,
+      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.8fb217cb.png&w=8&q=70",
+      "blurWidth": 8,
+      "blurHeight": 8
+    },
+    "images": [
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img1.2715a874.jpg",
+          "height": 680,
+          "width": 1280,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg1.2715a874.jpg&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 4
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img2.bc0ef133.jpg",
+          "height": 687,
+          "width": 1280,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg2.bc0ef133.jpg&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 4
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img3.3a8ae232.jpg",
+          "height": 621,
+          "width": 1280,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg3.3a8ae232.jpg&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 4
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img4.faeb3df2.jpg",
+          "height": 621,
+          "width": 1280,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg4.faeb3df2.jpg&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 4
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img5.0e7dc97a.png",
+          "height": 1065,
+          "width": 1283,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg5.0e7dc97a.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 7
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img6.8809c8cd.png",
+          "height": 1064,
+          "width": 1288,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg6.8809c8cd.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 7
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img7.cb37ccc7.png",
+          "height": 1058,
+          "width": 1289,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg7.cb37ccc7.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 7
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img8.30379656.png",
+          "height": 1055,
+          "width": 1358,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg8.30379656.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/img9.b8f37130.png",
+          "height": 1062,
+          "width": 1361,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg9.b8f37130.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "Mehrab",
+    "title": "Mehrab",
+    "description": "Mehrab is a cultural center's website that offers a variety of services including cinema, library access, and various classes. The platform is designed to enhance community engagement by providing easy access to cultural resources and activities, fostering a vibrant cultural environment.",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://panel.roshde-javaneha.ir",
+    "status": "Test",
+    "type": "Public",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Laravel",
+      "PHP",
+      "Css3",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "mysql",
+      "Git"
+    ],
+    "features": [
+      "Cultural center management",
+      "Cinema scheduling",
+      "Library access",
+      "Class registration",
+      "Community engagement tools"
+    ],
+    "icon": {
+      "src": "/_next/static/media/Mehrab.ad02666f.webp",
+      "height": 76,
+      "width": 96,
+      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMehrab.ad02666f.webp&w=8&q=70",
+      "blurWidth": 8,
+      "blurHeight": 6
+    },
+    "images": [
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image1.cc8c029e.png",
+          "height": 2274,
+          "width": 2750,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.cc8c029e.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 7
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image2.569c5804.png",
+          "height": 2186,
+          "width": 2744,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.569c5804.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image3.937388a5.png",
+          "height": 2106,
+          "width": 2712,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.937388a5.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image4.bfea2098.png",
+          "height": 2106,
+          "width": 2716,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.bfea2098.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "desktop",
+        "src": {
+          "src": "/_next/static/media/image5.8e282a33.png",
+          "height": 2112,
+          "width": 2718,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.8e282a33.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 6
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image6.0b2238a1.png",
+          "height": 1864,
+          "width": 856,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.0b2238a1.png&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "Roshana",
+    "title": "Roshana",
+    "description": "Roshana is a comprehensive charity management platform designed to streamline the operations of charitable organizations. It provides tools for service tracking, duplicate prevention, and impact measurement, ensuring efficient management of resources and activities. The platform aims to enhance the effectiveness of charitable initiatives by providing a user-friendly interface and robust features.",
+    "tech": "Web App",
+    "date": "2026-05-08",
+    "link": "https://roshanaa.com/welcome",
+    "status": "Production",
+    "type": "public",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Css3",
+      "Next Js",
+      "JavaScript",
+      "Github",
+      "Figma",
+      "Git"
+    ],
+    "features": [
+      "Charity management",
+      "Service tracking",
+      "Duplicate prevention",
+      "Impact measurement"
+    ],
+    "icon": {
+      "src": "/_next/static/media/Roshana.9ab46587.png",
+      "height": 368,
+      "width": 368,
+      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRoshana.9ab46587.png&w=8&q=70",
+      "blurWidth": 8,
+      "blurHeight": 8
+    },
+    "images": [
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image1.879caddd.jpg",
+          "height": 1280,
+          "width": 599,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.879caddd.jpg&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image2.3b61244b.jpg",
+          "height": 1280,
+          "width": 600,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.3b61244b.jpg&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image3.ee40afc3.jpg",
+          "height": 1280,
+          "width": 607,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.ee40afc3.jpg&w=4&q=70",
+          "blurWidth": 4,
+          "blurHeight": 8
+        }
+      }
+    ],
+    "isActive": true
+  },
+  {
+    "id": "MarjanStones",
+    "title": "Marjan Stones",
+    "description": "Marjan Stones is a website designed for an export company specializing in stones and minerals. This platform showcases a wide range of products, manages orders efficiently, and facilitates international trade. With features tailored for exporters, it enhances product visibility and streamlines the order management process, ensuring smooth transactions and customer satisfaction.",
+    "tech": "WebSite",
+    "date": "2026-05-08",
+    "link": "",
+    "status": "Design",
+    "type": "private",
+    "tech_stack": [
+      "Figma"
+    ],
+    "features": [
+      "Product showcase",
+      "International trade facilitation",
+      "User-friendly interface"
+    ],
+    "icon": {
+      "src": "/_next/static/media/logo.c0d9e494.png",
+      "height": 369,
+      "width": 676,
+      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.c0d9e494.png&w=8&q=70",
+      "blurWidth": 8,
+      "blurHeight": 4
+    },
+    "images": [
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image.b7951df0.png",
+          "height": 1094,
+          "width": 435,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage.b7951df0.png&w=3&q=70",
+          "blurWidth": 3,
+          "blurHeight": 8
+        }
+      },
+      {
+        "size": "mobile",
+        "src": {
+          "src": "/_next/static/media/image1.46b9fd52.png",
+          "height": 1229,
+          "width": 435,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.46b9fd52.png&w=3&q=70",
+          "blurWidth": 3,
+          "blurHeight": 8
+        }
+      }
+    ],
+    "isActive": true
   }
 ]

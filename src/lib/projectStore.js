@@ -46,6 +46,22 @@ export function normalizeCustomProject(project) {
       .filter(Boolean);
   };
 
+  const normalizeSrcValue = (value) => {
+    if (!value) return "";
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      if (trimmed === "[object Object]" || trimmed === "") return "";
+      return trimmed;
+    }
+    if (typeof value === "object") {
+      if (typeof value.src === "string") return value.src.trim();
+      if (typeof value.src === "object") return normalizeSrcValue(value.src);
+      if (typeof value.default === "string") return value.default.trim();
+      return "";
+    }
+    return String(value).trim();
+  };
+
   const normalizeImages = (images) => {
     const rawImages = Array.isArray(images)
       ? images
@@ -54,11 +70,23 @@ export function normalizeCustomProject(project) {
     return rawImages
       .map((image) => {
         if (!image) return null;
-        if (typeof image === "string") return { src: image.trim() };
-        if (typeof image === "object") return image;
-        return { src: String(image).trim() };
+        if (typeof image === "string") {
+          const src = normalizeSrcValue(image);
+          return src ? { src } : null;
+        }
+        if (typeof image === "object") {
+          const src = normalizeSrcValue(image.src || image);
+          return src ? { ...image, src } : null;
+        }
+        const src = normalizeSrcValue(image);
+        return src ? { src } : null;
       })
       .filter(Boolean);
+  };
+
+  const normalizeIcon = (icon) => {
+    const src = normalizeSrcValue(icon?.src || icon);
+    return { src: src || "/images/default-icon.png" };
   };
 
   return {
@@ -72,10 +100,8 @@ export function normalizeCustomProject(project) {
     type: project.type || "Public",
     tech_stack: parseList(project.tech_stack),
     features: parseList(project.features),
-    icon:
-      typeof project.icon === "string"
-        ? { src: project.icon }
-        : project.icon || { src: "/images/default-icon.png" },
+    icon: normalizeIcon(project.icon),
     images: normalizeImages(project.images),
+    isActive: project.isActive !== false,
   };
 }

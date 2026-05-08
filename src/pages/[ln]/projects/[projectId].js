@@ -96,6 +96,29 @@ const typeColors = {
   Private: "bg-rose-500/20 text-rose-400 border-rose-500",
 };
 
+const normalizeProjectStatus = (value) => {
+  const status = value?.toString().trim();
+  if (!status) return "Production";
+  if (status === "طراحی" || status.toLowerCase() === "design") return "Design";
+  if (status === "انتشار" || status.toLowerCase() === "production") return "Production";
+  if (status.toLowerCase() === "local") return "Local";
+  if (status.toLowerCase() === "test") return "Test";
+  if (status.toLowerCase() === "staging") return "Staging";
+  if (status.toLowerCase() === "development") return "Development";
+  if (status.toLowerCase() === "deprecated") return "Deprecated";
+  if (status.toLowerCase() === "maintenance") return "Maintenance";
+  if (status.toLowerCase() === "experimental") return "Experimental";
+  return status;
+};
+
+const normalizeProjectType = (value) => {
+  const type = value?.toString().trim();
+  if (!type) return "Public";
+  if (type === "عمومی" || type.toLowerCase() === "public") return "Public";
+  if (type === "خصوصی" || type.toLowerCase() === "private") return "Private";
+  return type;
+};
+
 export default function ProjectPage({
   langData = {},
   project = {},
@@ -123,8 +146,8 @@ export default function ProjectPage({
       ? "توضیحات پروژه در دسترس نیست"
       : "Project description not available");
   const projectImages = project?.images || [];
-  const projectStatus = project?.status || "Production";
-  const projectType = project?.type || "Public";
+  const projectStatus = normalizeProjectStatus(project?.status);
+  const projectType = normalizeProjectType(project?.type);
   const techStack = project?.tech_stack || [];
 
   return (
@@ -284,7 +307,18 @@ export default function ProjectPage({
                 className="media-swiper rounded-xl overflow-hidden shadow-lg"
               >
                 {projectImages.map((media, index) => {
-                  const srcPath = media.src.src || media.src;
+                  const resolveSrc = (value) => {
+                    if (!value) return "";
+                    if (typeof value === "string") return value;
+                    if (typeof value === "object") {
+                      if (typeof value.src === "string") return value.src;
+                      if (typeof value.src === "object") return value.src?.src || value.src?.default || "";
+                      return value.default || "";
+                    }
+                    return String(value);
+                  };
+
+                  const srcPath = resolveSrc(media.src);
 
                   return (
                     <SwiperSlide key={index}>
@@ -427,67 +461,73 @@ export default function ProjectPage({
             className="space-y-3 md:space-y-4"
             variants={containerVariants}
           >
-            {projects?.map((proj) => (
-              <motion.li
-                key={proj.id}
-                className="text-white glass p-3 md:p-4 rounded-2xl"
-                variants={itemVariants}
-                whileHover="hover"
-                data-aos="zoom-out"
-              >
-                <BorderBeam duration={8} size={100} />
+            {projects?.map((proj) => {
+              const projType = normalizeProjectType(proj.type);
 
-                <Link
-                  href={`/${lang}/projects/${proj.id}`}
-                  className="flex justify-between items-center w-full"
+              return (
+                <motion.li
+                  key={proj.id}
+                  className="text-white glass p-3 md:p-4 rounded-2xl"
+                  variants={itemVariants}
+                  whileHover="hover"
+                  data-aos="zoom-out"
                 >
-                  <div>
-                    <motion.div
-                      className="text-base md:text-lg font-semibold"
-                      whileHover={{ x: 5 }}
-                    >
-                      {proj.title}
-                    </motion.div>
-                    <motion.div className="flex gap-2 mt-1">
-                      <Badge
-                        className={`text-xs ${
-                          proj.type === "Public"
-                            ? "bg-emerald-500/20 text-emerald-400"
-                            : "bg-rose-500/20 text-rose-400"
-                        }`}
-                      >
-                        {proj.type === "Public"
-                          ? isRTL
-                            ? "عمومی"
-                            : "Public"
-                          : isRTL
-                          ? "خصوصی"
-                          : "Private"}
-                      </Badge>
-                      <Badge className="text-xs bg-gray-500/20 text-gray-400">
-                        {proj.tech}
-                      </Badge>
-                    </motion.div>
-                  </div>
+                  <BorderBeam duration={8} size={100} />
 
-                  <motion.div
-                    className="overflow-hidden rounded-lg max-w-12 md:max-w-16"
-                    variants={imageVariants}
-                    whileHover="hover"
+                  <Link
+                    href={`/${lang}/projects/${proj.id}`}
+                    className="flex justify-between items-center w-full"
                   >
-                    <motion.img
-                      src={proj?.icon?.src}
-                      alt={proj.title}
-                      className="w-full h-full object-cover rounded-lg"
-                      loading="lazy"
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.div>
-                </Link>
-              </motion.li>
-            ))}
+                    <div>
+                      <motion.div
+                        className="text-base md:text-lg font-semibold"
+                        whileHover={{ x: 5 }}
+                      >
+                        {proj.title}
+                      </motion.div>
+
+                      <motion.div className="flex gap-2 mt-1">
+                        <Badge
+                          className={`text-xs ${
+                            projType === "Public"
+                              ? "bg-emerald-500/20 text-emerald-400"
+                              : "bg-rose-500/20 text-rose-400"
+                          }`}
+                        >
+                          {projType === "Public"
+                            ? isRTL
+                              ? "عمومی"
+                              : "Public"
+                            : isRTL
+                            ? "خصوصی"
+                            : "Private"}
+                        </Badge>
+
+                        <Badge className="text-xs bg-gray-500/20 text-gray-400">
+                          {proj.tech}
+                        </Badge>
+                      </motion.div>
+                    </div>
+
+                    <motion.div
+                      className="overflow-hidden rounded-lg max-w-12 md:max-w-16"
+                      variants={imageVariants}
+                      whileHover="hover"
+                    >
+                      <motion.img
+                        src={proj?.icon?.src}
+                        alt={proj.title}
+                        className="w-full h-full object-cover rounded-lg"
+                        loading="lazy"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
+                  </Link>
+                </motion.li>
+              );
+            })}
           </motion.ul>
         </motion.div>
         <div
@@ -577,7 +617,26 @@ export async function getStaticProps({ params: { ln, projectId } }) {
     }
 
     if (customProject) {
-      project = { ...project, ...customProject };
+      project = {
+        ...project,
+        ...customProject,
+        images:
+          Array.isArray(customProject.images) && customProject.images.length > 0
+            ? customProject.images
+            : project.images || [],
+        icon:
+          customProject.icon?.src && customProject.icon.src !== "[object Object]"
+            ? customProject.icon
+            : project.icon,
+        tech_stack:
+          Array.isArray(customProject.tech_stack) && customProject.tech_stack.length > 0
+            ? customProject.tech_stack
+            : project.tech_stack || [],
+        features:
+          Array.isArray(customProject.features) && customProject.features.length > 0
+            ? customProject.features
+            : project.features || [],
+      };
     }
 
     project = {
@@ -596,6 +655,10 @@ export async function getStaticProps({ params: { ln, projectId } }) {
           : project.icon || { src: "/images/default-icon.png" },
       id: projectId,
     };
+
+    if (project.isActive === false) {
+      return { notFound: true };
+    }
 
     const projectsDir = path.join(process.cwd(), "src", "data", "projects", ln);
     const allProjectFiles = fs
@@ -650,7 +713,9 @@ export async function getStaticProps({ params: { ln, projectId } }) {
         }
       });
 
-    const otherProjects = Array.from(otherProjectsMap.values());
+    const otherProjects = Array.from(otherProjectsMap.values()).filter(
+      (proj) => proj.isActive !== false
+    );
 
     return {
       props: {

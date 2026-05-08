@@ -5,8 +5,9 @@ import { readCustomProjects, writeCustomProjects, normalizeCustomProject } from 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Abolmhey885";
 
 const isAuthorized = (req) => {
+  const username = req.headers["x-admin-username"] || req.headers["X-Admin-Username"];
   const password = req.headers["x-admin-password"] || req.headers["X-Admin-Password"];
-  return password === ADMIN_PASSWORD;
+  return username === "admin" && password === ADMIN_PASSWORD;
 };
 
 const getStaticProjects = async (lang) => {

@@ -64,7 +64,7 @@ export async function getStaticProps({ params }) {
     projectFiles.map(async (file) => {
       const projectId = path.basename(file, ".js");
       const project = (await import(`@/data/projects/${ln}/${projectId}.js`)).default;
-      return { ...project, id: projectId };
+      return normalizeCustomProject({ ...project, id: projectId });
     })
   );
 
@@ -74,9 +74,9 @@ export async function getStaticProps({ params }) {
     projectsMap.set(project.id, normalizeCustomProject(project))
   );
 
-  const projects = Array.from(projectsMap.values()).sort((a, b) =>
-    a.id.toString().localeCompare(b.id.toString())
-  );
+  const projects = Array.from(projectsMap.values())
+    .filter((project) => project.isActive !== false)
+    .sort((a, b) => a.id.toString().localeCompare(b.id.toString()));
 
   return {
     props: {
