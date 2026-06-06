@@ -1,139 +1,117 @@
-// components/template/IconCloud.jsx
 import { useState, useEffect, memo } from "react";
-import { motion } from "framer-motion";
 import { IconCloud } from "@/components/magicui/icon-cloud";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
+import { AuroraText } from "../magicui/aurora-text";
+import { useReveal } from "@/hooks/useReveal";
+
+/* Static skill grid – shown on mobile to avoid canvas lag */
+function SkillGrid() {
+  return (
+    <div className="grid grid-cols-5 gap-3 p-4">
+      {simplifiedSkills.slice(0, 20).map((skill) => (
+        <div
+          key={skill.alt}
+          className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200"
+        >
+          <img
+            src={skill.src}
+            alt={skill.alt}
+            className="w-7 h-7"
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="text-white/50 text-[9px] text-center leading-none truncate w-full text-center">
+            {skill.alt}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 const IconCloudDemo = ({ content, langState }) => {
-  const [mounted, setMounted] = useState(false);
-  const [radius, setRadius] = useState(250);
+  const [isMobile, setIsMobile]   = useState(false);
+  const [mounted,  setMounted]    = useState(false);
+  const [radius,   setRadius]     = useState(250);
+  const textRef = useReveal();
+  const cloudRef = useReveal();
 
   useEffect(() => {
     setMounted(true);
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-
-    const handleResize = () => {
-      setRadius(Math.min(300, window.innerWidth / 2.5));
+    const check = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) setRadius(Math.min(300, window.innerWidth / 2.5));
     };
-
-    if (typeof window !== "undefined") {
-      handleResize();
-      window.addEventListener("resize", handleResize);
-    }
-
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("resize", handleResize);
-      }
-    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
-  if (!mounted) {
-    return (
-      <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <div className="w-full h-[400px] md:h-[500px] flex items-center justify-center">
-          <div className="text-white">Loading skills cloud...</div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
       id="skills"
       className={`relative flex flex-col ${
         langState === "en" ? "lg:flex-row-reverse" : "lg:flex-row"
-      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-2 sm:px-4 py-12 md:py-16`}
+      } items-center justify-center gap-8 w-full max-w-7xl mx-auto px-4 py-12 md:py-16`}
     >
-      {/* Content Card */}
-      <motion.div
-        className="relative z-10 w-full"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        data-aos="fade-up"
+      {/* ── Text card ── */}
+      <div
+        ref={textRef}
+        className="reveal relative z-10 w-full lg:max-w-sm"
+        style={{ transitionDelay: "0.1s" }}
       >
-        <div className="glass-container mx-auto w-fit p-4 sm:p-8 rounded-2xl backdrop-blur-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-xl">
-          <motion.h3
-            className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-4 flex"
-            variants={itemVariants}
-          >
-            {content.title}
-          </motion.h3>
-
-          <motion.p
-            className="text-white/80 mb-6 leading-relaxed flex"
-            variants={itemVariants}
-          >
-            {content.description}
-          </motion.p>
-
-          <motion.div
-            className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-4"
-            variants={itemVariants}
-          >
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+            <AuroraText>{content.title}</AuroraText>
+          </h3>
+          {content.description && (
+            <p className="text-white/70 mb-6 leading-relaxed text-sm">
+              {content.description}
+            </p>
+          )}
+          <div className="flex flex-wrap gap-3">
             <Link
               href={`/${langState}/skills`}
-              className="w-full sm:w-fit inline-flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center"
+              className="button-gradient px-5 py-2 text-white rounded-lg font-bold text-sm inline-flex justify-center items-center"
             >
               {content.button}
             </Link>
-
-            <Link
-              href="#footer"
-              className="w-full sm:w-fit inline-flex justify-center items-center glass px-4 py-2 text-white rounded-lg font-bold text-sm sm:text-base whitespace-nowrap text-center"
-            >
-              {content.secondButton}
-            </Link>
-          </motion.div>
+            {content.secondButton && (
+              <Link
+                href="#footer"
+                className="glass px-5 py-2 text-white rounded-lg font-bold text-sm inline-flex justify-center items-center"
+              >
+                {content.secondButton}
+              </Link>
+            )}
+          </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Icon Cloud */}
-      <motion.div
-        className="relative z-10 w-full h-[400px] md:h-[500px] flex items-center justify-center"
-        data-aos="zoom-in"
-        data-aos-delay="200"
+      {/* ── Cloud / static grid ── */}
+      <div
+        ref={cloudRef}
+        className="reveal relative z-10 w-full flex items-center justify-center"
+        style={{ transitionDelay: "0.25s" }}
       >
-        <IconCloud
-          images={simplifiedSkills}
-          className="w-full h-full"
-          config={{
-            radius: radius,
-            speed: 0.5,
-            initialAngle: langState === "en" ? 0 : 180,
-          }}
-        />
-        <div className="absolute inset-0 rounded-full pointer-events-none border border-white/10 mix-blend-overlay" />
-      </motion.div>
+        {!mounted ? (
+          <div className="w-full h-[360px] flex items-center justify-center text-white/40 text-sm">
+            Loading…
+          </div>
+        ) : isMobile ? (
+          <SkillGrid />
+        ) : (
+          <div className="w-full h-[420px] flex items-center justify-center">
+            <IconCloud
+              images={simplifiedSkills}
+              className="w-full h-full"
+              config={{ radius, speed: 0.4, initialAngle: langState === "en" ? 0 : 180 }}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

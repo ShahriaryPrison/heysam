@@ -3,8 +3,8 @@
     "id": "Alef",
     "title": "Alef",
     "description": "Alef is a comprehensive e-commerce platform designed to facilitate online shopping. It offers a wide range of products and services, providing users with a seamless shopping experience. The platform includes features such as secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction.",
-    "tech": "Web Site",
-    "date": "2026-05-02",
+    "tech": "وب سایت",
+    "date": "2026-06-03",
     "link": "https://aalefshop.com/",
     "status": "Production",
     "type": "Public",
@@ -30,48 +30,43 @@
       "Customer support tools"
     ],
     "icon": {
-      "src": "/_next/static/media/Alef.822b8f00.png"
+      "src": "/uploads/1780475799651-7z8v9b.jpg"
     },
     "images": [
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976213-aroros.png"
       },
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976215-0gv7n.png"
       },
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976217-99mi9.png"
       },
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976219-8a07rl.png"
       },
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976219-11jwcd.png"
       },
       {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976220-4tsv8.png"
       },
       {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
+        "src": "/uploads/1780475976221-g1ufg4.png"
       }
     ],
+    "mainImage": "/uploads/1780475785060-m6p33j.png",
     "isActive": true
   },
   {
     "id": "AlefAdmin",
     "title": "Alef Admin",
     "description": "Alef Admin is an admin panel designed for a multichannel e-commerce website. It efficiently manages products, orders, and customer interactions across various sales channels. The platform offers robust tools for inventory management, order processing, and customer relationship management, ensuring a seamless and efficient e-commerce experience.",
-    "tech": "Web App",
-    "date": "2026-05-08",
+    "tech": "وب اپ",
+    "date": "2026-05-05",
     "link": "https://aalefshop.com",
-    "status": "Production",
-    "type": "Private",
+    "status": "انتشار",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -94,123 +89,47 @@
       "Real-time reports and analytics"
     ],
     "icon": {
-      "src": "/_next/static/media/Alef.822b8f00.png",
-      "height": 39,
-      "width": 146,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FAlef.822b8f00.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 2
+      "src": "/uploads/1780643383169-k6t95sq.png"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image1.4d8dad61.png",
-          "height": 2087,
-          "width": 2730,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.4d8dad61.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464840-r6sw9d.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image2.1cf5c6da.png",
-          "height": 2085,
-          "width": 2738,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.1cf5c6da.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464840-xxtod4.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image3.4959302e.png",
-          "height": 2081,
-          "width": 2726,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.4959302e.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-3lak4.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image4.7abc6776.png",
-          "height": 2081,
-          "width": 2734,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.7abc6776.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-pb84zj.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image5.63f565fd.png",
-          "height": 2085,
-          "width": 2734,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.63f565fd.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-2kbny.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image6.936337b4.png",
-          "height": 2083,
-          "width": 2752,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.936337b4.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-jkmu66.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image7.724aec01.png",
-          "height": 5112,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.724aec01.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464841-ve8bse.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image8.0d4bf99f.png",
-          "height": 5104,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.0d4bf99f.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464842-6cr83r.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image9.9b581203.png",
-          "height": 5104,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.9b581203.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464842-ycn4df.png"
       }
     ],
+    "mainImage": "/uploads/1780643441268-hxmvbi.png",
     "isActive": true
   },
   {
     "id": "Avval",
     "title": "Avval",
     "description": "Avval is a comprehensive platform designed for multichannel shops and businesses, offering a wide range of products and services. It provides users with a seamless shopping experience, featuring secure payment options, efficient delivery services, and personalized recommendations to enhance user engagement and satisfaction. The platform is tailored to meet the needs of diverse businesses, ensuring smooth operations and customer satisfaction.",
-    "tech": "Web App",
-    "date": "2026-05-08",
-    "link": "https://aalefshop.com/welcome",
+    "tech": "وب اپ",
+    "date": "2026-05-05",
+    "link": "https://aalefshop.com",
     "status": "Development",
     "type": "Private",
     "tech_stack": [
@@ -238,51 +157,34 @@
       "Order tracking and management"
     ],
     "icon": {
-      "src": "/_next/static/media/اول.036b0945.png"
+      "src": "/uploads/1780645994473-k376ns.png"
     },
     "images": [
       {
-        "src": "/_next/static/media/image1.9490eff1.png"
+        "src": "/uploads/1780646030666-ew8x1.png"
       },
       {
-        "src": "/_next/static/media/image2.7bd9b6cd.png"
+        "src": "/uploads/1780646030667-9hz9n.png"
       },
       {
-        "src": "/_next/static/media/image3.4b2b6e61.png"
+        "src": "/uploads/1780646030667-abnw8.png"
       },
       {
-        "src": "/_next/static/media/image4.f8661472.png"
-      },
-      {
-        "src": "/_next/static/media/image5.45e37c18.png"
-      },
-      {
-        "src": "/_next/static/media/image6.8bd78052.png"
-      },
-      {
-        "src": "/_next/static/media/image7.872692a4.png"
-      },
-      {
-        "src": "/_next/static/media/image8.1a3f6ef5.png"
-      },
-      {
-        "src": "/_next/static/media/image9.833d2d79.png"
-      },
-      {
-        "src": "/_next/static/media/image10.0f2e312d.png"
+        "src": "/uploads/1780646030667-127fi.jpg"
       }
     ],
+    "mainImage": "/uploads/1780646003629-r7mc2r.png",
     "isActive": true
   },
   {
     "id": "BuildingAssistant",
     "title": "Building Assistant",
     "description": "A comprehensive web application designed to streamline the management and tracking of building projects. This platform offers tools for task management, resource allocation, and timeline tracking, ensuring efficient project execution. With features for collaboration, scheduling, and reporting, it enhances communication among team members and stakeholders, ultimately leading to successful project outcomes.",
-    "tech": "Web App",
-    "date": "2026-05-08",
-    "link": "https://roshanaa.com/welcome",
+    "tech": "وب اپ",
+    "date": "2026-05-05",
+    "link": "https://building-assistant",
     "status": "Development",
-    "type": "Private",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -306,101 +208,52 @@
       "Reporting and analytics"
     ],
     "icon": {
-      "src": "/_next/static/media/buildings.eab5c6ff.png"
+      "src": "/uploads/1780649633606-ogm6sb.png"
     },
     "images": [
       {
-        "src": "/_next/static/media/4.ad84356f.jpg",
-        "height": 3408,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F4.ad84356f.jpg&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/4.ad84356f.jpg"
       },
       {
-        "src": "/_next/static/media/image1.2091d765.png",
-        "height": 904,
-        "width": 416,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.2091d765.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image1.2091d765.png"
       },
       {
-        "src": "/_next/static/media/image2.f7568af9.png",
-        "height": 904,
-        "width": 414,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.f7568af9.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image2.f7568af9.png"
       },
       {
-        "src": "/_next/static/media/image3.75a3ec93.png",
-        "height": 1704,
-        "width": 786,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.75a3ec93.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image3.75a3ec93.png"
       },
       {
-        "src": "/_next/static/media/image4.b38964ef.png",
-        "height": 3408,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.b38964ef.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image4.b38964ef.png"
       },
       {
-        "src": "/_next/static/media/image5.5ef459b5.png",
-        "height": 3408,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.5ef459b5.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image5.5ef459b5.png"
       },
       {
-        "src": "/_next/static/media/image6.528b209e.png",
-        "height": 4332,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.528b209e.png&w=3&q=70",
-        "blurWidth": 3,
-        "blurHeight": 8
+        "src": "/_next/static/media/image6.528b209e.png"
       },
       {
-        "src": "/_next/static/media/image7.a367ac47.png",
-        "height": 4332,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.a367ac47.png&w=3&q=70",
-        "blurWidth": 3,
-        "blurHeight": 8
+        "src": "/_next/static/media/image7.a367ac47.png"
       },
       {
-        "src": "/_next/static/media/image8.2cc55892.png",
-        "height": 1707,
-        "width": 786,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.2cc55892.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image8.2cc55892.png"
       },
       {
-        "src": "/_next/static/media/image9.d1bea8c5.png",
-        "height": 3408,
-        "width": 1572,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.d1bea8c5.png&w=4&q=70",
-        "blurWidth": 4,
-        "blurHeight": 8
+        "src": "/_next/static/media/image9.d1bea8c5.png"
       }
     ],
+    "mainImage": "/uploads/1780649643433-07iw7h.jpg",
     "isActive": true
   },
   {
     "id": "KetabYar",
     "title": "KetabYar",
     "description": "A prototype of an online library built to showcase web design and development capabilities. This project is private and created for educational purposes.",
-    "tech": "WebSite",
-    "date": "2026-05-08",
+    "tech": "وب سایت",
+    "date": "2026-05-05",
     "link": "",
-    "status": "Finished",
-    "type": "private",
+    "status": "Design",
+    "type": "خصوصی",
     "tech_stack": [
       "react",
       "Next Js",
@@ -411,61 +264,37 @@
       "User-friendly interface"
     ],
     "icon": {
-      "src": "/_next/static/media/logo.6e87958a.png"
+      "src": "/uploads/1780656667430-rpr1z8i.png"
     },
     "images": [
       {
-        "src": "/_next/static/media/image1.165c3f08.jpg",
-        "height": 611,
-        "width": 1280,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.165c3f08.jpg&w=8&q=70",
-        "blurWidth": 8,
-        "blurHeight": 4
+        "src": "/_next/static/media/image1.165c3f08.jpg"
       },
       {
-        "src": "/_next/static/media/image2.4e622331.jpg",
-        "height": 610,
-        "width": 1280,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.4e622331.jpg&w=8&q=70",
-        "blurWidth": 8,
-        "blurHeight": 4
+        "src": "/_next/static/media/image2.4e622331.jpg"
       },
       {
-        "src": "/_next/static/media/image3.a9721be4.jpg",
-        "height": 586,
-        "width": 1280,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.a9721be4.jpg&w=8&q=70",
-        "blurWidth": 8,
-        "blurHeight": 4
+        "src": "/_next/static/media/image3.a9721be4.jpg"
       },
       {
-        "src": "/_next/static/media/image4.be99e115.jpg",
-        "height": 613,
-        "width": 1280,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.be99e115.jpg&w=8&q=70",
-        "blurWidth": 8,
-        "blurHeight": 4
+        "src": "/_next/static/media/image4.be99e115.jpg"
       },
       {
-        "src": "/_next/static/media/image5.747db058.jpg",
-        "height": 610,
-        "width": 1280,
-        "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.747db058.jpg&w=8&q=70",
-        "blurWidth": 8,
-        "blurHeight": 4
+        "src": "/_next/static/media/image5.747db058.jpg"
       }
     ],
+    "mainImage": "/uploads/1780649760622-u70nim.jpg",
     "isActive": true
   },
   {
     "id": "LaserTag",
     "title": "Laser Tag",
     "description": "get ready for an exciting adventure with our Laser Tag web application! This platform allows you to reserve your laser tag games online, making it easy to plan your next outing. Whether you're organizing a birthday party, a corporate event, or just a fun day out with friends, our app ensures a seamless booking experience. Join us for an action-packed day of laser tag and create unforgettable memories!",
-    "tech": "Web App",
-    "date": "2026-05-08",
+    "tech": "وب اپ",
+    "date": "2026-05-05",
     "link": "https://panel.roshde-javaneha.ir/laser-tag",
-    "status": "Development",
-    "type": "Public",
+    "status": "Test",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -488,138 +317,50 @@
       "Customer support integration"
     ],
     "icon": {
-      "src": "/_next/static/media/icon.8fb217cb.png",
-      "height": 876,
-      "width": 876,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.8fb217cb.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 8
+      "src": "/_next/static/media/icon.8fb217cb.png"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img1.2715a874.jpg",
-          "height": 680,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg1.2715a874.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img1.2715a874.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img2.bc0ef133.jpg",
-          "height": 687,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg2.bc0ef133.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img2.bc0ef133.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img3.3a8ae232.jpg",
-          "height": 621,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg3.3a8ae232.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img3.3a8ae232.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img4.faeb3df2.jpg",
-          "height": 621,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg4.faeb3df2.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img4.faeb3df2.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img5.0e7dc97a.png",
-          "height": 1065,
-          "width": 1283,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg5.0e7dc97a.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img5.0e7dc97a.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img6.8809c8cd.png",
-          "height": 1064,
-          "width": 1288,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg6.8809c8cd.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img6.8809c8cd.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img7.cb37ccc7.png",
-          "height": 1058,
-          "width": 1289,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg7.cb37ccc7.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img7.cb37ccc7.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img8.30379656.png",
-          "height": 1055,
-          "width": 1358,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg8.30379656.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/_next/static/media/img8.30379656.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img9.b8f37130.png",
-          "height": 1062,
-          "width": 1361,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg9.b8f37130.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/_next/static/media/img9.b8f37130.png"
       }
     ],
+    "mainImage": "/uploads/1780657005551-hdnqg6.png",
     "isActive": true
   },
   {
     "id": "Mehrab",
     "title": "Mehrab",
     "description": "Mehrab is a cultural center's website that offers a variety of services including cinema, library access, and various classes. The platform is designed to enhance community engagement by providing easy access to cultural resources and activities, fostering a vibrant cultural environment.",
-    "tech": "Web App",
-    "date": "2026-05-08",
-    "link": "https://panel.roshde-javaneha.ir",
-    "status": "Test",
+    "tech": "",
+    "date": "2026-06-06",
+    "link": "",
+    "status": "Production",
     "type": "Public",
-    "tech_stack": [
-      "Html5",
-      "React",
-      "Tailwind",
-      "Laravel",
-      "PHP",
-      "Css3",
-      "JavaScript",
-      "Github",
-      "Figma",
-      "mysql",
-      "Git"
-    ],
+    "tech_stack": [],
     "features": [
       "Cultural center management",
       "Cinema scheduling",
@@ -628,103 +369,22 @@
       "Community engagement tools"
     ],
     "icon": {
-      "src": "/_next/static/media/Mehrab.ad02666f.webp",
-      "height": 76,
-      "width": 96,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMehrab.ad02666f.webp&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 6
+      "src": "/images/default-icon.png"
     },
-    "images": [
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image1.cc8c029e.png",
-          "height": 2274,
-          "width": 2750,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.cc8c029e.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image2.569c5804.png",
-          "height": 2186,
-          "width": 2744,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.569c5804.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image3.937388a5.png",
-          "height": 2106,
-          "width": 2712,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.937388a5.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image4.bfea2098.png",
-          "height": 2106,
-          "width": 2716,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.bfea2098.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image5.8e282a33.png",
-          "height": 2112,
-          "width": 2718,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.8e282a33.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
-      },
-      {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image6.0b2238a1.png",
-          "height": 1864,
-          "width": 856,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.0b2238a1.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
-      }
-    ],
-    "isActive": true
+    "images": [],
+    "mainImage": "",
+    "isActive": false
   },
   {
     "id": "Roshana",
     "title": "Roshana",
     "description": "Roshana is a comprehensive charity management platform designed to streamline the operations of charitable organizations. It provides tools for service tracking, duplicate prevention, and impact measurement, ensuring efficient management of resources and activities. The platform aims to enhance the effectiveness of charitable initiatives by providing a user-friendly interface and robust features.",
-    "tech": "Web App",
-    "date": "2026-05-08",
-    "link": "https://roshanaa.com/welcome",
+    "tech": "",
+    "date": "2026-06-06",
+    "link": "",
     "status": "Production",
-    "type": "public",
-    "tech_stack": [
-      "Html5",
-      "React",
-      "Tailwind",
-      "Css3",
-      "Next Js",
-      "JavaScript",
-      "Github",
-      "Figma",
-      "Git"
-    ],
+    "type": "Public",
+    "tech_stack": [],
     "features": [
       "Charity management",
       "Service tracking",
@@ -732,59 +392,21 @@
       "Impact measurement"
     ],
     "icon": {
-      "src": "/_next/static/media/Roshana.9ab46587.png",
-      "height": 368,
-      "width": 368,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRoshana.9ab46587.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 8
+      "src": "/images/default-icon.png"
     },
-    "images": [
-      {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image1.879caddd.jpg",
-          "height": 1280,
-          "width": 599,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.879caddd.jpg&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
-      },
-      {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image2.3b61244b.jpg",
-          "height": 1280,
-          "width": 600,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.3b61244b.jpg&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
-      },
-      {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image3.ee40afc3.jpg",
-          "height": 1280,
-          "width": 607,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.ee40afc3.jpg&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
-      }
-    ],
-    "isActive": true
+    "images": [],
+    "mainImage": "",
+    "isActive": false
   },
   {
     "id": "MarjanStones",
     "title": "Marjan Stones",
     "description": "Marjan Stones is a website designed for an export company specializing in stones and minerals. This platform showcases a wide range of products, manages orders efficiently, and facilitates international trade. With features tailored for exporters, it enhances product visibility and streamlines the order management process, ensuring smooth transactions and customer satisfaction.",
-    "tech": "WebSite",
-    "date": "2026-05-08",
+    "tech": "وب سایت",
+    "date": "2026-05-05",
     "link": "",
     "status": "Design",
-    "type": "private",
+    "type": "خصوصی",
     "tech_stack": [
       "Figma"
     ],
@@ -794,37 +416,292 @@
       "User-friendly interface"
     ],
     "icon": {
-      "src": "/_next/static/media/logo.c0d9e494.png",
-      "height": 369,
-      "width": 676,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.c0d9e494.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 4
+      "src": "/uploads/1780672232656-m82rji.png"
     },
     "images": [
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image.b7951df0.png",
-          "height": 1094,
-          "width": 435,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage.b7951df0.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image.b7951df0.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image1.46b9fd52.png",
-          "height": 1229,
-          "width": 435,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.46b9fd52.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image1.46b9fd52.png"
       }
     ],
+    "mainImage": "/uploads/1780671771745-qnf2h6.png",
+    "isActive": true
+  },
+  {
+    "id": "kiosk",
+    "title": "Kiosk Management System",
+    "description": "A comprehensive kiosk and retail management system developed to facilitate multi-store management, product creation and categorization, and user access control for individual stores. The system seamlessly connects kiosks to specific stores and manages the Point of Sale (POS) terminals linked to each kiosk, ensuring that all transactions are recorded accurately and in real-time. The platform is structured around three primary roles: Global System Admin, Store Admin, and Kiosk (with connected POS), each possessing tailored access rights and dedicated functionalities. The frontend is specifically designed to handle POS integrations and user interactions, delivering a fast and highly interactive user experience. Implemented with a modern architecture and a unified structure, this project ensures that sales, product management, and multi-store transactions are perfectly synchronized and fully controllable. Additionally, the platform provides full multilingual support for Persian, Arabic, and English.",
+    "tech": "Web Site",
+    "date": "2026-06-05",
+    "link": "http://kiosk-merchant.ham-sun.com",
+    "status": "Production",
+    "type": "خصوصی",
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "React",
+      "Tailwind",
+      "Git",
+      "typescript",
+      "Next Js",
+      "Docker"
+    ],
+    "features": [
+      "Multilingual Support: Full localization for three major languages (Persian, Arabic, and English).",
+      "Multi-Store Management: Unified and centralized administration across multiple retail locations.",
+      "Real-Time Transactions: Instantaneous and synchronized recording of all financial transactions.",
+      "Role-Based Access Control (RBAC): Secure access management divided into three distinct operational tiers.",
+      "Interactive UI: A fast, responsive, and highly interactive user interface designed for seamless operation.",
+      "Smart POS Integration: Intelligent and seamless connection between physical kiosks and Point of Sale (POS) terminals."
+    ],
+    "icon": {
+      "src": "/uploads/1780673965677-oqmy7.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780715782414-qcex8.png"
+      },
+      {
+        "src": "/uploads/1780715782414-7bniif.png"
+      },
+      {
+        "src": "/uploads/1780715782414-cvyx3.png"
+      },
+      {
+        "src": "/uploads/1780715782415-n24pth.png"
+      },
+      {
+        "src": "/uploads/1780715782415-q7aha9.png"
+      },
+      {
+        "src": "/uploads/1780715782415-1ln6ej.png"
+      },
+      {
+        "src": "/uploads/1780715782415-tz81v.png"
+      },
+      {
+        "src": "/uploads/1780715782415-4scif.png"
+      },
+      {
+        "src": "/uploads/1780715782415-pbsxp.png"
+      },
+      {
+        "src": "/uploads/1780715782415-o080b.png"
+      }
+    ],
+    "mainImage": "/uploads/1780716249146-bpttkg.png",
+    "isActive": true
+  },
+  {
+    "id": "nini-dooz",
+    "title": "Nini Dooz",
+    "description": "An integrated production management and e-commerce full-stack web application built with Laravel and React (Inertia.js) for a children's clothing manufacturer. The platform is divided into two primary modules: an online storefront and a production line management system. The e-commerce section includes a comprehensive product catalog, shopping cart, streamlined checkout process, and an admin panel for order management and seller verification. The production module features a dedicated portal for factory workers to log their daily performance across multiple sewing lines, utilizing a multi-line reporting system. Managers can create, allocate, and approve work sessions while monitoring the real-time progress of each production stage. The user interface is designed using Tailwind CSS and Radix UI, featuring full Persian (RTL) language support and Jalali calendar integration. The project is deployed on the Liara platform and incorporates OTP authentication, robust role management, and an integrated online payment gateway.",
+    "tech": [
+      "وب اپ",
+      "وب سایت"
+    ],
+    "date": "2026-06-06",
+    "link": "https://ninidooz.ir",
+    "status": "Production",
+    "type": [
+      "عمومی",
+      "خصوصی"
+    ],
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "Tailwind",
+      "React",
+      "typescript",
+      "Laravel",
+      "Git",
+      "mysql"
+    ],
+    "features": [
+      "Comprehensive Admin Dashboard: Advanced capabilities for allocating workers to specific sewing lines and approving detailed production reports.",
+      "E-Commerce Platform: Fully functional online store equipped with a shopping cart, secure payment processing, and order tracking.",
+      "Multi-Line Production Reporting: Dedicated system for workers to accurately record actual daily production metrics per sewing line.",
+      "Advanced Authentication & RBAC: OTP-based login and multi-level Role-Based Access Control encompassing Admins, Production Managers, Workers, and Sellers.",
+      "Localization: Full integration of the Jalali (Solar) calendar with a native RTL Persian user interface.",
+      "Seller Verification System: Automated workflows for verifying seller identities, including document review and check processing."
+    ],
+    "icon": {
+      "src": "/uploads/1780716997377-qbgzd.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780717259622-6i40jr.png"
+      },
+      {
+        "src": "/uploads/1780717259623-5no2ef.png"
+      },
+      {
+        "src": "/uploads/1780717259623-36ibn.png"
+      },
+      {
+        "src": "/uploads/1780717259623-ln4mw.png"
+      },
+      {
+        "src": "/uploads/1780717259623-uglmq.png"
+      },
+      {
+        "src": "/uploads/1780717259624-t91noq.png"
+      },
+      {
+        "src": "/uploads/1780717259624-c80dli.png"
+      },
+      {
+        "src": "/uploads/1780717259624-kow1f.png"
+      }
+    ],
+    "mainImage": "/uploads/1780717140848-mmd3yu.png",
+    "isActive": true
+  },
+  {
+    "id": "book-manager",
+    "title": "Appointment Management",
+    "description": "A comprehensive, full-stack medical clinic management web application built with Laravel and React (Inertia.js), designed to optimize and streamline every aspect of clinic operations, from scheduling and reception to personnel and financials.",
+    "tech": "وب سایت",
+    "date": "2026-06-06",
+    "link": "https://hassann.ir",
+    "status": [
+      "طراحی",
+      "انتشار"
+    ],
+    "type": "Private",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Css3",
+      "Tailwind",
+      "Git",
+      "typescript",
+      "Laravel",
+      "mysql"
+    ],
+    "features": [
+      "Interactive Appointment Calendar: Features full Drag & Drop functionality for the intuitive rescheduling and seamless management of all clinic appointments.",
+      "Comprehensive Reception Panel: Empowers reception staff with full patient profile management, including registration, complete profile views, and detailed visitation histories.",
+      "Strategic Clinic Room Management: Provides strategic control over all clinic rooms and ensures their optimal allocation to both doctors and patients for maximised efficiency.",
+      "Flexible Personnel Shift Scheduling: A robust system for defining staff workdays and managing complex weekly shift plans with ease and flexibility.",
+      "Analytical Admin Financial Dashboard: Offers a detailed dashboard with multiple analytical charts for clear and accurate reporting of income, payments, and financial performance.",
+      "Integrated Patient Communication Logs: Built-in functionality for registering and tracking calls and all communication logs with patients for better relationship management."
+    ],
+    "icon": {
+      "src": "/uploads/1780718218037-21i5e.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780718506730-yyxqba.png"
+      },
+      {
+        "src": "/uploads/1780718506730-4doji4.png"
+      },
+      {
+        "src": "/uploads/1780718506730-b873rf.png"
+      },
+      {
+        "src": "/uploads/1780718506731-rl2tc.png"
+      },
+      {
+        "src": "/uploads/1780718506731-7vwc98.png"
+      },
+      {
+        "src": "/uploads/1780718506731-x4jc5.png"
+      },
+      {
+        "src": "/uploads/1780718506731-6lsaq.png"
+      },
+      {
+        "src": "/uploads/1780718506731-im9pgo.png"
+      }
+    ],
+    "mainImage": "/uploads/1780718483649-tujjj.png",
+    "isActive": true
+  },
+  {
+    "id": "exchange",
+    "title": "Cryptocurrency Exchange Application",
+    "description": "A comprehensive cryptocurrency exchange web application built on Next.js 16 and React 19, featuring a fully bilingual Persian/English user interface.\nThe trading system facilitates the buying and selling of digital assets, complete with real-time price tracking through interactive charts and full transaction histories.\nIt features a multi-currency wallet that supports deposits (top-ups), withdrawals, and cross-network transfers across various blockchains.\nThe platform integrates bank account management, Rial (fiat) transactions, and investment features, alongside a dedicated profile panel and OTP authentication.\nDesigned as a Progressive Web App (PWA), it delivers a near-native mobile application experience directly within the browser.\nData fetching and state management are handled by SWR, and Time-based One-Time Password (TOTP) two-factor authentication is implemented to ensure maximum account security.",
+    "tech": [
+      "وب اپ",
+      "وب سایت"
+    ],
+    "date": "2026-06-06",
+    "link": "https://mock-asset-test.done.ir/",
+    "status": "Production",
+    "type": "عمومی",
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "React",
+      "Next Js",
+      "Tailwind",
+      "Git",
+      "Docker"
+    ],
+    "features": [
+      "Crypto Trading & Charting: Buying and selling of cryptocurrencies with real-time price charts and candlestick history.",
+      "Multi-Currency Wallet: Comprehensive support for deposits, withdrawals, and transfers across different blockchain networks.",
+      "Market Price Tracking: Live market prices equipped with daily, weekly, monthly, and yearly timeframe filters.",
+      "Bilingual Interface: Seamless Persian/English user interface with automatic RTL/LTR direction switching.",
+      "Advanced Security: OTP and TOTP authentication for secure logins and the verification of sensitive transactions.",
+      "Fiat Operations: Full support for Rial transactions and the management of registered bank accounts.",
+      "PWA Ready: Installable Progressive Web App offering a user experience highly comparable to a native mobile app."
+    ],
+    "icon": {
+      "src": "/uploads/1780720332546-0tbm.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780720391517-jdqz9r.png"
+      },
+      {
+        "src": "/uploads/1780720391517-hirfa.png"
+      },
+      {
+        "src": "/uploads/1780720391518-2xx52.png"
+      },
+      {
+        "src": "/uploads/1780720391518-2cpv8.png"
+      },
+      {
+        "src": "/uploads/1780720391518-fqt2l.png"
+      },
+      {
+        "src": "/uploads/1780720391519-10ly7.png"
+      },
+      {
+        "src": "/uploads/1780720391519-s48sx.png"
+      },
+      {
+        "src": "/uploads/1780720391519-cyb5un.png"
+      },
+      {
+        "src": "/uploads/1780720391519-w4qs8q.png"
+      },
+      {
+        "src": "/uploads/1780720391519-kkrkub.png"
+      },
+      {
+        "src": "/uploads/1780720391519-1hk4z8.png"
+      },
+      {
+        "src": "/uploads/1780720391519-hhkegn.png"
+      },
+      {
+        "src": "/uploads/1780720391519-4wbnhj.png"
+      },
+      {
+        "src": "/uploads/1780720391520-6ltccr.png"
+      },
+      {
+        "src": "/uploads/1780720391520-429q4f.png"
+      }
+    ],
+    "mainImage": "/uploads/1780720664002-lyva9i.png",
     "isActive": true
   }
 ]

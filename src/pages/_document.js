@@ -5,6 +5,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+          {/* Remove FOUC style once DOM is ready, don't wait on fonts */}
+          <script dangerouslySetInnerHTML={{ __html: `(function(){function r(){document.querySelectorAll('style[data-next-hide-fouc]').forEach(function(e){e.parentNode&&e.parentNode.removeChild(e)});document.body&&(document.body.style.display='');}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',r);}else{r();}})();` }} />
           {/* Google Analytics */}
           <script
             async

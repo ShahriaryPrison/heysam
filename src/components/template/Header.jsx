@@ -1,116 +1,110 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Logo from "../../../public/images/heysam-logo-no-back.png";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 function Header({ content, langState }) {
-  // انیمیشن‌های مختلف
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const itemVariants = {
-    hidden: { y: -20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100 },
-    },
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const hoverEffect = {
-    scale: 1.05,
-    color: "#FFFFFF",
-    transition: { duration: 0.2 },
-  };
+  const navItems = [
+    { id: "about_us",   href: `/${langState}#hero` },
+    { id: "projects",   href: `/${langState}/projects` },
+    { id: "our_skills", href: `/${langState}#skills` },
+    { id: "contact_us", href: `/${langState}#footer` },
+  ];
 
   return (
-    <motion.header
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="flex justify-between items-center w-full px-2 py-2 sm:py-4 sm:px-6 custom-header-dir"
-    >
-      {/* لوگو با انیمیشن */}
-      <motion.a
-        href={langState === "fa" ? "/fa" : "/en"}
-        className="flex justify-center sm:w-full sm:max-w-40 lg:w-min items-center px-2 sm:px-8 cursor-pointer"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Image
-          src={Logo}
-          className="w-8 h-8 sm:w-11 sm:h-11"
-          width="80"
-          height="80"
-          alt="Logo"
-        />
-        <motion.p
-          className="text-gradient font-[Poppins] font-bold text-lg sm:text-3xl"
-          whileHover={{ scale: 1.1 }}
-        >
-          HEYSAM
-        </motion.p>
-      </motion.a>
+    <nav className={`ds-nav${scrolled ? " scrolled" : ""}`} dir="ltr">
+      <div className="ds-nav-inner">
+        {/* Logo */}
+        <a className="ds-logo" href={`/${langState}`}>
+          <div className="ds-logo-mark">
+            <img src="/images/heysam-logo-no-back.png" alt="Heysam" style={{ width: "68%", height: "68%", objectFit: "contain" }} />
+          </div>
+          <span className="ds-logo-text">HEYSAM</span>
+        </a>
 
-      {/* منوی نویگیشن با انیمیشن */}
-      <motion.ul className="hidden lg:flex gap-6" variants={containerVariants}>
-        {[
-          { id: "about_us", href: `/${langState}#hero` },
-          { id: "projects", href: `/${langState}/projects` },
-          { id: "our_skills", href: `/${langState}#skills` },
-          { id: "contact_us", href: `/${langState}#footer` },
-        ].map((item) => (
-          <motion.li
-            key={item.id}
-            variants={itemVariants}
-            whileHover={hoverEffect}
-          >
-            <a href={item.href}>
-              <motion.span
-                className={`text-[#BCBCBC] list-item-hover ${
-                  langState === "fa" && "text-lg font-bold "
-                }`}
-              >
-                {content[item.id]}
-              </motion.span>
+        {/* Desktop links */}
+        <div className="ds-nav-links">
+          {navItems.map((item) => (
+            <a key={item.id} href={item.href}>
+              {content[item.id]}
             </a>
-          </motion.li>
-        ))}
-      </motion.ul>
+          ))}
+        </div>
 
-      {/* دکمه‌های زبان با انیمیشن */}
-      <motion.div className="py-4 px-2 sm:px-6" variants={itemVariants}>
-        <Link href="/en">
-          <motion.button
-            className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${
-              langState === "en" && "border border-[#D7D7D7] rounded-lg"
-            }`}
-            whileHover={hoverEffect}
-            whileTap={{ scale: 0.95 }}
+        {/* Lang toggle + hamburger */}
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div className="ds-lang-toggle">
+            <Link href="/en">
+              <button className={langState === "en" ? "active" : ""}>English</button>
+            </Link>
+            <Link href="/fa">
+              <button className={langState === "fa" ? "active" : ""}>فارسی</button>
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="menu"
+            style={{
+              display: "none",
+              width: 42, height: 42, borderRadius: 11,
+              background: "var(--glass)", border: "1px solid var(--glass-border)",
+              color: "var(--ds-text)", cursor: "pointer",
+              placeItems: "center",
+            }}
+            className="ds-mobile-menu-btn"
           >
-            English
-          </motion.button>
-        </Link>
-        <Link href="/fa">
-          <motion.button
-            className={`px-3 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-[#BCBCBC] ${
-              langState === "fa" && "border border-[#D7D7D7] rounded-lg"
-            }`}
-            whileHover={hoverEffect}
-            whileTap={{ scale: 0.95 }}
-          >
-            فارسی
-          </motion.button>
-        </Link>
-      </motion.div>
-    </motion.header>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 6h18M3 12h18M3 18h18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown */}
+      <div
+        style={{
+          overflow: "hidden",
+          transition: "max-height .3s ease",
+          maxHeight: menuOpen ? "320px" : "0",
+          borderTop: menuOpen ? "1px solid var(--glass-border)" : "none",
+          background: "rgba(11,10,24,0.95)",
+        }}
+      >
+        <nav style={{ padding: "8px 28px 16px" }}>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: "block", padding: "12px 0",
+                color: "var(--ds-text-dim)", textDecoration: "none",
+                fontSize: 14, fontWeight: 600,
+                borderBottom: "1px solid var(--glass-border)",
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              {content[item.id]}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <style jsx>{`
+        @media (max-width: 980px) {
+          .ds-mobile-menu-btn { display: grid !important; }
+        }
+      `}</style>
+    </nav>
   );
 }
 

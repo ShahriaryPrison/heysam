@@ -30,6 +30,7 @@ const defaultForm = {
   status: "",
   type: "",
   icon: "",
+  mainImage: "",
   images: [],
   isActive: true,
 };
@@ -213,15 +214,30 @@ export default function AdminPage() {
   };
 
   const selectProject = (project) => {
-    const resolveSrc = (value) => {
-      if (!value) return "";
-      if (typeof value === "string") return value;
-      if (typeof value === "object") {
-        if (typeof value.src === "string") return value.src;
-        if (typeof value.src === "object") return value.src?.src || value.src?.default || "";
-        return value.default || "";
+    // Recursively unwrap Next.js StaticImageData / module objects until we get a string URL
+    const resolveSrc = (value, depth = 0) => {
+      if (!value || depth > 5) return "";
+      if (typeof value === "string") {
+        const trimmed = value.trim();
+        return trimmed === "[object Object]" ? "" : trimmed;
       }
-      return String(value);
+      if (typeof value === "object") {
+        // Next.js StaticImageData: { src: string, width, height }
+        if (typeof value.src === "string") return value.src;
+        // Nested: { src: { src: string } } or { src: { default: { src: string } } }
+        if (typeof value.src === "object") return resolveSrc(value.src, depth + 1);
+        // ES module default export
+        if (value.default) return resolveSrc(value.default, depth + 1);
+      }
+      return "";
+    };
+
+    const resolveImage = (img) => {
+      if (!img) return "";
+      if (typeof img === "string") return resolveSrc(img);
+      // { size, src } shape from static project files
+      if (img.src !== undefined) return resolveSrc(img.src);
+      return resolveSrc(img);
     };
 
     const techStack = Array.isArray(project.tech_stack)
@@ -231,15 +247,13 @@ export default function AdminPage() {
       ? project.features
       : project.features ? project.features.split("\n").map(s => s.trim()).filter(Boolean) : [];
     const images = Array.isArray(project.images)
-      ? project.images.map((img) => {
-          if (typeof img === 'string') return img;
-          return resolveSrc(img);
-        }).filter(Boolean)
+      ? project.images.map(resolveImage).filter(Boolean)
       : project.images ? project.images.split(",").map(s => s.trim()) : [];
-    const icon = typeof project.icon === 'string' ? project.icon : resolveSrc(project.icon);
+    const icon = resolveSrc(typeof project.icon === "string" ? project.icon : project.icon?.src ?? project.icon);
 
     const projectId = String(project.id || "").trim();
     setEditingId(projectId);
+    const mainImage = resolveSrc(project.mainImage);
     setForm({
       id: projectId,
       title: project.title || "",
@@ -251,6 +265,7 @@ export default function AdminPage() {
       status: project.status || FIELD_OPTIONS[lang].status[0],
       type: project.type || FIELD_OPTIONS[lang].type[0],
       icon,
+      mainImage,
       images,
       isActive: project.isActive !== false,
     });
@@ -290,6 +305,25 @@ export default function AdminPage() {
     }
   };
 
+  const syncToOtherLang = async () => {
+    const otherLang = lang === "fa" ? "en" : "fa";
+    if (!window.confirm(`همه پروژه‌های ${lang === "fa" ? "فارسی" : "انگلیسی"} به ${otherLang === "fa" ? "فارسی" : "انگلیسی"} سینک شوند؟`)) return;
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/admin/projects?lang=${lang}&action=sync`, {
+        method: "PATCH",
+        headers: authHeader,
+      });
+      const data = await parseApiResponse(response);
+      if (!response.ok) throw new Error(data.error || "Sync failed");
+      setMessage(`سینک انجام شد: ${data.synced.created} پروژه جدید، ${data.synced.updated} پروژه آپدیت شد.`);
+    } catch (error) {
+      setMessage("خطا در سینک: " + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const toggleActive = async (projectId) => {
     const project = projects.find(p => String(p.id).trim() === String(projectId).trim());
     if (!project) {
@@ -299,9 +333,10 @@ export default function AdminPage() {
 
     setLoading(true);
     try {
-      const updatedProject = { 
-        ...project, 
-        isActive: !project.isActive,
+      const currentActive = project.isActive !== false; // treat undefined as true
+      const updatedProject = {
+        ...project,
+        isActive: !currentActive,
         id: String(project.id).trim()
       };
       const body = { project: updatedProject };
@@ -320,7 +355,7 @@ export default function AdminPage() {
         throw new Error(data.error || "Failed to toggle active status");
       }
 
-      setMessage(project.isActive ? "پروژه غیرفعال شد" : "پروژه فعال شد");
+      setMessage(currentActive ? "پروژه غیرفعال شد" : "پروژه فعال شد");
       await loadProjects();
     } catch (error) {
       setMessage("خطا: " + error.message);
@@ -407,14 +442,30 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 px-4 py-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex items-center justify-between flex-wrap gap-3">
           <h1 className="text-3xl font-bold">پنل مدیریت پروژه‌ها</h1>
-          <button
-            onClick={() => { setAuthenticated(false); setLang(""); setUsername(""); setPassword(""); }}
-            className="rounded-2xl bg-rose-500 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-400 transition"
-          >
-            خروج
-          </button>
+          <div className="flex items-center gap-3 flex-wrap">
+            <button
+              onClick={syncToOtherLang}
+              disabled={loading}
+              className="rounded-2xl bg-violet-500 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-400 transition disabled:opacity-50"
+              title={`همه پروژه‌های ${lang} را به ${lang === 'fa' ? 'EN' : 'FA'} سینک کن`}
+            >
+              🔄 سینک به {lang === "fa" ? "English" : "فارسی"}
+            </button>
+            <button
+              onClick={() => setLang(lang === "fa" ? "en" : "fa")}
+              className="rounded-2xl bg-slate-700 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-600 transition"
+            >
+              {lang === "fa" ? "🇬🇧 English" : "🇮🇷 فارسی"}
+            </button>
+            <button
+              onClick={() => { setAuthenticated(false); setLang(""); setUsername(""); setPassword(""); }}
+              className="rounded-2xl bg-rose-500 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-400 transition"
+            >
+              خروج
+            </button>
+          </div>
         </div>
 
         {message && (
@@ -541,6 +592,35 @@ export default function AdminPage() {
                     <div className="mt-2 flex items-center gap-2">
                       <img src={form.icon} alt="Icon preview" className="h-12 w-12 rounded" />
                       <p className="text-xs text-slate-500">{form.icon.split('/').pop()}</p>
+                    </div>
+                  )}
+                </label>
+                <label className="block">
+                  <span className="text-sm text-slate-400">تصویر اصلی (بنر)</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={async (e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        setLoading(true);
+                        const urls = await uploadFiles([file]);
+                        if (urls.length > 0) {
+                          handleInput("mainImage", urls[0]);
+                        }
+                        setLoading(false);
+                      }
+                    }}
+                    disabled={loading}
+                    className="mt-2 w-full rounded-2xl bg-slate-800 border border-white/10 px-4 py-3 disabled:opacity-50"
+                  />
+                  {form.mainImage && (
+                    <div className="mt-2 relative group inline-block">
+                      <img src={form.mainImage} alt="Main image preview" className="h-24 w-full rounded object-cover" style={{ maxWidth: 240 }} />
+                      <button
+                        onClick={() => handleInput("mainImage", "")}
+                        className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition"
+                      >×</button>
                     </div>
                   )}
                 </label>

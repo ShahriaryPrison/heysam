@@ -1,176 +1,278 @@
-import Image from "next/image";
 import Link from "next/link";
-import AboutUsImage from "../../../public/images/heysam-logo.png";
-import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useEffect, useRef } from "react";
+import { useReveal } from "@/hooks/useReveal";
 
-function Hero({ content, langState }) {
+function toFaDigits(n) {
+  return String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+function StatItem({ stat, isFA = false, delay = 0 }) {
+  const wrapRef = useRef(null);
+  const hasRun = useRef(false);
+
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: false,
-    });
-  }, []);
+    const el = wrapRef.current;
+    if (!el) return;
+    const numEl = el.querySelector(".stat-num");
+    if (!numEl) return;
 
-  // Variants for Framer Motion
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasRun.current) return;
+        hasRun.current = true;
+        observer.disconnect();
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+        const duration = 1600;
+        const target = stat.val;
+        const suffix = isFA ? "+" : "+";
+        let startTime = null;
+        let rafId;
 
-  const imageVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
+        const fmt = (n) => isFA ? toFaDigits(n) + suffix : n + suffix;
+
+        const tick = (ts) => {
+          if (!startTime) startTime = ts;
+          const progress = Math.min((ts - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          numEl.textContent = fmt(Math.floor(eased * target));
+          if (progress < 1) {
+            rafId = requestAnimationFrame(tick);
+          } else {
+            numEl.textContent = fmt(target);
+          }
+        };
+
+        rafId = requestAnimationFrame(tick);
+        el._rafId = rafId;
       },
-    },
-  };
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (el._rafId) cancelAnimationFrame(el._rafId);
+    };
+  }, [isFA]);
 
   return (
-    <section
-      id="hero"
-      className="w-full max-w-7xl mx-auto flex flex-col items-center lg:flex-row lg:justify-center lg:items-center gap-10 px-4 lg:px-16"
-    >
-      <motion.div
-        className="text-center lg:text-left w-full flex flex-col items-center lg:items-start gap-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        data-aos="fade-right"
+    <div ref={wrapRef} className="ds-stat">
+      <div className="num ds-grad-text stat-num">{isFA ? "۰+" : "0+"}</div>
+      <div className="lbl">{stat.lbl}</div>
+    </div>
+  );
+}
+
+const STATS = {
+  en: [
+    { val: 20, suffix: "+", lbl: "Projects Delivered" },
+    { val: 20, suffix: "+", lbl: "Happy Clients" },
+    { val: 6, suffix: "+", lbl: "Years of Experience" },
+    { val: 30, suffix: "+", lbl: "Technologies Mastered" },
+  ],
+  fa: [
+    { val: 20, suffix: "+", lbl: "پروژه تحویل‌شده" },
+    { val: 20, suffix: "+", lbl: "مشتری راضی" },
+    { val: 6, suffix: "+", lbl: "سال تجربه" },
+    { val: 30, suffix: "+", lbl: "فناوری تخصصی" },
+  ],
+};
+
+function useParticles(canvasRef, heroRef) {
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const hero = heroRef.current;
+    if (!canvas || !hero) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = canvas.getContext("2d");
+    let w = 0, h = 0, pts = [], raf;
+    let resizing = false;
+    const mouse = { x: -999, y: -999 };
+
+    function resize() {
+      if (resizing) return;
+      resizing = true;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const newW = hero.offsetWidth;
+      const newH = hero.offsetHeight;
+      if (newW === 0 || newH === 0) { resizing = false; return; }
+      w = newW; h = newH;
+      // Only set intrinsic canvas size, not CSS size (canvas fills via CSS inset:0)
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.min(60, Math.floor((w * h) / 18000));
+      pts = Array.from({ length: count }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+        r: Math.random() * 1.4 + 0.5,
+      }));
+      resizing = false;
+    }
+
+    function draw() {
+      if (w === 0 || h === 0) { raf = requestAnimationFrame(draw); return; }
+      ctx.clearRect(0, 0, w, h);
+      const r = 155, g = 81, b = 224;
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+        for (let j = i + 1; j < pts.length; j++) {
+          const q = pts[j];
+          const dist = Math.hypot(p.x - q.x, p.y - q.y);
+          if (dist < 120) {
+            ctx.strokeStyle = `rgba(${r},${g},${b},${(1 - dist / 120) * 0.11})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+        const md = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+        if (md < 150) {
+          ctx.strokeStyle = `rgba(${r},${g},${b},${(1 - md / 150) * 0.35})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+        }
+        ctx.fillStyle = `rgba(${r},${g},${b},0.5)`;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    resize();
+    draw();
+
+    let resizeTimer;
+    const onResize = () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 100); };
+    const onMove = (e) => { const rc = hero.getBoundingClientRect(); mouse.x = e.clientX - rc.left; mouse.y = e.clientY - rc.top; };
+    const onLeave = () => { mouse.x = -999; mouse.y = -999; };
+
+    window.addEventListener("resize", onResize, { passive: true });
+    hero.addEventListener("mousemove", onMove, { passive: true });
+    hero.addEventListener("mouseleave", onLeave);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
+      hero.removeEventListener("mousemove", onMove);
+      hero.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+}
+
+function useTilt(wrapRef, cardRef) {
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const card = cardRef.current;
+    if (!wrap || !card) return;
+    const onMove = (e) => {
+      const rc = card.getBoundingClientRect();
+      const px = (e.clientX - rc.left) / rc.width - 0.5;
+      const py = (e.clientY - rc.top) / rc.height - 0.5;
+      card.style.transform = `rotateY(${px * 10}deg) rotateX(${-py * 10}deg) translateY(-4px)`;
+    };
+    const onLeave = () => { card.style.transform = ""; };
+    wrap.addEventListener("mousemove", onMove);
+    wrap.addEventListener("mouseleave", onLeave);
+    return () => {
+      wrap.removeEventListener("mousemove", onMove);
+      wrap.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+}
+
+function Hero({ content, langState }) {
+  const textRef = useReveal();
+  const cardRef = useReveal();
+  const heroRef = useRef(null);
+  const canvasRef = useRef(null);
+  const tiltWrapRef = useRef(null);
+  const tiltCardRef = useRef(null);
+  const isFA = langState === "fa";
+  const stats = STATS[isFA ? "fa" : "en"];
+
+  useParticles(canvasRef, heroRef);
+  useTilt(tiltWrapRef, tiltCardRef);
+
+  return (
+    <>
+      <section
+        ref={heroRef}
+        className="ds-hero"
+        style={{ fontFamily: isFA ? "'Estedad', sans-serif" : "'Inter', sans-serif" }}
       >
-        <motion.h2
-          className={`max-w-lg text-xl md:text-2xl lg:text-4xl font-bold text-white ${
-            langState === "en" ? "font-[Poppins] text-left" : "text-right"
-          }`}
-          variants={itemVariants}
-          data-aos="fade-up"
-        >
-          {langState === "fa" ? (
-            <div className="leading-relaxed">
-              <span className="md:text-2xl lg:text-4xl">
-                {" "}
-                {content.header.first}{" "}
-              </span>
-              <TypeAnimation
-                sequence={[
-                  `${content.header.mid[0]}`,
-                  1000,
-                  `${content.header.mid[1]}`,
-                  1000,
-                  `${content.header.mid[2]}`,
-                  1000,
-                ]}
-                wrapper="span"
-                speed={10}
-                deletionSpeed={10}
-                style={{ fontSize: "1em", display: "inline-block" }}
-                repeat={Infinity}
-                cursor={true}
-                className="text-gradient font-black"
-              />
-              <span className="md:text-2xl lg:text-4xl ">
-                {content.header.last}
-              </span>
+        <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }} />
+
+        <div className="ds-hero-wrap" style={isFA ? { direction: "rtl" } : {}}>
+          {/* Text side */}
+          <div ref={textRef} className="reveal" style={{ transitionDelay: "0.1s" }}>
+            <span className="ds-eyebrow">
+              {isFA ? "استودیوی توسعه نرم‌افزار" : "Software Development Studio"}
+            </span>
+            <h1>
+              {isFA ? (
+                <>ما راهکارهای<br />نرم‌افزاری<br /><span className="ds-grad-text">خارق‌العاده</span> می‌سازیم.</>
+              ) : (
+                <>We Craft <span className="ds-grad-text">Extraordinary</span> Software Solutions.</>
+              )}
+            </h1>
+            <p className="ds-lead">{content.body}</p>
+            <div className="ds-hero-actions">
+              <Link href={`/${langState}/projects`} className="ds-btn ds-btn-primary">
+                {content.button}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </Link>
+              {content.secondButton && (
+                <Link href={`/${langState}#footer`} className="ds-btn ds-btn-ghost">
+                  {content.secondButton}
+                </Link>
+              )}
             </div>
-          ) : (
-            content.header
-          )}
-        </motion.h2>
-
-        <motion.p
-          className={`max-w-lg text-[#E2E2E2] font-medium ${
-            langState === "fa" ? "text-base text-right" : "text-left"
-          }`}
-          variants={itemVariants}
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          {content.body}
-        </motion.p>
-
-        <motion.div
-          className="flex gap-4"
-          variants={itemVariants}
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <Link
-            href="#projects"
-            className="flex justify-center items-center button-gradient px-4 py-2 text-white rounded-lg font-bold"
-          >
-            {content.button}
-          </Link>
-          <Link
-            href="#footer"
-            className="flex justify-center items-center glass px-4 py-1 text-white rounded-lg font-bold"
-          >
-            {content.secondButton}
-          </Link>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="glass text-lg lg:text-xl about-us-animation relative p-5 rounded-3xl w-full max-w-sm flex flex-col justify-start items-center gap-8"
-        variants={imageVariants}
-        initial="hidden"
-        animate="visible"
-        data-aos="fade-left"
-        data-aos-delay="300"
-      >
-        <Image
-          src={AboutUsImage}
-          className="w-full h-fit"
-          width="1000"
-          height="1000"
-          alt="Logo"
-          priority
-        />
-        <div className="flex flex-col gap-2 w-full max-w-sm">
-          <div
-            className={`text-white flex ${
-              langState === "fa" && "flex-row-reverse"
-            } justify-between items-center`}
-          >
-            <h4>Software</h4>
-            <h4>Development</h4>
           </div>
-          <div className="w-full bg-white h-0.5 bg-opacity-70 rounded-full" />
-          <div
-            className={`text-[#D7D7D7] flex ${
-              langState === "fa" && "flex-row-reverse"
-            } justify-between items-center`}
-          >
-            <h4>created at</h4>
-            <h4>12/23/2023</h4>
+
+          {/* Card side */}
+          <div ref={tiltWrapRef} className="ds-hero-card-wrap">
+            <div ref={cardRef} className="reveal" style={{ transitionDelay: "0.3s", width: "100%" }}>
+              <div ref={tiltCardRef} className="ds-hero-card ds-glow-border">
+                <div className="ds-hero-card-art">
+                  <div className="ds-hero-card-logo">
+                    <img src="/images/heysam-logo-no-back.png" alt="Heysam" style={{ width: "72%", height: "72%", objectFit: "contain" }} />
+                  </div>
+                </div>
+                <h3>{isFA ? "هیسم" : "Heysam"}</h3>
+                <p className="ds-sub">{isFA ? "توسعه نرم‌افزار" : "Software Development"}</p>
+                <div className="ds-hero-card-meta">
+                  <div className="ds-hero-card-row">
+                    <span className="k">{isFA ? "خدمت" : "Service"}</span>
+                    <span className="v">{isFA ? "توسعه" : "Development"}</span>
+                  </div>
+                  <div className="ds-hero-card-row">
+                    <span className="k">{isFA ? "تأسیس" : "Founded"}</span>
+                    <span className="v">{isFA ? "۱۳۹۸" : "2019"}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#18B2DE] opacity-[0.34] blur-[100px] absolute bottom-[-100px] right-[-150px]" />
-        <div className="w-[248px] h-[248px] shrink-0 rounded-[448px] bg-[#FB37FF] opacity-[0.34] blur-[100px] absolute top-[-100px] left-[-100px]" />
-      </motion.div>
-    </section>
+      </section>
+
+      {/* Stats bar */}
+      <div className="ds-stats">
+        <div className="ds-stats-inner">
+          <div className="ds-stats-grid">
+            {stats.map((s, i) => (
+              <StatItem key={s.lbl} stat={s} isFA={isFA} delay={i * 100} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

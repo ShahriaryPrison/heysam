@@ -102,6 +102,7 @@ export function normalizeCustomProject(project) {
     features: parseList(project.features),
     icon: normalizeIcon(project.icon),
     images: normalizeImages(project.images),
+    mainImage: normalizeSrcValue(project.mainImage) || "",
     isActive: project.isActive !== false,
   };
 }

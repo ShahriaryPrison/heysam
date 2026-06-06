@@ -1,149 +1,130 @@
-// pages/[ln]/projects/index.js
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
 import Header from "@/components/template/Header";
 import Footer from "@/components/template/Footer";
 import BackToTopButton from "@/components/template/BackToTopButton";
+import SeoHead from "@/components/SeoHead";
 import fs from "fs";
 import path from "path";
 import { readCustomProjects, normalizeCustomProject } from "@/lib/projectStore";
+import { useEffect, useRef } from "react";
+import { SEO, SITE_URL } from "@/lib/seo";
 
-const ProjectCard = ({ project, langState }) => {
-  const someSkills = simplifiedSkills
-    .filter((item) => project.tech_stack.includes(item.alt))
-    .slice(0, 4);
+const PAGE_COPY = {
+  en: { title: "Projects", eyebrow: "Our Work", subtitle: "From problem analysis to technical execution", back: "Back to Home" },
+  fa: { title: "پروژه‌ها", eyebrow: "نمونه‌کارها", subtitle: "از شناسایی مسئله تا پیاده‌سازی راه‌حل", back: "بازگشت به خانه" },
+};
+
+const ProjectCard = ({ project, langState, index }) => {
+  const tags = project.tech_stack ? project.tech_stack.slice(0, 4) : project.tags || [];
+  const mainImgSrc = project.mainImage || null;
+  const iconSrc = project.icon?.src || project.icon || null;
+  const isFA = langState === "fa";
 
   return (
-    <motion.div
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.01] hover:border-white/20 transition-all duration-300 shadow-lg"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -5 }}
-    >
-      <Link href={`/${langState}/projects/${project.id}`} prefetch={false}>
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="relative z-10 p-6 h-full flex flex-col">
-          <div className="flex justify-between items-start mb-4">
-            <h3 className="font-bold text-white text-xl">{project.title}</h3>
-            <div className="button-gradient px-3 py-1.5 rounded-2xl text-sm">
-              {langState === "fa" ? "جزئیات" : "details"}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 mb-5 flex-wrap">
-            {someSkills.map((skill) => (
-              <img
-                key={skill.alt}
-                src={skill.src}
-                className="w-6 h-6"
-                alt={skill.alt}
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
-          </div>
-
-          <p className="text-white/70 text-sm line-clamp-3 mb-4">
-            {project.description}
-          </p>
-
-          <div className="mt-auto">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-3" />
-            <div className="flex justify-between items-center text-xs text-white/50">
-              <span>
-                {langState === "fa" ? "تکنولوژی‌ها" : "Technologies"} (
-                {project.tech_stack.length})
-              </span>
-            </div>
-          </div>
+    <Link href={`/${langState}/projects/${project.id}`} className="ap-card reveal">
+      <div
+        className="ap-card-shot"
+        style={mainImgSrc ? {
+          backgroundImage: `url(${mainImgSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        } : {}}
+      >
+        {!mainImgSrc && (
+          <span className="ap-card-num">{String(index + 1).padStart(2, "0")}</span>
+        )}
+        {iconSrc && (
+          <img
+            src={iconSrc}
+            alt={project.title || project.name}
+            className="ap-card-icon"
+            loading="lazy"
+          />
+        )}
+      </div>
+      <div className="ap-card-body">
+        <div className="ap-card-top">
+          <h3>{project.title || project.name}</h3>
+          <span className="ap-card-badge">{isFA ? "جزئیات" : "Details"}</span>
         </div>
-      </Link>
-    </motion.div>
+        <p className="ap-card-desc">{project.description || project.desc}</p>
+        {tags.length > 0 && (
+          <div className="ap-card-tags">
+            {tags.map((t) => <span key={t}>{t}</span>)}
+          </div>
+        )}
+      </div>
+    </Link>
   );
 };
 
 const AllProjectsPage = ({ projects, langState, content }) => {
-  const pageContent = {
-    en: {
-      title: "All Projects",
-      subtitle: "From problem analysis to technical execution",
-      back: "Back to Home",
-    },
-    fa: {
-      title: "پروژه ها",
-      subtitle: "از شناسایی مسئله تا پیاده‌سازی راه‌حل",
-      back: "بازگشت به خانه",
-    },
-  };
+  const copy = PAGE_COPY[langState] ?? PAGE_COPY.en;
+  const isRTL = langState === "fa";
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    const cards = gridRef.current?.querySelectorAll(".ap-card");
+    if (!cards) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    cards.forEach((card, i) => {
+      card.style.transitionDelay = `${(i % 3) * 70}ms`;
+      observer.observe(card);
+    });
+    return () => observer.disconnect();
+  }, [projects]);
+
+  const seo = SEO[langState]?.projects || SEO.en.projects;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950">
+    <div style={{ direction: isRTL ? "rtl" : "ltr", fontFamily: isRTL ? "'Estedad', sans-serif" : "'Inter', sans-serif" }}>
+      <SeoHead
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        canonical={`${SITE_URL}/${langState}/projects`}
+        siteName={SEO[langState]?.siteName}
+        lang={langState}
+        altLang={{ en: `${SITE_URL}/en/projects`, fa: `${SITE_URL}/fa/projects` }}
+      />
       <Header content={content.header} langState={langState} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
-        >
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-3">
-            {pageContent[langState].title}
+      <main className="ap-root">
+        {/* Page header */}
+        <div className="ap-head">
+          <h1 className="ds-h-section">
+            <span className="ds-grad-text">{copy.title}</span>
           </h1>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            {pageContent[langState].subtitle}
-          </p>
-        </motion.div>
+          <p className="ap-subtitle">{copy.subtitle}</p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              langState={langState}
-              index={index}
-            />
+        {/* Grid */}
+        <div className="ap-grid" ref={gridRef}>
+          {projects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} langState={langState} index={i} />
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-16 text-center"
-        >
-          <Link
-            href={`/${langState}`}
-            className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white bg-white/10 hover:bg-white/20 transition-colors duration-200 group"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={`mr-2 h-5 w-5 transition-transform duration-200 group-hover:-translate-x-1 ${
-                langState === "fa" ? "ml-2 rotate-180" : "mr-2"
-              }`}
-            >
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+        {/* Back link */}
+        <div className="ap-back">
+          <Link href={`/${langState}`} className="ds-btn ds-btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={isRTL ? { transform: "rotate(180deg)" } : {}}>
+              <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
             </svg>
-            {pageContent[langState].back}
+            {copy.back}
           </Link>
-        </motion.div>
+        </div>
       </main>
 
       <Footer content={content.footer} langState={langState} />
@@ -161,42 +142,28 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { ln } = params;
-
-  // Import language data
   const langData = (await import(`@/data/languages/${ln}.js`)).default;
 
-  // Read projects
   const projectsDir = path.join(process.cwd(), "src", "data", "projects", ln);
-  const projectFiles = fs
-    .readdirSync(projectsDir)
-    .filter((file) => file.endsWith(".js"));
+  const projectFiles = fs.readdirSync(projectsDir).filter((f) => f.endsWith(".js"));
 
   const staticProjects = await Promise.all(
     projectFiles.map(async (file) => {
-      const projectId = path.basename(file, ".js");
-      const project = (await import(`@/data/projects/${ln}/${projectId}.js`)).default;
-      return normalizeCustomProject({ ...project, id: projectId });
+      const id = path.basename(file, ".js");
+      const project = (await import(`@/data/projects/${ln}/${id}.js`)).default;
+      return normalizeCustomProject({ ...project, id });
     })
   );
 
   const customProjects = await readCustomProjects(ln);
-  const projectsMap = new Map(staticProjects.map((project) => [project.id, project]));
-  customProjects.forEach((project) =>
-    projectsMap.set(project.id, normalizeCustomProject(project))
-  );
+  const map = new Map(staticProjects.map((p) => [p.id, p]));
+  customProjects.forEach((p) => map.set(p.id, normalizeCustomProject(p)));
 
-  const projects = Array.from(projectsMap.values())
-    .filter((project) => project.isActive !== false)
+  const projects = Array.from(map.values())
+    .filter((p) => p.isActive !== false)
     .sort((a, b) => a.id.toString().localeCompare(b.id.toString()));
 
-  return {
-    props: {
-      projects,
-      langState: ln,
-      content: langData,
-    },
-    revalidate: 60,
-  };
+  return { props: { projects, langState: ln, content: langData }, revalidate: 60 };
 }
 
 export default AllProjectsPage;

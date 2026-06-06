@@ -1,114 +1,178 @@
-// components/template/Projects.js
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { Marquee } from "@/components/magicui/marquee";
-import simplifiedSkills from "@/data/skillData";
 import Link from "next/link";
-import { AuroraText } from "../magicui/aurora-text";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
+import { useReveal } from "@/hooks/useReveal";
 
-const ProjectPreviewCard = ({ project, langState }) => {
-  const someSkills = simplifiedSkills
-    .filter((item) => project.tech_stack.includes(item.alt))
-    .slice(0, 4);
-
-  return (
-    <div
-      className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 glass text-white mr-4",
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
-      )}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <Link href={`/${langState}/projects/${project.id}`} prefetch={false}>
-        <div className="relative z-10">
-          <div className="w-full flex justify-between items-end mb-3">
-            <div className="flex flex-row items-center gap-2">
-              <div className="flex flex-col gap-2">
-                <figcaption className="text-sm font-medium dark:text-white">
-                  {project.title}
-                </figcaption>
-                <div className="flex items-center gap-1 overflow-hidden">
-                  {someSkills.map((skill) => (
-                    <img
-                      key={skill.alt}
-                      src={skill.src}
-                      className="w-4 h-4"
-                      alt={skill.alt}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="button-gradient px-2 py-1 rounded-2xl text-xs">
-              {langState === "fa" ? "جزئیات" : "details"}
-            </div>
-          </div>
-          <div className="w-full h-[0.5px] bg-gray-400 opacity-70 rounded-lg my-2" />
-          <blockquote className="text-sm line-clamp-2">
-            {project.description}
-          </blockquote>
-        </div>
-      </Link>
-    </div>
-  );
+const CONTENT = {
+  en: { eyebrow: "Featured Work", title: "Projects", details: "Details", viewAll: "View all", viewAllCard: "View all projects", viewAllSub: "See the full portfolio" },
+  fa: { eyebrow: "نمونه‌کارهای منتخب", title: "پروژه‌ها", details: "جزئیات", viewAll: "مشاهده همه", viewAllCard: "مشاهده همه پروژه‌ها", viewAllSub: "نمونه‌کار کامل" },
 };
 
-export default function Projects({ projects, langState, content }) {
-  const [isMobile, setIsMobile] = useState(false);
+function ProjectCard({ project, index, langState, detailsLabel, isFA }) {
+  const tags = project.tech_stack
+    ? project.tech_stack.slice(0, 4)
+    : project.tags || [];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const mainImgSrc = project.mainImage || null;
+  const iconSrc = project.icon?.src || project.icon || null;
 
   return (
-    <section id="projects" className="flex flex-col items-center gap-10 mb-20">
+    <Link href={`/${langState}/projects/${project.id || index}`} className="ds-proj-card ap-card" style={isFA ? { direction: "rtl" } : {}}>
       <div
-        className={`w-full text-center pt-10 sm:pt-32 pb-4 sm:text-left max-w-7xl py-10 mx-auto flex flex-col gap-8 sm:flex-row text-white relative ${
-          langState === "fa" ? "rtl" : ""
-        }`}
+        className="ap-card-shot"
+        style={mainImgSrc ? {
+          backgroundImage: `url(${mainImgSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        } : {}}
       >
-        <h4
-          className={`text-white px-4 w-full font-bold text-5xl ${
-            langState === "fa"
-              ? "text-center sm:text-right"
-              : "text-center sm:text-left"
-          }`}
-        >
-          <AuroraText>
-            {langState === "fa" ? "پروژه ها" : "Projects"}
-          </AuroraText>
-        </h4>
+        {!mainImgSrc && (
+          <span className="ap-card-num">{String(index + 1).padStart(2, "0")}</span>
+        )}
+        {iconSrc && (
+          <img
+            src={iconSrc}
+            alt={project.title || project.name}
+            className="ap-card-icon"
+            loading="lazy"
+          />
+        )}
+      </div>
+      <div className="ap-card-body">
+        <div className="ap-card-top">
+          <h3>{project.title || project.name}</h3>
+          <span className="ap-card-badge">{detailsLabel}</span>
+        </div>
+        <p className="ap-card-desc">{project.description || project.desc}</p>
+        {tags.length > 0 && (
+          <div className="ap-card-tags">
+            {tags.map((t) => <span key={t}>{t}</span>)}
+          </div>
+        )}
+      </div>
+    </Link>
+  );
+}
 
-        <Link
-          href={`/${langState}/projects`}
-          className="w-full max-w-40 mx-auto text-nowrap button-gradient px-4 py-2 rounded-lg font-medium text-sm cursor-pointer text-center flex justify-center items-center gap-2"
-        >
-          {langState === "fa" ? "نمایش همه" : "View All"}
-        </Link>
+export default function Projects({ projects = [], langState, content }) {
+  const railRef = useRef(null);
+  const headRef = useReveal();
+  const isFA = langState === "fa";
+  const c = CONTENT[isFA ? "fa" : "en"];
+  const step = 402;
+
+  function scroll(dir) {
+    if (!railRef.current) return;
+    railRef.current.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+
+  return (
+    <section
+      className="ds-block"
+      id="projects"
+      style={{ paddingTop: 0, fontFamily: isFA ? "'Estedad', sans-serif" : "'Inter', sans-serif" }}
+    >
+      <div className="ds-wrap">
+        <div className="ds-sec-head reveal" ref={headRef} style={isFA ? { direction: "rtl" } : {}}>
+          <div className="left">
+            <span className="ds-eyebrow">{c.eyebrow}</span>
+            <h2 className="ds-h-section" style={{ marginTop: 16 }}>
+              <span className="ds-grad-text">{c.title}</span>
+            </h2>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <Link
+              href={`/${langState}/projects`}
+              className="ds-btn ds-btn-ghost"
+              style={{ fontSize: 13, padding: "10px 18px" }}
+            >
+              {c.viewAll}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+            <div className="ds-rail-nav">
+              {langState === "fa" ? (
+                <>
+                  <button className="ds-rail-btn" onClick={() => scroll(1)} aria-label="next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </button>
+                  <button className="ds-rail-btn" onClick={() => scroll(-1)} aria-label="previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                </>
+
+              ) : (
+                <>
+                  <button className="ds-rail-btn" onClick={() => scroll(-1)} aria-label="previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button className="ds-rail-btn" onClick={() => scroll(1)} aria-label="next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-        <Marquee pauseOnHover={!isMobile} className={""}>
-          {projects.slice(0, isMobile ? 4 : projects.length).map((project) => (
-            <ProjectPreviewCard
-              key={project.id}
+      {/* Mobile nav row */}
+      <div className="ds-proj-mobile-nav ds-wrap">
+        <button className="ds-rail-btn" onClick={() => scroll(-1)} aria-label="previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <Link href={`/${langState}/projects`} className="ds-btn ds-btn-ghost" style={{ fontSize: 13, padding: "10px 24px" }}>
+          {c.viewAll}
+        </Link>
+        <button className="ds-rail-btn" onClick={() => scroll(1)} aria-label="next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="ds-proj-rail-wrap">
+        <div className="ds-proj-rail" ref={railRef}>
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.id || i}
               project={project}
+              index={i}
               langState={langState}
+              detailsLabel={c.details}
+              isFA={isFA}
             />
           ))}
-        </Marquee>
-
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 backdrop-blur-[2px] [mask-image:linear-gradient(to_left,transparent,white)]"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 backdrop-blur-[2px] [mask-image:linear-gradient(to_right,transparent,white)]"></div>
+          {/* View All card */}
+          <Link href={`/${langState}/projects`} className="ds-proj-viewall-card">
+            <div className="ds-proj-viewall-inner">
+              <div className="ds-proj-viewall-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+              </div>
+              <p className="ds-proj-viewall-title">{c.viewAllCard}</p>
+              <p className="ds-proj-viewall-sub">{c.viewAllSub}</p>
+              <span className="ds-proj-viewall-btn">
+                {c.viewAll}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );

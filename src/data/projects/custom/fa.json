@@ -1,77 +1,13 @@
 [
   {
-    "id": "alef",
-    "title": "الف شاپ ",
-    "description": "الف شاپ یک پلتفرم جامع تجارت الکترونیک است که برای تسهیل خرید آنلاین طراحی شده است. این پلتفرم مجموعه‌ای گسترده از محصولات و خدمات را ارائه می‌دهد و تجربه‌ای روان و یکپارچه برای کاربران فراهم می‌سازد. از جمله ویژگی‌های آن می‌توان به روش‌های پرداخت امن، خدمات تحویل سریع و پیشنهادهای شخصی‌سازی‌شده برای افزایش رضایت و تعامل کاربران اشاره کرد.",
-    "tech": "وب سایت",
-    "date": "2026-05-02",
-    "link": "https://aalefshop.com/",
-    "status": "Production",
-    "type": "Public",
-    "tech_stack": [
-      "Html5",
-      "React",
-      "Tailwind",
-      "Laravel",
-      "PHP",
-      "Css3",
-      "JavaScript",
-      "Github",
-      "Figma",
-      "mysql",
-      "Git"
-    ],
-    "features": [
-      "مدیریت فروشگاه آنلاین",
-      "کاتالوگ محصولات",
-      "پرداخت امن و آنلاین",
-      "مدیریت حساب کاربری کاربران",
-      "پیگیری و مدیریت سفارش‌ها",
-      "ابزارهای پشتیبانی مشتری"
-    ],
-    "icon": {
-      "src": "/_next/static/media/Alef.822b8f00.png"
-    },
-    "images": [
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      },
-      {
-        "src": "[object Object]"
-      }
-    ],
-    "isActive": true
-  },
-  {
     "id": "AlefAdmin",
     "title": "الف ادمین",
     "description": "الف ادمین یک پنل مدیریتی برای وب‌سایت فروشگاهی چندکاناله است که امکان مدیریت کارآمد محصولات، سفارش‌ها و تعاملات با مشتریان را در بسترهای فروش مختلف فراهم می‌کند. این پلتفرم ابزارهای قدرتمندی برای مدیریت موجودی، پردازش سفارش‌ها و مدیریت ارتباط با مشتری در اختیار مدیران قرار می‌دهد تا تجربه‌ای یکپارچه و مؤثر از تجارت الکترونیک ایجاد شود.",
     "tech": "وب اپ",
     "date": "2026-05-05",
     "link": "https://aalefshop.com",
-    "status": "Production",
-    "type": "Private",
+    "status": "انتشار",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -94,114 +30,38 @@
       "گزارش‌گیری و تحلیل‌های لحظه‌ای"
     ],
     "icon": {
-      "src": "/_next/static/media/Alef.822b8f00.png",
-      "height": 39,
-      "width": 146,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FAlef.822b8f00.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 2
+      "src": "/uploads/1780643383169-k6t95sq.png"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image1.4d8dad61.png",
-          "height": 2087,
-          "width": 2730,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.4d8dad61.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464840-r6sw9d.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image2.1cf5c6da.png",
-          "height": 2085,
-          "width": 2738,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.1cf5c6da.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464840-xxtod4.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image3.4959302e.png",
-          "height": 2081,
-          "width": 2726,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.4959302e.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-3lak4.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image4.7abc6776.png",
-          "height": 2081,
-          "width": 2734,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.7abc6776.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-pb84zj.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image5.63f565fd.png",
-          "height": 2085,
-          "width": 2734,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.63f565fd.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-2kbny.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image6.936337b4.png",
-          "height": 2083,
-          "width": 2752,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.936337b4.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780643464841-jkmu66.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image7.724aec01.png",
-          "height": 5112,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.724aec01.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464841-ve8bse.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image8.0d4bf99f.png",
-          "height": 5104,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.0d4bf99f.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464842-6cr83r.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image9.9b581203.png",
-          "height": 5104,
-          "width": 2440,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.9b581203.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780643464842-ycn4df.png"
       }
     ],
+    "mainImage": "/uploads/1780643441268-hxmvbi.png",
     "isActive": true
   },
   {
@@ -238,125 +98,23 @@
       "رهگیری و مدیریت سفارش‌ها"
     ],
     "icon": {
-      "src": "/_next/static/media/اول.036b0945.png",
-      "height": 241,
-      "width": 304,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F%D8%A7%D9%88%D9%84.036b0945.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 6
+      "src": "/uploads/1780645994473-k376ns.png"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image1.9490eff1.png",
-          "height": 2050,
-          "width": 2696,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.9490eff1.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780646030666-ew8x1.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image2.7bd9b6cd.png",
-          "height": 2122,
-          "width": 2586,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.7bd9b6cd.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/uploads/1780646030667-9hz9n.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image3.4b2b6e61.png",
-          "height": 2116,
-          "width": 2574,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.4b2b6e61.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/uploads/1780646030667-abnw8.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image4.f8661472.png",
-          "height": 2122,
-          "width": 2578,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.f8661472.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image5.45e37c18.png",
-          "height": 2114,
-          "width": 2568,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.45e37c18.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image6.8bd78052.png",
-          "height": 2114,
-          "width": 2578,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.8bd78052.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image7.872692a4.png",
-          "height": 2118,
-          "width": 2574,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.872692a4.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image8.1a3f6ef5.png",
-          "height": 2114,
-          "width": 2574,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.1a3f6ef5.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image9.833d2d79.png",
-          "height": 2112,
-          "width": 2584,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.833d2d79.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
-      },
-      {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image10.0f2e312d.png",
-          "height": 2120,
-          "width": 2582,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage10.0f2e312d.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/uploads/1780646030667-127fi.jpg"
       }
     ],
+    "mainImage": "/uploads/1780646003629-r7mc2r.png",
     "isActive": true
   },
   {
@@ -367,7 +125,7 @@
     "date": "2026-05-05",
     "link": "https://panel.roshde-javaneha.ir/laser-tag",
     "status": "Test",
-    "type": "Public",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -390,114 +148,38 @@
       "پشتیبانی مشتریان"
     ],
     "icon": {
-      "src": "/_next/static/media/icon.8fb217cb.png",
-      "height": 876,
-      "width": 876,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.8fb217cb.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 8
+      "src": "/_next/static/media/icon.8fb217cb.png"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img1.2715a874.jpg",
-          "height": 680,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg1.2715a874.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img1.2715a874.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img2.bc0ef133.jpg",
-          "height": 687,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg2.bc0ef133.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img2.bc0ef133.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img3.3a8ae232.jpg",
-          "height": 621,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg3.3a8ae232.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img3.3a8ae232.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img4.faeb3df2.jpg",
-          "height": 621,
-          "width": 1280,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg4.faeb3df2.jpg&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 4
-        }
+        "src": "/_next/static/media/img4.faeb3df2.jpg"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img5.0e7dc97a.png",
-          "height": 1065,
-          "width": 1283,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg5.0e7dc97a.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img5.0e7dc97a.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img6.8809c8cd.png",
-          "height": 1064,
-          "width": 1288,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg6.8809c8cd.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img6.8809c8cd.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img7.cb37ccc7.png",
-          "height": 1058,
-          "width": 1289,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg7.cb37ccc7.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/_next/static/media/img7.cb37ccc7.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img8.30379656.png",
-          "height": 1055,
-          "width": 1358,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg8.30379656.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/_next/static/media/img8.30379656.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/img9.b8f37130.png",
-          "height": 1062,
-          "width": 1361,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg9.b8f37130.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/_next/static/media/img9.b8f37130.png"
       }
     ],
+    "mainImage": "/uploads/1780657005551-hdnqg6.png",
     "isActive": true
   },
   {
@@ -519,7 +201,7 @@
       "رابط کاربری ساده و کاربرپسند"
     ],
     "icon": {
-      "src": "/_next/static/media/logo.6e87958a.png"
+      "src": "/uploads/1780656667430-rpr1z8i.png"
     },
     "images": [
       {
@@ -538,6 +220,7 @@
         "src": "/_next/static/media/image5.747db058.jpg"
       }
     ],
+    "mainImage": "/uploads/1780649760622-u70nim.jpg",
     "isActive": true
   },
   {
@@ -546,9 +229,9 @@
     "description": "یک وب اپلیکیشن جامع برای ساده‌سازی مدیریت و پیگیری پروژه‌های ساختمانی. این پلتفرم ابزارهایی برای مدیریت وظایف، تخصیص منابع و ردیابی زمان‌بندی‌ها ارائه می‌دهد تا اجرای پروژه به شکلی مؤثر انجام شود. با امکاناتی برای همکاری تیمی، زمان‌بندی و گزارش‌گیری، ارتباط بین اعضای تیم و ذی‌نفعان را بهبود می‌بخشد و در نهایت منجر به موفقیت پروژه می‌گردد.",
     "tech": "وب اپ",
     "date": "2026-05-05",
-    "link": "https://roshanaa.com/welcome",
+    "link": "https://building-assistant",
     "status": "Development",
-    "type": "Private",
+    "type": "خصوصی",
     "tech_stack": [
       "Html5",
       "React",
@@ -572,125 +255,41 @@
       "گزارش‌گیری و تحلیل اطلاعات"
     ],
     "icon": {
-      "src": "/_next/static/media/buildings.eab5c6ff.png",
-      "height": 512,
-      "width": 512,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbuildings.eab5c6ff.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 8
+      "src": "/uploads/1780649633606-ogm6sb.png"
     },
     "images": [
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/4.ad84356f.jpg",
-          "height": 3408,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F4.ad84356f.jpg&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/4.ad84356f.jpg"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image1.2091d765.png",
-          "height": 904,
-          "width": 416,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.2091d765.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image1.2091d765.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image2.f7568af9.png",
-          "height": 904,
-          "width": 414,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.f7568af9.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image2.f7568af9.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image3.75a3ec93.png",
-          "height": 1704,
-          "width": 786,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.75a3ec93.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image3.75a3ec93.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image4.b38964ef.png",
-          "height": 3408,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.b38964ef.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image4.b38964ef.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image5.5ef459b5.png",
-          "height": 3408,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.5ef459b5.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image5.5ef459b5.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image6.528b209e.png",
-          "height": 4332,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.528b209e.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image6.528b209e.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image7.a367ac47.png",
-          "height": 4332,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage7.a367ac47.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image7.a367ac47.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image8.2cc55892.png",
-          "height": 1707,
-          "width": 786,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage8.2cc55892.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image8.2cc55892.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image9.d1bea8c5.png",
-          "height": 3408,
-          "width": 1572,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage9.d1bea8c5.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image9.d1bea8c5.png"
       }
     ],
+    "mainImage": "/uploads/1780649643433-07iw7h.jpg",
     "isActive": true
   },
   {
@@ -701,7 +300,7 @@
     "date": "2026-05-05",
     "link": "",
     "status": "Design",
-    "type": "Private",
+    "type": "خصوصی",
     "tech_stack": [
       "Figma"
     ],
@@ -711,89 +310,27 @@
       "رابط کاربری ساده و کاربرپسند"
     ],
     "icon": {
-      "src": "/_next/static/media/logo.c0d9e494.png",
-      "height": 369,
-      "width": 676,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.c0d9e494.png&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 4
+      "src": "/uploads/1780672232656-m82rji.png"
     },
     "images": [
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image.b7951df0.png",
-          "height": 1094,
-          "width": 435,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage.b7951df0.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image.b7951df0.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image1.46b9fd52.png",
-          "height": 1229,
-          "width": 435,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.46b9fd52.png&w=3&q=70",
-          "blurWidth": 3,
-          "blurHeight": 8
-        }
+        "src": "/_next/static/media/image1.46b9fd52.png"
       }
     ],
+    "mainImage": "/uploads/1780671771745-qnf2h6.png",
     "isActive": true
   },
   {
-    "id": "Roshana",
-    "title": "روشنا",
-    "description": "روشنا یک پلتفرم جامع مدیریت خیریه است که برای بهینه‌سازی فعالیت‌های سازمان‌های خیریه طراحی شده است. این سیستم ابزارهایی برای پیگیری خدمات، جلوگیری از انجام کارهای تکراری و اندازه‌گیری تأثیر ارائه می‌دهد تا مدیریت منابع و فعالیت‌ها به شکل مؤثرتری انجام شود. هدف روشنـا، افزایش اثربخشی اقدامات خیریه با ارائه رابط کاربری ساده و قابلیت‌های قوی است.",
-    "tech": "وب اپ",
-    "date": "2026-05-05",
-    "link": "https://roshanaa.com/welcome",
+    "id": "alef",
+    "title": "الف شاپ",
+    "description": "الف شاپ یک پلتفرم جامع تجارت الکترونیک است که برای تسهیل خرید آنلاین طراحی شده است. این پلتفرم مجموعه‌ای گسترده از محصولات و خدمات را ارائه می‌دهد و تجربه‌ای روان و یکپارچه برای کاربران فراهم می‌سازد. از جمله ویژگی‌های آن می‌توان به روش‌های پرداخت امن، خدمات تحویل سریع و پیشنهادهای شخصی‌سازی‌شده برای افزایش رضایت و تعامل کاربران اشاره کرد.",
+    "tech": "وب سایت",
+    "date": "2026-06-03",
+    "link": "https://aalefshop.com/",
     "status": "Production",
-    "type": "Public",
-    "tech_stack": [
-      "Html5",
-      "React",
-      "Tailwind",
-      "Css3",
-      "Next Js",
-      "JavaScript",
-      "Github",
-      "Figma",
-      "Git"
-    ],
-    "features": [
-      "مدیریت خیریه‌ها",
-      "پیگیری خدمات",
-      "جلوگیری از موازی‌کاری",
-      "ابزارهای اندازه‌گیری"
-    ],
-    "icon": {
-      "src": "/_next/static/media/Roshana.9ab46587.png"
-    },
-    "images": [
-      {
-        "src": "/_next/static/media/image1.879caddd.jpg"
-      },
-      {
-        "src": "/_next/static/media/image2.3b61244b.jpg"
-      },
-      {
-        "src": "/_next/static/media/image3.ee40afc3.jpg"
-      }
-    ],
-    "isActive": true
-  },
-  {
-    "id": "Mehrab",
-    "title": "محراب",
-    "description": "محراب وب‌سایتی برای یک مرکز فرهنگی است که خدمات متنوعی مانند سینما، کتابخانه و کلاس‌های مختلف را ارائه می‌دهد. این پلتفرم با هدف افزایش مشارکت اجتماعی طراحی شده و دسترسی آسان به منابع و فعالیت‌های فرهنگی را فراهم می‌کند تا محیطی پویا و سرزنده در حوزه فرهنگ ایجاد نماید.",
-    "tech": "وب اپ",
-    "date": "2026-05-05",
-    "link": "https://panel.roshde-javaneha.ir",
-    "status": "Test",
     "type": "Public",
     "tech_stack": [
       "Html5",
@@ -809,88 +346,351 @@
       "Git"
     ],
     "features": [
-      "مدیریت مرکز فرهنگی",
-      "برنامه‌ریزی سینما",
-      "دسترسی به کتابخانه",
-      "ثبت‌نام کلاس‌ها",
-      "ابزارهای افزایش تعامل اجتماعی"
+      "مدیریت فروشگاه آنلاین",
+      "کاتالوگ محصولات",
+      "پرداخت امن و آنلاین",
+      "مدیریت حساب کاربری کاربران",
+      "پیگیری و مدیریت سفارش‌ها",
+      "ابزارهای پشتیبانی مشتری"
     ],
     "icon": {
-      "src": "/_next/static/media/Mehrab.ad02666f.webp",
-      "height": 76,
-      "width": 96,
-      "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMehrab.ad02666f.webp&w=8&q=70",
-      "blurWidth": 8,
-      "blurHeight": 6
+      "src": "/uploads/1780475799651-7z8v9b.jpg"
     },
     "images": [
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image1.cc8c029e.png",
-          "height": 2274,
-          "width": 2750,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage1.cc8c029e.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 7
-        }
+        "src": "/uploads/1780475976213-aroros.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image2.569c5804.png",
-          "height": 2186,
-          "width": 2744,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage2.569c5804.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780475976215-0gv7n.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image3.937388a5.png",
-          "height": 2106,
-          "width": 2712,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage3.937388a5.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780475976217-99mi9.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image4.bfea2098.png",
-          "height": 2106,
-          "width": 2716,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage4.bfea2098.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780475976219-8a07rl.png"
       },
       {
-        "size": "desktop",
-        "src": {
-          "src": "/_next/static/media/image5.8e282a33.png",
-          "height": 2112,
-          "width": 2718,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage5.8e282a33.png&w=8&q=70",
-          "blurWidth": 8,
-          "blurHeight": 6
-        }
+        "src": "/uploads/1780475976219-11jwcd.png"
       },
       {
-        "size": "mobile",
-        "src": {
-          "src": "/_next/static/media/image6.0b2238a1.png",
-          "height": 1864,
-          "width": 856,
-          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage6.0b2238a1.png&w=4&q=70",
-          "blurWidth": 4,
-          "blurHeight": 8
-        }
+        "src": "/uploads/1780475976220-4tsv8.png"
+      },
+      {
+        "src": "/uploads/1780475976221-g1ufg4.png"
       }
     ],
+    "mainImage": "/uploads/1780475785060-m6p33j.png",
     "isActive": true
+  },
+  {
+    "id": "kiosk",
+    "title": "کیوسک",
+    "description": "یک سامانه مدیریت کیوسک و فروشگاه‌ها توسعه داده شد که امکان مدیریت چند فروشگاه، ایجاد و دسته‌بندی محصولات و کنترل کاربران هر فروشگاه را فراهم می‌کند. سیستم قابلیت اتصال کیوسک‌ها به فروشگاه‌ها و مدیریت پوزهای متصل به هر کیوسک را دارد تا تراکنش‌ها به‌صورت دقیق و همزمان ثبت شوند. این پلتفرم شامل سه بخش اصلی است: ادمین کل سیستم، ادمین فروشگاه و کیوسک با پوز متصل، که هر بخش دسترسی‌ها و امکانات مخصوص به خود را دارد. بخش فرانت برای مدیریت اتصال پوزها و تعامل با کاربران طراحی شده تا تجربه کاربری سریع و تعاملی ارائه دهد. این پروژه با معماری مدرن و ساختاری یکپارچه پیاده‌سازی شده تا فروش، مدیریت محصولات و تراکنش‌ها در سطح چند فروشگاه هماهنگ و قابل کنترل باشد و همچنین دارای زبان های فارسی ، عربی و انگلیسی است.",
+    "tech": "Web Site",
+    "date": "2026-06-05",
+    "link": "http://kiosk-merchant.ham-sun.com",
+    "status": "Production",
+    "type": "خصوصی",
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "React",
+      "Tailwind",
+      "Git",
+      "typescript",
+      "Next Js",
+      "Docker"
+    ],
+    "features": [
+      "پشتیبانی کامل از سه زبان زنده",
+      "مدیریت یکپارچه چندفروشگاهی",
+      "ثبت آنی و همزمان تراکنش‌ها",
+      "کنترل دسترسی در سه سطح مجزا",
+      "رابط کاربری سریع و تعاملی",
+      "اتصال هوشمند کیوسک به پوز"
+    ],
+    "icon": {
+      "src": "/uploads/1780673965677-oqmy7.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780715782414-qcex8.png"
+      },
+      {
+        "src": "/uploads/1780715782414-7bniif.png"
+      },
+      {
+        "src": "/uploads/1780715782414-cvyx3.png"
+      },
+      {
+        "src": "/uploads/1780715782415-n24pth.png"
+      },
+      {
+        "src": "/uploads/1780715782415-q7aha9.png"
+      },
+      {
+        "src": "/uploads/1780715782415-1ln6ej.png"
+      },
+      {
+        "src": "/uploads/1780715782415-tz81v.png"
+      },
+      {
+        "src": "/uploads/1780715782415-4scif.png"
+      },
+      {
+        "src": "/uploads/1780715782415-pbsxp.png"
+      },
+      {
+        "src": "/uploads/1780715782415-o080b.png"
+      }
+    ],
+    "mainImage": "/uploads/1780716249146-bpttkg.png",
+    "isActive": true
+  },
+  {
+    "id": "nini-dooz",
+    "title": "نینی دوز",
+    "description": "سیستم یکپارچه مدیریت تولید و فروشگاه اینترنتی نینی‌دوز\n\nاپلیکیشن وب فول‌استک با Laravel و React (Inertia.js) برای یک تولیدی لباس کودک، شامل دو بخش اصلی: فروشگاه آنلاین و مدیریت خط تولید.\nفروشگاه شامل کاتالوگ محصولات، سبد خرید، فرایند تسویه حساب، و پنل ادمین برای مدیریت سفارشات و تأیید فروشندگان است.\nبخش تولید دارای پنل اختصاصی برای کارگران جهت ثبت عملکرد روزانه در خطوط دوخت مختلف با گزارش‌دهی چندخطی است.\nمدیران می‌توانند جلسات کاری را ایجاد، تخصیص‌دهی، و تأیید کنند و وضعیت پیشرفت هر مرحله تولید را به‌صورت لحظه‌ای رصد کنند.\nرابط کاربری با Tailwind CSS و Radix UI طراحی شده، از تقویم جلالی و پشتیبانی کامل از زبان فارسی برخوردار است.\nپروژه روی پلتفرم Liara دیپلوی شده و از سیستم احراز هویت OTP، مدیریت نقش‌ها، و درگاه پرداخت آنلاین پشتیبانی می‌کند.",
+    "tech": [
+      "وب اپ",
+      "وب سایت"
+    ],
+    "date": "2026-06-06",
+    "link": "https://ninidooz.ir",
+    "status": "Production",
+    "type": [
+      "عمومی",
+      "خصوصی"
+    ],
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "Tailwind",
+      "React",
+      "typescript",
+      "Laravel",
+      "Git",
+      "mysql"
+    ],
+    "features": [
+      "پنل مدیریت جامع با قابلیت تخصیص کارگران به خطوط دوخت و تأیید گزارش‌های تولید",
+      "فروشگاه آنلاین با سبد خرید، فرایند پرداخت و پیگیری سفارشات",
+      "سیستم گزارش‌دهی چندخطی برای کارگران با ثبت تعداد واقعی تولید در هر خط",
+      "احراز هویت OTP و مدیریت نقش‌های چندسطحی (ادمین، مدیر تولید، کارگر، فروشنده)",
+      "پشتیبانی کامل از تقویم شمسی و رابط کاربری فارسی RTL",
+      "سیستم تأیید هویت فروشندگان با بررسی مدارک و درخواست چک"
+    ],
+    "icon": {
+      "src": "/uploads/1780716997377-qbgzd.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780717259622-6i40jr.png"
+      },
+      {
+        "src": "/uploads/1780717259623-5no2ef.png"
+      },
+      {
+        "src": "/uploads/1780717259623-36ibn.png"
+      },
+      {
+        "src": "/uploads/1780717259623-ln4mw.png"
+      },
+      {
+        "src": "/uploads/1780717259623-uglmq.png"
+      },
+      {
+        "src": "/uploads/1780717259624-t91noq.png"
+      },
+      {
+        "src": "/uploads/1780717259624-c80dli.png"
+      },
+      {
+        "src": "/uploads/1780717259624-kow1f.png"
+      }
+    ],
+    "mainImage": "/uploads/1780717140848-mmd3yu.png",
+    "isActive": true
+  },
+  {
+    "id": "book-manager",
+    "title": "مدیریت نوبت دهی",
+    "description": "اپلیکیشن وب فول‌استک با Laravel و React (Inertia.js) برای مدیریت جامع یک کلینیک پزشکی، شامل نوبت‌دهی، پذیرش، و پرسنل.\nسیستم نوبت‌دهی با نمای تقویمی تعاملی، امکان تخصیص بیمار به اتاق و پزشک و مدیریت رویدادهای هر نوبت را فراهم می‌کند.\nپنل پذیرش امکان ثبت بیماران، مشاهده پروفایل کامل، و پیگیری سوابق مراجعات و پرداخت‌ها را دارد.\nمدیریت شیفت‌های کاری پرسنل با تعریف روزهای هر شیفت و تخصیص کارکنان به صورت انعطاف‌پذیر پیاده‌سازی شده است.\nپنل ادمین شامل داشبورد مالی، مدیریت اتاق‌ها، پرسنل، نوبت‌ها، و گزارش‌های عملکردی به صورت یکجاست.\nرابط کاربری با Tailwind CSS، Radix UI و نمودارهای Recharts طراحی شده و از تقویم شمسی و زبان فارسی RTL پشتیبانی می‌کند.",
+    "tech": "وب سایت",
+    "date": "2026-06-06",
+    "link": "https://hassann.ir",
+    "status": [
+      "طراحی",
+      "انتشار"
+    ],
+    "type": "Private",
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Css3",
+      "Tailwind",
+      "Git",
+      "typescript",
+      "Laravel",
+      "mysql"
+    ],
+    "features": [
+      "تقویم تعاملی نوبت‌دهی با قابلیت Drag & Drop برای جابجایی و زمان‌بندی نوبت‌ها",
+      "پنل پذیرش با ثبت بیمار، مشاهده پروفایل کامل و سابقه مراجعات",
+      "مدیریت اتاق‌های کلینیک و تخصیص بهینه به پزشکان و بیماران",
+      "سیستم شیفت‌بندی پرسنل با تعریف روزهای کاری و مدیریت برنامه هفتگی",
+      "داشبورد مالی ادمین با نمودارهای تحلیلی برای گزارش درآمد و پرداخت‌ها",
+      "ثبت و پیگیری تماس‌ها و لاگ ارتباطات با بیماران"
+    ],
+    "icon": {
+      "src": "/uploads/1780718218037-21i5e.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780718506730-yyxqba.png"
+      },
+      {
+        "src": "/uploads/1780718506730-4doji4.png"
+      },
+      {
+        "src": "/uploads/1780718506730-b873rf.png"
+      },
+      {
+        "src": "/uploads/1780718506731-rl2tc.png"
+      },
+      {
+        "src": "/uploads/1780718506731-7vwc98.png"
+      },
+      {
+        "src": "/uploads/1780718506731-x4jc5.png"
+      },
+      {
+        "src": "/uploads/1780718506731-6lsaq.png"
+      },
+      {
+        "src": "/uploads/1780718506731-im9pgo.png"
+      }
+    ],
+    "mainImage": "/uploads/1780718483649-tujjj.png",
+    "isActive": true
+  },
+  {
+    "id": "exchange",
+    "title": "اپلیکیشن صرافی",
+    "description": "اپلیکیشن وب مبتنی بر Next.js 16 و React 19 برای مدیریت جامع صرافی ارز دیجیتال، با رابط کاربری دوزبانه فارسی/انگلیسی.\nسیستم معاملاتی شامل خرید و فروش دارایی‌های دیجیتال، مشاهده قیمت‌های لحظه‌ای با نمودارهای تعاملی، و تاریخچه تراکنش‌هاست.\nکیف پول چندارزه با قابلیت واریز (Topup)، برداشت، و انتقال بین‌شبکه‌ای روی چندین بلاکچین پشتیبانی می‌کند.\nمدیریت حساب‌های بانکی، تراکنش‌های ریالی، و سرمایه‌گذاری در کنار پنل پروفایل و احراز هویت OTP پیاده‌سازی شده.\nاپلیکیشن به‌صورت PWA طراحی شده و تجربه نزدیک به اپ موبایل را روی مرورگر فراهم می‌کند.\nداده‌ها با SWR مدیریت می‌شوند و احراز هویت دومرحله‌ای TOTP برای امنیت بالاتر حساب‌ها تعبیه شده است.",
+    "tech": [
+      "وب اپ",
+      "وب سایت"
+    ],
+    "date": "2026-06-06",
+    "link": "https://mock-asset-test.done.ir/",
+    "status": "Production",
+    "type": "عمومی",
+    "tech_stack": [
+      "Html5",
+      "Css3",
+      "React",
+      "Next Js",
+      "Tailwind",
+      "Git",
+      "Docker"
+    ],
+    "features": [
+      "خرید و فروش ارز دیجیتال با نمودار قیمت لحظه‌ای و تاریخچه Candlestick",
+      "کیف پول چندارزه با پشتیبانی از واریز، برداشت و انتقال روی شبکه‌های مختلف",
+      "نمایش قیمت‌های بازار با فیلتر بازه زمانی روزانه، هفتگی، ماهانه و سالانه",
+      "رابط کاربری دوزبانه فارسی/انگلیسی با تغییر خودکار جهت RTL/LTR",
+      "احراز هویت OTP و TOTP برای ورود و تأیید تراکنش‌های حساس",
+      "پشتیبانی از تراکنش‌های ریالی و مدیریت حساب‌های بانکی ثبت‌شده",
+      "PWA با قابلیت نصب روی موبایل و تجربه کاربری نزدیک به اپ بومی"
+    ],
+    "icon": {
+      "src": "/uploads/1780720332546-0tbm.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1780720391517-jdqz9r.png"
+      },
+      {
+        "src": "/uploads/1780720391517-hirfa.png"
+      },
+      {
+        "src": "/uploads/1780720391518-2xx52.png"
+      },
+      {
+        "src": "/uploads/1780720391518-2cpv8.png"
+      },
+      {
+        "src": "/uploads/1780720391518-fqt2l.png"
+      },
+      {
+        "src": "/uploads/1780720391519-10ly7.png"
+      },
+      {
+        "src": "/uploads/1780720391519-s48sx.png"
+      },
+      {
+        "src": "/uploads/1780720391519-cyb5un.png"
+      },
+      {
+        "src": "/uploads/1780720391519-w4qs8q.png"
+      },
+      {
+        "src": "/uploads/1780720391519-kkrkub.png"
+      },
+      {
+        "src": "/uploads/1780720391519-1hk4z8.png"
+      },
+      {
+        "src": "/uploads/1780720391519-hhkegn.png"
+      },
+      {
+        "src": "/uploads/1780720391519-4wbnhj.png"
+      },
+      {
+        "src": "/uploads/1780720391520-6ltccr.png"
+      },
+      {
+        "src": "/uploads/1780720391520-429q4f.png"
+      }
+    ],
+    "mainImage": "/uploads/1780720664002-lyva9i.png",
+    "isActive": true
+  },
+  {
+    "id": "Roshana",
+    "title": "",
+    "description": "",
+    "tech": "",
+    "date": "2026-06-06",
+    "link": "",
+    "status": "Production",
+    "type": "Public",
+    "tech_stack": [],
+    "features": [],
+    "icon": {
+      "src": "/images/default-icon.png"
+    },
+    "images": [],
+    "mainImage": "",
+    "isActive": false
+  },
+  {
+    "id": "Mehrab",
+    "title": "",
+    "description": "",
+    "tech": "",
+    "date": "2026-06-06",
+    "link": "",
+    "status": "Production",
+    "type": "Public",
+    "tech_stack": [],
+    "features": [],
+    "icon": {
+      "src": "/images/default-icon.png"
+    },
+    "images": [],
+    "mainImage": "",
+    "isActive": false
   }
 ]
