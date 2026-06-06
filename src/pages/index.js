@@ -83,7 +83,7 @@ export default function LangSelect() {
   return (
     <div className="ls-root">
       <SeoHead
-        title="Heysam | Software Development Studio"
+        title="Heysam"
         description="Heysam is a professional software development studio. We build web apps, websites, and scalable digital products. استودیوی توسعه نرم‌افزار هیسم."
         keywords="software development, web app, heysam, توسعه نرم‌افزار, هیسم"
         canonical={SITE_URL}

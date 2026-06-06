@@ -6,7 +6,7 @@ export const SEO = {
   en: {
     siteName: "Heysam — Software Development Studio",
     home: {
-      title: "Heysam | Software Development Studio",
+      title: "Heysam",
       description: "Heysam is a professional software development studio specializing in web apps, websites, and scalable digital products. We turn your ideas into reality.",
       keywords: "software development, web app, website, React, Next.js, Laravel, software studio",
     },
@@ -24,7 +24,7 @@ export const SEO = {
   fa: {
     siteName: "هیسم — استودیوی توسعه نرم‌افزار",
     home: {
-      title: "هیسم | استودیوی توسعه نرم‌افزار",
+      title: "هیسم",
       description: "هیسم یک استودیوی حرفه‌ای توسعه نرم‌افزار است که در زمینه طراحی و ساخت وب‌اپ، وب‌سایت و محصولات دیجیتال فعالیت می‌کند. از ایده تا محصول نهایی کنارتان هستیم.",
       keywords: "توسعه نرم‌افزار, وب اپ, وب سایت, ری‌اکت, نکست جی‌اس, لاراول, استودیو نرم‌افزار",
     },

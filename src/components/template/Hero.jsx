@@ -210,7 +210,7 @@ function Hero({ content, langState }) {
           {/* Text side */}
           <div ref={textRef} className="reveal" style={{ transitionDelay: "0.1s" }}>
             <span className="ds-eyebrow">
-              {isFA ? "استودیوی توسعه نرم‌افزار" : "Software Development Studio"}
+              {isFA ? "هیسم" : "Heysam"}
             </span>
             <h1>
               {isFA ? (
