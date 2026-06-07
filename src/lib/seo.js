@@ -1,4 +1,4 @@
-export const SITE_URL = "https://heysam.build";
+export const SITE_URL = "https://heysam-tech.ir";
 export const SITE_NAME = "Heysam";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
 

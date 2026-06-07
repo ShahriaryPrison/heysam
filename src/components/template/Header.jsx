@@ -18,8 +18,10 @@ function Header({ content, langState }) {
     { id: "contact_us", href: `/${langState}#footer` },
   ];
 
+  const isFA = langState === "fa";
+
   return (
-    <nav className={`ds-nav${scrolled ? " scrolled" : ""}`} dir="ltr">
+    <nav className={`ds-nav${scrolled ? " scrolled" : ""}`} dir="ltr" style={{ fontFamily: isFA ? "'Estedad', sans-serif" : "'Inter', sans-serif" }}>
       <div className="ds-nav-inner">
         {/* Logo */}
         <a className="ds-logo" href={`/${langState}`}>
@@ -90,7 +92,7 @@ function Header({ content, langState }) {
                 color: "var(--ds-text-dim)", textDecoration: "none",
                 fontSize: 14, fontWeight: 600,
                 borderBottom: "1px solid var(--glass-border)",
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: isFA ? "'Estedad', sans-serif" : "'Inter', sans-serif",
               }}
             >
               {content[item.id]}

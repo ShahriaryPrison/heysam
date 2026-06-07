@@ -121,7 +121,7 @@
 .ds-nav-links a {
   color: var(--ds-text-dim); text-decoration: none; font-size: 13.5px; font-weight: 600;
   letter-spacing: 0.06em; text-transform: uppercase; padding: 9px 15px; border-radius: 9px;
-  transition: color .25s, background .25s; white-space: nowrap; font-family: 'Inter', sans-serif;
+  transition: color .25s, background .25s; white-space: nowrap; font-family: inherit;
 }
 .ds-nav-links a:hover { color: var(--ds-text); background: var(--glass); }
 .ds-lang-toggle {
@@ -129,7 +129,7 @@
   background: var(--glass); border: 1px solid var(--glass-border);
 }
 .ds-lang-toggle button {
-  font-family: 'Inter', sans-serif; cursor: pointer; border: 0; background: transparent;
+  font-family: inherit; cursor: pointer; border: 0; background: transparent;
   color: var(--ds-text-dim); font-weight: 600; font-size: 13px;
   padding: 7px 14px; border-radius: 8px; transition: all .25s;
 }

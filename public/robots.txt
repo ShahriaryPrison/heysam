@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://heysam.build/sitemap.xml
+Sitemap: https://heysam-tech.ir/sitemap.xml
