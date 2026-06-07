@@ -7,7 +7,7 @@ import SeoHead from "@/components/SeoHead";
 import fs from "fs";
 import path from "path";
 import { readCustomProjects, normalizeCustomProject } from "@/lib/projectStore";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { SEO, SITE_URL } from "@/lib/seo";
 
 const PAGE_COPY = {
@@ -21,17 +21,28 @@ const ProjectCard = ({ project, langState, index }) => {
   const iconSrc = project.icon?.src || project.icon || null;
   const isFA = langState === "fa";
 
+  const handleImgLoad = useCallback((e) => {
+    e.currentTarget.classList.add("loaded");
+    const skeleton = e.currentTarget.previousSibling;
+    if (skeleton) skeleton.classList.add("hidden");
+  }, []);
+
   return (
     <Link href={`/${langState}/projects/${project.id}`} className="ap-card reveal">
-      <div
-        className="ap-card-shot"
-        style={mainImgSrc ? {
-          backgroundImage: `url(${mainImgSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        } : {}}
-      >
-        {!mainImgSrc && (
+      <div className="ap-card-shot">
+        {mainImgSrc ? (
+          <>
+            <div className="ap-card-shot-skeleton" />
+            <img
+              src={mainImgSrc}
+              alt={project.title || project.name}
+              className="ap-card-shot-img"
+              loading="lazy"
+              decoding="async"
+              onLoad={handleImgLoad}
+            />
+          </>
+        ) : (
           <span className="ap-card-num">{String(index + 1).padStart(2, "0")}</span>
         )}
         {iconSrc && (

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
 const CONTENT = {
@@ -15,17 +15,28 @@ function ProjectCard({ project, index, langState, detailsLabel, isFA }) {
   const mainImgSrc = project.mainImage || null;
   const iconSrc = project.icon?.src || project.icon || null;
 
+  const handleImgLoad = useCallback((e) => {
+    e.currentTarget.classList.add("loaded");
+    const skeleton = e.currentTarget.previousSibling;
+    if (skeleton) skeleton.classList.add("hidden");
+  }, []);
+
   return (
     <Link href={`/${langState}/projects/${project.id || index}`} className="ds-proj-card ap-card" style={isFA ? { direction: "rtl" } : {}}>
-      <div
-        className="ap-card-shot"
-        style={mainImgSrc ? {
-          backgroundImage: `url(${mainImgSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        } : {}}
-      >
-        {!mainImgSrc && (
+      <div className="ap-card-shot">
+        {mainImgSrc ? (
+          <>
+            <div className="ap-card-shot-skeleton" />
+            <img
+              src={mainImgSrc}
+              alt={project.title || project.name}
+              className="ap-card-shot-img"
+              loading="lazy"
+              decoding="async"
+              onLoad={handleImgLoad}
+            />
+          </>
+        ) : (
           <span className="ap-card-num">{String(index + 1).padStart(2, "0")}</span>
         )}
         {iconSrc && (
@@ -80,6 +91,9 @@ export default function Projects({ projects = [], langState, content }) {
             </h2>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <Link href={`/${langState}/projects`} className="ds-btn ds-btn-ghost ds-proj-viewall-desktop" style={{ fontSize: 13, padding: "10px 24px" }}>
+              {c.viewAll}
+            </Link>
             <div className="ds-rail-nav">
               {langState === "fa" ? (
                 <>

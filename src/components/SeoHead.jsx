@@ -12,7 +12,16 @@ export default function SeoHead({
   altLang, // { en: "/en", fa: "/fa" }
 }) {
   const fullCanonical = canonical?.startsWith("http") ? canonical : `${SITE_URL}${canonical || ""}`;
-  const fullOgImage = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/images/og-default.png"}`;
+
+  // Use provided ogImage or fall back to static heysam-og.png
+  let fullOgImage;
+  if (ogImage && ogImage.startsWith("http")) {
+    fullOgImage = ogImage;
+  } else if (ogImage) {
+    fullOgImage = `${SITE_URL}${ogImage}`;
+  } else {
+    fullOgImage = `${SITE_URL}/images/heysam-og.png`;
+  }
 
   return (
     <Head>
