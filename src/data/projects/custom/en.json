@@ -703,5 +703,125 @@
     ],
     "mainImage": "/uploads/1780720664002-lyva9i.png",
     "isActive": true
+  },
+  {
+    "id": "analas",
+    "title": "analas analytics",
+    "description": "Analas is an open-source, ClickHouse-powered product analytics platform built for developers who care about data ownership and want to monitor user events in real time without relying on third-party cloud services. By capturing events through a single HTTP request, the platform equips teams with powerful tools — including trend charts, conversion funnels, cohort retention analysis, and multi-event comparisons — to make smarter, data-driven product decisions.",
+    "tech": "Web Site",
+    "date": "2026-06-09",
+    "link": "http://analas.ir/",
+    "status": "Production",
+    "type": [
+      "عمومی",
+      "خصوصی"
+    ],
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Css3",
+      "Next Js",
+      "typescript",
+      "Docker"
+    ],
+    "features": [
+      "Real-time Event Capture — Any HTTP client can push events in milliseconds via a simple POST request with an API key — zero SDK installation needed.",
+      "ClickHouse-Powered Analytics — All events are stored in ClickHouse, enabling blazing-fast aggregations across millions of rows with sub-second latency.",
+      "Seven Built-in Insight Types — Count, Trend, Comparison, Breakdown, Funnel, Cohort Retention, and Metric cover the full analytics lifecycle out of the box.",
+      "Multi-Tenant Workspaces — Each workspace is isolated with a unique tenant UUID, ensuring complete data separation across teams and projects at the ClickHouse level.",
+      "Self-Hostable & Open Source — Ships as a single Docker Compose stack, deployable on any VPS in minutes — you own all your data with zero vendor lock-in.",
+      "Team Collaboration — Invite members via email or shared link, manage roles, and build multiple dashboards collaboratively within each workspace.",
+      "BI Tool Integration — Power users can connect Metabase, Grafana, or Superset directly to the underlying ClickHouse database for custom SQL queries and advanced reporting."
+    ],
+    "icon": {
+      "src": "/uploads/1781090143618-9jaa7u.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1781021259561-8jw12.png"
+      },
+      {
+        "src": "/uploads/1781021259562-k4ev8n.png"
+      },
+      {
+        "src": "/uploads/1781021259563-jbjn3b.png"
+      },
+      {
+        "src": "/uploads/1781021259565-s0avm7.png"
+      },
+      {
+        "src": "/uploads/1781021259566-71i0pl.png"
+      },
+      {
+        "src": "/uploads/1781021259571-ej915h.png"
+      }
+    ],
+    "mainImage": "/uploads/1781020260745-17dakj.png",
+    "isActive": true
+  },
+  {
+    "id": "strite",
+    "title": "strite",
+    "description": "Strite is a comprehensive billing and subscription infrastructure built for Iranian SaaS businesses. It allows business owners to start collecting revenue from day one, without building payment systems themselves. Strite provides a hosted checkout page where your customers complete their purchase with no account required. Monthly and annual subscriptions, automatic renewals, and invoice generation all run on autopilot. Integrate once via a full REST API and webhooks, and hand off the entire billing lifecycle to Strite. A complete management dashboard gives you real-time visibility into your revenue, customers, and subscriptions. With a simple 1–5% transaction fee and no fixed costs, Strite is the most straightforward billing solution for Iranian SaaS.",
+    "tech": "Web Site",
+    "date": "2026-06-10",
+    "link": "https://strite.ir",
+    "status": "Production",
+    "type": [
+      "عمومی",
+      "خصوصی"
+    ],
+    "tech_stack": [
+      "Html5",
+      "React",
+      "Tailwind",
+      "Css3",
+      "Next Js",
+      "Github",
+      "Git",
+      "typescript"
+    ],
+    "features": [
+      "Hosted Checkout — Stripe Checkout–style payment page, no account required for buyers",
+      "Subscription Management — automated create, renew, upgrade, and cancel flows",
+      "Full REST API & Webhooks — seamless integration with any application stack",
+      "Local Payment Gateways — native support for Zarinpal and other Iranian gateways",
+      "Management Dashboard — real-time visibility into revenue, invoices, and customers",
+      "Automatic Invoicing — issue, deliver, and manage invoices without manual work"
+    ],
+    "icon": {
+      "src": "/uploads/1781091529065-em76tt.png"
+    },
+    "images": [
+      {
+        "src": "/uploads/1781091569262-glp37.png"
+      },
+      {
+        "src": "/uploads/1781091569262-xzl1qp.png"
+      },
+      {
+        "src": "/uploads/1781091569263-zqax6a.png"
+      },
+      {
+        "src": "/uploads/1781091569263-yru9t.png"
+      },
+      {
+        "src": "/uploads/1781091569263-5c8rl.png"
+      },
+      {
+        "src": "/uploads/1781091569264-mbmjgt.png"
+      },
+      {
+        "src": "/uploads/1781091569264-9d8jvr.png"
+      },
+      {
+        "src": "/uploads/1781091569264-vy404cy.png"
+      },
+      {
+        "src": "/uploads/1781091569264-hn07gf.png"
+      }
+    ],
+    "mainImage": "/uploads/1781091537068-cfawoq.png",
+    "isActive": true
   }
 ]
