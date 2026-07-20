@@ -71,7 +71,7 @@ export default function Contact({ langState }) {
 
           {/* Phone */}
           <a
-            href="tel:+989944215832"
+            href="tel:+989027924968"
             className="ds-contact-card ds-glass ds-glow-border"
           >
             <div className="ds-contact-card-ico">

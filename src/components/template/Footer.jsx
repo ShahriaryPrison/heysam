@@ -101,7 +101,7 @@ function Footer({ langState = "fa" }) {
               </div>
               <div>
                 <div className="k">{content.contact.phone}</div>
-                <a href="tel:+989944215832" className="v" dir="ltr" style={{ fontSize: 14 }}>+98 994 421 5832</a>
+                <a href="tel:+989027924968" className="v" dir="ltr" style={{ fontSize: 14 }}>+98 902 792 4968</a>
               </div>
             </div>
           </div>
